@@ -2,7 +2,7 @@
 
 A fresh React 19 and TypeScript implementation of the Paryatech Paper library, with a documentation website and a separate connected Storybook repository. Created from Paper specifications, not copied from the historical Paryatech implementation.
 
-**Version 0.1.0 is experimental.** It includes 81 live code references, four hooks, 518 exported Paper tokens, and 151 exact SVG icons. The complete Paper inventory is documented, including designs that have not yet been implemented. A component's presence in Paper does not imply it is available in this package or that all its designed variants are implemented.
+**Version 0.2.0 is experimental.** It includes 92 live code references, including five list utilities, four hooks, 518 exported Paper tokens, and 151 exact SVG icons. The complete Paper inventory is documented, including designs that have not yet been implemented. A component's presence in Paper does not imply it is available in this package or that all its designed variants are implemented.
 
 ## Open locally
 
@@ -15,11 +15,11 @@ Documentation: http://127.0.0.1:5190/ · Storybook: http://127.0.0.1:6008/ after
 
 ## Repository responsibilities
 
-| Location | Responsibility |
-| --- | --- |
-| [Paper library](https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR) | Visual design specifications, tokens, anatomy, and state specimens |
-| This repository | Component implementation, typed API, shared live examples, documentation website, machine-readable references |
-| [Storybook repository](https://github.com/yakosasam797/parya.designsystem.storybook) | Storybook configuration, controls, accessibility panel, story tests, and its static build |
+| Location                                                                             | Responsibility                                                                                                |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| [Paper library](https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR)            | Visual design specifications, tokens, anatomy, and state specimens                                            |
+| This repository                                                                      | Component implementation, typed API, shared live examples, documentation website, machine-readable references |
+| [Storybook repository](https://github.com/yakosasam797/parya.designsystem.storybook) | Storybook configuration, controls, accessibility panel, story tests, and its static build                     |
 
 Storybook consumes this library and its examples. It does not maintain a second component implementation.
 
@@ -28,6 +28,8 @@ Storybook consumes this library and its examples. It does not maintain a second 
 - Searchable component navigation and direct links to GitHub source, Paper, and Storybook.
 - Interactive examples, light/dark previews, compact preview widths, and Button controls.
 - TypeScript-generated API tables and current implementation signatures.
+- A complete vendor-list workflow with search, filter groups, removable chips, shared sorting, pagination and selection across pages.
+- Utility parameter tables, referenced type definitions, and complete collection snippets type-checked against the public exports.
 - Copy code, Copy for LLM, standalone Markdown views, `/llms.txt`, `/llms-full.txt`, `/agents.md`, and `/api/components.json`.
 - Foundations browser, hooks documentation, release notes, and a design-to-code coverage map.
 
@@ -36,8 +38,13 @@ The AI features provide documentation context. This version has no hosted LLM se
 ## Library usage
 
 ```tsx
-import {ThemeProvider, Button, TextField, Toaster} from '@parya/design-system';
-import '@parya/design-system/styles.css';
+import {
+  ThemeProvider,
+  Button,
+  TextField,
+  Toaster,
+} from "@parya/design-system";
+import "@parya/design-system/styles.css";
 
 export function App() {
   return (

@@ -29,6 +29,15 @@ function collectExamples(node) {
         )
           entry[prop.name.getText(exampleFile)] = prop.initializer.text;
       }
+      if (entry.source) {
+        const demo = exampleFile.statements.find(
+          (statement) =>
+            ts.isFunctionDeclaration(statement) &&
+            statement.name?.text === entry.source,
+        );
+        if (!demo) throw new Error(`Missing example source: ${entry.source}`);
+        entry.code = demo.getText(exampleFile).replace(/\bUI\./g, "");
+      }
       if (entry.name && entry.code) exampleEntries.push(entry);
     }
   }
@@ -50,8 +59,56 @@ const fallbackCategory = {
   Icon: "Icons",
   DataTable: "Tables & collections",
   Heading: "Primitives",
+  ListToolbar: "Tables & collections",
+  pageCount: "Tables & collections",
 };
+const extraDescriptions = {
+  ListToolbar:
+    "One list control row for search, filters, sorting and actions, with applied filter chips below. Controls wrap on narrow screens.",
+  pageCount:
+    "Return the number of pages for a nonnegative total and a positive integer page size. Empty collections have zero pages.",
+};
+const supportedTypes = new Map(
+  symbols
+    .map((symbol) => {
+      const resolved =
+        symbol.flags & ts.SymbolFlags.Alias
+          ? checker.getAliasedSymbol(symbol)
+          : symbol;
+      return [
+        symbol.name,
+        resolved.declarations?.find(
+          (declaration) =>
+            ts.isInterfaceDeclaration(declaration) ||
+            ts.isTypeAliasDeclaration(declaration),
+        ),
+      ];
+    })
+    .filter(
+      ([, declaration]) =>
+        declaration &&
+        path
+          .resolve(declaration.getSourceFile().fileName)
+          .startsWith(path.resolve("src")),
+    ),
+);
+function referencedTypes(typeTexts) {
+  const collected = new Map();
+  function collect(text) {
+    for (const identifier of text.match(/\b[A-Za-z_]\w*/g) ?? []) {
+      const declaration = supportedTypes.get(identifier);
+      if (!declaration || collected.has(identifier)) continue;
+      const definition = declaration.getText();
+      collected.set(identifier, definition);
+      collect(definition);
+    }
+  }
+  typeTexts.forEach(collect);
+  return [...collected].map(([name, definition]) => ({ name, definition }));
+}
 const components = names.map((name) => {
+  const example = exampleEntries.find((entry) => entry.name === name);
+  const kind = example.kind ?? (name === "toast" ? "utility" : "component");
   let symbol = symbols.find((s) => s.name === name);
   if (!symbol) throw new Error(`Example ${name} has no export`);
   if (symbol.flags & ts.SymbolFlags.Alias)
@@ -64,30 +121,59 @@ const components = names.map((name) => {
   const propsType = param
     ? checker.getTypeOfSymbolAtLocation(param, declaration)
     : null;
-  const props = propsType
-    ? checker
-        .getPropertiesOfType(propsType)
-        .filter((p) =>
-          p.declarations?.some((d) =>
-            path
-              .resolve(d.getSourceFile().fileName)
-              .startsWith(path.resolve("src")),
-          ),
-        )
-        .map((p) => ({
-          name: p.name,
-          type: p.declarations?.find(d=>d.type)?.type.getText() ?? checker.typeToString(
-            checker.getTypeOfSymbolAtLocation(p, declaration),
-            declaration,
-            ts.TypeFormatFlags.NoTruncation,
-          ),
-          required: !(p.flags & ts.SymbolFlags.Optional),
-        }))
-    : [];
+  const props =
+    kind === "utility"
+      ? signature.parameters.map((parameter) => {
+          const declaration = parameter.declarations[0];
+          return {
+            name: parameter.name,
+            type:
+              declaration.type?.getText() ??
+              checker.typeToString(
+                checker.getTypeOfSymbolAtLocation(parameter, declaration),
+              ),
+            required: !declaration.questionToken && !declaration.initializer,
+          };
+        })
+      : propsType
+        ? checker
+            .getPropertiesOfType(propsType)
+            .filter((p) =>
+              p.declarations?.some((d) =>
+                path
+                  .resolve(d.getSourceFile().fileName)
+                  .startsWith(path.resolve("src")),
+              ),
+            )
+            .map((p) => ({
+              name: p.name,
+              type:
+                p.declarations?.find((d) => d.type)?.type.getText() ??
+                checker.typeToString(
+                  checker.getTypeOfSymbolAtLocation(p, declaration),
+                  declaration,
+                  ts.TypeFormatFlags.NoTruncation,
+                ),
+              required: !(p.flags & ts.SymbolFlags.Optional),
+            }))
+        : [];
   const design = paper.find((p) => p.name === name);
   const filePath = path.relative(".", file.fileName).replaceAll("\\", "/");
   return {
     name,
+    kind,
+    exampleCode: example.code,
+    usage: `${example.code.includes("useState") ? 'import {useState} from "react";\n' : ""}import {${symbols
+      .filter((symbol) => new RegExp(`\\b${symbol.name}\\b`).test(example.code))
+      .map((symbol) => symbol.name)
+      .join(
+        ", ",
+      )}} from "@parya/design-system";\nimport "@parya/design-system/styles.css";\n\n${example.code}`,
+    types: referencedTypes(props.map((prop) => prop.type)),
+    returnType:
+      kind === "utility"
+        ? checker.typeToString(checker.getReturnTypeOfSignature(signature))
+        : null,
     category:
       design?.category ?? fallbackCategory[name] ?? "Overlays & feedback",
     description:
@@ -98,6 +184,7 @@ const components = names.map((name) => {
           "A semantic table with sorting, controlled row selection, and responsive overflow.",
         Heading: "A heading that follows the nearest HeadingLevelProvider.",
       }[name] ??
+      extraDescriptions[name] ??
       "Parya React component.",
     guidance: design?.guidance ?? [],
     paperApi: design?.paperApi ?? "",
@@ -137,6 +224,58 @@ const hooks = [
     code: "const {theme, setTheme} = useTheme();",
   },
 ];
+// Validate copyable examples against the same public exports as consumers.
+// Virtual files keep generated checks out of the working tree.
+const exampleFiles = new Map(
+  exampleEntries
+    .filter((entry) => entry.source)
+    .map((entry) => [
+      path.resolve("src", `.docs-example-${entry.name}.tsx`),
+      components
+        .find((component) => component.name === entry.name)
+        .usage.replaceAll('from "@parya/design-system"', 'from "./index"'),
+    ]),
+);
+const host = ts.createCompilerHost(parsed.options);
+const getSourceFile = host.getSourceFile.bind(host);
+host.getSourceFile = (
+  fileName,
+  languageVersion,
+  onError,
+  shouldCreateNewSourceFile,
+) => {
+  const text = exampleFiles.get(path.resolve(fileName));
+  return text === undefined
+    ? getSourceFile(
+        fileName,
+        languageVersion,
+        onError,
+        shouldCreateNewSourceFile,
+      )
+    : ts.createSourceFile(
+        fileName,
+        text,
+        languageVersion,
+        true,
+        ts.ScriptKind.TSX,
+      );
+};
+const copyProgram = ts.createProgram(
+  [...exampleFiles.keys()],
+  parsed.options,
+  host,
+);
+const copyErrors = ts
+  .getPreEmitDiagnostics(copyProgram)
+  .filter((diagnostic) => diagnostic.category === ts.DiagnosticCategory.Error);
+if (copyErrors.length)
+  throw new Error(
+    ts.formatDiagnosticsWithColorAndContext(copyErrors, {
+      getCurrentDirectory: () => process.cwd(),
+      getCanonicalFileName: (name) => name,
+      getNewLine: () => "\n",
+    }),
+  );
 await mkdir("site/src/generated", { recursive: true });
 await mkdir("site/public/docs", { recursive: true });
 await mkdir("site/public/api", { recursive: true });
@@ -155,16 +294,23 @@ await writeFile(
 const blocks = [];
 for (const c of components) {
   const snippet = exampleEntries.find((e) => e.name === c.name).code;
-  const imports = [
-    ...new Set([
-      c.name,
-      ...[...snippet.matchAll(/<([A-Z]\w*)/g)].map((m) => m[1]),
-    ]),
-  ].filter((n) => symbols.some((s) => s.name === n));
-  const usage = `${snippet.includes("useState") ? 'import {useState} from "react";\n' : ""}import {${imports.join(", ")}} from "@parya/design-system";\nimport "@parya/design-system/styles.css";\n\n${snippet}`;
+  const usage = c.usage;
   const md = `# ${c.name}\n\n${c.description}\n\nVersion: ${pkg.version}\nStatus: experimental. Not yet approved for production.\n\n## Installation\n\nThe package is not yet published to an npm registry. Use a locally built package or the repository checkout; see README.md.\n\n## Usage\n\nProvide application data, event handlers, and any referenced application components in the example. Render components inside ThemeProvider; mount Toaster once if using toast.\n\n\`\`\`tsx\n${usage}\n\`\`\`\n\n## API\n\n${c.props.length ? "| Prop | Type | Required |\n| --- | --- | --- |\n" + c.props.map((p) => `| ${p.name} | \`${p.type.replaceAll("|", " / ").replaceAll("\n", " ")}\` | ${p.required ? "Yes" : "No"} |`).join("\n") : "See the typed source for the full signature."}\n\nNative element attributes are supported where the public interface extends them.\n\n## Design guidance\n\n${c.guidance.join("\n\n") || "Use the Paper design reference and semantic tokens."}\n\n## Accessibility\n\nPreserve visible labels and accessible names. Test the complete workflow with keyboard navigation and assistive technology. Automated checks do not establish WCAG conformance.\n\n## References\n\n- [Source](https://github.com/yakosasam797/parya.designsystem.code/blob/main/${c.sourcePath}#L${c.sourceLine})\n- [Paper](${c.paperUrl})\n- [Storybook source](https://github.com/yakosasam797/parya.designsystem.storybook)\n\n## Agent instructions\n\nUse only APIs documented above. Do not assume parity with the historical design system or invent unsupported props from Paper labels. Use --pt-* semantic tokens; preserve keyboard and screen reader behavior.\n`;
-  await writeFile(`site/public/docs/${c.name}.md`, md);
-  blocks.push(md);
+  let reference = md;
+  if (c.kind === "utility")
+    reference = reference
+      .replace("| Prop |", "| Parameter |")
+      .replace(
+        "Native element attributes are supported where the public interface extends them.",
+        `Returns: \`${c.returnType}\`. This is a function, not a React component. It returns a new array where applicable and does not mutate the input rows.`,
+      );
+  if (c.types.length)
+    reference = reference.replace(
+      "## Design guidance",
+      `## Referenced types\n\n\`\`\`ts\n${c.types.map((type) => type.definition).join("\n\n")}\n\`\`\`\n\n## Design guidance`,
+    );
+  await writeFile(`site/public/docs/${c.name}.md`, reference);
+  blocks.push(reference);
 }
 for (const hook of hooks)
   await writeFile(
@@ -191,5 +337,5 @@ await writeFile(
   ),
 );
 console.log(
-  `Generated ${components.length} component references, ${hooks.length} hooks, Markdown, and LLM endpoints.`,
+  `Generated ${components.length} code references, ${hooks.length} hooks, Markdown, and LLM endpoints; ${exampleFiles.size} complete examples type-checked.`,
 );

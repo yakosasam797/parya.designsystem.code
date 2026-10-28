@@ -46,9 +46,7 @@ test("component API, clipboard, Markdown and Storybook link", async ({
     page.getByRole("heading", { name: "Button", exact: true }),
   ).toBeVisible();
   await page.getByRole("button", { name: "Copy for LLM", exact: true }).click();
-  expect(await page.evaluate(() => navigator.clipboard.readText())).toContain(
-    "# Button",
-  );
+  await expect.poll(() => page.evaluate(() => navigator.clipboard.readText())).toContain("# Button");
   await page.getByRole("tab", { name: "API reference" }).click();
   await expect(page.locator(".ds-api-table")).toContainText("leadingIcon");
   const markdown = await page.request.get("/docs/Button.md");

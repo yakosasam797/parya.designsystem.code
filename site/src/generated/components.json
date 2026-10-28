@@ -1,6 +1,566 @@
 [
   {
+    "name": "FilterMenu",
+    "kind": "component",
+    "exampleCode": "function FilterControlsDemo() {\n  const [value, setValue] = useState<FilterValue>({ service: [\"hotel\"] });\n  const groups: FilterGroup[] = [\n    {\n      id: \"service\",\n      label: \"Service\",\n      options: [\n        { value: \"hotel\", label: \"Accommodation\", count: 4 },\n        { value: \"transport\", label: \"Transport\", count: 2 },\n        { value: \"flight\", label: \"Flights\", disabled: true },\n      ],\n    },\n    {\n      id: \"status\",\n      label: \"Status\",\n      mode: \"single\",\n      options: [\n        { value: \"active\", label: \"Active\" },\n        { value: \"inactive\", label: \"Inactive\" },\n      ],\n    },\n    {\n      id: \"balance\",\n      label: \"Balance\",\n      mode: \"toggle\",\n      options: [\n        {\n          value: \"outstanding\",\n          label: \"Outstanding balance\",\n          description: \"Only vendors with an unpaid balance\",\n        },\n      ],\n    },\n  ];\n  return (\n    <Stack>\n      <FilterMenu groups={groups} value={value} onValueChange={setValue} />\n      <FilterChips groups={groups} value={value} onValueChange={setValue} />\n    </Stack>\n  );\n}",
+    "usage": "import {useState} from \"react\";\nimport {Stack, FilterValue, FilterMenu, FilterChips, FilterGroup} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nfunction FilterControlsDemo() {\n  const [value, setValue] = useState<FilterValue>({ service: [\"hotel\"] });\n  const groups: FilterGroup[] = [\n    {\n      id: \"service\",\n      label: \"Service\",\n      options: [\n        { value: \"hotel\", label: \"Accommodation\", count: 4 },\n        { value: \"transport\", label: \"Transport\", count: 2 },\n        { value: \"flight\", label: \"Flights\", disabled: true },\n      ],\n    },\n    {\n      id: \"status\",\n      label: \"Status\",\n      mode: \"single\",\n      options: [\n        { value: \"active\", label: \"Active\" },\n        { value: \"inactive\", label: \"Inactive\" },\n      ],\n    },\n    {\n      id: \"balance\",\n      label: \"Balance\",\n      mode: \"toggle\",\n      options: [\n        {\n          value: \"outstanding\",\n          label: \"Outstanding balance\",\n          description: \"Only vendors with an unpaid balance\",\n        },\n      ],\n    },\n  ];\n  return (\n    <Stack>\n      <FilterMenu groups={groups} value={value} onValueChange={setValue} />\n      <FilterChips groups={groups} value={value} onValueChange={setValue} />\n    </Stack>\n  );\n}",
+    "types": [
+      {
+        "name": "FilterGroup",
+        "definition": "export interface FilterGroup {\n  id: string;\n  label: string;\n  mode?: \"multiple\" | \"single\" | \"toggle\";\n  options: FilterOption[];\n}"
+      },
+      {
+        "name": "FilterOption",
+        "definition": "export interface FilterOption {\n  value: string;\n  label: string;\n  count?: number;\n  description?: string;\n  disabled?: boolean;\n}"
+      },
+      {
+        "name": "FilterValue",
+        "definition": "export type FilterValue = Record<string, string[]>;"
+      }
+    ],
+    "returnType": null,
+    "category": "Tables & collections",
+    "description": "A labelled brand trigger or accessible outline icon trigger with an active-count badge opening a filter popover: Filters + Clear all, fieldset groups, checkbox/radio options and Switch rows (selection toggle). Changes apply instantly; Escape closes and restores trigger focus.",
+    "guidance": [
+      "Use: A list needs faceted filtering (service category, supplier type, tier, outstanding balance)",
+      "Avoid: Row of labelled SelectFields as filters → ListToolbar + FilterMenu + FilterChips"
+    ],
+    "paperApi": "",
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=8XV-0",
+    "states": [
+      "Compact icon trigger / light",
+      "Faceted filters with counts / light",
+      "Single choice (radio) / light",
+      "Toggle rows / light",
+      "Compact icon trigger / dark"
+    ],
+    "status": "experimental",
+    "sourcePath": "src/components/collections.tsx",
+    "sourceLine": 43,
+    "props": [
+      {
+        "name": "groups",
+        "type": "FilterGroup[]",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "FilterValue",
+        "required": true
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: FilterValue) => void",
+        "required": true
+      },
+      {
+        "name": "compact",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "onClearAll",
+        "type": "() => void",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "FilterChips",
+    "kind": "component",
+    "exampleCode": "function FilterControlsDemo() {\n  const [value, setValue] = useState<FilterValue>({ service: [\"hotel\"] });\n  const groups: FilterGroup[] = [\n    {\n      id: \"service\",\n      label: \"Service\",\n      options: [\n        { value: \"hotel\", label: \"Accommodation\", count: 4 },\n        { value: \"transport\", label: \"Transport\", count: 2 },\n        { value: \"flight\", label: \"Flights\", disabled: true },\n      ],\n    },\n    {\n      id: \"status\",\n      label: \"Status\",\n      mode: \"single\",\n      options: [\n        { value: \"active\", label: \"Active\" },\n        { value: \"inactive\", label: \"Inactive\" },\n      ],\n    },\n    {\n      id: \"balance\",\n      label: \"Balance\",\n      mode: \"toggle\",\n      options: [\n        {\n          value: \"outstanding\",\n          label: \"Outstanding balance\",\n          description: \"Only vendors with an unpaid balance\",\n        },\n      ],\n    },\n  ];\n  return (\n    <Stack>\n      <FilterMenu groups={groups} value={value} onValueChange={setValue} />\n      <FilterChips groups={groups} value={value} onValueChange={setValue} />\n    </Stack>\n  );\n}",
+    "usage": "import {useState} from \"react\";\nimport {Stack, FilterValue, FilterMenu, FilterChips, FilterGroup} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nfunction FilterControlsDemo() {\n  const [value, setValue] = useState<FilterValue>({ service: [\"hotel\"] });\n  const groups: FilterGroup[] = [\n    {\n      id: \"service\",\n      label: \"Service\",\n      options: [\n        { value: \"hotel\", label: \"Accommodation\", count: 4 },\n        { value: \"transport\", label: \"Transport\", count: 2 },\n        { value: \"flight\", label: \"Flights\", disabled: true },\n      ],\n    },\n    {\n      id: \"status\",\n      label: \"Status\",\n      mode: \"single\",\n      options: [\n        { value: \"active\", label: \"Active\" },\n        { value: \"inactive\", label: \"Inactive\" },\n      ],\n    },\n    {\n      id: \"balance\",\n      label: \"Balance\",\n      mode: \"toggle\",\n      options: [\n        {\n          value: \"outstanding\",\n          label: \"Outstanding balance\",\n          description: \"Only vendors with an unpaid balance\",\n        },\n      ],\n    },\n  ];\n  return (\n    <Stack>\n      <FilterMenu groups={groups} value={value} onValueChange={setValue} />\n      <FilterChips groups={groups} value={value} onValueChange={setValue} />\n    </Stack>\n  );\n}",
+    "types": [
+      {
+        "name": "FilterGroup",
+        "definition": "export interface FilterGroup {\n  id: string;\n  label: string;\n  mode?: \"multiple\" | \"single\" | \"toggle\";\n  options: FilterOption[];\n}"
+      },
+      {
+        "name": "FilterOption",
+        "definition": "export interface FilterOption {\n  value: string;\n  label: string;\n  count?: number;\n  description?: string;\n  disabled?: boolean;\n}"
+      },
+      {
+        "name": "FilterValue",
+        "definition": "export type FilterValue = Record<string, string[]>;"
+      }
+    ],
+    "returnType": null,
+    "category": "Tables & collections",
+    "description": "Applied filters as removable 28px chips, one per group (\"Service: Transport, Flights +1 ×\"), plus a \"Clear all\" link. Renders nothing when no filter is active.",
+    "guidance": [
+      "Use: Always alongside FilterMenu — pass as ListToolbar chips",
+      "Avoid: Removable values inside a form → Tag with onRemove or MultiSelect"
+    ],
+    "paperApi": "",
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=94W-0",
+    "states": [
+      "Applied filters / light",
+      "One value per chip / light",
+      "Clear all resets search too / light",
+      "Applied filters / dark"
+    ],
+    "status": "experimental",
+    "sourcePath": "src/components/collections.tsx",
+    "sourceLine": 155,
+    "props": [
+      {
+        "name": "groups",
+        "type": "FilterGroup[]",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "FilterValue",
+        "required": true
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: FilterValue) => void",
+        "required": true
+      },
+      {
+        "name": "onClearAll",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "maxVisible",
+        "type": "number",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "SortMenu",
+    "kind": "component",
+    "exampleCode": "function SortControlsDemo() {\n  const [value, setValue] = useState<SortState>({\n    id: \"name\",\n    direction: \"asc\",\n  });\n  const rows = [\n    { name: \"Vendor 12\", balance: 8500 },\n    { name: \"Vendor 2\", balance: 12000 },\n    { name: \"Vendor 1\", balance: 3000 },\n  ];\n  const sorted = sortRows(\n    rows,\n    (row) => (value.id === \"balance\" ? row.balance : row.name),\n    value.direction,\n  );\n  return (\n    <Stack>\n      <SortMenu\n        fields={[\n          { id: \"name\", label: \"Name\" },\n          { id: \"balance\", label: \"Balance\" },\n        ]}\n        value={value}\n        onValueChange={setValue}\n      />\n      <ul>\n        {sorted.map((row) => (\n          <li key={row.name}>\n            {row.name}: <Money value={row.balance} />\n          </li>\n        ))}\n      </ul>\n    </Stack>\n  );\n}",
+    "usage": "import {useState} from \"react\";\nimport {Stack, Money, sortRows, SortState, SortMenu} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nfunction SortControlsDemo() {\n  const [value, setValue] = useState<SortState>({\n    id: \"name\",\n    direction: \"asc\",\n  });\n  const rows = [\n    { name: \"Vendor 12\", balance: 8500 },\n    { name: \"Vendor 2\", balance: 12000 },\n    { name: \"Vendor 1\", balance: 3000 },\n  ];\n  const sorted = sortRows(\n    rows,\n    (row) => (value.id === \"balance\" ? row.balance : row.name),\n    value.direction,\n  );\n  return (\n    <Stack>\n      <SortMenu\n        fields={[\n          { id: \"name\", label: \"Name\" },\n          { id: \"balance\", label: \"Balance\" },\n        ]}\n        value={value}\n        onValueChange={setValue}\n      />\n      <ul>\n        {sorted.map((row) => (\n          <li key={row.name}>\n            {row.name}: <Money value={row.balance} />\n          </li>\n        ))}\n      </ul>\n    </Stack>\n  );\n}",
+    "types": [
+      {
+        "name": "SortState",
+        "definition": "export interface SortState {\n  id: string;\n  direction: \"asc\" | \"desc\";\n}"
+      }
+    ],
+    "returnType": null,
+    "category": "Tables & collections",
+    "description": "36px \"Sort: Name\" trigger (arrow-up-down) opening a menu of sort fields and Ascending/Descending, both as checked radio items. Collapses to icon-only in narrow toolbars.",
+    "guidance": [
+      "Use: A list offers sorting beyond clicking column headers, or a card/mobile layout has no headers",
+      "Avoid: Sorting a visible DataTable column → sortable column + onSortChange"
+    ],
+    "paperApi": "",
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9G2-0",
+    "states": [
+      "Sort fields and direction / light",
+      "Custom direction labels / light",
+      "Sort fields and direction / dark"
+    ],
+    "status": "experimental",
+    "sourcePath": "src/components/collections.tsx",
+    "sourceLine": 217,
+    "props": [
+      {
+        "name": "fields",
+        "type": "{ id: string; label: string; disabled?: boolean }[]",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "SortState",
+        "required": true
+      },
+      {
+        "name": "onValueChange",
+        "type": "(value: SortState) => void",
+        "required": true
+      },
+      {
+        "name": "compact",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "ascendingLabel",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "descendingLabel",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "ListToolbar",
+    "kind": "component",
+    "exampleCode": "function CollectionListDemo() {\n  const rows = [\n    {\n      id: \"V-001\",\n      name: \"Kumarakom Lake Resort\",\n      service: \"hotel\",\n      location: \"Kumarakom\",\n      balance: 45000,\n    },\n    {\n      id: \"V-002\",\n      name: \"Malabar Transfers\",\n      service: \"transport\",\n      location: \"Kochi\",\n      balance: 12000,\n    },\n    {\n      id: \"V-003\",\n      name: \"Blanket Hotel & Spa\",\n      service: \"hotel\",\n      location: \"Munnar\",\n      balance: 18000,\n    },\n    {\n      id: \"V-004\",\n      name: \"Trailmakers Experiences\",\n      service: \"activity\",\n      location: \"Kochi\",\n      balance: 8500,\n    },\n    {\n      id: \"V-005\",\n      name: \"Brunton Boatyard\",\n      service: \"hotel\",\n      location: \"Kochi\",\n      balance: 0,\n    },\n    {\n      id: \"V-006\",\n      name: \"Western Ghats Cabs\",\n      service: \"transport\",\n      location: \"Munnar\",\n      balance: 3200,\n    },\n  ];\n  const groups: FilterGroup[] = [\n    {\n      id: \"service\",\n      label: \"Service\",\n      options: [\n        { value: \"hotel\", label: \"Accommodation\", count: 3 },\n        { value: \"transport\", label: \"Transport\", count: 2 },\n        { value: \"activity\", label: \"Activities\", count: 1 },\n      ],\n    },\n  ];\n  const [query, setQuery] = useState(\"\");\n  const [filters, setFilters] = useState<FilterValue>({});\n  const [sort, setSort] = useState<SortState>({\n    id: \"name\",\n    direction: \"asc\",\n  });\n  const [page, setPage] = useState(1);\n  const [selected, setSelected] = useState<string[]>([]);\n  const [tab, setTab] = useState(\"all\");\n  const visible = filterRows(\n    searchRows(rows, query, [(row) => row.name, (row) => row.location]),\n    filters,\n    { service: (row) => row.service },\n  );\n  const sorted = sortRows(\n    visible,\n    (row) => (sort.id === \"balance\" ? row.balance : row.name),\n    sort.direction,\n  );\n  const updateFilters = (next: FilterValue) => {\n    setFilters(next);\n    setPage(1);\n  };\n  const updateSort = (next: SortState) => {\n    setSort(next);\n    setPage(1);\n  };\n  const clearAll = () => {\n    setQuery(\"\");\n    setPage(1);\n  };\n  return (\n    <ListPageTemplate\n      header={\n        <PageHeader\n          title=\"Vendors\"\n          count={rows.length}\n          description=\"Manage accommodation, transport and activity partners.\"\n        />\n      }\n      tabs={\n        <TabBar\n          aria-label=\"Vendor views\"\n          value={tab}\n          onValueChange={setTab}\n          items={[{ value: \"all\", label: \"All vendors\", count: rows.length }]}\n        />\n      }\n      toolbar={\n        <ListToolbar\n          search={\n            <SearchField\n              placeholder=\"Search vendors\"\n              shortcut=\"\"\n              value={query}\n              onValueChange={(next) => {\n                setQuery(next);\n                setPage(1);\n              }}\n            />\n          }\n          filters={\n            <FilterMenu\n              groups={groups}\n              value={filters}\n              onValueChange={updateFilters}\n              onClearAll={clearAll}\n            />\n          }\n          sort={\n            <SortMenu\n              fields={[\n                { id: \"name\", label: \"Name\" },\n                { id: \"balance\", label: \"Balance\" },\n              ]}\n              value={sort}\n              onValueChange={updateSort}\n            />\n          }\n          chips={\n            <FilterChips\n              groups={groups}\n              value={filters}\n              onValueChange={updateFilters}\n              onClearAll={clearAll}\n            />\n          }\n        />\n      }\n      bulkActions={\n        <BulkActionBar\n          count={selected.length}\n          onClear={() => setSelected([])}\n        >\n          <span>Selected across pages</span>\n        </BulkActionBar>\n      }\n      footer={\n        <TableFooter\n          page={page}\n          pageSize={3}\n          total={visible.length}\n          onPageChange={setPage}\n        />\n      }\n    >\n      <DataTable\n        caption=\"Vendors\"\n        rows={paginate(sorted, page, 3)}\n        getRowId={(row) => row.id}\n        selected={selected}\n        onSelectionChange={setSelected}\n        sort={sort}\n        onSortChange={updateSort}\n        columns={[\n          {\n            id: \"name\",\n            header: \"Vendor\",\n            sortValue: (row) => row.name,\n            render: (row) => (\n              <EntityCell name={row.name} description={row.id} />\n            ),\n          },\n          {\n            id: \"location\",\n            header: \"Location\",\n            render: (row) => (\n              <IconTextCell icon=\"map-pin\">{row.location}</IconTextCell>\n            ),\n          },\n          {\n            id: \"balance\",\n            header: \"Balance\",\n            align: \"right\",\n            sortValue: (row) => row.balance,\n            render: (row) => <Money value={row.balance} />,\n          },\n        ]}\n      />\n    </ListPageTemplate>\n  );\n}",
+    "usage": "import {useState} from \"react\";\nimport {SearchField, PageHeader, Money, TabBar, IconTextCell, EntityCell, DataTable, TableFooter, BulkActionBar, filterRows, searchRows, sortRows, paginate, FilterValue, SortState, FilterMenu, FilterChips, SortMenu, ListToolbar, ListPageTemplate, FilterGroup} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nfunction CollectionListDemo() {\n  const rows = [\n    {\n      id: \"V-001\",\n      name: \"Kumarakom Lake Resort\",\n      service: \"hotel\",\n      location: \"Kumarakom\",\n      balance: 45000,\n    },\n    {\n      id: \"V-002\",\n      name: \"Malabar Transfers\",\n      service: \"transport\",\n      location: \"Kochi\",\n      balance: 12000,\n    },\n    {\n      id: \"V-003\",\n      name: \"Blanket Hotel & Spa\",\n      service: \"hotel\",\n      location: \"Munnar\",\n      balance: 18000,\n    },\n    {\n      id: \"V-004\",\n      name: \"Trailmakers Experiences\",\n      service: \"activity\",\n      location: \"Kochi\",\n      balance: 8500,\n    },\n    {\n      id: \"V-005\",\n      name: \"Brunton Boatyard\",\n      service: \"hotel\",\n      location: \"Kochi\",\n      balance: 0,\n    },\n    {\n      id: \"V-006\",\n      name: \"Western Ghats Cabs\",\n      service: \"transport\",\n      location: \"Munnar\",\n      balance: 3200,\n    },\n  ];\n  const groups: FilterGroup[] = [\n    {\n      id: \"service\",\n      label: \"Service\",\n      options: [\n        { value: \"hotel\", label: \"Accommodation\", count: 3 },\n        { value: \"transport\", label: \"Transport\", count: 2 },\n        { value: \"activity\", label: \"Activities\", count: 1 },\n      ],\n    },\n  ];\n  const [query, setQuery] = useState(\"\");\n  const [filters, setFilters] = useState<FilterValue>({});\n  const [sort, setSort] = useState<SortState>({\n    id: \"name\",\n    direction: \"asc\",\n  });\n  const [page, setPage] = useState(1);\n  const [selected, setSelected] = useState<string[]>([]);\n  const [tab, setTab] = useState(\"all\");\n  const visible = filterRows(\n    searchRows(rows, query, [(row) => row.name, (row) => row.location]),\n    filters,\n    { service: (row) => row.service },\n  );\n  const sorted = sortRows(\n    visible,\n    (row) => (sort.id === \"balance\" ? row.balance : row.name),\n    sort.direction,\n  );\n  const updateFilters = (next: FilterValue) => {\n    setFilters(next);\n    setPage(1);\n  };\n  const updateSort = (next: SortState) => {\n    setSort(next);\n    setPage(1);\n  };\n  const clearAll = () => {\n    setQuery(\"\");\n    setPage(1);\n  };\n  return (\n    <ListPageTemplate\n      header={\n        <PageHeader\n          title=\"Vendors\"\n          count={rows.length}\n          description=\"Manage accommodation, transport and activity partners.\"\n        />\n      }\n      tabs={\n        <TabBar\n          aria-label=\"Vendor views\"\n          value={tab}\n          onValueChange={setTab}\n          items={[{ value: \"all\", label: \"All vendors\", count: rows.length }]}\n        />\n      }\n      toolbar={\n        <ListToolbar\n          search={\n            <SearchField\n              placeholder=\"Search vendors\"\n              shortcut=\"\"\n              value={query}\n              onValueChange={(next) => {\n                setQuery(next);\n                setPage(1);\n              }}\n            />\n          }\n          filters={\n            <FilterMenu\n              groups={groups}\n              value={filters}\n              onValueChange={updateFilters}\n              onClearAll={clearAll}\n            />\n          }\n          sort={\n            <SortMenu\n              fields={[\n                { id: \"name\", label: \"Name\" },\n                { id: \"balance\", label: \"Balance\" },\n              ]}\n              value={sort}\n              onValueChange={updateSort}\n            />\n          }\n          chips={\n            <FilterChips\n              groups={groups}\n              value={filters}\n              onValueChange={updateFilters}\n              onClearAll={clearAll}\n            />\n          }\n        />\n      }\n      bulkActions={\n        <BulkActionBar\n          count={selected.length}\n          onClear={() => setSelected([])}\n        >\n          <span>Selected across pages</span>\n        </BulkActionBar>\n      }\n      footer={\n        <TableFooter\n          page={page}\n          pageSize={3}\n          total={visible.length}\n          onPageChange={setPage}\n        />\n      }\n    >\n      <DataTable\n        caption=\"Vendors\"\n        rows={paginate(sorted, page, 3)}\n        getRowId={(row) => row.id}\n        selected={selected}\n        onSelectionChange={setSelected}\n        sort={sort}\n        onSortChange={updateSort}\n        columns={[\n          {\n            id: \"name\",\n            header: \"Vendor\",\n            sortValue: (row) => row.name,\n            render: (row) => (\n              <EntityCell name={row.name} description={row.id} />\n            ),\n          },\n          {\n            id: \"location\",\n            header: \"Location\",\n            render: (row) => (\n              <IconTextCell icon=\"map-pin\">{row.location}</IconTextCell>\n            ),\n          },\n          {\n            id: \"balance\",\n            header: \"Balance\",\n            align: \"right\",\n            sortValue: (row) => row.balance,\n            render: (row) => <Money value={row.balance} />,\n          },\n        ]}\n      />\n    </ListPageTemplate>\n  );\n}",
+    "types": [],
+    "returnType": null,
+    "category": "Tables & collections",
+    "description": "One list control row for search, filters, sorting and actions, with applied filter chips below. Controls wrap on narrow screens.",
+    "guidance": [],
+    "paperApi": "",
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR",
+    "states": [],
+    "status": "experimental",
+    "sourcePath": "src/components/collections.tsx",
+    "sourceLine": 326,
+    "props": [
+      {
+        "name": "search",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "filters",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "sort",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "actions",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "chips",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "ListPageTemplate",
+    "kind": "component",
+    "exampleCode": "function CollectionListDemo() {\n  const rows = [\n    {\n      id: \"V-001\",\n      name: \"Kumarakom Lake Resort\",\n      service: \"hotel\",\n      location: \"Kumarakom\",\n      balance: 45000,\n    },\n    {\n      id: \"V-002\",\n      name: \"Malabar Transfers\",\n      service: \"transport\",\n      location: \"Kochi\",\n      balance: 12000,\n    },\n    {\n      id: \"V-003\",\n      name: \"Blanket Hotel & Spa\",\n      service: \"hotel\",\n      location: \"Munnar\",\n      balance: 18000,\n    },\n    {\n      id: \"V-004\",\n      name: \"Trailmakers Experiences\",\n      service: \"activity\",\n      location: \"Kochi\",\n      balance: 8500,\n    },\n    {\n      id: \"V-005\",\n      name: \"Brunton Boatyard\",\n      service: \"hotel\",\n      location: \"Kochi\",\n      balance: 0,\n    },\n    {\n      id: \"V-006\",\n      name: \"Western Ghats Cabs\",\n      service: \"transport\",\n      location: \"Munnar\",\n      balance: 3200,\n    },\n  ];\n  const groups: FilterGroup[] = [\n    {\n      id: \"service\",\n      label: \"Service\",\n      options: [\n        { value: \"hotel\", label: \"Accommodation\", count: 3 },\n        { value: \"transport\", label: \"Transport\", count: 2 },\n        { value: \"activity\", label: \"Activities\", count: 1 },\n      ],\n    },\n  ];\n  const [query, setQuery] = useState(\"\");\n  const [filters, setFilters] = useState<FilterValue>({});\n  const [sort, setSort] = useState<SortState>({\n    id: \"name\",\n    direction: \"asc\",\n  });\n  const [page, setPage] = useState(1);\n  const [selected, setSelected] = useState<string[]>([]);\n  const [tab, setTab] = useState(\"all\");\n  const visible = filterRows(\n    searchRows(rows, query, [(row) => row.name, (row) => row.location]),\n    filters,\n    { service: (row) => row.service },\n  );\n  const sorted = sortRows(\n    visible,\n    (row) => (sort.id === \"balance\" ? row.balance : row.name),\n    sort.direction,\n  );\n  const updateFilters = (next: FilterValue) => {\n    setFilters(next);\n    setPage(1);\n  };\n  const updateSort = (next: SortState) => {\n    setSort(next);\n    setPage(1);\n  };\n  const clearAll = () => {\n    setQuery(\"\");\n    setPage(1);\n  };\n  return (\n    <ListPageTemplate\n      header={\n        <PageHeader\n          title=\"Vendors\"\n          count={rows.length}\n          description=\"Manage accommodation, transport and activity partners.\"\n        />\n      }\n      tabs={\n        <TabBar\n          aria-label=\"Vendor views\"\n          value={tab}\n          onValueChange={setTab}\n          items={[{ value: \"all\", label: \"All vendors\", count: rows.length }]}\n        />\n      }\n      toolbar={\n        <ListToolbar\n          search={\n            <SearchField\n              placeholder=\"Search vendors\"\n              shortcut=\"\"\n              value={query}\n              onValueChange={(next) => {\n                setQuery(next);\n                setPage(1);\n              }}\n            />\n          }\n          filters={\n            <FilterMenu\n              groups={groups}\n              value={filters}\n              onValueChange={updateFilters}\n              onClearAll={clearAll}\n            />\n          }\n          sort={\n            <SortMenu\n              fields={[\n                { id: \"name\", label: \"Name\" },\n                { id: \"balance\", label: \"Balance\" },\n              ]}\n              value={sort}\n              onValueChange={updateSort}\n            />\n          }\n          chips={\n            <FilterChips\n              groups={groups}\n              value={filters}\n              onValueChange={updateFilters}\n              onClearAll={clearAll}\n            />\n          }\n        />\n      }\n      bulkActions={\n        <BulkActionBar\n          count={selected.length}\n          onClear={() => setSelected([])}\n        >\n          <span>Selected across pages</span>\n        </BulkActionBar>\n      }\n      footer={\n        <TableFooter\n          page={page}\n          pageSize={3}\n          total={visible.length}\n          onPageChange={setPage}\n        />\n      }\n    >\n      <DataTable\n        caption=\"Vendors\"\n        rows={paginate(sorted, page, 3)}\n        getRowId={(row) => row.id}\n        selected={selected}\n        onSelectionChange={setSelected}\n        sort={sort}\n        onSortChange={updateSort}\n        columns={[\n          {\n            id: \"name\",\n            header: \"Vendor\",\n            sortValue: (row) => row.name,\n            render: (row) => (\n              <EntityCell name={row.name} description={row.id} />\n            ),\n          },\n          {\n            id: \"location\",\n            header: \"Location\",\n            render: (row) => (\n              <IconTextCell icon=\"map-pin\">{row.location}</IconTextCell>\n            ),\n          },\n          {\n            id: \"balance\",\n            header: \"Balance\",\n            align: \"right\",\n            sortValue: (row) => row.balance,\n            render: (row) => <Money value={row.balance} />,\n          },\n        ]}\n      />\n    </ListPageTemplate>\n  );\n}",
+    "usage": "import {useState} from \"react\";\nimport {SearchField, PageHeader, Money, TabBar, IconTextCell, EntityCell, DataTable, TableFooter, BulkActionBar, filterRows, searchRows, sortRows, paginate, FilterValue, SortState, FilterMenu, FilterChips, SortMenu, ListToolbar, ListPageTemplate, FilterGroup} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nfunction CollectionListDemo() {\n  const rows = [\n    {\n      id: \"V-001\",\n      name: \"Kumarakom Lake Resort\",\n      service: \"hotel\",\n      location: \"Kumarakom\",\n      balance: 45000,\n    },\n    {\n      id: \"V-002\",\n      name: \"Malabar Transfers\",\n      service: \"transport\",\n      location: \"Kochi\",\n      balance: 12000,\n    },\n    {\n      id: \"V-003\",\n      name: \"Blanket Hotel & Spa\",\n      service: \"hotel\",\n      location: \"Munnar\",\n      balance: 18000,\n    },\n    {\n      id: \"V-004\",\n      name: \"Trailmakers Experiences\",\n      service: \"activity\",\n      location: \"Kochi\",\n      balance: 8500,\n    },\n    {\n      id: \"V-005\",\n      name: \"Brunton Boatyard\",\n      service: \"hotel\",\n      location: \"Kochi\",\n      balance: 0,\n    },\n    {\n      id: \"V-006\",\n      name: \"Western Ghats Cabs\",\n      service: \"transport\",\n      location: \"Munnar\",\n      balance: 3200,\n    },\n  ];\n  const groups: FilterGroup[] = [\n    {\n      id: \"service\",\n      label: \"Service\",\n      options: [\n        { value: \"hotel\", label: \"Accommodation\", count: 3 },\n        { value: \"transport\", label: \"Transport\", count: 2 },\n        { value: \"activity\", label: \"Activities\", count: 1 },\n      ],\n    },\n  ];\n  const [query, setQuery] = useState(\"\");\n  const [filters, setFilters] = useState<FilterValue>({});\n  const [sort, setSort] = useState<SortState>({\n    id: \"name\",\n    direction: \"asc\",\n  });\n  const [page, setPage] = useState(1);\n  const [selected, setSelected] = useState<string[]>([]);\n  const [tab, setTab] = useState(\"all\");\n  const visible = filterRows(\n    searchRows(rows, query, [(row) => row.name, (row) => row.location]),\n    filters,\n    { service: (row) => row.service },\n  );\n  const sorted = sortRows(\n    visible,\n    (row) => (sort.id === \"balance\" ? row.balance : row.name),\n    sort.direction,\n  );\n  const updateFilters = (next: FilterValue) => {\n    setFilters(next);\n    setPage(1);\n  };\n  const updateSort = (next: SortState) => {\n    setSort(next);\n    setPage(1);\n  };\n  const clearAll = () => {\n    setQuery(\"\");\n    setPage(1);\n  };\n  return (\n    <ListPageTemplate\n      header={\n        <PageHeader\n          title=\"Vendors\"\n          count={rows.length}\n          description=\"Manage accommodation, transport and activity partners.\"\n        />\n      }\n      tabs={\n        <TabBar\n          aria-label=\"Vendor views\"\n          value={tab}\n          onValueChange={setTab}\n          items={[{ value: \"all\", label: \"All vendors\", count: rows.length }]}\n        />\n      }\n      toolbar={\n        <ListToolbar\n          search={\n            <SearchField\n              placeholder=\"Search vendors\"\n              shortcut=\"\"\n              value={query}\n              onValueChange={(next) => {\n                setQuery(next);\n                setPage(1);\n              }}\n            />\n          }\n          filters={\n            <FilterMenu\n              groups={groups}\n              value={filters}\n              onValueChange={updateFilters}\n              onClearAll={clearAll}\n            />\n          }\n          sort={\n            <SortMenu\n              fields={[\n                { id: \"name\", label: \"Name\" },\n                { id: \"balance\", label: \"Balance\" },\n              ]}\n              value={sort}\n              onValueChange={updateSort}\n            />\n          }\n          chips={\n            <FilterChips\n              groups={groups}\n              value={filters}\n              onValueChange={updateFilters}\n              onClearAll={clearAll}\n            />\n          }\n        />\n      }\n      bulkActions={\n        <BulkActionBar\n          count={selected.length}\n          onClear={() => setSelected([])}\n        >\n          <span>Selected across pages</span>\n        </BulkActionBar>\n      }\n      footer={\n        <TableFooter\n          page={page}\n          pageSize={3}\n          total={visible.length}\n          onPageChange={setPage}\n        />\n      }\n    >\n      <DataTable\n        caption=\"Vendors\"\n        rows={paginate(sorted, page, 3)}\n        getRowId={(row) => row.id}\n        selected={selected}\n        onSelectionChange={setSelected}\n        sort={sort}\n        onSortChange={updateSort}\n        columns={[\n          {\n            id: \"name\",\n            header: \"Vendor\",\n            sortValue: (row) => row.name,\n            render: (row) => (\n              <EntityCell name={row.name} description={row.id} />\n            ),\n          },\n          {\n            id: \"location\",\n            header: \"Location\",\n            render: (row) => (\n              <IconTextCell icon=\"map-pin\">{row.location}</IconTextCell>\n            ),\n          },\n          {\n            id: \"balance\",\n            header: \"Balance\",\n            align: \"right\",\n            sortValue: (row) => row.balance,\n            render: (row) => <Money value={row.balance} />,\n          },\n        ]}\n      />\n    </ListPageTemplate>\n  );\n}",
+    "types": [],
+    "returnType": null,
+    "category": "Templates & recipes",
+    "description": "Use for a collection: PageHeader → TabBar → one-row ListToolbar → edge-to-edge DataTable → bulk dock and TableFooter. Header, breadcrumb and primary action name the same thing.",
+    "guidance": [],
+    "paperApi": "",
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-D-0?node=J9X-0",
+    "states": [
+      "ListPageTemplate · vendors-list · source specimen"
+    ],
+    "status": "experimental",
+    "sourcePath": "src/components/collections.tsx",
+    "sourceLine": 356,
+    "props": [
+      {
+        "name": "header",
+        "type": "ReactNode",
+        "required": true
+      },
+      {
+        "name": "tabs",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "toolbar",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true
+      },
+      {
+        "name": "bulkActions",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "footer",
+        "type": "ReactNode",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "IconTextCell",
+    "kind": "component",
+    "exampleCode": "<IconTextCell icon=\"map-pin\">Kochi, India</IconTextCell>",
+    "usage": "import {IconTextCell} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<IconTextCell icon=\"map-pin\">Kochi, India</IconTextCell>",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
+    "category": "Tables & collections",
+    "description": "14px icon + 13.5px text cell (location with map-pin, phone, email). tone danger for overdue/late.",
+    "guidance": [
+      "Use: Location, contact or any single-value cell that benefits from a type icon",
+      "Avoid: Service types → ServiceTypeList"
+    ],
+    "paperApi": "",
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=3D6-0",
+    "states": [
+      "Location / light",
+      "Phone and email / light",
+      "Muted (missing value) / light",
+      "Danger (overdue) / light",
+      "Location / dark"
+    ],
+    "status": "experimental",
+    "sourcePath": "src/components/data.tsx",
+    "sourceLine": 13,
+    "props": [
+      {
+        "name": "icon",
+        "type": "IconName",
+        "required": true
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true
+      },
+      {
+        "name": "tone",
+        "type": "\"default\" | \"muted\" | \"danger\"",
+        "required": false
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "filterRows",
+    "kind": "utility",
+    "exampleCode": "function FilterRowsDemo() {\n  const rows = [\n    { name: \"Resort\", services: [\"hotel\", \"activity\"], status: \"active\" },\n    { name: \"Transfers\", services: [\"transport\"], status: \"active\" },\n    { name: \"Archived hotel\", services: [\"hotel\"], status: \"inactive\" },\n  ];\n  const filtered = filterRows(\n    rows,\n    { service: [\"hotel\", \"activity\"], status: [\"active\"] },\n    { service: (row) => row.services, status: (row) => row.status },\n  );\n  return <p>Matching vendors: {filtered.map((row) => row.name).join(\", \")}</p>;\n}",
+    "usage": "import {filterRows} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nfunction FilterRowsDemo() {\n  const rows = [\n    { name: \"Resort\", services: [\"hotel\", \"activity\"], status: \"active\" },\n    { name: \"Transfers\", services: [\"transport\"], status: \"active\" },\n    { name: \"Archived hotel\", services: [\"hotel\"], status: \"inactive\" },\n  ];\n  const filtered = filterRows(\n    rows,\n    { service: [\"hotel\", \"activity\"], status: [\"active\"] },\n    { service: (row) => row.services, status: (row) => row.status },\n  );\n  return <p>Matching vendors: {filtered.map((row) => row.name).join(\", \")}</p>;\n}",
+    "types": [
+      {
+        "name": "FilterValue",
+        "definition": "export type FilterValue = Record<string, string[]>;"
+      }
+    ],
+    "returnType": "T[]",
+    "category": "Tables & collections",
+    "description": "Applies a FilterValue to client-side rows: AND across groups, OR within a group. Groups without an accessor or selected values are ignored.",
+    "guidance": [
+      "Use: Client-side list pages with FilterMenu",
+      "Avoid: Hand-written filter loops in pages → filterRows"
+    ],
+    "paperApi": "",
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9K7-0",
+    "states": [
+      "filterRows / public contract"
+    ],
+    "status": "experimental",
+    "sourcePath": "src/components/data.tsx",
+    "sourceLine": 315,
+    "props": [
+      {
+        "name": "rows",
+        "type": "T[]",
+        "required": true
+      },
+      {
+        "name": "value",
+        "type": "FilterValue",
+        "required": true
+      },
+      {
+        "name": "accessors",
+        "type": "Record<string, (row: T) => string | string[]>",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "searchRows",
+    "kind": "utility",
+    "exampleCode": "function SearchRowsDemo() {\n  const [query, setQuery] = useState(\"Kochi hotel\");\n  const rows = [\n    { name: \"Harbour hotel\", city: \"Kochi\" },\n    { name: \"Hillside hotel\", city: \"Munnar\" },\n    { name: \"Kochi transfers\", city: \"Kochi\" },\n  ];\n  const filtered = searchRows(rows, query, [\n    (row) => row.name,\n    (row) => row.city,\n  ]);\n  return (\n    <Stack>\n      <SearchField\n        placeholder=\"Search vendors\"\n        value={query}\n        onValueChange={setQuery}\n        shortcut=\"\"\n      />\n      <p role=\"status\">\n        {filtered.map((row) => row.name).join(\", \") || \"No matches\"}\n      </p>\n    </Stack>\n  );\n}",
+    "usage": "import {useState} from \"react\";\nimport {Stack, SearchField, searchRows} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nfunction SearchRowsDemo() {\n  const [query, setQuery] = useState(\"Kochi hotel\");\n  const rows = [\n    { name: \"Harbour hotel\", city: \"Kochi\" },\n    { name: \"Hillside hotel\", city: \"Munnar\" },\n    { name: \"Kochi transfers\", city: \"Kochi\" },\n  ];\n  const filtered = searchRows(rows, query, [\n    (row) => row.name,\n    (row) => row.city,\n  ]);\n  return (\n    <Stack>\n      <SearchField\n        placeholder=\"Search vendors\"\n        value={query}\n        onValueChange={setQuery}\n        shortcut=\"\"\n      />\n      <p role=\"status\">\n        {filtered.map((row) => row.name).join(\", \") || \"No matches\"}\n      </p>\n    </Stack>\n  );\n}",
+    "types": [],
+    "returnType": "T[]",
+    "category": "Tables & collections",
+    "description": "Case-insensitive search over the fields returned for each row; every word of the query must appear.",
+    "guidance": [
+      "Use: ListToolbar search on client-side lists",
+      "Avoid: Hand-written includes() search in pages → searchRows"
+    ],
+    "paperApi": "",
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9L6-0",
+    "states": [
+      "searchRows / public contract"
+    ],
+    "status": "experimental",
+    "sourcePath": "src/components/data.tsx",
+    "sourceLine": 332,
+    "props": [
+      {
+        "name": "rows",
+        "type": "T[]",
+        "required": true
+      },
+      {
+        "name": "query",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "accessors",
+        "type": "((row: T) => string)[]",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "sortRows",
+    "kind": "utility",
+    "exampleCode": "function SortControlsDemo() {\n  const [value, setValue] = useState<SortState>({\n    id: \"name\",\n    direction: \"asc\",\n  });\n  const rows = [\n    { name: \"Vendor 12\", balance: 8500 },\n    { name: \"Vendor 2\", balance: 12000 },\n    { name: \"Vendor 1\", balance: 3000 },\n  ];\n  const sorted = sortRows(\n    rows,\n    (row) => (value.id === \"balance\" ? row.balance : row.name),\n    value.direction,\n  );\n  return (\n    <Stack>\n      <SortMenu\n        fields={[\n          { id: \"name\", label: \"Name\" },\n          { id: \"balance\", label: \"Balance\" },\n        ]}\n        value={value}\n        onValueChange={setValue}\n      />\n      <ul>\n        {sorted.map((row) => (\n          <li key={row.name}>\n            {row.name}: <Money value={row.balance} />\n          </li>\n        ))}\n      </ul>\n    </Stack>\n  );\n}",
+    "usage": "import {useState} from \"react\";\nimport {Stack, Money, sortRows, SortState, SortMenu} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nfunction SortControlsDemo() {\n  const [value, setValue] = useState<SortState>({\n    id: \"name\",\n    direction: \"asc\",\n  });\n  const rows = [\n    { name: \"Vendor 12\", balance: 8500 },\n    { name: \"Vendor 2\", balance: 12000 },\n    { name: \"Vendor 1\", balance: 3000 },\n  ];\n  const sorted = sortRows(\n    rows,\n    (row) => (value.id === \"balance\" ? row.balance : row.name),\n    value.direction,\n  );\n  return (\n    <Stack>\n      <SortMenu\n        fields={[\n          { id: \"name\", label: \"Name\" },\n          { id: \"balance\", label: \"Balance\" },\n        ]}\n        value={value}\n        onValueChange={setValue}\n      />\n      <ul>\n        {sorted.map((row) => (\n          <li key={row.name}>\n            {row.name}: <Money value={row.balance} />\n          </li>\n        ))}\n      </ul>\n    </Stack>\n  );\n}",
+    "types": [
+      {
+        "name": "SortValue",
+        "definition": "export type SortValue = string | number | Date | null | undefined;"
+      }
+    ],
+    "returnType": "T[]",
+    "category": "Tables & collections",
+    "description": "Stable sorted copy: en-IN numeric-aware collation for strings, numbers numerically, Dates and ISO date strings chronologically, empty values last. Accepts a DataTable SortState or a SortMenu value.",
+    "guidance": [
+      "Use: Client-side sorting driven by DataTable onSortChange or SortMenu",
+      "Avoid: Array.sort with localeCompare in pages → sortRows"
+    ],
+    "paperApi": "",
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9OC-0",
+    "states": [
+      "sortRows / public contract"
+    ],
+    "status": "experimental",
+    "sourcePath": "src/components/data.tsx",
+    "sourceLine": 366,
+    "props": [
+      {
+        "name": "rows",
+        "type": "T[]",
+        "required": true
+      },
+      {
+        "name": "accessor",
+        "type": "(row: T) => SortValue",
+        "required": true
+      },
+      {
+        "name": "direction",
+        "type": "\"asc\" | \"desc\"",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "paginate",
+    "kind": "utility",
+    "exampleCode": "function PaginateDemo() {\n  const [page, setPage] = useState(1);\n  const rows = [\n    \"Booking 1\",\n    \"Booking 2\",\n    \"Booking 3\",\n    \"Booking 4\",\n    \"Booking 5\",\n  ];\n  const visible = paginate(rows, page, 2);\n  return (\n    <Stack>\n      <ul>\n        {visible.map((row) => (\n          <li key={row}>{row}</li>\n        ))}\n      </ul>\n      <Pagination\n        page={page}\n        pageCount={pageCount(rows.length, 2)}\n        onPageChange={setPage}\n      />\n    </Stack>\n  );\n}",
+    "usage": "import {useState} from \"react\";\nimport {Stack, Pagination, pageCount, paginate} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nfunction PaginateDemo() {\n  const [page, setPage] = useState(1);\n  const rows = [\n    \"Booking 1\",\n    \"Booking 2\",\n    \"Booking 3\",\n    \"Booking 4\",\n    \"Booking 5\",\n  ];\n  const visible = paginate(rows, page, 2);\n  return (\n    <Stack>\n      <ul>\n        {visible.map((row) => (\n          <li key={row}>{row}</li>\n        ))}\n      </ul>\n      <Pagination\n        page={page}\n        pageCount={pageCount(rows.length, 2)}\n        onPageChange={setPage}\n      />\n    </Stack>\n  );\n}",
+    "types": [],
+    "returnType": "T[]",
+    "category": "Tables & collections",
+    "description": "Rows of a 1-based page, clamped to the valid range. Pair with TableFooter (and pageCount for the page count).",
+    "guidance": [
+      "Use: Client-side pagination under a DataTable",
+      "Avoid: rows.slice(...) math in pages → paginate"
+    ],
+    "paperApi": "",
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9Q6-0",
+    "states": [
+      "paginate / public contract"
+    ],
+    "status": "experimental",
+    "sourcePath": "src/components/data.tsx",
+    "sourceLine": 398,
+    "props": [
+      {
+        "name": "rows",
+        "type": "T[]",
+        "required": true
+      },
+      {
+        "name": "page",
+        "type": "number",
+        "required": true
+      },
+      {
+        "name": "pageSize",
+        "type": "number",
+        "required": true
+      }
+    ]
+  },
+  {
+    "name": "pageCount",
+    "kind": "utility",
+    "exampleCode": "function PaginateDemo() {\n  const [page, setPage] = useState(1);\n  const rows = [\n    \"Booking 1\",\n    \"Booking 2\",\n    \"Booking 3\",\n    \"Booking 4\",\n    \"Booking 5\",\n  ];\n  const visible = paginate(rows, page, 2);\n  return (\n    <Stack>\n      <ul>\n        {visible.map((row) => (\n          <li key={row}>{row}</li>\n        ))}\n      </ul>\n      <Pagination\n        page={page}\n        pageCount={pageCount(rows.length, 2)}\n        onPageChange={setPage}\n      />\n    </Stack>\n  );\n}",
+    "usage": "import {useState} from \"react\";\nimport {Stack, Pagination, pageCount, paginate} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nfunction PaginateDemo() {\n  const [page, setPage] = useState(1);\n  const rows = [\n    \"Booking 1\",\n    \"Booking 2\",\n    \"Booking 3\",\n    \"Booking 4\",\n    \"Booking 5\",\n  ];\n  const visible = paginate(rows, page, 2);\n  return (\n    <Stack>\n      <ul>\n        {visible.map((row) => (\n          <li key={row}>{row}</li>\n        ))}\n      </ul>\n      <Pagination\n        page={page}\n        pageCount={pageCount(rows.length, 2)}\n        onPageChange={setPage}\n      />\n    </Stack>\n  );\n}",
+    "types": [],
+    "returnType": "number",
+    "category": "Tables & collections",
+    "description": "Return the number of pages for a nonnegative total and a positive integer page size. Empty collections have zero pages.",
+    "guidance": [],
+    "paperApi": "",
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR",
+    "states": [],
+    "status": "experimental",
+    "sourcePath": "src/components/data.tsx",
+    "sourceLine": 386,
+    "props": [
+      {
+        "name": "total",
+        "type": "number",
+        "required": true
+      },
+      {
+        "name": "pageSize",
+        "type": "number",
+        "required": true
+      }
+    ]
+  },
+  {
     "name": "Button",
+    "kind": "component",
+    "exampleCode": "<Button variant=\"primary\" leadingIcon=\"plus\">Create booking</Button>",
+    "usage": "import {Button} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Button variant=\"primary\" leadingIcon=\"plus\">Create booking</Button>",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Primitives",
     "description": "Text action button (Onest 600). primary = teal fill, brand = teal outline, secondary = neutral outline, tertiary = quiet transparent detail action, ghost = transparent, danger = red fill, link = inline teal text.",
     "guidance": [
@@ -63,6 +623,16 @@
   },
   {
     "name": "IconButton",
+    "kind": "component",
+    "exampleCode": "<IconButton icon=\"pencil\" aria-label=\"Edit booking\" />",
+    "usage": "import {IconButton} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<IconButton icon=\"pencil\" aria-label=\"Edit booking\" />",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Primitives",
     "description": "Square icon-only button with a required label (aria-label + tooltip), primary/outline/ghost variants and optional alert dot. Primary uses the same action states as Button primary. `badge` is a dot (true) or a count chip (number, 99+ cap) — the topbar bell shows the unread count.",
     "guidance": [
@@ -121,6 +691,16 @@
   },
   {
     "name": "Icon",
+    "kind": "component",
+    "exampleCode": "<Icon name=\"plane\" size=\"xl\" label=\"Flight\" />",
+    "usage": "import {Icon} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Icon name=\"plane\" size=\"xl\" label=\"Flight\" />",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Icons",
     "description": "151 exact SVG glyphs · closed IconName vocabulary · 24 × 24 viewBox",
     "guidance": [],
@@ -171,6 +751,11 @@
   },
   {
     "name": "Checkbox",
+    "kind": "component",
+    "exampleCode": "const [checked, setChecked] = useState(false);\n<Checkbox checked={checked} onCheckedChange={setChecked} label=\"Select all travelers\" />",
+    "usage": "import {useState} from \"react\";\nimport {Checkbox} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [checked, setChecked] = useState(false);\n<Checkbox checked={checked} onCheckedChange={setChecked} label=\"Select all travelers\" />",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "18px checkbox (pink when checked/indeterminate) with optional label and description.",
     "guidance": [
@@ -237,6 +822,11 @@
   },
   {
     "name": "Switch",
+    "kind": "component",
+    "exampleCode": "const [enabled, setEnabled] = useState(true);\n<Switch checked={enabled} onCheckedChange={setEnabled} label=\"Booking notifications\" />",
+    "usage": "import {useState} from \"react\";\nimport {Switch} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [enabled, setEnabled] = useState(true);\n<Switch checked={enabled} onCheckedChange={setEnabled} label=\"Booking notifications\" />",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "On/off toggle for settings that take effect immediately.",
     "guidance": [
@@ -301,6 +891,11 @@
   },
   {
     "name": "RadioGroup",
+    "kind": "component",
+    "exampleCode": "const [value, setValue] = useState(\"agency\");\n<RadioGroup aria-label=\"Booking source\" value={value} onValueChange={setValue}\n  options={[{ value: \"agency\", label: \"Agency booking\" }, { value: \"direct\", label: \"Direct booking\" }]} />",
+    "usage": "import {useState} from \"react\";\nimport {RadioGroup} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [value, setValue] = useState(\"agency\");\n<RadioGroup aria-label=\"Booking source\" value={value} onValueChange={setValue}\n  options={[{ value: \"agency\", label: \"Agency booking\" }, { value: \"direct\", label: \"Direct booking\" }]} />",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "Single choice from a short, always-visible list of options, each with optional description.",
     "guidance": [
@@ -354,6 +949,11 @@
   },
   {
     "name": "Avatar",
+    "kind": "component",
+    "exampleCode": "<Avatar name=\"Aarav Sharma\" size=\"md\" />",
+    "usage": "import {Avatar} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Avatar name=\"Aarav Sharma\" size=\"md\" />",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "Rounded person/entity photo or initials with load-error fallback. Default sm26; chip24/radius6 is compact rounded media for Kanban assignees. Existing sizes and tones remain unchanged.",
     "guidance": [
@@ -404,6 +1004,16 @@
   },
   {
     "name": "StatusChip",
+    "kind": "component",
+    "exampleCode": "<StatusChip tone=\"success\">Confirmed</StatusChip>",
+    "usage": "import {StatusChip} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<StatusChip tone=\"success\">Confirmed</StatusChip>",
+    "types": [
+      {
+        "name": "StatusTone",
+        "definition": "export type StatusTone = \"success\" | \"warning\" | \"danger\" | \"info\" | \"neutral\";"
+      }
+    ],
+    "returnType": null,
     "category": "Primitives",
     "description": "28px status pill with tone colours and a leading dot (success, warning, danger, info, neutral).",
     "guidance": [
@@ -446,6 +1056,16 @@
   },
   {
     "name": "Tag",
+    "kind": "component",
+    "exampleCode": "<Tag tone=\"work\">Honeymoon</Tag>",
+    "usage": "import {Tag} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Tag tone=\"work\">Honeymoon</Tag>",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Primitives",
     "description": "24px soft-rect label chip for categories and attributes, with optional icon and removable ×.",
     "guidance": [
@@ -504,6 +1124,11 @@
   },
   {
     "name": "CountBadge",
+    "kind": "component",
+    "exampleCode": "<CountBadge>24</CountBadge>",
+    "usage": "import {CountBadge} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<CountBadge>24</CountBadge>",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "18px mono count (10.5px) with optional selected/danger tone and max overflow (99+).",
     "guidance": [
@@ -532,6 +1157,11 @@
   },
   {
     "name": "IdChip",
+    "kind": "component",
+    "exampleCode": "<IdChip>BK-1042</IdChip>",
+    "usage": "import {IdChip} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<IdChip>BK-1042</IdChip>",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "Mono record reference chip with bookmark icon and copy-to-clipboard button (announces \"Copied\").",
     "guidance": [
@@ -559,6 +1189,11 @@
   },
   {
     "name": "Kbd",
+    "kind": "component",
+    "exampleCode": "<Kbd>⌘ K</Kbd>",
+    "usage": "import {Kbd} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Kbd>⌘ K</Kbd>",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "Keyboard key / shortcut hint (mono 10.5px, muted key cap).",
     "guidance": [
@@ -584,6 +1219,11 @@
   },
   {
     "name": "Spinner",
+    "kind": "component",
+    "exampleCode": "<Spinner label=\"Loading bookings\" />",
+    "usage": "import {Spinner} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Spinner label=\"Loading bookings\" />",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "Rotating loader arc or refresh arrow in currentColor for indeterminate short waits.",
     "guidance": [
@@ -611,6 +1251,11 @@
   },
   {
     "name": "Skeleton",
+    "kind": "component",
+    "exampleCode": "<Skeleton lines={3} />",
+    "usage": "import {Skeleton} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Skeleton lines={3} />",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "Shimmering placeholder block or text lines for loading content (aria-hidden).",
     "guidance": [
@@ -637,6 +1282,11 @@
   },
   {
     "name": "Meter",
+    "kind": "component",
+    "exampleCode": "<Meter label=\"Monthly credits\" value={640} max={1000} />",
+    "usage": "import {Meter} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Meter label=\"Monthly credits\" value={640} max={1000} />",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "4px usage bar (pink accent default, on a pink-tinted track; other tones on a neutral track) with optional label and value text; role=meter.",
     "guidance": [
@@ -691,6 +1341,11 @@
   },
   {
     "name": "TextLink",
+    "kind": "component",
+    "exampleCode": "<TextLink href=\"https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR\">Open Paper library</TextLink>",
+    "usage": "import {TextLink} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<TextLink href=\"https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR\">Open Paper library</TextLink>",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "Inline teal link, underline on hover; external opens a new tab with an external-link icon.",
     "guidance": [
@@ -712,6 +1367,11 @@
   },
   {
     "name": "Tooltip",
+    "kind": "component",
+    "exampleCode": "<Tooltip content=\"Export bookings as a spreadsheet\"><Button>Export</Button></Tooltip>",
+    "usage": "import {Tooltip, Button} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Tooltip content=\"Export bookings as a spreadsheet\"><Button>Export</Button></Tooltip>",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "Dark hover/focus tooltip (12px) around a single focusable trigger. Includes its own provider (300ms delay).",
     "guidance": [
@@ -748,6 +1408,11 @@
   },
   {
     "name": "Divider",
+    "kind": "component",
+    "exampleCode": "<Divider />",
+    "usage": "import {Divider} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Divider />",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "1px hairline separator, horizontal or vertical.",
     "guidance": [
@@ -767,6 +1432,11 @@
   },
   {
     "name": "Stack",
+    "kind": "component",
+    "exampleCode": "<Stack direction=\"row\" gap=\"3\"><Button>Cancel</Button><Button variant=\"primary\">Save</Button></Stack>",
+    "usage": "import {Stack, Button} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Stack direction=\"row\" gap=\"3\"><Button>Cancel</Button><Button variant=\"primary\">Save</Button></Stack>",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "Flex layout for a few children inside a region: column (default) or row, gap from the space scale (--pt-space-*), align, justify, wrap; renders div, ul or ol. Classes only, no inline styles.",
     "guidance": [
@@ -808,6 +1478,11 @@
   },
   {
     "name": "VisuallyHidden",
+    "kind": "component",
+    "exampleCode": "<Button><Icon name=\"plus\" /><VisuallyHidden>Add traveler</VisuallyHidden></Button>",
+    "usage": "import {Icon, VisuallyHidden, Button} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Button><Icon name=\"plus\" /><VisuallyHidden>Add traveler</VisuallyHidden></Button>",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "Deprecated compatibility for frozen historical previews. For new work use a semantic element with the public pt-visually-hidden utility class. Screen-reader-only text (.pt-visually-hidden): a 1px clipped box anchored to its containing block's top-left, so hidden text inside scrolling tables, boards and matrices never grows the document.",
     "guidance": [
@@ -832,6 +1507,11 @@
   },
   {
     "name": "HeadingLevelProvider",
+    "kind": "component",
+    "exampleCode": "<HeadingLevelProvider level={3}><Heading>Traveler details</Heading></HeadingLevelProvider>",
+    "usage": "import {HeadingLevelProvider, Heading} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<HeadingLevelProvider level={3}><Heading>Traveler details</Heading></HeadingLevelProvider>",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "Sets the heading level that section components (FormSection) use inside a surface. Modal and Sheet already provide 3 because their title is the h2; useHeadingLevel() reads it.",
     "guidance": [
@@ -862,6 +1542,11 @@
   },
   {
     "name": "Heading",
+    "kind": "component",
+    "exampleCode": "<Heading>Traveler details</Heading>",
+    "usage": "import {Heading} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Heading>Traveler details</Heading>",
+    "types": [],
+    "returnType": null,
     "category": "Primitives",
     "description": "A heading that follows the nearest HeadingLevelProvider.",
     "guidance": [],
@@ -881,6 +1566,11 @@
   },
   {
     "name": "Field",
+    "kind": "component",
+    "exampleCode": "<Field label=\"Booking reference\" htmlFor=\"reference\" hint=\"Your agency reference.\"><input id=\"reference\" /></Field>",
+    "usage": "import {Field} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Field label=\"Booking reference\" htmlFor=\"reference\" hint=\"Your agency reference.\"><input id=\"reference\" /></Field>",
+    "types": [],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Label above a custom control, with hint or error (alert icon) below. Every labelled form component already renders one.",
     "guidance": [
@@ -948,6 +1638,16 @@
   },
   {
     "name": "TextField",
+    "kind": "component",
+    "exampleCode": "const [name, setName] = useState(\"Aarav Sharma\");\n<TextField label=\"Traveler name\" value={name} onValueChange={setName} leadingIcon=\"user\" hint=\"Match the name on their passport.\" />",
+    "usage": "import {useState} from \"react\";\nimport {TextField} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [name, setName] = useState(\"Aarav Sharma\");\n<TextField label=\"Traveler name\" value={name} onValueChange={setName} leadingIcon=\"user\" hint=\"Match the name on their passport.\" />",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Labelled single-line text input, 38px, radius sm, optional leading icon, prefix/suffix, mono value for codes.",
     "guidance": [
@@ -1032,6 +1732,11 @@
   },
   {
     "name": "TextArea",
+    "kind": "component",
+    "exampleCode": "<TextArea label=\"Special requests\" placeholder=\"Dietary needs, accessibility, or room preferences\" optional />",
+    "usage": "import {TextArea} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<TextArea label=\"Special requests\" placeholder=\"Dietary needs, accessibility, or room preferences\" optional />",
+    "types": [],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Labelled multi-line text input, vertically resizable by default; focused editors can disable resizing while long text scrolls inside the field. Same frame as TextField.",
     "guidance": [
@@ -1093,6 +1798,20 @@
   },
   {
     "name": "SelectField",
+    "kind": "component",
+    "exampleCode": "const [value, setValue] = useState(\"hotel\");\n<SelectField label=\"Service type\" value={value} onValueChange={setValue} options={[{value:\"hotel\",label:\"Hotel\"},{value:\"transport\",label:\"Transport\"}]} />",
+    "usage": "import {useState} from \"react\";\nimport {SelectField} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [value, setValue] = useState(\"hotel\");\n<SelectField label=\"Service type\" value={value} onValueChange={setValue} options={[{value:\"hotel\",label:\"Hotel\"},{value:\"transport\",label:\"Transport\"}]} />",
+    "types": [
+      {
+        "name": "SelectOption",
+        "definition": "export interface SelectOption {\n  value: string;\n  label: string;\n  description?: string;\n  icon?: IconName;\n  disabled?: boolean;\n  media?: { src: string };\n}"
+      },
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Labelled single choice from a short fixed list: Radix Select styled as a 38px input with chevron; options show icon, description and a check. Exports type SelectOption = { value, label, icon?, description?, disabled? } shared with Combobox and MultiSelect. Experimental SelectOption.media: { src } renders a decorative saved thumbnail with initials on load failure; photos win over option icons. Single-value triggers show a compact thumbnail; MultiSelect tags retain compact text labels.",
     "guidance": [
@@ -1186,6 +1905,20 @@
   },
   {
     "name": "Combobox",
+    "kind": "component",
+    "exampleCode": "const [value, setValue] = useState(\"\");\n<Combobox label=\"Service type\" value={value} onValueChange={setValue} options={[{value:\"hotel\",label:\"Hotel\"},{value:\"transport\",label:\"Transport\"}]} />",
+    "usage": "import {useState} from \"react\";\nimport {Combobox} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [value, setValue] = useState(\"\");\n<Combobox label=\"Service type\" value={value} onValueChange={setValue} options={[{value:\"hotel\",label:\"Hotel\"},{value:\"transport\",label:\"Transport\"}]} />",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      },
+      {
+        "name": "SelectOption",
+        "definition": "export interface SelectOption {\n  value: string;\n  label: string;\n  description?: string;\n  icon?: IconName;\n  disabled?: boolean;\n  media?: { src: string };\n}"
+      }
+    ],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Labelled single choice from a long list with a type-to-filter popover (Radix Popover). The trigger is a select-only combobox (role=combobox, aria-haspopup=listbox, aria-expanded, aria-controls) named by its label. Arrow keys move, Enter selects, Escape closes the list (not the surrounding dialog). Filtering matches label or description and ranks label-starts-with, then label-contains, then description-only matches. Experimental SelectOption.media: { src } renders a decorative saved thumbnail with initials on load failure; photos win over option icons. Single-value triggers show a compact thumbnail; MultiSelect tags retain compact text labels.",
     "guidance": [
@@ -1308,6 +2041,20 @@
   },
   {
     "name": "MultiSelect",
+    "kind": "component",
+    "exampleCode": "const [value, setValue] = useState<string[]>([\"hotel\"]);\n<MultiSelect label=\"Services offered\" value={value} onValueChange={setValue} options={[{value:\"hotel\",label:\"Hotel\"},{value:\"transport\",label:\"Transport\"}]} />",
+    "usage": "import {useState} from \"react\";\nimport {MultiSelect} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [value, setValue] = useState<string[]>([\"hotel\"]);\n<MultiSelect label=\"Services offered\" value={value} onValueChange={setValue} options={[{value:\"hotel\",label:\"Hotel\"},{value:\"transport\",label:\"Transport\"}]} />",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      },
+      {
+        "name": "SelectOption",
+        "definition": "export interface SelectOption {\n  value: string;\n  label: string;\n  description?: string;\n  icon?: IconName;\n  disabled?: boolean;\n  media?: { src: string };\n}"
+      }
+    ],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Labelled multiple choice from a long list: selected values show as removable Tags inside the control (first `max`, then \"+N\"); popover with filter and checkbox options. The trigger is role=combobox (aria-haspopup=listbox, aria-expanded, aria-controls) named by its label. Filtering matches label or description and ranks label-starts-with, then label-contains, then description-only matches. Experimental SelectOption.media: { src } renders a decorative saved thumbnail with initials on load failure; photos win over option icons. Single-value triggers show a compact thumbnail; MultiSelect tags retain compact text labels.",
     "guidance": [
@@ -1422,6 +2169,16 @@
   },
   {
     "name": "DateField",
+    "kind": "component",
+    "exampleCode": "<DateField label=\"Departure date\" defaultValue=\"2026-11-10\" />",
+    "usage": "import {DateField} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<DateField label=\"Departure date\" defaultValue=\"2026-11-10\" />",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Labelled civil date (YYYY-MM-DD), editable dd/mm/yyyy input, DS formatted date at rest and the shared DS MiniCalendar popover; no timezone conversion.",
     "guidance": [
@@ -1504,6 +2261,16 @@
   },
   {
     "name": "TimeField",
+    "kind": "component",
+    "exampleCode": "<TimeField label=\"Pickup time\" defaultValue=\"09:30\" />",
+    "usage": "import {TimeField} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<TimeField label=\"Pickup time\" defaultValue=\"09:30\" />",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Labelled civil local time HH:mm. Type an exact time or choose Hours (00–23) and Minutes (00–59) in two DS dropdowns with shared SelectField anatomy; bound/step-invalid choices are disabled; hour selection keeps the popover open and minute selection closes; 24-hour HH:mm display in every locale; hidden native validation retains min/max (including overnight windows), step and form name.",
     "guidance": [
@@ -1586,6 +2353,16 @@
   },
   {
     "name": "DateRangeField",
+    "kind": "component",
+    "exampleCode": "const [dates, setDates] = useState({from:\"2026-11-10\",to:\"2026-11-15\"});\n<DateRangeField label=\"Travel dates\" value={dates} onValueChange={setDates} />",
+    "usage": "import {useState} from \"react\";\nimport {DateRangeField} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [dates, setDates] = useState({from:\"2026-11-10\",to:\"2026-11-15\"});\n<DateRangeField label=\"Travel dates\" value={dates} onValueChange={setDates} />",
+    "types": [
+      {
+        "name": "DateRangeValue",
+        "definition": "export interface DateRangeValue {\n  from?: string;\n  to?: string;\n}"
+      }
+    ],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Owner-selected presets/stay popover is the default whole civil-date range. ONE DS calendar picks start then end with equally selected endpoints, quick Weekend/1 week presets, clear action and min/max bounds. Inline nights summary, two-endpoint, plain field and content-width compact toolbar variants remain available.",
     "guidance": [
@@ -1689,6 +2466,11 @@
   },
   {
     "name": "MoneyField",
+    "kind": "component",
+    "exampleCode": "const [amount, setAmount] = useState<number | null>(12500);\n<MoneyField label=\"Deposit amount\" value={amount} onValueChange={setAmount} currency=\"INR\" />",
+    "usage": "import {useState} from \"react\";\nimport {MoneyField} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [amount, setAmount] = useState<number | null>(12500);\n<MoneyField label=\"Deposit amount\" value={amount} onValueChange={setAmount} currency=\"INR\" />",
+    "types": [],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Labelled amount in major units (number | null): currency symbol prefix from Intl (₹ for INR), right-aligned mono value, digits + one decimal point only, lakh grouping (12,34,567.5) via @paryatech/format as digits are typed, with caret-preserving editing and decimal drafts.",
     "guidance": [
@@ -1775,6 +2557,11 @@
   },
   {
     "name": "PhoneField",
+    "kind": "component",
+    "exampleCode": "const [phone, setPhone] = useState(\"\");\nconst [code, setCode] = useState(\"+91\");\n<PhoneField label=\"Phone number\" value={phone} onValueChange={setPhone} countryCode={code} onCountryCodeChange={setCode} />",
+    "usage": "import {useState} from \"react\";\nimport {PhoneField} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [phone, setPhone] = useState(\"\");\nconst [code, setCode] = useState(\"+91\");\n<PhoneField label=\"Phone number\" value={phone} onValueChange={setPhone} countryCode={code} onCountryCodeChange={setCode} />",
+    "types": [],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Labelled phone number: searchable country-name and dial-code popover (+91 India default; UAE, Singapore, UK, US, Australia, Thailand, Malaysia, Nepal, Sri Lanka, Maldives) + tel input in one 38px control.",
     "guidance": [
@@ -1862,6 +2649,16 @@
   },
   {
     "name": "SearchField",
+    "kind": "component",
+    "exampleCode": "const [query, setQuery] = useState(\"\");\n<SearchField placeholder=\"Search bookings\" value={query} onValueChange={setQuery} />",
+    "usage": "import {useState} from \"react\";\nimport {SearchField} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [query, setQuery] = useState(\"\");\n<SearchField placeholder=\"Search bookings\" value={query} onValueChange={setQuery} />",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Unlabelled search box (placeholder doubles as aria-label): 36px (md) or 44px (lg), radius md, leading icon, clear × when non-empty, default / Kbd shortcut to focus the first visible search (ignores editable targets; respects active dialogs); Escape clears first — inside a Modal/Sheet/Popover the first Escape clears, the next one closes.",
     "guidance": [
@@ -1957,6 +2754,16 @@
   },
   {
     "name": "ChoiceChips",
+    "kind": "component",
+    "exampleCode": "const [value, setValue] = useState<string[]>([]);\n<ChoiceChips aria-label=\"Services\" value={value} onValueChange={setValue} options={[{value:\"hotel\",label:\"Hotel\"},{value:\"transport\",label:\"Transport\"}]} />",
+    "usage": "import {useState} from \"react\";\nimport {ChoiceChips} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [value, setValue] = useState<string[]>([]);\n<ChoiceChips aria-label=\"Services\" value={value} onValueChange={setValue} options={[{value:\"hotel\",label:\"Hotel\"},{value:\"transport\",label:\"Transport\"}]} />",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Soft-rect toggle chips (32px, radius sm, 12.5/600, optional icon). Pressed = pink soft bg + pink border + pink text. multiple (default) = group of aria-pressed buttons; multiple={false} = radiogroup with arrow keys.",
     "guidance": [
@@ -2012,6 +2819,16 @@
   },
   {
     "name": "SegmentedControl",
+    "kind": "component",
+    "exampleCode": "const [view, setView] = useState(\"list\");\n<SegmentedControl aria-label=\"View\" value={view} onValueChange={setView} options={[{value:\"list\",label:\"List\"},{value:\"board\",label:\"Board\"}]} />",
+    "usage": "import {useState} from \"react\";\nimport {SegmentedControl} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [view, setView] = useState(\"list\");\n<SegmentedControl aria-label=\"View\" value={view} onValueChange={setView} options={[{value:\"list\",label:\"List\"},{value:\"board\",label:\"Board\"}]} />",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "2–5 mutually exclusive modes in one subtle track (radius md, 2px inset); active segment white + shadow block; optional icon and mono count. radiogroup semantics, arrow keys select.",
     "guidance": [
@@ -2062,6 +2879,11 @@
   },
   {
     "name": "QuantityField",
+    "kind": "component",
+    "exampleCode": "const [rooms, setRooms] = useState(2);\n<QuantityField label=\"Rooms\" value={rooms} onValueChange={setRooms} min={1} max={8} unit={{one:\"room\",other:\"rooms\"}} />",
+    "usage": "import {useState} from \"react\";\nimport {QuantityField} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [rooms, setRooms] = useState(2);\n<QuantityField label=\"Rooms\" value={rooms} onValueChange={setRooms} min={1} max={8} unit={{one:\"room\",other:\"rooms\"}} />",
+    "types": [],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Labelled whole-number stepper: − / mono value / + with min, max and step. The input is a spinbutton (arrows, PageUp/Down, Home/End) and accepts typed digits, clamped on blur.",
     "guidance": [
@@ -2165,6 +2987,16 @@
   },
   {
     "name": "PaxSelector",
+    "kind": "component",
+    "exampleCode": "const [pax, setPax] = useState({adults:2,children:0,infants:0,childAges:[] as (number|null)[]});\n<PaxSelector label=\"Travelers\" value={pax} onValueChange={setPax} maxTotal={9} />",
+    "usage": "import {useState} from \"react\";\nimport {PaxSelector} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [pax, setPax] = useState({adults:2,children:0,infants:0,childAges:[] as (number|null)[]});\n<PaxSelector label=\"Travelers\" value={pax} onValueChange={setPax} maxTotal={9} />",
+    "types": [
+      {
+        "name": "PaxValue",
+        "definition": "export interface PaxValue {\n  adults: number;\n  children: number;\n  infants: number;\n  childAges: (number | null)[];\n  rooms?: number;\n  extraBeds?: number;\n}"
+      }
+    ],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Traveller-count field: a 38px trigger summarising the party (\"2 adults · 1 child (7) · 1 room\") that opens a popover with steppers for adults (min 1), children with one age select each (2–11), infants, and optionally rooms and extra beds.",
     "guidance": [
@@ -2242,6 +3074,16 @@
   },
   {
     "name": "FormSection",
+    "kind": "component",
+    "exampleCode": "<FormSection title=\"Traveler details\"><TextField label=\"Full name\" /></FormSection>",
+    "usage": "import {FormSection, TextField} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<FormSection title=\"Traveler details\"><TextField label=\"Full name\" /></FormSection>",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "One section of a sectioned form: intro column (--pt-size-form-intro) with a 34px (--pt-size-form-intro-tile) teal icon tile, Onest 15/700 title and 12.5px description, beside the fields. Hairline between sections; stacks to one column under 760px of its own width. Title is h2 on pages and h3 inside Modal/Sheet automatically.",
     "guidance": [
@@ -2293,6 +3135,11 @@
   },
   {
     "name": "FormGrid",
+    "kind": "component",
+    "exampleCode": "<FormGrid columns={2}><TextField label=\"First name\" /><TextField label=\"Last name\" /></FormGrid>",
+    "usage": "import {FormGrid, TextField} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<FormGrid columns={2}><TextField label=\"First name\" /><TextField label=\"Last name\" /></FormGrid>",
+    "types": [],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Responsive grid of fields: 1/2/3 columns (row gap 16, column gap 20). Fields with span=\"full\" span every column. Collapses 3→2 under 720px and to 1 under 480px of available width (container query).",
     "guidance": [
@@ -2325,6 +3172,11 @@
   },
   {
     "name": "FormFooter",
+    "kind": "component",
+    "exampleCode": "<FormFooter sticky={false}><Button>Cancel</Button><Button variant=\"primary\" type=\"submit\">Save traveler</Button></FormFooter>",
+    "usage": "import {Button, FormFooter} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<FormFooter sticky={false}><Button>Cancel</Button><Button variant=\"primary\" type=\"submit\">Save traveler</Button></FormFooter>",
+    "types": [],
+    "returnType": null,
     "category": "Forms & validation",
     "description": "Action row at the end of a form: right-aligned actions (Cancel, then primary), optional start slot. sticky (default) = 72px translucent bar with shadow sticky at the bottom of the page; sticky={false} on settings pages and inside Modal/Sheet footers. Under 560px of its own width the start slot stacks above the actions; actions keep natural width (a Cancel + primary pair splits the row).",
     "guidance": [
@@ -2362,6 +3214,11 @@
   },
   {
     "name": "Modal",
+    "kind": "component",
+    "exampleCode": "const [open, setOpen] = useState(false);\n<Modal open={open} onOpenChange={setOpen} title=\"Edit traveler\" trigger={<Button>Edit traveler</Button>}><TextField label=\"Email address\" type=\"email\" /></Modal>",
+    "usage": "import {useState} from \"react\";\nimport {Button, TextField, Modal} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [open, setOpen] = useState(false);\n<Modal open={open} onOpenChange={setOpen} title=\"Edit traveler\" trigger={<Button>Edit traveler</Button>}><TextField label=\"Email address\" type=\"email\" /></Modal>",
+    "types": [],
+    "returnType": null,
     "category": "Overlays & feedback",
     "description": "Medium content that fits without scrolling. Header → body → right-aligned footer. Source sm width 480px. Avoid deep previews and long forms → full page.",
     "guidance": [],
@@ -2418,6 +3275,11 @@
   },
   {
     "name": "ConfirmDialog",
+    "kind": "component",
+    "exampleCode": "const [open, setOpen] = useState(false);\n<ConfirmDialog open={open} onOpenChange={setOpen} title=\"Delete draft?\" message=\"This removes the draft booking.\" danger onConfirm={() => deleteDraft()} trigger={<Button>Delete draft</Button>} />",
+    "usage": "import {useState} from \"react\";\nimport {Button, ConfirmDialog} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [open, setOpen] = useState(false);\n<ConfirmDialog open={open} onOpenChange={setOpen} title=\"Delete draft?\" message=\"This removes the draft booking.\" danger onConfirm={() => deleteDraft()} trigger={<Button>Delete draft</Button>} />",
+    "types": [],
+    "returnType": null,
     "category": "Overlays & feedback",
     "description": "Small alert dialog asking the user to confirm one action: title question, consequence, Cancel + danger/primary confirm. Awaits an async onConfirm with a loading button and blocks dismissal until it settles.",
     "guidance": [
@@ -2503,6 +3365,11 @@
   },
   {
     "name": "Popover",
+    "kind": "component",
+    "exampleCode": "<Popover label=\"Booking notes\" trigger={<Button>Notes</Button>}><p>Window seat requested.</p></Popover>",
+    "usage": "import {Button, Popover} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Popover label=\"Booking notes\" trigger={<Button>Notes</Button>}><p>Window seat requested.</p></Popover>",
+    "types": [],
+    "returnType": null,
     "category": "Overlays & feedback",
     "description": "Anchored panel for a small task beside its trigger, with optional title header (close button) and a footer band. Escape and outside click close; focus returns to the trigger by default. Optional lifecycle handlers support a compact picker beside an external search without moving that input into the panel.",
     "guidance": [
@@ -2561,6 +3428,20 @@
   },
   {
     "name": "Menu",
+    "kind": "component",
+    "exampleCode": "<Menu label=\"Booking actions\" trigger={<Button>Actions</Button>} items={[{id:\"copy\",label:\"Copy reference\",icon:\"copy\",onSelect:copyReference}]} />",
+    "usage": "import {Button, Menu} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Menu label=\"Booking actions\" trigger={<Button>Actions</Button>} items={[{id:\"copy\",label:\"Copy reference\",icon:\"copy\",onSelect:copyReference}]} />",
+    "types": [
+      {
+        "name": "MenuItem",
+        "definition": "export interface MenuItem {\n  id: string;\n  label: string;\n  icon?: IconName;\n  disabled?: boolean;\n  danger?: boolean;\n  onSelect: () => void;\n}"
+      },
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Overlays & feedback",
     "description": "Action menu from a trigger. Items are data (MenuItem[]): icon + label, optional description (account-style rich rows), shortcut hint, trailing chevron for rows that open another page (`navigates`), labels as overline group headings, checkbox items and radio groups with a leading check column, and an optional non-interactive `header` (identity block). Destructive items are always moved to a final red group behind an automatic separator.",
     "guidance": [
@@ -2604,6 +3485,16 @@
   },
   {
     "name": "toast",
+    "kind": "utility",
+    "exampleCode": "toast(\"Booking confirmed\", {tone:\"success\", description:\"The traveler has been notified.\"});\n// Mount <Toaster /> once inside your ThemeProvider.",
+    "usage": "import {toast, Toaster, ThemeProvider} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\ntoast(\"Booking confirmed\", {tone:\"success\", description:\"The traveler has been notified.\"});\n// Mount <Toaster /> once inside your ThemeProvider.",
+    "types": [
+      {
+        "name": "ToastMessage",
+        "definition": "export interface ToastMessage {\n  id: string;\n  title: string;\n  description?: string;\n  tone?: \"success\" | \"danger\" | \"info\";\n  duration?: number;\n}"
+      }
+    ],
+    "returnType": "string",
     "category": "Overlays & feedback",
     "description": "Imperative feedback after an action: toast({ title, description?, tone?, action? }). Renders in the Toaster (bottom-right, 360px), auto-dismisses after 5s, pauses on hover/focus, announced politely (danger assertively).",
     "guidance": [
@@ -2627,10 +3518,26 @@
     "status": "experimental",
     "sourcePath": "src/components/overlays.tsx",
     "sourceLine": 206,
-    "props": []
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "options",
+        "type": "Omit<ToastMessage, \"id\" | \"title\">",
+        "required": false
+      }
+    ]
   },
   {
     "name": "Toaster",
+    "kind": "component",
+    "exampleCode": "<ThemeProvider theme=\"light\"><App /><Toaster /></ThemeProvider>",
+    "usage": "import {Toaster, ThemeProvider} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<ThemeProvider theme=\"light\"><App /><Toaster /></ThemeProvider>",
+    "types": [],
+    "returnType": null,
     "category": "Overlays & feedback",
     "description": "Mount point that renders toasts raised with toast(). Portalled bottom-right stack at --pt-z-toast.",
     "guidance": [
@@ -2652,6 +3559,11 @@
   },
   {
     "name": "PageHeader",
+    "kind": "component",
+    "exampleCode": "<PageHeader title=\"Bookings\" count={24} description=\"Manage every journey in one place.\" actions={<Button variant=\"primary\" leadingIcon=\"plus\">Create booking</Button>} />",
+    "usage": "import {Button, PageHeader} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<PageHeader title=\"Bookings\" count={24} description=\"Manage every journey in one place.\" actions={<Button variant=\"primary\" leadingIcon=\"plus\">Create booking</Button>} />",
+    "types": [],
+    "returnType": null,
     "category": "Content & records",
     "description": "Import",
     "guidance": [],
@@ -2691,6 +3603,11 @@
   },
   {
     "name": "Panel",
+    "kind": "component",
+    "exampleCode": "<Panel title=\"Booking summary\" description=\"All amounts include taxes.\"><Money value={248000} /></Panel>",
+    "usage": "import {Panel, Money} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Panel title=\"Booking summary\" description=\"All amounts include taxes.\"><Money value={248000} /></Panel>",
+    "types": [],
+    "returnType": null,
     "category": "Content & records",
     "description": "Bordered section card (radius lg) with a raised head (Onest 15/700 title, mono meta, actions), a 16/20 body or full-width body, and an optional footer disclosure. An EmptyState placed directly in the body (or as ItemList/DataTable `empty`) renders bare — the panel is the card.",
     "guidance": [
@@ -2734,6 +3651,16 @@
   },
   {
     "name": "RecordHeader",
+    "kind": "component",
+    "exampleCode": "<RecordHeader title=\"Mehta family · Bali\" code=\"BK-1042\" description=\"10–15 November 2026\" status={<StatusChip tone=\"success\">Confirmed</StatusChip>} />",
+    "usage": "import {StatusChip, RecordHeader} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<RecordHeader title=\"Mehta family · Bali\" code=\"BK-1042\" description=\"10–15 November 2026\" status={<StatusChip tone=\"success\">Confirmed</StatusChip>} />",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Content & records",
     "description": "Two-line record header: title and optional tags, then region/parent region and record metadata. Current headers omit status; deprecated status accepts frozen preview content only. Detail edit actions use tertiary Buttons. Optional moreActions renders a contextual ghost kebab beside tertiary Edit; empty/all-disabled actions omit it.",
     "guidance": [
@@ -2799,6 +3726,16 @@
   },
   {
     "name": "IconText",
+    "kind": "component",
+    "exampleCode": "<IconText icon=\"map-pin\">Bali, Indonesia</IconText>",
+    "usage": "import {IconText} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<IconText icon=\"map-pin\">Bali, Indonesia</IconText>",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Content & records",
     "description": "Inline context icon + text (inherits size and colour) for meta rows: location with map-pin, date with calendar.",
     "guidance": [
@@ -2831,6 +3768,11 @@
   },
   {
     "name": "PersonInline",
+    "kind": "component",
+    "exampleCode": "<PersonInline name=\"Aarav Sharma\" />",
+    "usage": "import {PersonInline} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<PersonInline name=\"Aarav Sharma\" />",
+    "types": [],
+    "returnType": null,
     "category": "Content & records",
     "description": "Avatar (xs 20 / sm 26, person-pink by default) + name 13.5/600 (+ optional micro subtitle) inline, for detail lists: Owner, Assignee, Created by. Decorative avatar; the name is the text.",
     "guidance": [
@@ -2863,6 +3805,11 @@
   },
   {
     "name": "Money",
+    "kind": "component",
+    "exampleCode": "<Money value={248000} currency=\"INR\" />",
+    "usage": "import {Money} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Money value={248000} currency=\"INR\" />",
+    "types": [],
+    "returnType": null,
     "category": "Content & records",
     "description": "Money in mono tabular figures with Indian grouping via @paryatech/format (₹4,20,100); paise only when non-zero unless decimals=\"always\"; success/danger/muted tones; sizes sm (12) · md (13.5, default) · lg (15) · xl (fluid 18–22) from the type scale; compact notation (₹4.2L, exact amount in the tooltip and for screen readers); struck for a previous price (<s>, announced \"was ₹…\"). Experimental `masked`: \"••••\" announced \"Amount hidden\" for a hide-amounts eye button (privacy screen, not cost hiding).",
     "guidance": [
@@ -2915,6 +3862,11 @@
   },
   {
     "name": "DateText",
+    "kind": "component",
+    "exampleCode": "<DateText value=\"2026-11-10\" format=\"long\" />",
+    "usage": "import {DateText} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<DateText value=\"2026-11-10\" format=\"long\" />",
+    "types": [],
+    "returnType": null,
     "category": "Content & records",
     "description": "A civil date (YYYY-MM-DD, never timezone-shifted) or an instant (IST) in a <time> element: '12 Dec 2026', with optional time or relative ('3 months ago').",
     "guidance": [
@@ -2959,6 +3911,11 @@
   },
   {
     "name": "DescriptionList",
+    "kind": "component",
+    "exampleCode": "<DescriptionList items={[{label:\"Destination\",value:\"Bali, Indonesia\"},{label:\"Travelers\",value:\"2 adults\"}]} />",
+    "usage": "import {DescriptionList} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<DescriptionList items={[{label:\"Destination\",value:\"Bali, Indonesia\"},{label:\"Travelers\",value:\"2 adults\"}]} />",
+    "types": [],
+    "returnType": null,
     "category": "Content & records",
     "description": "Ruled key/value grid (dl/dt/dd): quiet sentence-case keys and strong values that can be nodes (StatusBadge, Avatar + name, mono IDs).",
     "guidance": [
@@ -2992,6 +3949,11 @@
   },
   {
     "name": "SummaryStrip",
+    "kind": "component",
+    "exampleCode": "<SummaryStrip items={[{label:\"Total bookings\",value:\"128\"},{label:\"Booking value\",value:<Money value={3240000}/>}]} />",
+    "usage": "import {Money, SummaryStrip} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<SummaryStrip items={[{label:\"Total bookings\",value:\"128\"},{label:\"Booking value\",value:<Money value={3240000}/>}]} />",
+    "types": [],
+    "returnType": null,
     "category": "Content & records",
     "description": "Deprecated compatibility for frozen historical previews. For new work use KpiStrip with real scoped navigation. Ruled KPI strip: 48px pink icon tiles, overline labels (never clipped), Onest/mono values coloured by tone, hints. Columns follow the strip's own width: 4 → 2 at ≤ 900px; ≤ 620px every strip is 2 compact columns (small inline icon); 1 column only at ≤ 340px — an 8-item strip is 4 short rows on a phone. Bleeds to the page edges inside RecordOverviewLayout and DashboardPageTemplate.",
     "guidance": [
@@ -3017,6 +3979,16 @@
   },
   {
     "name": "Banner",
+    "kind": "component",
+    "exampleCode": "<Banner tone=\"warning\" title=\"Payment due soon\">Collect the balance before 5 November.</Banner>",
+    "usage": "import {Banner} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Banner tone=\"warning\" title=\"Payment due soon\">Collect the balance before 5 November.</Banner>",
+    "types": [
+      {
+        "name": "StatusTone",
+        "definition": "export type StatusTone = \"success\" | \"warning\" | \"danger\" | \"info\" | \"neutral\";"
+      }
+    ],
+    "returnType": null,
     "category": "Content & records",
     "description": "Deprecated compatibility for frozen historical previews. For new work use toast or accessible inline alert/status text. Flash banner with a 3px tone rule on a tinted status surface: title, optional body, one action and Dismiss. role=status (alert for danger). Below 560px of its own width (phones, 360px rails) the action moves under the text so the title keeps the full width.",
     "guidance": [
@@ -3057,6 +4029,16 @@
   },
   {
     "name": "EmptyState",
+    "kind": "component",
+    "exampleCode": "<EmptyState title=\"No bookings yet\" description=\"Create a booking to start planning your first journey.\" icon=\"bookings\" action={<Button variant=\"primary\">Create booking</Button>} />",
+    "usage": "import {Button, EmptyState} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<EmptyState title=\"No bookings yet\" description=\"Create a booking to start planning your first journey.\" icon=\"bookings\" action={<Button variant=\"primary\">Create booking</Button>} />",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Tables & collections",
     "description": "Centered bordered card with a 44px context-icon tile, Onest title, one-line description and actions. Variants: first-use, no-results (\"Clear filters\"), error (danger tile, \"Try again\"), permission (lock). size sm for panels.",
     "guidance": [
@@ -3101,6 +4083,16 @@
   },
   {
     "name": "ItemList",
+    "kind": "component",
+    "exampleCode": "<ItemList items={[{id:\"flight\",title:\"Flight to Denpasar\",description:\"10 November · 09:30\",icon:\"plane\"}]} />",
+    "usage": "import {ItemList} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<ItemList items={[{id:\"flight\",title:\"Flight to Denpasar\",description:\"10 November · 09:30\",icon:\"plane\"}]} />",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Content & records",
     "description": "Header-less ruled rows for rails and panels: [16px muted icon] label 13.5/500 (+ quiet meta line) · right-aligned value (mono optional, blank → '—') · one trailing action (IconButton xs ghost). 48px min rows, hairlines, 20px panel gutter; the value drops under the label below 320px. Values stay aligned when only some rows have actions. Long values (account numbers, e-mails) wrap inside a column capped at 60% of the row, so they never squeeze the label.",
     "guidance": [
@@ -3129,6 +4121,11 @@
   },
   {
     "name": "ContactList",
+    "kind": "component",
+    "exampleCode": "<ContactList items={[{label:\"Email\",value:\"aarav@example.com\",type:\"email\"}]} />",
+    "usage": "import {ContactList} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<ContactList items={[{label:\"Email\",value:\"aarav@example.com\",type:\"email\"}]} />",
+    "types": [],
+    "returnType": null,
     "category": "Content & records",
     "description": "People to reach for a record: avatar, name, role, Primary tag and Call / Email / WhatsApp pills (tel:, mailto:, wa.me), with a 'View all N contacts' disclosure.",
     "guidance": [
@@ -3157,6 +4154,11 @@
   },
   {
     "name": "Steps",
+    "kind": "component",
+    "exampleCode": "<Steps current=\"payment\" steps={[{id:\"details\",label:\"Details\"},{id:\"payment\",label:\"Payment\"},{id:\"confirmed\",label:\"Confirmed\"}]} />",
+    "usage": "import {Steps} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Steps current=\"payment\" steps={[{id:\"details\",label:\"Details\"},{id:\"payment\",label:\"Payment\"},{id:\"confirmed\",label:\"Confirmed\"}]} />",
+    "types": [],
+    "returnType": null,
     "category": "Content & records",
     "description": "Owner-selected bounded checklist rail (cards) is the default: numbered upcoming/current steps, checked completed steps, a completion count and the current upload/action area. Explicit numbered instructions, horizontal wizard and compact segmented variants remain available.",
     "guidance": [
@@ -3192,6 +4194,11 @@
   },
   {
     "name": "Checklist",
+    "kind": "component",
+    "exampleCode": "<Checklist items={documents} onCheckedChange={updateDocument} />",
+    "usage": "import {Checklist} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Checklist items={documents} onCheckedChange={updateDocument} />",
+    "types": [],
+    "returnType": null,
     "category": "Content & records",
     "description": "Setup checklist: title with a right-aligned '2 of 5 done' count, full-width progress bar under the header, check-circle / circle-dashed items and an action per open item. Framed as its own card by default (no Panel needed); inside a Panel body the frame drops.",
     "guidance": [
@@ -3225,6 +4232,11 @@
   },
   {
     "name": "FileDropzone",
+    "kind": "component",
+    "exampleCode": "<FileDropzone label=\"Upload traveler documents\" accept=\".pdf,image/*\" maxBytes={5242880} onFiles={handleFiles} onError={handleError} />",
+    "usage": "import {FileDropzone} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<FileDropzone label=\"Upload traveler documents\" accept=\".pdf,image/*\" maxBytes={5242880} onFiles={handleFiles} onError={handleError} />",
+    "types": [],
+    "returnType": null,
     "category": "Content & records",
     "description": "Single-file drop target: dashed card with upload icon, 'Drop file or Browse' and accepted-types hint; selected state shows name, 'Ready to import · size', Replace and remove. Rejects files outside accept.",
     "guidance": [
@@ -3288,6 +4300,20 @@
   },
   {
     "name": "TabBar",
+    "kind": "component",
+    "exampleCode": "const [tab, setTab] = useState(\"bookings\");\n<TabBar aria-label=\"Customer records\" value={tab} onValueChange={setTab} items={[{value:\"bookings\",label:\"Bookings\",count:12,content:<BookingList/>},{value:\"travelers\",label:\"Travelers\",content:<TravelerList/>}]} />",
+    "usage": "import {useState} from \"react\";\nimport {TabBar} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [tab, setTab] = useState(\"bookings\");\n<TabBar aria-label=\"Customer records\" value={tab} onValueChange={setTab} items={[{value:\"bookings\",label:\"Bookings\",count:12,content:<BookingList/>},{value:\"travelers\",label:\"Travelers\",content:<TravelerList/>}]} />",
+    "types": [
+      {
+        "name": "TabItem",
+        "definition": "export interface TabItem {\n  value: string;\n  label: string;\n  icon?: IconName;\n  count?: number;\n  disabled?: boolean;\n  content?: ReactNode;\n}"
+      },
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Shell & navigation",
     "description": "Use for page and record sections. Pink marks selection in both primary (44px) and secondary (40px). Avoid settings section forms → SettingsPageTemplate nav.",
     "guidance": [],
@@ -3334,6 +4360,11 @@
   },
   {
     "name": "Breadcrumbs",
+    "kind": "component",
+    "exampleCode": "<Breadcrumbs items={[{label:\"Bookings\",href:\"/bookings\"},{label:\"BK-1042\"}]} />",
+    "usage": "import {Breadcrumbs} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<Breadcrumbs items={[{label:\"Bookings\",href:\"/bookings\"},{label:\"BK-1042\"}]} />",
+    "types": [],
+    "returnType": null,
     "category": "Shell & navigation",
     "description": "\"CRM › Vendors\" trail in the topbar: 13.5px, links secondary, current page 600 with aria-current=page. When the trail does not fit, crumbs collapse from the front into a \"…\" button whose menu lists (and navigates to) the hidden crumbs; the parent goes before the current page is truncated, so the current page always gets the most room.",
     "guidance": [
@@ -3365,6 +4396,11 @@
   },
   {
     "name": "BackButton",
+    "kind": "component",
+    "exampleCode": "<BackButton onClick={() => history.back()}>Back to bookings</BackButton>",
+    "usage": "import {BackButton} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<BackButton onClick={() => history.back()}>Back to bookings</BackButton>",
+    "types": [],
+    "returnType": null,
     "category": "Shell & navigation",
     "description": "36px bordered chevron-left button left of the breadcrumbs on record, detail and create pages.",
     "guidance": [
@@ -3397,6 +4433,11 @@
   },
   {
     "name": "Pagination",
+    "kind": "component",
+    "exampleCode": "const [page, setPage] = useState(1);\n<Pagination page={page} pageCount={5} onPageChange={setPage} />",
+    "usage": "import {useState} from \"react\";\nimport {Pagination, pageCount} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nconst [page, setPage] = useState(1);\n<Pagination page={page} pageCount={5} onPageChange={setPage} />",
+    "types": [],
+    "returnType": null,
     "category": "Shell & navigation",
     "description": "30px mono pager: previous/next chevrons, pages with ellipses (1 … 4 5 6 … 20), pink current page with aria-current=page.",
     "guidance": [
@@ -3443,6 +4484,24 @@
   },
   {
     "name": "DataTable",
+    "kind": "component",
+    "exampleCode": "<DataTable rows={bookings} getRowId={row => row.id} caption=\"Recent bookings\"\n  columns={[{id:\"name\",header:\"Booking\",render:row=>row.name},{id:\"total\",header:\"Total\",align:\"right\",render:row=><Money value={row.amount}/>}]} />",
+    "usage": "import {Money, DataTable} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<DataTable rows={bookings} getRowId={row => row.id} caption=\"Recent bookings\"\n  columns={[{id:\"name\",header:\"Booking\",render:row=>row.name},{id:\"total\",header:\"Total\",align:\"right\",render:row=><Money value={row.amount}/>}]} />",
+    "types": [
+      {
+        "name": "TableColumn",
+        "definition": "export interface TableColumn<T> {\n  id: string;\n  header: string;\n  render: (row: T) => ReactNode;\n  sortValue?: (row: T) => SortValue;\n  align?: \"left\" | \"right\";\n}"
+      },
+      {
+        "name": "SortValue",
+        "definition": "export type SortValue = string | number | Date | null | undefined;"
+      },
+      {
+        "name": "SortState",
+        "definition": "export interface SortState {\n  id: string;\n  direction: \"asc\" | \"desc\";\n}"
+      }
+    ],
+    "returnType": null,
     "category": "Tables & collections",
     "description": "A semantic table with sorting, controlled row selection, and responsive overflow.",
     "guidance": [],
@@ -3451,7 +4510,7 @@
     "states": [],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 94,
+    "sourceLine": 128,
     "props": [
       {
         "name": "rows",
@@ -3487,11 +4546,26 @@
         "name": "emptyTitle",
         "type": "string",
         "required": false
+      },
+      {
+        "name": "sort",
+        "type": "SortState | null",
+        "required": false
+      },
+      {
+        "name": "onSortChange",
+        "type": "(sort: SortState) => void",
+        "required": false
       }
     ]
   },
   {
     "name": "EntityCell",
+    "kind": "component",
+    "exampleCode": "<EntityCell name=\"Mehta family · Bali\" description=\"BK-1042\" />",
+    "usage": "import {EntityCell} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<EntityCell name=\"Mehta family · Bali\" description=\"BK-1042\" />",
+    "types": [],
+    "returnType": null,
     "category": "Tables & collections",
     "description": "Two-line primary entity cell: optional rounded media, title with inline tags, and one secondary line combining mono code and subtitle.",
     "guidance": [
@@ -3509,7 +4583,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 5,
+    "sourceLine": 37,
     "props": [
       {
         "name": "name",
@@ -3535,6 +4609,11 @@
   },
   {
     "name": "PersonCell",
+    "kind": "component",
+    "exampleCode": "<PersonCell name=\"Aarav Sharma\" description=\"Booking owner\" />",
+    "usage": "import {PersonCell} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<PersonCell name=\"Aarav Sharma\" description=\"Booking owner\" />",
+    "types": [],
+    "returnType": null,
     "category": "Tables & collections",
     "description": "Owner / assignee / contact cell: 26px person avatar + name (13.5/600) with optional inline tags + optional 11.5px sub-line.",
     "guidance": [
@@ -3551,7 +4630,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 32,
+    "sourceLine": 64,
     "props": [
       {
         "name": "name",
@@ -3572,6 +4651,11 @@
   },
   {
     "name": "StackCell",
+    "kind": "component",
+    "exampleCode": "<StackCell primary=\"Bali, Indonesia\" secondary=\"5 nights · 2 adults\" />",
+    "usage": "import {StackCell} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<StackCell primary=\"Bali, Indonesia\" secondary=\"5 nights · 2 adults\" />",
+    "types": [],
+    "returnType": null,
     "category": "Tables & collections",
     "description": "Two-line cell: primary 13.5px over a 12.5px muted secondary line; mono option for references.",
     "guidance": [
@@ -3588,7 +4672,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 49,
+    "sourceLine": 81,
     "props": [
       {
         "name": "primary",
@@ -3604,6 +4688,11 @@
   },
   {
     "name": "MoneyCell",
+    "kind": "component",
+    "exampleCode": "<MoneyCell value={248000} due={186000} />",
+    "usage": "import {MoneyCell} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<MoneyCell value={248000} due={186000} />",
+    "types": [],
+    "returnType": null,
     "category": "Tables & collections",
     "description": "Right-aligned mono amount via @paryatech/format (\"₹3,00,000\", Indian grouping, no \".00\") with an optional note line (\"₹30,000 due\").",
     "guidance": [
@@ -3621,7 +4710,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 63,
+    "sourceLine": 95,
     "props": [
       {
         "name": "value",
@@ -3657,6 +4746,11 @@
   },
   {
     "name": "DateCell",
+    "kind": "component",
+    "exampleCode": "<DateCell value=\"2026-11-10\" note=\"Departure\" />",
+    "usage": "import {DateCell} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<DateCell value=\"2026-11-10\" note=\"Departure\" />",
+    "types": [],
+    "returnType": null,
     "category": "Tables & collections",
     "description": "Mono date \"12 Dec 2026\" or range \"12–16 Dec 2026\" (`to`) via @paryatech/format; civil YYYY-MM-DD dates never shift by timezone. Optional calendar icon, danger tone for overdue.",
     "guidance": [
@@ -3675,7 +4769,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 75,
+    "sourceLine": 107,
     "props": [
       {
         "name": "value",
@@ -3691,6 +4785,11 @@
   },
   {
     "name": "TableFooter",
+    "kind": "component",
+    "exampleCode": "<TableFooter page={1} pageSize={10} total={3} onPageChange={setPage} />",
+    "usage": "import {TableFooter} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<TableFooter page={1} pageSize={10} total={3} onPageChange={setPage} />",
+    "types": [],
+    "returnType": null,
     "category": "Tables & collections",
     "description": "Footer under a DataTable: mono \"Showing 1–12 of 12 vendors\" (en-IN numbers, \"No vendors\" at 0) + Pagination on the right. `sticky` docks it to the bottom of its scroll parent (surface background, top rule) for record tabs.",
     "guidance": [
@@ -3708,7 +4807,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 241,
+    "sourceLine": 273,
     "props": [
       {
         "name": "page",
@@ -3734,6 +4833,11 @@
   },
   {
     "name": "BulkActionBar",
+    "kind": "component",
+    "exampleCode": "<BulkActionBar count={3} onClear={clearSelection}><Button onClick={exportSelected}>Export</Button></BulkActionBar>",
+    "usage": "import {Button, BulkActionBar} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<BulkActionBar count={3} onClear={clearSelection}><Button onClick={exportSelected}>Export</Button></BulkActionBar>",
+    "types": [],
+    "returnType": null,
     "category": "Tables & collections",
     "description": "Pink 56px band shown while rows are selected: \"2 vendors selected\" + bulk actions + Clear. Sticky above the TableFooter; gutter-aligned; count announced politely.",
     "guidance": [
@@ -3750,7 +4854,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 261,
+    "sourceLine": 295,
     "props": [
       {
         "name": "count",
@@ -3771,6 +4875,16 @@
   },
   {
     "name": "StageLabel",
+    "kind": "component",
+    "exampleCode": "<StageLabel tone=\"warning\">Awaiting confirmation</StageLabel>",
+    "usage": "import {StageLabel} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<StageLabel tone=\"warning\">Awaiting confirmation</StageLabel>",
+    "types": [
+      {
+        "name": "StatusTone",
+        "definition": "export type StatusTone = \"success\" | \"warning\" | \"danger\" | \"info\" | \"neutral\";"
+      }
+    ],
+    "returnType": null,
     "category": "Boards & workflow",
     "description": "8px tone dot + label for a workspace-configurable stage (New, Quoting, Options sent, Vouchers pending). md 13.5/600 for column headers; sm 12.5/500 for table cells and previews. Takes the board column ({ label, tone }).",
     "guidance": [
@@ -3804,6 +4918,11 @@
   },
   {
     "name": "PriorityDot",
+    "kind": "component",
+    "exampleCode": "<PriorityDot priority=\"high\" />",
+    "usage": "import {PriorityDot} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<PriorityDot priority=\"high\" />",
+    "types": [],
+    "returnType": null,
     "category": "Boards & workflow",
     "description": "Accessible named priority marker. Default preserves8px urgent/high/medium/low vocabulary. Card appearance uses a solid10px marker and is selected by standard KanbanCard; name and tooltip always identify the level.",
     "guidance": [
@@ -3831,6 +4950,16 @@
   },
   {
     "name": "KanbanSignal",
+    "kind": "component",
+    "exampleCode": "<KanbanSignal icon=\"users\">2 adults</KanbanSignal>",
+    "usage": "import {KanbanSignal} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<KanbanSignal icon=\"users\">2 adults</KanbanSignal>",
+    "types": [
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
     "category": "Boards & workflow",
     "description": "Named due/age/flag signal with complete accessible date/state. Default preserves StatusChip semantics and appearance; appearance=\"card\" is a24px rounded reference capsule with pale upcoming due and solid overdue. describeKanbanSignal keeps the same classification for tables and filters.",
     "guidance": [
@@ -3866,6 +4995,11 @@
   },
   {
     "name": "KanbanCard",
+    "kind": "component",
+    "exampleCode": "<KanbanCard title=\"Mehta family · Bali\" code=\"Q-1042\" priority=\"high\" description=\"5 nights · 2 adults\" footer={<KanbanSignal icon=\"calendar\">10 November</KanbanSignal>} />",
+    "usage": "import {KanbanSignal, KanbanCard} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<KanbanCard title=\"Mehta family · Bali\" code=\"Q-1042\" priority=\"high\" description=\"5 nights · 2 adults\" footer={<KanbanSignal icon=\"calendar\">10 November</KanbanSignal>} />",
+    "types": [],
+    "returnType": null,
     "category": "Boards & workflow",
     "description": "Standard reference-led card with natural content height: code/priority, one resting title line that expands fully in normal flow,24px deadline and structured related-record capsule, mono short age, rounded chip24 assignees with accessible overflow. Related contextLabel is separate from label and native href. Pointer preview follows50ms entry/300ms expansion/1500ms hold/300ms collapse; focus and touch retain full text, reduced motion is immediate. Rich/compact retain their supported anatomy. Inside Board canonical source IDs, Move/Open/Pin menus, keyboard dragging, async pending and readOnly remain meaningful. Current DS Public Sans is the owner-selected font adaptation.",
     "guidance": [
@@ -3924,6 +5058,11 @@
   },
   {
     "name": "PriceChip",
+    "kind": "component",
+    "exampleCode": "<PriceChip value={12500} />",
+    "usage": "import {PriceChip} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<PriceChip value={12500} />",
+    "types": [],
+    "returnType": null,
     "category": "Pricing & finance",
     "description": "A price with its change against a previous version: mono INR amount + a toned pill \"↑ 8.6%\" / \"↓ 4.2%\" / \"–\" / \"New\". Tone follows goodDirection (default \"down\" for vendor costs: up = warning, down = success). Screen readers hear \"up 8.6% from v3 (₹7,000)\". Internal pricing only.",
     "guidance": [
@@ -3973,6 +5112,11 @@
   },
   {
     "name": "SeasonHeader",
+    "kind": "component",
+    "exampleCode": "<SeasonHeader name=\"Winter season\" from=\"2026-11-01\" to=\"2027-02-28\" />",
+    "usage": "import {SeasonHeader} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\n<SeasonHeader name=\"Winter season\" from=\"2026-11-01\" to=\"2027-02-28\" />",
+    "types": [],
+    "returnType": null,
     "category": "Pricing & finance",
     "description": "Season name and dates on one horizontal line, with a tone swatch (peak/high/shoulder/low), compact mono date-range chips (\"20 Dec – 5 Jan\") and a red blackout count; full dates with years, blackout reasons and the optional season rule are in accessible text and hover details. It is RateMatrix's column-group header; use it alone where a season is labelled outside the grid (quote lines, test-rate results).",
     "guidance": [

@@ -1,6 +1,6 @@
 # Building with Parya
 
-This is a new React 19 / TypeScript implementation of the Paryatech Paper library. All components are experimental at version 0.1.0. Do not claim production readiness, WCAG conformance, or parity with historical Paryatech code.
+This is a new React 19 / TypeScript implementation of the Paryatech Paper library. All components are experimental at version 0.2.0. Do not claim production readiness, WCAG conformance, or parity with historical Paryatech code.
 
 ## Consumer instructions
 
@@ -8,6 +8,7 @@ This is a new React 19 / TypeScript implementation of the Paryatech Paper librar
 - Wrap the application in `ThemeProvider` and mount `Toaster` once if using notifications.
 - Use the generated `catalog.json`, `/api/components.json`, `/llms.txt`, and `/docs/<Component>.md` to discover supported components and exact props.
 - Paper contains more designs than this release implements. A design-only entry is not an importable React component.
+- List utilities are functions, not components. Apply search, filters and global sorting before pagination. Reset the page when search/filter/sort changes. Use the same SortState for SortMenu and DataTable.
 - Use semantic `--pt-*` tokens. Teal means actions/work; pink means selection/person-related emphasis.
 - Use visible field labels. Icon buttons need an accessible name. Preserve Radix keyboard and focus behavior.
 - Default formats: `en-IN`, `INR`, `Asia/Kolkata`. Keep monetary calculations and booking business rules in application code.

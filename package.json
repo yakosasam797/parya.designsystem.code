@@ -1,6 +1,6 @@
 {
   "name": "@parya/design-system",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Parya React design system, built from the Paryatech Paper library",
   "type": "module",
   "license": "UNLICENSED",

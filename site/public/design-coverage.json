@@ -1011,7 +1011,7 @@
       "Location / dark"
     ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=3D6-0",
-    "status": "design-only"
+    "status": "experimental"
   },
   {
     "name": "PersonCell",
@@ -1186,7 +1186,7 @@
       "Compact icon trigger / dark"
     ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=8XV-0",
-    "status": "design-only"
+    "status": "experimental"
   },
   {
     "name": "FilterChips",
@@ -1207,7 +1207,7 @@
       "Applied filters / dark"
     ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=94W-0",
-    "status": "design-only"
+    "status": "experimental"
   },
   {
     "name": "SortMenu",
@@ -1227,7 +1227,7 @@
       "Sort fields and direction / dark"
     ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9G2-0",
-    "status": "design-only"
+    "status": "experimental"
   },
   {
     "name": "filterRows",
@@ -1245,7 +1245,7 @@
       "filterRows / public contract"
     ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9K7-0",
-    "status": "design-only"
+    "status": "experimental"
   },
   {
     "name": "searchRows",
@@ -1263,7 +1263,7 @@
       "searchRows / public contract"
     ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9L6-0",
-    "status": "design-only"
+    "status": "experimental"
   },
   {
     "name": "sortRows",
@@ -1281,7 +1281,7 @@
       "sortRows / public contract"
     ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9OC-0",
-    "status": "design-only"
+    "status": "experimental"
   },
   {
     "name": "paginate",
@@ -1299,7 +1299,7 @@
       "paginate / public contract"
     ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9Q6-0",
-    "status": "design-only"
+    "status": "experimental"
   },
   {
     "name": "PageHeader",
@@ -2698,7 +2698,7 @@
       "ListPageTemplate · vendors-list · source specimen"
     ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-D-0?node=J9X-0",
-    "status": "design-only"
+    "status": "experimental"
   },
   {
     "name": "RecordPageTemplate",

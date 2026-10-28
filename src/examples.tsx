@@ -3,7 +3,346 @@ import * as UI from "./index";
 export interface Example {
   name: string;
   code: string;
+  source?: string;
+  kind?: "component" | "utility";
   Demo: ComponentType;
+}
+function FilterControlsDemo() {
+  const [value, setValue] = useState<UI.FilterValue>({ service: ["hotel"] });
+  const groups: UI.FilterGroup[] = [
+    {
+      id: "service",
+      label: "Service",
+      options: [
+        { value: "hotel", label: "Accommodation", count: 4 },
+        { value: "transport", label: "Transport", count: 2 },
+        { value: "flight", label: "Flights", disabled: true },
+      ],
+    },
+    {
+      id: "status",
+      label: "Status",
+      mode: "single",
+      options: [
+        { value: "active", label: "Active" },
+        { value: "inactive", label: "Inactive" },
+      ],
+    },
+    {
+      id: "balance",
+      label: "Balance",
+      mode: "toggle",
+      options: [
+        {
+          value: "outstanding",
+          label: "Outstanding balance",
+          description: "Only vendors with an unpaid balance",
+        },
+      ],
+    },
+  ];
+  return (
+    <UI.Stack>
+      <UI.FilterMenu groups={groups} value={value} onValueChange={setValue} />
+      <UI.FilterChips groups={groups} value={value} onValueChange={setValue} />
+    </UI.Stack>
+  );
+}
+function SortControlsDemo() {
+  const [value, setValue] = useState<UI.SortState>({
+    id: "name",
+    direction: "asc",
+  });
+  const rows = [
+    { name: "Vendor 12", balance: 8500 },
+    { name: "Vendor 2", balance: 12000 },
+    { name: "Vendor 1", balance: 3000 },
+  ];
+  const sorted = UI.sortRows(
+    rows,
+    (row) => (value.id === "balance" ? row.balance : row.name),
+    value.direction,
+  );
+  return (
+    <UI.Stack>
+      <UI.SortMenu
+        fields={[
+          { id: "name", label: "Name" },
+          { id: "balance", label: "Balance" },
+        ]}
+        value={value}
+        onValueChange={setValue}
+      />
+      <ul>
+        {sorted.map((row) => (
+          <li key={row.name}>
+            {row.name}: <UI.Money value={row.balance} />
+          </li>
+        ))}
+      </ul>
+    </UI.Stack>
+  );
+}
+function CollectionListDemo() {
+  const rows = [
+    {
+      id: "V-001",
+      name: "Kumarakom Lake Resort",
+      service: "hotel",
+      location: "Kumarakom",
+      balance: 45000,
+    },
+    {
+      id: "V-002",
+      name: "Malabar Transfers",
+      service: "transport",
+      location: "Kochi",
+      balance: 12000,
+    },
+    {
+      id: "V-003",
+      name: "Blanket Hotel & Spa",
+      service: "hotel",
+      location: "Munnar",
+      balance: 18000,
+    },
+    {
+      id: "V-004",
+      name: "Trailmakers Experiences",
+      service: "activity",
+      location: "Kochi",
+      balance: 8500,
+    },
+    {
+      id: "V-005",
+      name: "Brunton Boatyard",
+      service: "hotel",
+      location: "Kochi",
+      balance: 0,
+    },
+    {
+      id: "V-006",
+      name: "Western Ghats Cabs",
+      service: "transport",
+      location: "Munnar",
+      balance: 3200,
+    },
+  ];
+  const groups: UI.FilterGroup[] = [
+    {
+      id: "service",
+      label: "Service",
+      options: [
+        { value: "hotel", label: "Accommodation", count: 3 },
+        { value: "transport", label: "Transport", count: 2 },
+        { value: "activity", label: "Activities", count: 1 },
+      ],
+    },
+  ];
+  const [query, setQuery] = useState("");
+  const [filters, setFilters] = useState<UI.FilterValue>({});
+  const [sort, setSort] = useState<UI.SortState>({
+    id: "name",
+    direction: "asc",
+  });
+  const [page, setPage] = useState(1);
+  const [selected, setSelected] = useState<string[]>([]);
+  const [tab, setTab] = useState("all");
+  const visible = UI.filterRows(
+    UI.searchRows(rows, query, [(row) => row.name, (row) => row.location]),
+    filters,
+    { service: (row) => row.service },
+  );
+  const sorted = UI.sortRows(
+    visible,
+    (row) => (sort.id === "balance" ? row.balance : row.name),
+    sort.direction,
+  );
+  const updateFilters = (next: UI.FilterValue) => {
+    setFilters(next);
+    setPage(1);
+  };
+  const updateSort = (next: UI.SortState) => {
+    setSort(next);
+    setPage(1);
+  };
+  const clearAll = () => {
+    setQuery("");
+    setPage(1);
+  };
+  return (
+    <UI.ListPageTemplate
+      header={
+        <UI.PageHeader
+          title="Vendors"
+          count={rows.length}
+          description="Manage accommodation, transport and activity partners."
+        />
+      }
+      tabs={
+        <UI.TabBar
+          aria-label="Vendor views"
+          value={tab}
+          onValueChange={setTab}
+          items={[{ value: "all", label: "All vendors", count: rows.length }]}
+        />
+      }
+      toolbar={
+        <UI.ListToolbar
+          search={
+            <UI.SearchField
+              placeholder="Search vendors"
+              shortcut=""
+              value={query}
+              onValueChange={(next) => {
+                setQuery(next);
+                setPage(1);
+              }}
+            />
+          }
+          filters={
+            <UI.FilterMenu
+              groups={groups}
+              value={filters}
+              onValueChange={updateFilters}
+              onClearAll={clearAll}
+            />
+          }
+          sort={
+            <UI.SortMenu
+              fields={[
+                { id: "name", label: "Name" },
+                { id: "balance", label: "Balance" },
+              ]}
+              value={sort}
+              onValueChange={updateSort}
+            />
+          }
+          chips={
+            <UI.FilterChips
+              groups={groups}
+              value={filters}
+              onValueChange={updateFilters}
+              onClearAll={clearAll}
+            />
+          }
+        />
+      }
+      bulkActions={
+        <UI.BulkActionBar
+          count={selected.length}
+          onClear={() => setSelected([])}
+        >
+          <span>Selected across pages</span>
+        </UI.BulkActionBar>
+      }
+      footer={
+        <UI.TableFooter
+          page={page}
+          pageSize={3}
+          total={visible.length}
+          onPageChange={setPage}
+        />
+      }
+    >
+      <UI.DataTable
+        caption="Vendors"
+        rows={UI.paginate(sorted, page, 3)}
+        getRowId={(row) => row.id}
+        selected={selected}
+        onSelectionChange={setSelected}
+        sort={sort}
+        onSortChange={updateSort}
+        columns={[
+          {
+            id: "name",
+            header: "Vendor",
+            sortValue: (row) => row.name,
+            render: (row) => (
+              <UI.EntityCell name={row.name} description={row.id} />
+            ),
+          },
+          {
+            id: "location",
+            header: "Location",
+            render: (row) => (
+              <UI.IconTextCell icon="map-pin">{row.location}</UI.IconTextCell>
+            ),
+          },
+          {
+            id: "balance",
+            header: "Balance",
+            align: "right",
+            sortValue: (row) => row.balance,
+            render: (row) => <UI.Money value={row.balance} />,
+          },
+        ]}
+      />
+    </UI.ListPageTemplate>
+  );
+}
+function FilterRowsDemo() {
+  const rows = [
+    { name: "Resort", services: ["hotel", "activity"], status: "active" },
+    { name: "Transfers", services: ["transport"], status: "active" },
+    { name: "Archived hotel", services: ["hotel"], status: "inactive" },
+  ];
+  const filtered = UI.filterRows(
+    rows,
+    { service: ["hotel", "activity"], status: ["active"] },
+    { service: (row) => row.services, status: (row) => row.status },
+  );
+  return <p>Matching vendors: {filtered.map((row) => row.name).join(", ")}</p>;
+}
+function SearchRowsDemo() {
+  const [query, setQuery] = useState("Kochi hotel");
+  const rows = [
+    { name: "Harbour hotel", city: "Kochi" },
+    { name: "Hillside hotel", city: "Munnar" },
+    { name: "Kochi transfers", city: "Kochi" },
+  ];
+  const filtered = UI.searchRows(rows, query, [
+    (row) => row.name,
+    (row) => row.city,
+  ]);
+  return (
+    <UI.Stack>
+      <UI.SearchField
+        placeholder="Search vendors"
+        value={query}
+        onValueChange={setQuery}
+        shortcut=""
+      />
+      <p role="status">
+        {filtered.map((row) => row.name).join(", ") || "No matches"}
+      </p>
+    </UI.Stack>
+  );
+}
+function PaginateDemo() {
+  const [page, setPage] = useState(1);
+  const rows = [
+    "Booking 1",
+    "Booking 2",
+    "Booking 3",
+    "Booking 4",
+    "Booking 5",
+  ];
+  const visible = UI.paginate(rows, page, 2);
+  return (
+    <UI.Stack>
+      <ul>
+        {visible.map((row) => (
+          <li key={row}>{row}</li>
+        ))}
+      </ul>
+      <UI.Pagination
+        page={page}
+        pageCount={UI.pageCount(rows.length, 2)}
+        onPageChange={setPage}
+      />
+    </UI.Stack>
+  );
 }
 const options = [
   {
@@ -526,6 +865,76 @@ function TagDemo() {
   );
 }
 export const examples: Example[] = [
+  {
+    name: "FilterMenu",
+    code: "",
+    source: "FilterControlsDemo",
+    Demo: FilterControlsDemo,
+  },
+  {
+    name: "FilterChips",
+    code: "",
+    source: "FilterControlsDemo",
+    Demo: FilterControlsDemo,
+  },
+  {
+    name: "SortMenu",
+    code: "",
+    source: "SortControlsDemo",
+    Demo: SortControlsDemo,
+  },
+  {
+    name: "ListToolbar",
+    code: "",
+    source: "CollectionListDemo",
+    Demo: CollectionListDemo,
+  },
+  {
+    name: "ListPageTemplate",
+    code: "",
+    source: "CollectionListDemo",
+    Demo: CollectionListDemo,
+  },
+  {
+    name: "IconTextCell",
+    code: '<IconTextCell icon="map-pin">Kochi, India</IconTextCell>',
+    Demo: () => <UI.IconTextCell icon="map-pin">Kochi, India</UI.IconTextCell>,
+  },
+  {
+    name: "filterRows",
+    kind: "utility",
+    code: "",
+    source: "FilterRowsDemo",
+    Demo: FilterRowsDemo,
+  },
+  {
+    name: "searchRows",
+    kind: "utility",
+    code: "",
+    source: "SearchRowsDemo",
+    Demo: SearchRowsDemo,
+  },
+  {
+    name: "sortRows",
+    kind: "utility",
+    code: "",
+    source: "SortControlsDemo",
+    Demo: SortControlsDemo,
+  },
+  {
+    name: "paginate",
+    kind: "utility",
+    code: "",
+    source: "PaginateDemo",
+    Demo: PaginateDemo,
+  },
+  {
+    name: "pageCount",
+    kind: "utility",
+    code: "",
+    source: "PaginateDemo",
+    Demo: PaginateDemo,
+  },
   {
     name: "Button",
     code: '<Button variant="primary" leadingIcon="plus">Create booking</Button>',

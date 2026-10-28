@@ -7,6 +7,7 @@ import paper from "./paper-catalog.json";
 import tokenData from "../../design/paper-tokens.json";
 import "../../src/styles.css";
 import "./site.css";
+import packageInfo from "../../package.json";
 
 const REPO = "https://github.com/yakosasam797/parya.designsystem.code";
 const STORY_REPO =
@@ -177,7 +178,7 @@ function Sidebar({
       <div className="ds-sidebar-intro">
         <span className="ds-version">
           <span />
-          0.1.0 · Preview
+          {packageInfo.version} · Preview
         </span>
         <span className="ds-caption">React + TypeScript</span>
       </div>
@@ -204,7 +205,7 @@ function Sidebar({
           </a>
         ))}
         <div className="ds-nav-section">
-          <span>Components</span>
+          <span>Code references</span>
           <small>{components.length}</small>
         </div>
         {categories.map((category) => (
@@ -474,22 +475,13 @@ function ComponentPage({ name }: { name: string }) {
       });
     }
   };
-  const imports = example
-    ? [
-        ...new Set([
-          name,
-          ...[...example.code.matchAll(/<([A-Z]\w*)/g)].map((m) => m[1]),
-        ]),
-      ].filter((n) => components.some((c) => c.name === n))
-    : [];
-  const code = example
-    ? `${example.code.includes("useState") ? 'import {useState} from "react";\n' : ""}import {${imports.join(", ")}} from "@parya/design-system";\n\n${example.code}`
-    : "";
+  const code = doc?.usage ?? "";
   return (
     <>
       <div className="ds-component-head">
         <div className="ds-breadcrumb">
-          Components <UI.Icon name="chevron-right" size="xs" />
+          {doc?.kind === "utility" ? "Utilities" : "Components"}{" "}
+          <UI.Icon name="chevron-right" size="xs" />
           {data.category}
         </div>
         <div className="ds-title-row">
@@ -789,16 +781,17 @@ function ButtonVariants() {
 function ApiTable({ doc }: { doc: ComponentDoc }) {
   return (
     <section className="ds-doc-section">
-      <h2>Props</h2>
+      <h2>{doc.kind === "utility" ? "Parameters" : "Props"}</h2>
       <p className="ds-section-description">
-        Generated from the current TypeScript source. Native attributes are
-        supported where the interface extends a native element.
+        {doc.kind === "utility"
+          ? "Generated from the TypeScript function signature. Call this function with your application data."
+          : "Generated from the current TypeScript source. Native attributes are supported where the interface extends a native element."}
       </p>
       <div className="ds-api-scroll">
         <table className="ds-api-table">
           <thead>
             <tr>
-              <th>Prop</th>
+              <th>{doc.kind === "utility" ? "Parameter" : "Prop"}</th>
               <th>Type</th>
               <th>Required</th>
             </tr>
@@ -820,6 +813,17 @@ function ApiTable({ doc }: { doc: ComponentDoc }) {
       </div>
       {doc.props.length === 0 ? (
         <p>See the typed source for the full signature.</p>
+      ) : null}
+      {doc.returnType ? (
+        <p>
+          Returns <code>{doc.returnType}</code>. This is a utility function.
+        </p>
+      ) : null}
+      {doc.types.length ? (
+        <>
+          <h3>Referenced types</h3>
+          <Code code={doc.types.map((type) => type.definition).join("\n\n")} />
+        </>
       ) : null}
     </section>
   );
@@ -881,7 +885,9 @@ function Installation() {
         code={`git clone ${REPO}.git\ncd parya.designsystem.code\nnpm ci\nnpm run build:lib\nnpm pack`}
       />
       <h2>2. Add it to your application</h2>
-      <Code code={"npm install /path/to/parya-design-system-0.1.0.tgz"} />
+      <Code
+        code={`npm install /path/to/parya-design-system-${packageInfo.version}.tgz`}
+      />
       <p>
         The archive filename includes the package version. Use the filename
         printed by npm pack.
@@ -1179,6 +1185,38 @@ function Releases() {
       </p>
       <section className="ds-doc-section">
         <span className="ds-status">Preview</span>
+        <h2>0.2.0 · Collection workflows</h2>
+        <p>28 October 2026</p>
+        <ul>
+          <li>
+            FilterMenu, FilterChips, SortMenu, ListToolbar, ListPageTemplate and
+            IconTextCell.
+          </li>
+          <li>
+            Controlled table sorting, selection across pages, and a complete
+            vendor-list example.
+          </li>
+          <li>
+            Five documented list utilities with parameter tables and return
+            types.
+          </li>
+          <li>
+            Referenced TypeScript definitions in API tables and AI
+            documentation.
+          </li>
+          <li>
+            Complete collection examples extracted from the live demos and
+            type-checked during documentation builds.
+          </li>
+        </ul>
+        <p>
+          Adoption: filterRows now ignores groups without an accessor; paginate
+          clamps pages beyond the last page. Invalid page numbers and page sizes
+          still throw. sortRows keeps empty values last in both directions and
+          sorts Date and ISO date values chronologically.
+        </p>
+      </section>
+      <section className="ds-doc-section">
         <h2>0.1.0 · Initial implementation</h2>
         <p>28 October 2026</p>
         <ul>

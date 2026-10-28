@@ -1,7 +1,39 @@
-import { useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Avatar, Button, Checkbox, cx } from "./primitives";
 import { Money, DateText, EmptyState, type MoneyProps } from "./content";
 import { Pagination } from "./navigation";
+import { Icon, type IconName } from "./Icon";
+import { useControllableState } from "../hooks";
+export interface IconTextCellProps {
+  icon: IconName;
+  children: ReactNode;
+  tone?: "default" | "muted" | "danger";
+  href?: string;
+}
+export function IconTextCell({
+  icon,
+  children,
+  tone = "default",
+  href,
+}: IconTextCellProps) {
+  const content = (
+    <>
+      <Icon name={icon} size="sm" />
+      <span>{children}</span>
+    </>
+  );
+  const className = cx(
+    "pt-icon-text-cell",
+    tone !== "default" && `pt-text--${tone}`,
+  );
+  return href ? (
+    <a className={className} href={href}>
+      {content}
+    </a>
+  ) : (
+    <span className={className}>{content}</span>
+  );
+}
 export function EntityCell({
   name,
   description,
@@ -79,7 +111,7 @@ export interface TableColumn<T> {
   id: string;
   header: string;
   render: (row: T) => ReactNode;
-  sortValue?: (row: T) => string | number;
+  sortValue?: (row: T) => SortValue;
   align?: "left" | "right";
 }
 export interface DataTableProps<T> {
@@ -90,6 +122,8 @@ export interface DataTableProps<T> {
   selected?: string[];
   onSelectionChange?: (selected: string[]) => void;
   emptyTitle?: string;
+  sort?: SortState | null;
+  onSortChange?: (sort: SortState) => void;
 }
 export function DataTable<T>({
   rows,
@@ -99,23 +133,19 @@ export function DataTable<T>({
   selected = [],
   onSelectionChange,
   emptyTitle = "No records found",
+  sort: controlledSort,
+  onSortChange,
 }: DataTableProps<T>) {
-  const [sort, setSort] = useState<{ id: string; direction: 1 | -1 } | null>(
+  const [sort, setSort] = useControllableState<SortState | null>(
+    controlledSort,
     null,
+    (next) => {
+      if (next) onSortChange?.(next);
+    },
   );
   const column = columns.find((c) => c.id === sort?.id);
   const displayed = column?.sortValue
-    ? [...rows].sort((a, b) => {
-        const av = column.sortValue!(a),
-          bv = column.sortValue!(b);
-        return (
-          (typeof av === "number" && typeof bv === "number"
-            ? av - bv
-            : String(av).localeCompare(String(bv), undefined, {
-                numeric: true,
-              })) * (sort?.direction ?? 1)
-        );
-      })
+    ? sortRows(rows, column.sortValue, sort?.direction)
     : rows;
   const all =
     rows.length > 0 && rows.every((r) => selected.includes(getRowId(r)));
@@ -154,7 +184,7 @@ export function DataTable<T>({
                 className={cx(c.align === "right" && "pt-right")}
                 aria-sort={
                   sort?.id === c.id
-                    ? sort.direction === 1
+                    ? sort.direction === "asc"
                       ? "ascending"
                       : "descending"
                     : undefined
@@ -168,14 +198,16 @@ export function DataTable<T>({
                       setSort({
                         id: c.id,
                         direction:
-                          sort?.id === c.id && sort.direction === 1 ? -1 : 1,
+                          sort?.id === c.id && sort.direction === "asc"
+                            ? "desc"
+                            : "asc",
                       })
                     }
                   >
                     {c.header}
                     <span aria-hidden="true">
                       {sort?.id === c.id
-                        ? sort.direction === 1
+                        ? sort.direction === "asc"
                           ? "↑"
                           : "↓"
                         : "↕"}
@@ -244,15 +276,17 @@ export function TableFooter({
   total,
   onPageChange,
 }: TableFooterProps) {
+  const count = pageCount(total, pageSize);
+  const current = Math.max(1, Math.min(count || 1, page));
   return (
     <div className="pt-table-footer">
       <p className="pt-caption">
-        {total === 0 ? 0 : (page - 1) * pageSize + 1}–
-        {Math.min(page * pageSize, total)} of {total} records
+        {total === 0 ? 0 : (current - 1) * pageSize + 1}–
+        {Math.min(current * pageSize, total)} of {total} records
       </p>
       <Pagination
-        page={page}
-        pageCount={Math.ceil(total / pageSize)}
+        page={current}
+        pageCount={count}
         onPageChange={onPageChange}
       />
     </div>
@@ -287,7 +321,7 @@ export function filterRows<T>(
     Object.entries(value).every(([key, selected]) => {
       if (!selected.length) return true;
       const accessor = accessors[key];
-      if (!accessor) throw new Error(`No accessor for filter ${key}`);
+      if (!accessor) return true;
       const val = accessor(row);
       return selected.some((s) =>
         Array.isArray(val) ? val.includes(s) : val === s,
@@ -309,20 +343,57 @@ export function searchRows<T>(
     return terms.every((term) => text.includes(term));
   });
 }
+export type SortValue = string | number | Date | null | undefined;
+export interface SortState {
+  id: string;
+  direction: "asc" | "desc";
+}
+const listCollator = new Intl.Collator("en-IN", {
+  numeric: true,
+  sensitivity: "base",
+});
+function comparable(value: SortValue): string | number | null {
+  if (value == null || value === "") return null;
+  if (value instanceof Date)
+    return Number.isFinite(value.getTime()) ? value.getTime() : null;
+  if (typeof value === "number") return Number.isFinite(value) ? value : null;
+  if (/^\d{4}-\d{2}-\d{2}(?:T.*)?$/.test(value)) {
+    const time = Date.parse(value);
+    if (Number.isFinite(time)) return time;
+  }
+  return value;
+}
 export function sortRows<T>(
   rows: T[],
-  accessor: (row: T) => string | number,
+  accessor: (row: T) => SortValue,
   direction: "asc" | "desc" = "asc",
 ) {
-  return [...rows].sort((a, b) => {
-    const x = accessor(a),
-      y = accessor(b);
-    const order =
-      typeof x === "number" && typeof y === "number"
-        ? x - y
-        : String(x).localeCompare(String(y), undefined, { numeric: true });
-    return order * (direction === "asc" ? 1 : -1);
-  });
+  return rows
+    .map((row, index) => ({ row, index, value: comparable(accessor(row)) }))
+    .sort((a, b) => {
+      const x = a.value,
+        y = b.value;
+      if (x === null) return y === null ? a.index - b.index : 1;
+      if (y === null) return -1;
+      const order =
+        typeof x === "number" && typeof y === "number"
+          ? x - y
+          : listCollator.compare(String(x), String(y));
+      return order * (direction === "asc" ? 1 : -1) || a.index - b.index;
+    })
+    .map(({ row }) => row);
+}
+export function pageCount(total: number, pageSize: number) {
+  if (
+    !Number.isInteger(total) ||
+    total < 0 ||
+    !Number.isInteger(pageSize) ||
+    pageSize < 1
+  )
+    throw new RangeError(
+      "Total must be a nonnegative integer and page size a positive integer.",
+    );
+  return Math.ceil(total / pageSize);
 }
 export function paginate<T>(rows: T[], page: number, pageSize: number) {
   if (
@@ -332,5 +403,6 @@ export function paginate<T>(rows: T[], page: number, pageSize: number) {
     pageSize < 1
   )
     throw new RangeError("Page and page size must be positive integers.");
-  return rows.slice((page - 1) * pageSize, page * pageSize);
+  const current = Math.min(page, pageCount(rows.length, pageSize) || 1);
+  return rows.slice((current - 1) * pageSize, current * pageSize);
 }

@@ -6,5 +6,6 @@ export * from "./components/content";
 export * from "./components/navigation";
 export * from "./components/overlays";
 export * from "./components/data";
+export * from "./components/collections";
 export * from "./theme";
 export * from "./hooks";

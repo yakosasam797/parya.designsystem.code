@@ -4,7 +4,7 @@ This is a working first release of the platform, not full parity with the Paper 
 
 ## Implementation coverage
 
-The website's Design coverage page is the current map. In this release, the complete Paper navigation is visible; 81 code references have live examples, while other entries are explicitly design-only. Existing implementations also need state-by-state comparison with Paper. Examples include:
+The website's Design coverage page is the current map. In this release, the complete Paper navigation is visible; 92 code references have live examples, while other entries are explicitly design-only. Existing implementations also need state-by-state comparison with Paper. Examples include:
 
 - SelectField uses a native select; rich media and option descriptions are not rendered.
 - DateRangeField implements native date inputs and ordering validation; Paper's compact, inline, presets, and endpoints layouts are not implemented.
@@ -12,7 +12,7 @@ The website's Design coverage page is the current map. In this release, the comp
 - PhoneField has a short default country list. Applications can provide their supported country list.
 - FileDropzone returns selected files and performs client-side type/size checks. Upload, virus scanning, storage, server validation, and authorization belong to the application.
 - Specialized shell, navigation, rate-matrix, chart, calendar, board, and domain components remain design-only where marked. No fake data-driven implementations are claimed for them.
-- Pure list helpers are exported and unit-tested; their separate usage pages are still design references in the initial catalog.
+- The collection controls and list helpers now have working examples and generated documentation. The vendor-list recipe verifies their combined behavior using local sample data; application data-loading, server pagination, permissions and business rules remain application responsibilities.
 
 ## Engineering acceptance
 
