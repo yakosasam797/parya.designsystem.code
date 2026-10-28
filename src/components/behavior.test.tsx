@@ -9,6 +9,7 @@ import {
   QuantityField,
   DateRangeField,
   Combobox,
+  MultiSelect,
   Modal,
   SearchField,
   filterRows,
@@ -17,6 +18,32 @@ import {
   ThemeProvider,
 } from "../index";
 describe("interaction contracts", () => {
+  it("allows a required multi-select form to submit once a selection exists", () => {
+    const { container, rerender } = render(
+      <form>
+        <MultiSelect
+          label="Services"
+          value={["hotel"]}
+          onValueChange={() => {}}
+          options={[{ value: "hotel", label: "Hotel" }]}
+          required
+        />
+      </form>,
+    );
+    expect(container.querySelector("form")!.checkValidity()).toBe(true);
+    rerender(
+      <form>
+        <MultiSelect
+          label="Services"
+          value={[]}
+          onValueChange={() => {}}
+          options={[{ value: "hotel", label: "Hotel" }]}
+          required
+        />
+      </form>,
+    );
+    expect(container.querySelector("form")!.checkValidity()).toBe(false);
+  });
   it("prevents duplicate actions while loading", async () => {
     const click = vi.fn();
     render(

@@ -450,6 +450,7 @@ export function MultiSelect({
   onValueChange,
   max = 3,
   disabled,
+  required,
   ...props
 }: MultiSelectProps) {
   return (
@@ -462,6 +463,7 @@ export function MultiSelect({
           disabled: o.disabled || value.includes(o.value),
         }))}
         disabled={disabled}
+        required={false}
         value=""
         onValueChange={(v) => onValueChange([...value, v])}
       />
@@ -480,6 +482,25 @@ export function MultiSelect({
           <span className="pt-caption">+{value.length - max} selected</span>
         ) : null}
       </div>
+      {required ? (
+        <input
+          className="pt-validation-input"
+          tabIndex={-1}
+          aria-label={typeof label === "string" ? label : "Selection"}
+          required
+          disabled={disabled}
+          value={value.length ? value.join(",") : ""}
+          onChange={() => {}}
+          onInvalid={(e) => {
+            e.preventDefault();
+            (
+              e.currentTarget
+                .closest(".pt-multi")
+                ?.querySelector("button") as HTMLButtonElement | null
+            )?.click();
+          }}
+        />
+      ) : null}
     </div>
   );
 }
@@ -520,10 +541,15 @@ export function DateRangeField({
   disabled,
   required,
   hint,
+  optional,
+  span,
 }: DateRangeFieldProps) {
   return (
-    <fieldset className="pt-fieldset">
-      <legend className="pt-field-label">{label}</legend>
+    <fieldset className={cx("pt-fieldset", span === "full" && "pt-span-full")}>
+      <legend className="pt-field-label">
+        {label}
+        {optional ? <span className="pt-caption"> (optional)</span> : null}
+      </legend>
       <FormGrid>
         <DateField
           label={fromLabel}
@@ -862,6 +888,7 @@ export interface QuantityFieldProps extends FieldOptions {
   unit?: { one: string; other: string };
   disabled?: boolean;
   readOnly?: boolean;
+  required?: boolean;
   layout?: "stacked" | "inline";
 }
 export function QuantityField({
@@ -876,13 +903,35 @@ export function QuantityField({
   readOnly,
   hint,
   error,
+  optional,
+  required,
+  span,
+  layout = "stacked",
 }: QuantityFieldProps) {
+  const id = useId();
   return (
-    <div className="pt-quantity">
+    <div
+      className={cx(
+        "pt-quantity",
+        `pt-quantity--${layout}`,
+        span === "full" && "pt-span-full",
+      )}
+    >
       <div>
-        <span className="pt-field-label">{label}</span>
-        {hint ? <p className="pt-caption">{hint}</p> : null}
-        {error ? <p className="pt-field-error">{error}</p> : null}
+        <label htmlFor={id} className="pt-field-label">
+          {label}
+          {optional ? <span className="pt-caption"> (optional)</span> : null}
+        </label>
+        {hint && !error ? (
+          <p id={`${id}-hint`} className="pt-caption">
+            {hint}
+          </p>
+        ) : null}
+        {error ? (
+          <p id={`${id}-error`} className="pt-field-error">
+            {error}
+          </p>
+        ) : null}
       </div>
       <div className="pt-stepper">
         <IconButton
@@ -894,6 +943,12 @@ export function QuantityField({
           }
         />
         <input
+          id={id}
+          required={required}
+          aria-invalid={!!error || undefined}
+          aria-describedby={
+            error ? `${id}-error` : hint ? `${id}-hint` : undefined
+          }
           type="number"
           aria-label={typeof label === "string" ? label : "Quantity"}
           value={value}
@@ -953,12 +1008,14 @@ export function PaxSelector({
   disabled,
   hint,
   error,
+  optional,
+  span,
 }: PaxSelectorProps) {
   const { theme } = useTheme();
   const [open, setOpen] = useState(false);
   const id = useId();
   return (
-    <Field {...{ label, hint, error }} htmlFor={id}>
+    <Field {...{ label, hint, error, optional, span }} htmlFor={id}>
       <Pop.Root open={open} onOpenChange={setOpen}>
         <Pop.Trigger asChild>
           <button
@@ -990,6 +1047,7 @@ export function PaxSelector({
             <h3 className="pt-heading">Travelers</h3>
             {(["adults", "children", "infants"] as const).map((key) => (
               <QuantityField
+                layout="inline"
                 key={key}
                 label={key[0].toUpperCase() + key.slice(1)}
                 hint={

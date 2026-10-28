@@ -535,6 +535,24 @@
 .pt-meter--success::-webkit-meter-optimum-value {
   background: var(--pt-color-status-success-text);
 }
+.pt-meter--warning::-webkit-meter-optimum-value {
+  background: var(--pt-color-status-warning-text);
+}
+.pt-meter--danger::-webkit-meter-optimum-value {
+  background: var(--pt-color-status-danger-text);
+}
+.pt-meter--primary::-moz-meter-bar {
+  background: var(--pt-color-action-primary);
+}
+.pt-meter--success::-moz-meter-bar {
+  background: var(--pt-color-status-success-text);
+}
+.pt-meter--warning::-moz-meter-bar {
+  background: var(--pt-color-status-warning-text);
+}
+.pt-meter--danger::-moz-meter-bar {
+  background: var(--pt-color-status-danger-text);
+}
 .pt-meter--md,
 .pt-meter--md::-webkit-meter-bar {
   height: 6px;
@@ -861,6 +879,22 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--pt-space-4);
+}
+.pt-quantity--stacked {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--pt-space-1-5);
+}
+.pt-quantity--stacked .pt-stepper {
+  height: var(--pt-size-input);
+  border: 1px solid var(--pt-color-border-default);
+  border-radius: var(--pt-radius-sm);
+  padding: var(--pt-space-0-5);
+  background: var(--pt-color-bg-surface);
+}
+.pt-quantity--stacked .pt-stepper input {
+  flex: 1;
+  min-width: 0;
 }
 .pt-stepper {
   display: flex;

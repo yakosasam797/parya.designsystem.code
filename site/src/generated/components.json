@@ -1443,7 +1443,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 486,
+    "sourceLine": 507,
     "props": [
       {
         "name": "size",
@@ -1525,7 +1525,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 489,
+    "sourceLine": 510,
     "props": [
       {
         "name": "size",
@@ -1613,7 +1613,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 510,
+    "sourceLine": 531,
     "props": [
       {
         "name": "value",
@@ -1709,7 +1709,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 556,
+    "sourceLine": 582,
     "props": [
       {
         "name": "value",
@@ -1796,7 +1796,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 596,
+    "sourceLine": 622,
     "props": [
       {
         "name": "countryCode",
@@ -1881,7 +1881,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 638,
+    "sourceLine": 664,
     "props": [
       {
         "name": "placeholder",
@@ -1976,7 +1976,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 720,
+    "sourceLine": 746,
     "props": [
       {
         "name": "options",
@@ -2031,7 +2031,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 770,
+    "sourceLine": 796,
     "props": [
       {
         "name": "options",
@@ -2084,7 +2084,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 867,
+    "sourceLine": 894,
     "props": [
       {
         "name": "value",
@@ -2123,6 +2123,11 @@
       },
       {
         "name": "readOnly",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "required",
         "type": "boolean",
         "required": false
       },
@@ -2186,7 +2191,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 948,
+    "sourceLine": 1003,
     "props": [
       {
         "name": "value",
@@ -2252,7 +2257,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 803,
+    "sourceLine": 829,
     "props": [
       {
         "name": "title",
@@ -2304,7 +2309,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 825,
+    "sourceLine": 851,
     "props": [
       {
         "name": "columns",
@@ -2336,7 +2341,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 838,
+    "sourceLine": 864,
     "props": [
       {
         "name": "sticky",
