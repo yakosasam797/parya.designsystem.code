@@ -1,0 +1,164 @@
+/* Generated from design/foundation-guidance.json. Paper typography roles; do not edit by hand. */
+.pt-type-page-title {
+  font-family: var(--pt-type-page-title-family);
+  font-size: var(--pt-type-page-title-size);
+  font-weight: var(--pt-type-page-title-weight);
+  line-height: var(--pt-type-page-title-line);
+  letter-spacing: var(--pt-type-page-title-tracking);
+}
+
+.pt-type-record-title {
+  font-family: var(--pt-type-record-title-family);
+  font-size: var(--pt-type-record-title-size);
+  font-weight: var(--pt-type-record-title-weight);
+  line-height: var(--pt-type-record-title-line);
+  letter-spacing: var(--pt-type-record-title-tracking);
+}
+
+.pt-type-dialog-title {
+  font-family: var(--pt-type-dialog-title-family);
+  font-size: var(--pt-type-dialog-title-size);
+  font-weight: var(--pt-type-dialog-title-weight);
+  line-height: var(--pt-type-dialog-title-line);
+  letter-spacing: var(--pt-type-dialog-title-tracking);
+}
+
+.pt-type-section-title {
+  font-family: var(--pt-type-section-title-family);
+  font-size: var(--pt-type-section-title-size);
+  font-weight: var(--pt-type-section-title-weight);
+  line-height: var(--pt-type-section-title-line);
+  letter-spacing: var(--pt-type-section-title-tracking);
+}
+
+.pt-type-subsection-title {
+  font-family: var(--pt-type-subsection-title-family);
+  font-size: var(--pt-type-subsection-title-size);
+  font-weight: var(--pt-type-subsection-title-weight);
+  line-height: var(--pt-type-subsection-title-line);
+  letter-spacing: var(--pt-type-subsection-title-tracking);
+}
+
+.pt-type-body {
+  font-family: var(--pt-type-body-family);
+  font-size: var(--pt-type-body-size);
+  font-weight: var(--pt-type-body-weight);
+  line-height: var(--pt-type-body-line);
+  letter-spacing: normal;
+}
+
+.pt-type-body-strong {
+  font-family: var(--pt-type-body-family);
+  font-size: var(--pt-type-body-size);
+  font-weight: var(--pt-type-body-strong-weight);
+  line-height: var(--pt-type-body-line);
+  letter-spacing: normal;
+}
+
+.pt-type-body-sm {
+  font-family: var(--pt-type-body-family);
+  font-size: var(--pt-type-body-sm-size);
+  font-weight: var(--pt-type-body-weight);
+  line-height: var(--pt-type-body-line);
+  letter-spacing: normal;
+}
+
+.pt-type-label {
+  font-family: var(--pt-type-label-family);
+  font-size: var(--pt-type-label-size);
+  font-weight: var(--pt-type-label-weight);
+  line-height: var(--pt-type-label-line);
+  letter-spacing: normal;
+}
+
+.pt-type-button {
+  font-family: var(--pt-type-button-family);
+  font-size: var(--pt-type-button-size);
+  font-weight: var(--pt-type-button-weight);
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+
+.pt-type-tab {
+  font-family: var(--pt-type-tab-family);
+  font-size: var(--pt-type-tab-size);
+  font-weight: var(--pt-type-tab-weight);
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+
+.pt-type-nav {
+  font-family: var(--pt-type-nav-family);
+  font-size: var(--pt-type-nav-size);
+  font-weight: var(--pt-type-nav-weight);
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+
+.pt-type-table-head {
+  font-family: var(--pt-type-table-head-family);
+  font-size: var(--pt-type-table-head-size);
+  font-weight: var(--pt-type-table-head-weight);
+  line-height: 1.3;
+  letter-spacing: var(--pt-type-table-head-tracking);
+}
+
+.pt-type-meta {
+  font-family: var(--pt-type-body-family);
+  font-size: var(--pt-type-meta-size);
+  font-weight: var(--pt-type-body-weight);
+  line-height: var(--pt-type-body-line);
+  letter-spacing: normal;
+}
+
+.pt-type-caption {
+  font-family: var(--pt-type-body-family);
+  font-size: var(--pt-type-caption-size);
+  font-weight: var(--pt-type-body-weight);
+  line-height: var(--pt-type-body-line);
+  letter-spacing: normal;
+}
+
+.pt-type-overline {
+  font-family: var(--pt-type-overline-family);
+  font-size: var(--pt-type-overline-size);
+  font-weight: var(--pt-type-overline-weight);
+  line-height: 1.5;
+  letter-spacing: var(--pt-type-overline-tracking);
+}
+
+.pt-type-mono-ref {
+  font-family: var(--pt-type-mono-family);
+  font-size: var(--pt-type-mono-ref-size);
+  font-weight: var(--pt-type-mono-weight);
+  line-height: 1.5;
+  letter-spacing: var(--pt-type-mono-tracking);
+  font-variant-numeric: tabular-nums;
+}
+
+.pt-type-mono-date {
+  font-family: var(--pt-type-mono-family);
+  font-size: var(--pt-type-mono-date-size);
+  font-weight: var(--pt-type-mono-weight);
+  line-height: 1.5;
+  letter-spacing: var(--pt-type-mono-tracking);
+  font-variant-numeric: tabular-nums;
+}
+
+.pt-type-mono-money {
+  font-family: var(--pt-type-mono-family);
+  font-size: var(--pt-type-mono-money-size);
+  font-weight: var(--pt-type-mono-money-weight);
+  line-height: 1.5;
+  letter-spacing: var(--pt-type-mono-tracking);
+  font-variant-numeric: tabular-nums;
+}
+
+.pt-type-mono-count {
+  font-family: var(--pt-type-mono-family);
+  font-size: var(--pt-type-mono-count-size);
+  font-weight: var(--pt-type-mono-weight);
+  line-height: 1.5;
+  letter-spacing: var(--pt-type-mono-tracking);
+  font-variant-numeric: tabular-nums;
+}

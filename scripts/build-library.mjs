@@ -2,6 +2,7 @@ import { copyFile, readFile, writeFile, mkdir } from "node:fs/promises";
 await mkdir("dist", { recursive: true });
 await copyFile("src/tokens.css", "dist/tokens.css");
 await copyFile("src/fonts.css", "dist/fonts.css");
+await copyFile("src/typography.css", "dist/typography.css");
 // Ship unbundled CSS so font asset URLs resolve from the consumer's bundler.
 await copyFile("src/styles.css", "dist/styles.css");
 const schema = JSON.parse(
@@ -12,5 +13,15 @@ const designCoverage = JSON.parse(
 );
 await writeFile(
   "dist/catalog.json",
-  JSON.stringify({ ...schema, designCoverage }, null, 2),
+  JSON.stringify(
+    {
+      ...schema,
+      designCoverage,
+      foundations: JSON.parse(
+        await readFile("site/public/api/foundations.json", "utf8"),
+      ),
+    },
+    null,
+    2,
+  ),
 );

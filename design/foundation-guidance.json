@@ -1,0 +1,517 @@
+{
+  "title": "Foundations for everyday decisions.",
+  "description": "Choose text by its job, color by its meaning, and spacing by the relationship between things. These guides use the existing Parya values from Paper.",
+  "paperFile": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR",
+  "paperTypography": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-2-0?node=2FC-0",
+  "typography": [
+    {
+      "id": "page-title",
+      "label": "Page title",
+      "group": "Headings",
+      "example": "Vendors",
+      "use": "Name the current page: Vendors, Bookings or Customers.",
+      "avoid": "A title inside a card or a large promotional slogan.",
+      "tag": "h1",
+      "className": "pt-type-page-title",
+      "css": {
+        "fontFamily": "var(--pt-type-page-title-family)",
+        "fontSize": "var(--pt-type-page-title-size)",
+        "fontWeight": "var(--pt-type-page-title-weight)",
+        "lineHeight": "var(--pt-type-page-title-line)",
+        "letterSpacing": "var(--pt-type-page-title-tracking)"
+      }
+    },
+    {
+      "id": "record-title",
+      "label": "Record title",
+      "group": "Headings",
+      "example": "Mehta family · Kerala",
+      "use": "Name one open record, such as a booking, customer or vendor.",
+      "avoid": "Repeating the record name above every section.",
+      "tag": "h1",
+      "className": "pt-type-record-title",
+      "css": {
+        "fontFamily": "var(--pt-type-record-title-family)",
+        "fontSize": "var(--pt-type-record-title-size)",
+        "fontWeight": "var(--pt-type-record-title-weight)",
+        "lineHeight": "var(--pt-type-record-title-line)",
+        "letterSpacing": "var(--pt-type-record-title-tracking)"
+      }
+    },
+    {
+      "id": "dialog-title",
+      "label": "Dialog title",
+      "group": "Headings",
+      "example": "Edit traveler",
+      "use": "Name the task in a dialog. Keep the title short and specific.",
+      "avoid": "Long instructions; put them in the description.",
+      "tag": "h2",
+      "className": "pt-type-dialog-title",
+      "css": {
+        "fontFamily": "var(--pt-type-dialog-title-family)",
+        "fontSize": "var(--pt-type-dialog-title-size)",
+        "fontWeight": "var(--pt-type-dialog-title-weight)",
+        "lineHeight": "var(--pt-type-dialog-title-line)",
+        "letterSpacing": "var(--pt-type-dialog-title-tracking)"
+      }
+    },
+    {
+      "id": "section-title",
+      "label": "Section title",
+      "group": "Headings",
+      "example": "Traveler details",
+      "use": "Start a main section within a page or form.",
+      "avoid": "A field label or ordinary paragraph.",
+      "tag": "h2",
+      "className": "pt-type-section-title",
+      "css": {
+        "fontFamily": "var(--pt-type-section-title-family)",
+        "fontSize": "var(--pt-type-section-title-size)",
+        "fontWeight": "var(--pt-type-section-title-weight)",
+        "lineHeight": "var(--pt-type-section-title-line)",
+        "letterSpacing": "var(--pt-type-section-title-tracking)"
+      }
+    },
+    {
+      "id": "subsection-title",
+      "label": "Subsection title",
+      "group": "Headings",
+      "example": "Passport information",
+      "use": "Introduce a group inside a larger section.",
+      "avoid": "Skipping heading levels to make text smaller.",
+      "tag": "h3",
+      "className": "pt-type-subsection-title",
+      "css": {
+        "fontFamily": "var(--pt-type-subsection-title-family)",
+        "fontSize": "var(--pt-type-subsection-title-size)",
+        "fontWeight": "var(--pt-type-subsection-title-weight)",
+        "lineHeight": "var(--pt-type-subsection-title-line)",
+        "letterSpacing": "var(--pt-type-subsection-title-tracking)"
+      }
+    },
+    {
+      "id": "body",
+      "label": "Body",
+      "group": "Reading",
+      "example": "Confirm the traveler’s passport name before issuing the ticket.",
+      "use": "Default reading text, instructions, policies and explanations.",
+      "avoid": "Shrinking important information into a caption.",
+      "tag": "p",
+      "className": "pt-type-body",
+      "css": {
+        "fontFamily": "var(--pt-type-body-family)",
+        "fontSize": "var(--pt-type-body-size)",
+        "fontWeight": "var(--pt-type-body-weight)",
+        "lineHeight": "var(--pt-type-body-line)",
+        "letterSpacing": "normal"
+      }
+    },
+    {
+      "id": "body-strong",
+      "label": "Body emphasis",
+      "group": "Reading",
+      "example": "Free cancellation until 10 November",
+      "use": "Emphasize a short important phrase within reading text.",
+      "avoid": "Making an entire paragraph semibold.",
+      "tag": "strong",
+      "className": "pt-type-body-strong",
+      "css": {
+        "fontFamily": "var(--pt-type-body-family)",
+        "fontSize": "var(--pt-type-body-size)",
+        "fontWeight": "var(--pt-type-body-strong-weight)",
+        "lineHeight": "var(--pt-type-body-line)",
+        "letterSpacing": "normal"
+      }
+    },
+    {
+      "id": "body-sm",
+      "label": "Compact body",
+      "group": "Reading",
+      "example": "Airport transfer · 2 adults",
+      "use": "Short table and list content where space is limited.",
+      "avoid": "Long policies, dense instructions or critical terms.",
+      "tag": "p",
+      "className": "pt-type-body-sm",
+      "css": {
+        "fontFamily": "var(--pt-type-body-family)",
+        "fontSize": "var(--pt-type-body-sm-size)",
+        "fontWeight": "var(--pt-type-body-weight)",
+        "lineHeight": "var(--pt-type-body-line)",
+        "letterSpacing": "normal"
+      }
+    },
+    {
+      "id": "label",
+      "label": "Field label",
+      "group": "Interface",
+      "example": "Traveler name",
+      "use": "A visible name for a form field. TextField supplies the label association for you.",
+      "avoid": "Placeholder text as the only label.",
+      "tag": "label",
+      "className": "pt-type-label",
+      "css": {
+        "fontFamily": "var(--pt-type-label-family)",
+        "fontSize": "var(--pt-type-label-size)",
+        "fontWeight": "var(--pt-type-label-weight)",
+        "lineHeight": "var(--pt-type-label-line)",
+        "letterSpacing": "normal"
+      }
+    },
+    {
+      "id": "button",
+      "label": "Action label",
+      "group": "Interface",
+      "example": "Create booking",
+      "use": "A short verb describing the result of an action. Button applies its size-specific style.",
+      "avoid": "Styling a paragraph to look clickable without a real button.",
+      "tag": "button",
+      "className": "pt-type-button",
+      "css": {
+        "fontFamily": "var(--pt-type-button-family)",
+        "fontSize": "var(--pt-type-button-size)",
+        "fontWeight": "var(--pt-type-button-weight)",
+        "lineHeight": "1.5",
+        "letterSpacing": "normal"
+      }
+    },
+    {
+      "id": "tab",
+      "label": "Tab label",
+      "group": "Interface",
+      "example": "Bookings",
+      "use": "Switch between related views. Tabs use 500; the active tab uses 600.",
+      "avoid": "A page title or replacing tab semantics with plain text.",
+      "tag": "span",
+      "className": "pt-type-tab",
+      "css": {
+        "fontFamily": "var(--pt-type-tab-family)",
+        "fontSize": "var(--pt-type-tab-size)",
+        "fontWeight": "var(--pt-type-tab-weight)",
+        "lineHeight": "1.5",
+        "letterSpacing": "normal"
+      }
+    },
+    {
+      "id": "nav",
+      "label": "Navigation label",
+      "group": "Interface",
+      "example": "Customers",
+      "use": "Name a destination. Navigation uses 500; the active destination uses 600.",
+      "avoid": "A lengthy description or instructions.",
+      "tag": "span",
+      "className": "pt-type-nav",
+      "css": {
+        "fontFamily": "var(--pt-type-nav-family)",
+        "fontSize": "var(--pt-type-nav-size)",
+        "fontWeight": "var(--pt-type-nav-weight)",
+        "lineHeight": "1.5",
+        "letterSpacing": "normal"
+      }
+    },
+    {
+      "id": "table-head",
+      "label": "Table heading",
+      "group": "Interface",
+      "example": "Departure date",
+      "use": "Name a column with a real th element and the appropriate scope.",
+      "avoid": "Putting h2 or h3 elements inside table headers.",
+      "tag": "th",
+      "className": "pt-type-table-head",
+      "css": {
+        "fontFamily": "var(--pt-type-table-head-family)",
+        "fontSize": "var(--pt-type-table-head-size)",
+        "fontWeight": "var(--pt-type-table-head-weight)",
+        "lineHeight": "1.3",
+        "letterSpacing": "var(--pt-type-table-head-tracking)"
+      }
+    },
+    {
+      "id": "meta",
+      "label": "Metadata",
+      "group": "Supporting text",
+      "example": "Kochi, India · Updated today",
+      "use": "Short supporting facts such as location, author or update time.",
+      "avoid": "Essential payment or cancellation instructions.",
+      "tag": "p",
+      "className": "pt-type-meta",
+      "css": {
+        "fontFamily": "var(--pt-type-body-family)",
+        "fontSize": "var(--pt-type-meta-size)",
+        "fontWeight": "var(--pt-type-body-weight)",
+        "lineHeight": "var(--pt-type-body-line)",
+        "letterSpacing": "normal"
+      }
+    },
+    {
+      "id": "caption",
+      "label": "Caption",
+      "group": "Supporting text",
+      "example": "Shown on invoices and vouchers.",
+      "use": "A short supporting note close to the related content.",
+      "avoid": "The only place a user can find a requirement or warning.",
+      "tag": "p",
+      "className": "pt-type-caption",
+      "css": {
+        "fontFamily": "var(--pt-type-body-family)",
+        "fontSize": "var(--pt-type-caption-size)",
+        "fontWeight": "var(--pt-type-body-weight)",
+        "lineHeight": "var(--pt-type-body-line)",
+        "letterSpacing": "normal"
+      }
+    },
+    {
+      "id": "overline",
+      "label": "Overline",
+      "group": "Supporting text",
+      "example": "Outstanding",
+      "use": "A short category marker in a dense operational view; use sparingly.",
+      "avoid": "Long text, repeated all-caps labels or required instructions.",
+      "tag": "span",
+      "className": "pt-type-overline",
+      "css": {
+        "fontFamily": "var(--pt-type-overline-family)",
+        "fontSize": "var(--pt-type-overline-size)",
+        "fontWeight": "var(--pt-type-overline-weight)",
+        "lineHeight": "1.5",
+        "letterSpacing": "var(--pt-type-overline-tracking)"
+      }
+    },
+    {
+      "id": "mono-ref",
+      "label": "Reference",
+      "group": "Data",
+      "example": "BK-24-0193",
+      "use": "Booking and document references that users scan or copy.",
+      "avoid": "Body paragraphs or all navigation labels.",
+      "tag": "span",
+      "className": "pt-type-mono-ref",
+      "css": {
+        "fontFamily": "var(--pt-type-mono-family)",
+        "fontSize": "var(--pt-type-mono-ref-size)",
+        "fontWeight": "var(--pt-type-mono-weight)",
+        "lineHeight": "1.5",
+        "letterSpacing": "var(--pt-type-mono-tracking)",
+        "fontVariantNumeric": "tabular-nums"
+      }
+    },
+    {
+      "id": "mono-date",
+      "label": "Date",
+      "group": "Data",
+      "example": "12 Dec 2026",
+      "use": "Compact dates in tables and schedules. Use DateText or a time element with a machine-readable date.",
+      "avoid": "Ambiguous dates without enough context.",
+      "tag": "time",
+      "className": "pt-type-mono-date",
+      "css": {
+        "fontFamily": "var(--pt-type-mono-family)",
+        "fontSize": "var(--pt-type-mono-date-size)",
+        "fontWeight": "var(--pt-type-mono-weight)",
+        "lineHeight": "1.5",
+        "letterSpacing": "var(--pt-type-mono-tracking)",
+        "fontVariantNumeric": "tabular-nums"
+      }
+    },
+    {
+      "id": "mono-money",
+      "label": "Money",
+      "group": "Data",
+      "example": "₹1,45,000",
+      "use": "Comparable amounts in tables, totals and financial summaries. Money supplies locale-aware formatting.",
+      "avoid": "Rounding or calculating booking prices in presentation code.",
+      "tag": "span",
+      "className": "pt-type-mono-money",
+      "css": {
+        "fontFamily": "var(--pt-type-mono-family)",
+        "fontSize": "var(--pt-type-mono-money-size)",
+        "fontWeight": "var(--pt-type-mono-money-weight)",
+        "lineHeight": "1.5",
+        "letterSpacing": "var(--pt-type-mono-tracking)",
+        "fontVariantNumeric": "tabular-nums"
+      }
+    },
+    {
+      "id": "mono-count",
+      "label": "Count",
+      "group": "Data",
+      "example": "1,248",
+      "use": "Tiny supporting counts in badges, with the meaning available in nearby text or an accessible name.",
+      "avoid": "A critical value with no readable label.",
+      "tag": "span",
+      "className": "pt-type-mono-count",
+      "css": {
+        "fontFamily": "var(--pt-type-mono-family)",
+        "fontSize": "var(--pt-type-mono-count-size)",
+        "fontWeight": "var(--pt-type-mono-weight)",
+        "lineHeight": "1.5",
+        "letterSpacing": "var(--pt-type-mono-tracking)",
+        "fontVariantNumeric": "tabular-nums"
+      }
+    }
+  ],
+  "weights": [
+    {
+      "value": 400,
+      "name": "Regular",
+      "use": "Paragraphs, instructions and supporting text. Start here for reading."
+    },
+    {
+      "value": 500,
+      "name": "Medium",
+      "use": "Navigation, inactive tabs and mono references. Adds structure without making everything bold."
+    },
+    {
+      "value": 600,
+      "name": "Semibold",
+      "use": "Actions, field labels, active navigation and short emphasis. Use selectively."
+    },
+    {
+      "value": 700,
+      "name": "Bold",
+      "use": "Page, record, dialog and section titles. Establish hierarchy rather than emphasizing whole paragraphs."
+    }
+  ],
+  "fonts": [
+    {
+      "name": "Onest",
+      "token": "--pt-font-display",
+      "use": "Headings, record names, prominent values and action labels.",
+      "example": "Every journey starts here."
+    },
+    {
+      "name": "Public Sans",
+      "token": "--pt-font-sans",
+      "use": "Body text, forms, navigation and everyday operational reading.",
+      "example": "Confirm the details before issuing tickets."
+    },
+    {
+      "name": "JetBrains Mono",
+      "token": "--pt-font-mono",
+      "use": "References, dates and aligned amounts. Use sparingly outside data.",
+      "example": "BK-24-0193 · ₹1,45,000"
+    }
+  ],
+  "colorPairs": [
+    {
+      "id": "page",
+      "label": "Page background",
+      "background": "--pt-color-bg-page",
+      "foreground": "--pt-color-text-primary",
+      "use": "The outer workspace around surfaces."
+    },
+    {
+      "id": "surface",
+      "label": "Surface",
+      "background": "--pt-color-bg-surface",
+      "foreground": "--pt-color-text-primary",
+      "use": "The main reading and working surface."
+    },
+    {
+      "id": "secondary",
+      "label": "Supporting text",
+      "background": "--pt-color-bg-surface",
+      "foreground": "--pt-color-text-secondary",
+      "use": "Descriptions that support the primary content."
+    },
+    {
+      "id": "muted",
+      "label": "Hints and metadata",
+      "background": "--pt-color-bg-surface",
+      "foreground": "--pt-color-text-muted",
+      "use": "Secondary facts that still need to be readable; never reduce opacity to make them quieter."
+    },
+    {
+      "id": "action",
+      "label": "Primary action",
+      "background": "--pt-color-action-primary",
+      "foreground": "--pt-color-text-on-action",
+      "use": "Teal identifies the main action, such as Create booking."
+    },
+    {
+      "id": "selected",
+      "label": "Selected item",
+      "background": "--pt-color-bg-selected",
+      "foreground": "--pt-color-text-selected",
+      "use": "Pink identifies selection. Pair color with a check, border, or selected state."
+    },
+    {
+      "id": "link",
+      "label": "Text link",
+      "background": "--pt-color-bg-surface",
+      "foreground": "--pt-color-text-link",
+      "use": "Use an actual link for navigation and an underline in reading text."
+    },
+    {
+      "id": "success",
+      "label": "Success",
+      "background": "--pt-color-status-success-bg",
+      "foreground": "--pt-color-status-success-text",
+      "use": "A completed or confirmed outcome; add a status label."
+    },
+    {
+      "id": "warning",
+      "label": "Warning",
+      "background": "--pt-color-status-warning-bg",
+      "foreground": "--pt-color-status-warning-text",
+      "use": "Something needs attention; explain what to do next."
+    },
+    {
+      "id": "danger",
+      "label": "Error or danger",
+      "background": "--pt-color-status-danger-bg",
+      "foreground": "--pt-color-status-danger-text",
+      "use": "An error or destructive action; name the issue and recovery."
+    },
+    {
+      "id": "info",
+      "label": "Information",
+      "background": "--pt-color-status-info-bg",
+      "foreground": "--pt-color-status-info-text",
+      "use": "Context or a neutral update; include clear text."
+    }
+  ],
+  "principles": [
+    {
+      "title": "Choose a role first",
+      "text": "Use a named typography role or component instead of choosing an unrelated size and weight for each screen."
+    },
+    {
+      "title": "Keep meaning in HTML",
+      "text": "Use one descriptive h1 for the page, h2 for its sections and h3 for subsections. A visual style does not determine the heading level."
+    },
+    {
+      "title": "Make important text readable",
+      "text": "Use body text for policies, amounts due and instructions. Parya’s 10.5–12px dense-data roles are not a good default for essential reading."
+    },
+    {
+      "title": "Support zoom and text spacing",
+      "text": "Allow text to wrap and containers to grow. Check text resized to 200% and user spacing overrides; do not fix a text block’s height to its default appearance."
+    },
+    {
+      "title": "Use more than color",
+      "text": "Keep a visible status label, error message or selection marker. Color alone must not carry the meaning."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Coinbase: text roles and semantics",
+      "url": "https://cds.coinbase.com/components/typography/Text"
+    },
+    {
+      "label": "Coinbase: semantic colors",
+      "url": "https://cds.coinbase.com/getting-started/colors"
+    },
+    {
+      "label": "WCAG: text contrast",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html"
+    },
+    {
+      "label": "WCAG: non-text contrast",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html"
+    },
+    {
+      "label": "WCAG: text spacing",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html"
+    }
+  ]
+}

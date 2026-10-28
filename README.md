@@ -61,6 +61,20 @@ The package is not published to npm. Run `npm run build:lib` then `npm pack`; in
 
 React 19 is a peer dependency. Node.js 22.12+ is required for tooling. The package includes a client entry point for React frameworks. Supported browsers and Next.js integration still require acceptance testing in the real application.
 
+## Foundations guidance
+
+Open `/#/foundations` for typography roles, font and weight guidance, semantic color pairings, a theme-aware contrast calculator, spacing and shape examples, and the full token explorer. Examples use the existing Paper values. The typography specimens can be edited and enlarged to 200%.
+
+Load `@parya/design-system/styles.css` once to use the generated typography classes:
+
+```tsx
+<h1 className="pt-type-page-title">Bookings</h1>
+<h2 className="pt-type-section-title">Traveler details</h2>
+<p className="pt-type-body">Confirm the passport name before issuing the ticket.</p>
+```
+
+Choose the HTML element by meaning, independently of the visual role. Use the real components for controls and data formatting. `design/foundation-guidance.json` combines the Paper role declarations with authored usage guidance; `scripts/generate-foundations.mjs` generates `src/typography.css`, `/docs/foundations.md`, and `/api/foundations.json`. The guide is included in LLM documentation and the packaged catalog. Contrast results evaluate one combination; they are not a WCAG conformance claim.
+
 ## Development
 
 ```sh

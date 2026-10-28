@@ -1,5 +1,6 @@
 @import "./fonts.css";
 @import "./tokens.css";
+@import "./typography.css";
 
 /* Additional values transcribed from Paper's Elevation and Motion specimens. */
 :root {

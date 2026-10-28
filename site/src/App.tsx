@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import * as UI from "../../src/index";
 import { examples } from "../../src/examples";
 import components from "./generated/components.json";
 import hooks from "./generated/hooks.json";
 import paper from "./paper-catalog.json";
-import tokenData from "../../design/paper-tokens.json";
 import "../../src/styles.css";
 import "./site.css";
 import packageInfo from "../../package.json";
+const Foundations = React.lazy(() => import("./foundations/Foundations"));
 
 const REPO = "https://github.com/yakosasam797/parya.designsystem.code";
 const STORY_REPO =
@@ -196,7 +196,12 @@ function Sidebar({
         ].map(([url, label, icon]) => (
           <a
             className="ds-nav-item"
-            aria-current={route === url ? "page" : undefined}
+            aria-current={
+              route === url ||
+              (url === "/foundations" && route.startsWith("/foundations/"))
+                ? "page"
+                : undefined
+            }
             href={`#${url}`}
             key={url}
           >
@@ -934,70 +939,6 @@ function Installation() {
     </article>
   );
 }
-function Foundations() {
-  const [query, set] = useState("");
-  const [type, setType] = useState("color");
-  const tokens = useMemo(
-    () =>
-      tokenData.tokens.filter((t) => t.type === type && t.name.includes(query)),
-    [type, query],
-  );
-  const types = [...new Set(tokenData.tokens.map((t) => t.type))];
-  return (
-    <>
-      <div className="ds-breadcrumb">Foundations</div>
-      <h1 className="ds-page-title">A common foundation.</h1>
-      <p className="ds-lede">
-        518 tokens exported directly from Paper. Semantic names connect design
-        decisions to code.
-      </p>
-      <div className="ds-token-tools">
-        <UI.SearchField
-          placeholder="Search tokens"
-          shortcut=""
-          value={query}
-          onValueChange={set}
-        />
-        <UI.SelectField
-          label={<UI.VisuallyHidden>Token category</UI.VisuallyHidden>}
-          value={type}
-          onValueChange={setType}
-          options={types.map((t) => ({ value: t, label: t }))}
-        />
-      </div>
-      <div className="ds-token-grid">
-        {tokens.map((token) => (
-          <button
-            className="ds-token"
-            key={token.name}
-            onClick={() => copyText(`var(${token.name})`)}
-            aria-label={`Copy ${token.name}`}
-          >
-            {type === "color" ? (
-              <span
-                className="ds-token-swatch"
-                style={{ background: `var(${token.name})` }}
-              />
-            ) : type === "fontFamily" ? (
-              <span
-                className="ds-token-type"
-                style={{ fontFamily: `var(${token.name})` }}
-              >
-                Aa
-              </span>
-            ) : (
-              <span className="ds-token-value">{String(token.value)}</span>
-            )}
-            <code>{token.name}</code>
-            <span>{String(token.value)}</span>
-            <UI.Icon name="copy" size="sm" />
-          </button>
-        ))}
-      </div>
-      {!tokens.length ? <UI.EmptyState title="No tokens match" /> : null}
-    </>
-  );
-}
 function Agents() {
   return (
     <article className="ds-prose">
@@ -1185,9 +1126,13 @@ function Releases() {
       </p>
       <section className="ds-doc-section">
         <span className="ds-status">Preview</span>
-        <h2>0.2.0 · Collection workflows</h2>
+        <h2>0.2.0 · Collection workflows and foundations</h2>
         <p>28 October 2026</p>
         <ul>
+          <li>
+            Practical typography and color guides, 20 shared text-style classes,
+            contrast checks, and foundation documentation for AI agents.
+          </li>
           <li>
             FilterMenu, FilterChips, SortMenu, ListToolbar, ListPageTemplate and
             IconTextCell.
@@ -1295,7 +1240,11 @@ export default function App() {
           <a href="#/agents">AI resources</a>
         </div>
         <div className="ds-topbar-actions">
-          <button className="ds-search-trigger" onClick={() => setSearch(true)}>
+          <button
+            className="ds-search-trigger"
+            aria-label="Search documentation"
+            onClick={() => setSearch(true)}
+          >
             <UI.Icon name="search" />
             <span>Search documentation</span>
             <UI.Kbd>⌘ K</UI.Kbd>
@@ -1339,8 +1288,12 @@ export default function App() {
             <Overview />
           ) : route === "/installation" ? (
             <Installation />
-          ) : route === "/foundations" ? (
-            <Foundations />
+          ) : route.startsWith("/foundations") ? (
+            <React.Suspense
+              fallback={<UI.Spinner label="Loading foundations" />}
+            >
+              <Foundations section={route.split("/")[2]} copy={copyText} />
+            </React.Suspense>
           ) : route === "/agents" ? (
             <Agents />
           ) : route === "/hooks" ? (

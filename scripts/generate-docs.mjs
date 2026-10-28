@@ -1,6 +1,8 @@
 import ts from "typescript";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
+import { generateFoundations } from "./generate-foundations.mjs";
+const foundationsMarkdown = await generateFoundations();
 const pkg = JSON.parse(await readFile("package.json", "utf8"));
 const paper = JSON.parse(await readFile("site/src/paper-catalog.json", "utf8"));
 const examplesSource = await readFile("src/examples.tsx", "utf8");
@@ -291,7 +293,7 @@ await writeFile(
   "site/public/api/components.json",
   JSON.stringify({ version: pkg.version, components, hooks }, null, 2),
 );
-const blocks = [];
+const blocks = [foundationsMarkdown];
 for (const c of components) {
   const snippet = exampleEntries.find((e) => e.name === c.name).code;
   const usage = c.usage;
@@ -319,7 +321,7 @@ for (const hook of hooks)
   );
 await writeFile(
   "site/public/llms.txt",
-  `# Parya Design System\n\n> React and TypeScript components for travel SaaS. Version ${pkg.version}; experimental.\n\n## Start here\n\n- [Agent instructions](./agents.md)\n- [Complete documentation](./llms-full.txt)\n- [Machine-readable component API](./api/components.json)\n\n## Components\n\n${components.map((c) => `- [${c.name}](./docs/${c.name}.md): ${c.description.split(".")[0]}`).join("\n")}\n`,
+  `# Parya Design System\n\n> React and TypeScript components for travel SaaS. Version ${pkg.version}; experimental.\n\n## Start here\n\n- [Foundations: typography, color and accessibility](./docs/foundations.md)\n- [Machine-readable foundation roles](./api/foundations.json)\n- [Agent instructions](./agents.md)\n- [Complete documentation](./llms-full.txt)\n- [Machine-readable component API](./api/components.json)\n\n## Components\n\n${components.map((c) => `- [${c.name}](./docs/${c.name}.md): ${c.description.split(".")[0]}`).join("\n")}\n`,
 );
 await writeFile("site/public/llms-full.txt", blocks.join("\n\n---\n\n"));
 await writeFile("site/public/agents.md", await readFile("AGENTS.md", "utf8"));
