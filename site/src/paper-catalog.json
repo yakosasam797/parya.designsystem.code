@@ -1,0 +1,2949 @@
+[
+  {
+    "name": "Button",
+    "artboard": "M-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "Button · Text actions / all variants & states",
+    "description": "Text action button (Onest 600). primary = teal fill, brand = teal outline, secondary = neutral outline, tertiary = quiet transparent detail action, ghost = transparent, danger = red fill, link = inline teal text.",
+    "guidance": [
+      "USE · Any action with a visible text label / AVOID · Icon-only control → IconButton"
+    ],
+    "paperApi": "variant?: \"primary\"|\"brand\"|\"secondary\"|\"tertiary\"|\"ghost\"|\"danger\"|\"link\" (secondary); size?: \"xs\" 28|\"sm\" 32|\"md\" 36 (sm); leadingIcon?, trailingIcon?: IconName; loading?; fullWidth?; type? (button)",
+    "states": [
+      "Button / variants",
+      "Button / primary-action",
+      "Button / sizes",
+      "Button / icons",
+      "Button / loading",
+      "Button / disabled",
+      "Button / full-width",
+      "Button / Dark theme / primary-action",
+      "Button / State / 01 / primary",
+      "Button / State / 02 / brand",
+      "Button / State / 03 / secondary",
+      "Button / State / 04 / tertiary",
+      "Button / State / 05 / ghost",
+      "Button / State / 06 / danger",
+      "Button / State / 07 / link"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=M-0"
+  },
+  {
+    "name": "Checkbox",
+    "artboard": "RX-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "Checkbox · Selection / states",
+    "description": "18px checkbox (pink when checked/indeterminate) with optional label and description.",
+    "guidance": [
+      "USE · Multi-select in tables and lists (indeterminate for select-all) / AVOID · Setting that applies immediately → Switch"
+    ],
+    "paperApi": "checked: boolean|\"indeterminate\"; onCheckedChange?: (c: boolean) => void; label?; aria-label? (when no label); description?; disabled?",
+    "states": [
+      "Checkbox / indeterminate",
+      "Checkbox / labelled",
+      "Checkbox / description",
+      "Checkbox / unlabelled",
+      "Checkbox / disabled",
+      "Checkbox / Dark theme / labelled",
+      "Checkbox / State / 01 / false",
+      "Checkbox / State / 02 / true",
+      "Checkbox / State / 03 / indeterminate"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=RX-0"
+  },
+  {
+    "name": "IconButton",
+    "artboard": "25D-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "IconButton · Source library / variants & states",
+    "description": "Square icon-only button with a required label (aria-label + tooltip), primary/outline/ghost variants and optional alert dot. Primary uses the same action states as Button primary. `badge` is a dot (true) or a count chip (number, 99+ cap) — the topbar bell shows the unread count.",
+    "guidance": [
+      "USE · Toolbar/topbar controls whose icon is unambiguous (notifications, help, close) / AVOID · The action needs words to be understood → Button with leadingIcon"
+    ],
+    "paperApi": "icon: IconName; label: string (required); variant?: \"primary\"|\"outline\"|\"ghost\" (outline); size?: \"xs\" 28|\"sm\" 32|\"md\" 36 (md); badge?: boolean | number; tooltip?: boolean (true)",
+    "states": [
+      "IconButton / primary",
+      "IconButton / notifications",
+      "IconButton / count",
+      "IconButton / variants",
+      "IconButton / sizes",
+      "IconButton / row-more",
+      "IconButton / disabled",
+      "IconButton / Dark theme / primary",
+      "IconButton / State / 01 / primary",
+      "IconButton / State / 02 / outline",
+      "IconButton / State / 03 / ghost"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=25D-0"
+  },
+  {
+    "name": "RadioGroup",
+    "artboard": "4KU-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "RadioGroup · Source library / variants & states",
+    "description": "Single choice from a short, always-visible list of options, each with optional description.",
+    "guidance": [
+      "USE · 2–5 mutually exclusive options that benefit from being visible side by side, with explanations / AVOID · More than 5 options → SelectField or Combobox"
+    ],
+    "paperApi": "value: string; onValueChange: (v: string) => void; options: { value, label, description?, disabled? }[]; orientation?: \"vertical\"|\"horizontal\"; aria-label?",
+    "states": [
+      "RadioGroup / with-descriptions",
+      "RadioGroup / horizontal",
+      "RadioGroup / disabled-option",
+      "RadioGroup / Dark theme / with-descriptions",
+      "RadioGroup / State / 01 / Unselected",
+      "RadioGroup / State / 02 / Selected"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=4KU-0"
+  },
+  {
+    "name": "Switch",
+    "artboard": "4NX-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "Switch · Source library / variants & states",
+    "description": "On/off toggle for settings that take effect immediately.",
+    "guidance": [
+      "USE · Settings pages and panels where a change applies immediately (enable notifications, auto-assign) / AVOID · Boolean inside a form submitted with Save → Checkbox"
+    ],
+    "paperApi": "",
+    "states": [
+      "Switch / labelled",
+      "Switch / description",
+      "Switch / settings-list",
+      "Switch / disabled",
+      "Switch / Dark theme / labelled",
+      "Switch / State / 01 / Off",
+      "Switch / State / 02 / On"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=4NX-0"
+  },
+  {
+    "name": "Avatar",
+    "artboard": "57I-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "Avatar · Source library / variants & states",
+    "description": "Rounded person/entity photo or initials with load-error fallback. Default sm26; chip24/radius6 is compact rounded media for Kanban assignees. Existing sizes and tones remain unchanged.",
+    "guidance": [
+      "USE · People: owners, assignees, account menu, activity actors / AVOID · Vendor/hotel logos or thumbnails in tables → EntityCell media"
+    ],
+    "paperApi": "name: string|null; src?: string; unassignedLabel?: string; size?: \"xs\"20|\"chip\"24|\"sm\"26|\"md\"32|\"lg\"40|\"xl\"48 (sm); tone?: \"person\"|\"work\"|\"warm\"|\"channel\"|\"neutral\" (person); shape?: rounded|circle (deprecated historical previews only; omit for rounded default)",
+    "states": [
+      "Avatar / initials",
+      "Avatar / chip",
+      "Avatar / sizes",
+      "Avatar / tones",
+      "Avatar / photo",
+      "Avatar / unassigned",
+      "Avatar / legacy-circle",
+      "Avatar / Dark theme / initials"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=57I-0"
+  },
+  {
+    "name": "StatusChip",
+    "artboard": "5FZ-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "StatusChip · Source library / variants & states",
+    "description": "28px status pill with tone colours and a leading dot (success, warning, danger, info, neutral).",
+    "guidance": [
+      "USE · Showing a state that is not a known domain status (e.g. a custom sync state) / AVOID · Choosing tone by hand for a domain status (vendor, booking, payment, invoice…) → StatusBadge (domain)"
+    ],
+    "paperApi": "tone: \"success\"|\"warning\"|\"danger\"|\"info\"|\"neutral\"; dot?: boolean (true); size?: \"sm\" 22|\"md\" 28 (md); children",
+    "states": [
+      "StatusChip / custom-state",
+      "StatusChip / tones",
+      "StatusChip / small",
+      "StatusChip / no-dot",
+      "StatusChip / Dark theme / custom-state"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=5FZ-0"
+  },
+  {
+    "name": "Tag",
+    "artboard": "5IO-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "Tag · Source library / variants & states",
+    "description": "24px soft-rect label chip for categories and attributes, with optional icon and removable ×.",
+    "guidance": [
+      "USE · Attributes/categories on records (languages, amenities, regions) / AVOID · Status of a record → StatusBadge / StatusChip"
+    ],
+    "paperApi": "children; icon?: IconName; tone?: \"neutral\"|\"work\"|\"person\" (neutral); size?: \"sm\" 20|\"md\" 24 (md); onRemove?: () => void; removeLabel: string (required with onRemove)",
+    "states": [
+      "Tag / attributes",
+      "Tag / tones",
+      "Tag / sizes",
+      "Tag / removable",
+      "Tag / Dark theme / attributes",
+      "Tag / State / 01 / Remove action"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=5IO-0"
+  },
+  {
+    "name": "CountBadge",
+    "artboard": "5QD-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "CountBadge · Source library / variants & states",
+    "description": "18px mono count (10.5px) with optional selected/danger tone and max overflow (99+).",
+    "guidance": [
+      "USE · Counts next to tabs, nav items, filter triggers and section titles / AVOID · Unread/alert indicator with no number → IconButton badge"
+    ],
+    "paperApi": "count: number; tone?: \"neutral\"|\"selected\"|\"danger\" (neutral); max?: number (99); hideZero?: boolean (false — render nothing when count is 0)",
+    "states": [
+      "CountBadge / next-to-label",
+      "CountBadge / tones",
+      "CountBadge / overflow",
+      "CountBadge / zero",
+      "CountBadge / hide-zero",
+      "CountBadge / Dark theme / next-to-label"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=5QD-0"
+  },
+  {
+    "name": "IdChip",
+    "artboard": "5UA-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "IdChip · Source library / variants & states",
+    "description": "Mono record reference chip with bookmark icon and copy-to-clipboard button (announces \"Copied\").",
+    "guidance": [
+      "USE · Showing a record's reference/ID in a record header meta row or detail panel so users can copy it / AVOID · Code under an entity name in a table → EntityCell code"
+    ],
+    "paperApi": "value: string; icon?: IconName (\"bookmark\"); copyable?: boolean (true); label?: string (\"Reference\", used in aria + tooltip)",
+    "states": [
+      "IdChip / booking-reference",
+      "IdChip / icon",
+      "IdChip / not-copyable",
+      "IdChip / Dark theme / booking-reference",
+      "IdChip / State / 01 / Copy action"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=5UA-0"
+  },
+  {
+    "name": "Tooltip",
+    "artboard": "5Y5-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "Tooltip · Source library / variants & states",
+    "description": "Dark hover/focus tooltip (12px) around a single focusable trigger. Includes its own provider (300ms delay).",
+    "guidance": [
+      "USE · Supplementary hint for a control or truncated value / AVOID · Label for an icon-only button → IconButton (tooltip is built in)"
+    ],
+    "paperApi": "content: ReactNode; side?: \"top\"|\"right\"|\"bottom\"|\"left\" (top); children: ReactElement (trigger); delayDuration?",
+    "states": [
+      "Tooltip / hint",
+      "Tooltip / sides",
+      "Tooltip / no-delay",
+      "Tooltip / Dark theme / hint",
+      "Tooltip / Open / top / open / light",
+      "Tooltip / Open / right / open / light",
+      "Tooltip / Open / bottom / open / light",
+      "Tooltip / Open / left / open / light",
+      "Tooltip / Open / top / open / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=5Y5-0"
+  },
+  {
+    "name": "Kbd",
+    "artboard": "7TX-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "Kbd · Source library / variants & states",
+    "description": "Keyboard key / shortcut hint (mono 10.5px, muted key cap).",
+    "guidance": [
+      "USE · Showing a keyboard shortcut next to a search field, menu item or in help text / AVOID · Record references → IdChip"
+    ],
+    "paperApi": "",
+    "states": [
+      "Kbd / shortcut-in-text",
+      "Kbd / keys",
+      "Kbd / Dark theme / shortcut-in-text"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=7TX-0"
+  },
+  {
+    "name": "Spinner",
+    "artboard": "7WZ-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "Spinner · Source library / variants & states",
+    "description": "Rotating loader arc or refresh arrow in currentColor for indeterminate short waits.",
+    "guidance": [
+      "USE · Inline indeterminate loading inside a small region (a panel refreshing, a lazy menu) / AVOID · Button waiting on an action → Button loading"
+    ],
+    "paperApi": "size?: \"sm\"|\"md\" (md); variant?: \"loader\"|\"refresh\" (loader); label?: string (announced as status)",
+    "states": [
+      "Spinner / labelled",
+      "Spinner / refresh",
+      "Spinner / sizes",
+      "Spinner / panel-refresh",
+      "Spinner / Dark theme / labelled"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=7WZ-0"
+  },
+  {
+    "name": "Skeleton",
+    "artboard": "82G-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "Skeleton · Source library / variants & states",
+    "description": "Shimmering placeholder block or text lines for loading content (aria-hidden).",
+    "guidance": [
+      "USE · Content with a known shape is loading (cards, panels, text) / AVOID · Table rows loading → DataTable loading"
+    ],
+    "paperApi": "width?: string|number; height?: string|number; radius?: \"sm\"|\"md\"|\"pill\" (sm); lines?: number",
+    "states": [
+      "Skeleton / panel-loading",
+      "Skeleton / shapes",
+      "Skeleton / paragraph",
+      "Skeleton / Dark theme / panel-loading"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=82G-0"
+  },
+  {
+    "name": "Meter",
+    "artboard": "8BM-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "Meter · Source library / variants & states",
+    "description": "4px usage bar (pink accent default, on a pink-tinted track; other tones on a neutral track) with optional label and value text; role=meter.",
+    "guidance": [
+      "USE · Credits, quotas, completion percentage, capacity / AVOID · Indeterminate loading → Spinner"
+    ],
+    "paperApi": "value: number; max: number; tone?: \"accent\"|\"primary\"|\"success\"|\"warning\"|\"danger\" (accent); label?: string; valueText?: string; size?: \"sm\" 4px|\"md\" 6px (sm)",
+    "states": [
+      "Meter / credits",
+      "Meter / primary",
+      "Meter / success",
+      "Meter / warning",
+      "Meter / danger",
+      "Meter / bare",
+      "Meter / Dark theme / credits"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=8BM-0"
+  },
+  {
+    "name": "TextLink",
+    "artboard": "8GD-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "TextLink · Source library / variants & states",
+    "description": "Inline teal link, underline on hover; external opens a new tab with an external-link icon.",
+    "guidance": [
+      "USE · Links inside running text, descriptions and table cells (email, website, related record) / AVOID · Standalone action → Button (variant=\"link\" for inline text actions)"
+    ],
+    "paperApi": "href?: string; onClick?; external?: boolean; children",
+    "states": [
+      "TextLink / in-text",
+      "TextLink / external",
+      "TextLink / action",
+      "TextLink / Dark theme / in-text",
+      "TextLink / State / 01 / Inline navigation"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=8GD-0"
+  },
+  {
+    "name": "Divider",
+    "artboard": "8JA-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "Divider · Source library / variants & states",
+    "description": "1px hairline separator, horizontal or vertical.",
+    "guidance": [
+      "USE · Separating groups inside a toolbar, menu-like panel or card body / AVOID · Spacing between page regions → templates own spacing"
+    ],
+    "paperApi": "orientation?: \"horizontal\"|\"vertical\" (horizontal)",
+    "states": [
+      "Divider / horizontal",
+      "Divider / vertical",
+      "Divider / Dark theme / horizontal"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=8JA-0"
+  },
+  {
+    "name": "Stack",
+    "artboard": "8LL-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "Stack · Source library / variants & states",
+    "description": "Flex layout for a few children inside a region: column (default) or row, gap from the space scale (--pt-space-*), align, justify, wrap; renders div, ul or ol. Classes only, no inline styles.",
+    "guidance": [
+      "USE · A row of actions, chips or tags inside a panel, card or popover / AVOID · Page regions (header, toolbar, table, rail) → templates such as ListPageTemplate, RecordPageTemplate, DashboardPageTemplate"
+    ],
+    "paperApi": "direction?: \"row\"|\"column\" (column); gap?: \"0\"|\"0-5\"|\"1\"|\"1-5\"|\"2\"|\"2-5\"|\"3\"|\"3-5\"|\"4\"|\"5\"|\"6\"|\"7\"|\"8\"|\"10\"|\"12\"|\"14\" (\"2\" = 8px); align?: \"start\"|\"center\"|\"end\"|\"stretch\"|\"baseline\"; justify?: \"start\"|\"center\"|\"end\"|\"between\"; wrap?: boolean; as?: \"div\"|\"ul\"|\"ol\" (div); children; className (placement only)",
+    "states": [
+      "Stack / row-wrap",
+      "Stack / column-list",
+      "Stack / justify-between",
+      "Stack / Dark theme / row-wrap"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=8LL-0"
+  },
+  {
+    "name": "HeadingLevelProvider",
+    "artboard": "8VQ-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "HeadingLevelProvider · Source library / variants & states",
+    "description": "Sets the heading level that section components (FormSection) use inside a surface. Modal and Sheet already provide 3 because their title is the h2; useHeadingLevel() reads it.",
+    "guidance": [
+      "USE · Building a new surface whose own title is an h2 and which hosts FormSections or other section headings / AVOID · Inside Modal / Sheet → already provided"
+    ],
+    "paperApi": "",
+    "states": [
+      "HeadingLevelProvider / surface-with-sections",
+      "HeadingLevelProvider / nested",
+      "HeadingLevelProvider / Dark theme / surface-with-sections"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=8VQ-0"
+  },
+  {
+    "name": "VisuallyHidden",
+    "artboard": "91M-0",
+    "pageId": "p-3-0",
+    "category": "Primitives",
+    "title": "VisuallyHidden · Source library / variants & states",
+    "description": "Deprecated compatibility for frozen historical previews. For new work use a semantic element with the public pt-visually-hidden utility class. Screen-reader-only text (.pt-visually-hidden): a 1px clipped box anchored to its containing block's top-left, so hidden text inside scrolling tables, boards and matrices never grows the document.",
+    "guidance": [
+      "USE · Rendering an existing frozen historical preview only / AVOID · New screens or updated references → a semantic element with the public pt-visually-hidden utility class"
+    ],
+    "paperApi": "as?: \"span\"|\"div\" (span); children; …HTMLAttributes (id, role, aria-live)",
+    "states": [
+      "VisuallyHidden / legacy-compatibility",
+      "VisuallyHidden / Dark theme / legacy-compatibility"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=91M-0"
+  },
+  {
+    "name": "TextField",
+    "artboard": "R6-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "TextField · Input anatomy / variants & states",
+    "description": "Labelled single-line text input, 38px, radius sm, optional leading icon, prefix/suffix, mono value for codes.",
+    "guidance": [
+      "USE · Names, emails, references, short free text in a form / AVOID · Searching or filtering a list → SearchField (no label, 36px, clear button)"
+    ],
+    "paperApi": "label; hint?; error?; optional?; span?: \"full\"; leadingIcon?: IconName; prefix?: string; suffix?: ReactNode; size?: \"md\" 38|\"sm\" 32 (md); mono?; readOnly?; onValueChange?: (v: string) => void; …input attributes (go to the <input>; className places the field)",
+    "states": [
+      "TextField / error",
+      "TextField / leading-icon",
+      "TextField / hint",
+      "TextField / optional-prefix",
+      "TextField / suffix",
+      "TextField / read-only",
+      "TextField / disabled",
+      "TextField / small",
+      "TextField / Dark theme / leading-icon",
+      "TextField / State / 01 / Control states",
+      "TextField / State / 02 / Control states",
+      "TextField / State / 03 / Control states"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=R6-0"
+  },
+  {
+    "name": "Field",
+    "artboard": "AYT-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "Field · Source library / variants & states",
+    "description": "Label above a custom control, with hint or error (alert icon) below. Every labelled form component already renders one.",
+    "guidance": [
+      "USE · Labelling a control that has no labelled wrapper of its own (ChoiceChips, Switch group, FileDropzone) / AVOID · Text, select, date, phone or amount inputs → TextField, SelectField, DateField, PhoneField, MoneyField (they include the label)"
+    ],
+    "paperApi": "label: ReactNode; htmlFor?: string (hint/error ids = `${htmlFor}-hint` / `${htmlFor}-error`); labelId?: string (for aria-labelledby on non-labelable controls); hint?; error?; optional? (renders \"(optional)\"); required? (semantics only); span?: \"full\"",
+    "states": [
+      "Field / custom-control",
+      "Field / hint-optional",
+      "Field / error",
+      "Field / segmented",
+      "Field / Dark theme / custom-control"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=AYT-0"
+  },
+  {
+    "name": "TextArea",
+    "artboard": "B4A-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "TextArea · Source library / variants & states",
+    "description": "Labelled multi-line text input, vertically resizable by default; focused editors can disable resizing while long text scrolls inside the field. Same frame as TextField.",
+    "guidance": [
+      "USE · Addresses, notes, descriptions, cancellation terms / AVOID · One-line values → TextField"
+    ],
+    "paperApi": "label; hint?; error?; optional?; span?: \"full\"; rows? (3); resize?: \"vertical\" | \"none\" (vertical); onValueChange?; …textarea attributes",
+    "states": [
+      "TextArea / optional",
+      "TextArea / bounded-editor",
+      "TextArea / rows-hint",
+      "TextArea / error",
+      "TextArea / read-only",
+      "TextArea / Dark theme / optional",
+      "TextArea / State / 01 / Control states",
+      "TextArea / State / 02 / Control states",
+      "TextArea / State / 03 / Control states"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=B4A-0"
+  },
+  {
+    "name": "SelectField",
+    "artboard": "B6T-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "SelectField · Source library / variants & states",
+    "description": "Labelled single choice from a short fixed list: Radix Select styled as a 38px input with chevron; options show icon, description and a check. Exports type SelectOption = { value, label, icon?, description?, disabled? } shared with Combobox and MultiSelect. Experimental SelectOption.media: { src } renders a decorative saved thumbnail with initials on load failure; photos win over option icons. Single-value triggers show a compact thumbnail; MultiSelect tags retain compact text labels.",
+    "guidance": [
+      "USE · Choosing one of ~3–15 known values inside a form (status, country, vendor type) / AVOID · Filtering a list/table → FilterMenu in ListToolbar (never a labelled SelectField row)"
+    ],
+    "paperApi": "label; options: SelectOption[] (media?: { src: string }, experimental); value?: string (\"\" = placeholder); defaultValue?; onValueChange?: (v: string) => void; placeholder? (\"Select…\"); hint?; error?; disabled?; required?; optional?; name?; span?",
+    "states": [
+      "SelectField / record-media",
+      "SelectField / icons",
+      "SelectField / descriptions",
+      "SelectField / error",
+      "SelectField / optional",
+      "SelectField / disabled",
+      "SelectField / Dark theme / record-media",
+      "SelectField / State / 01 / Control states",
+      "SelectField / State / 02 / Control states",
+      "SelectField / Open / descriptions / open / light",
+      "SelectField / Open / record-media / open / light"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=B6T-0"
+  },
+  {
+    "name": "Combobox",
+    "artboard": "BAK-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "Combobox · Source library / variants & states",
+    "description": "Labelled single choice from a long list with a type-to-filter popover (Radix Popover). The trigger is a select-only combobox (role=combobox, aria-haspopup=listbox, aria-expanded, aria-controls) named by its label. Arrow keys move, Enter selects, Escape closes the list (not the surrounding dialog). Filtering matches label or description and ranks label-starts-with, then label-contains, then description-only matches. Experimental SelectOption.media: { src } renders a decorative saved thumbnail with initials on load failure; photos win over option icons. Single-value triggers show a compact thumbnail; MultiSelect tags retain compact text labels.",
+    "guidance": [
+      "USE · Choosing one of many values: city, country, vendor, customer, hotel / AVOID · Short fixed list (≤ 15) → SelectField"
+    ],
+    "paperApi": "label; options: SelectOption[] (media?: { src: string }, experimental); value?: string; onValueChange: (v: string) => void; placeholder?; searchPlaceholder? (\"Search…\"); emptyText? (\"No matches\"); leadingIcon?: IconName; hint?; error?; disabled?; required?; optional?; name?; span?; onCreate?: (query: string) => void (experimental: \"+ createLabel\" action under the list, gets the typed text); createLabel? (\"Create new\")",
+    "states": [
+      "Combobox / city",
+      "Combobox / record-media",
+      "Combobox / descriptions",
+      "Combobox / error",
+      "Combobox / create",
+      "Combobox / disabled",
+      "Combobox / Dark theme / city",
+      "Combobox / State / 01 / Control states",
+      "Combobox / State / 02 / Control states",
+      "Combobox / Open / city / open / light",
+      "Source record media / asset shelf",
+      "Combobox / Open / city / filtered / light",
+      "Combobox / Open / descriptions / empty / light",
+      "Combobox / Open / create / create / light",
+      "Combobox / Open / record-media / open / light"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=BAK-0"
+  },
+  {
+    "name": "MultiSelect",
+    "artboard": "BEK-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "MultiSelect · Source library / variants & states",
+    "description": "Labelled multiple choice from a long list: selected values show as removable Tags inside the control (first `max`, then \"+N\"); popover with filter and checkbox options. The trigger is role=combobox (aria-haspopup=listbox, aria-expanded, aria-controls) named by its label. Filtering matches label or description and ranks label-starts-with, then label-contains, then description-only matches. Experimental SelectOption.media: { src } renders a decorative saved thumbnail with initials on load failure; photos win over option icons. Single-value triggers show a compact thumbnail; MultiSelect tags retain compact text labels.",
+    "guidance": [
+      "USE · Choosing several values from more than 8 options (destinations, languages, regions, team members) / AVOID · ≤ 8 options that should stay visible → ChoiceChips"
+    ],
+    "paperApi": "label; options: SelectOption[] (media?: { src: string }, experimental); value: string[]; onValueChange: (v: string[]) => void; placeholder?; max? (3 tags shown); searchPlaceholder?; emptyText?; hint?; error?; disabled?; required?; optional?; span?",
+    "states": [
+      "MultiSelect / record-media",
+      "MultiSelect / regions",
+      "MultiSelect / empty",
+      "MultiSelect / overflow",
+      "MultiSelect / error",
+      "MultiSelect / disabled",
+      "MultiSelect / Dark theme / record-media",
+      "MultiSelect / State / 01 / Control states",
+      "MultiSelect / State / 02 / Control states",
+      "MultiSelect / Open / regions / open / light",
+      "MultiSelect / Open / regions / empty / light",
+      "MultiSelect / Open / record-media / open / light"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=BEK-0"
+  },
+  {
+    "name": "DateField",
+    "artboard": "BJR-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "DateField · Source library / variants & states",
+    "description": "Labelled civil date (YYYY-MM-DD), editable dd/mm/yyyy input, DS formatted date at rest and the shared DS MiniCalendar popover; no timezone conversion.",
+    "guidance": [
+      "USE · Travel date, due date, date of birth, passport expiry — any calendar date without a time / AVOID · Start and end dates → DateRangeField"
+    ],
+    "paperApi": "label; value?: string (YYYY-MM-DD or \"\"); onValueChange?: (v: string) => void; min?; max?; hint?; error?; optional?; required?; disabled?; readOnly?; span?",
+    "states": [
+      "DateField / travel-date",
+      "DateField / hint",
+      "DateField / error",
+      "DateField / optional",
+      "DateField / read-only-disabled",
+      "DateField / Dark theme / travel-date",
+      "DateField / State / 01 / Control states",
+      "DateField / State / 02 / Control states",
+      "DateField / State / 03 / Control states",
+      "DateField / Open / travel-date / open / light"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=BJR-0"
+  },
+  {
+    "name": "TimeField",
+    "artboard": "C0X-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "TimeField · Source library / variants & states",
+    "description": "Labelled civil local time HH:mm. Type an exact time or choose Hours (00–23) and Minutes (00–59) in two DS dropdowns with shared SelectField anatomy; bound/step-invalid choices are disabled; hour selection keeps the popover open and minute selection closes; 24-hour HH:mm display in every locale; hidden native validation retains min/max (including overnight windows), step and form name.",
+    "guidance": [
+      "USE · Appointment, meeting, pickup or follow-up time entered separately from its date / AVOID · Picking a calendar date → DateField"
+    ],
+    "paperApi": "label; value?: string (HH:mm); onValueChange?: (v: string) => void; min?; max?; step? (seconds); hint?; error?; optional?; required?; disabled?; readOnly?; span?; …input attributes",
+    "states": [
+      "TimeField / follow-up",
+      "TimeField / states",
+      "TimeField / intervals",
+      "TimeField / Dark theme / follow-up",
+      "TimeField / State / 01 / Control states",
+      "TimeField / State / 02 / Control states",
+      "TimeField / State / 03 / Control states",
+      "TimeField / Open / follow-up / open / light",
+      "TimeField / Open / follow-up / hours / light",
+      "TimeField / Open / intervals / hours / light"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=C0X-0"
+  },
+  {
+    "name": "DateRangeField",
+    "artboard": "CA7-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "DateRangeField · Source library / variants & states",
+    "description": "Owner-selected presets/stay popover is the default whole civil-date range. ONE DS calendar picks start then end with equally selected endpoints, quick Weekend/1 week presets, clear action and min/max bounds. Inline nights summary, two-endpoint, plain field and content-width compact toolbar variants remain available.",
+    "guidance": [
+      "USE · Stay dates, travel window, rate-card validity, contract period / AVOID · A single date → DateField"
+    ],
+    "paperApi": "label; value: { from?: string; to?: string }; onValueChange: (v) => void; fromLabel? (\"Start date\"); toLabel? (\"End date\"); min?; max?; orderError?; hint?; error? (wins over orderError); disabled?; required?; optional?; span?. Helper: isDateRangeReversed(value); variant?: \"field\"|\"compact\"|\"inline\"|\"presets\"|\"endpoints\" (default presets; owner-selected)",
+    "states": [
+      "DateRangeField / stay",
+      "DateRangeField / compact",
+      "DateRangeField / booking",
+      "DateRangeField / contract",
+      "DateRangeField / hint",
+      "DateRangeField / reversed",
+      "DateRangeField / bounded",
+      "DateRangeField / error",
+      "DateRangeField / disabled",
+      "DateRangeField / Dark theme / stay",
+      "DateRangeField / State / 01 / Control states",
+      "DateRangeField / State / 02 / Control states",
+      "DateRangeField / Open / stay / open / light",
+      "DateRangeField / Open / compact / open / light",
+      "DateRangeField / Open / contract / open / light",
+      "DateRangeField / Open / bounded / open / light"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=CA7-0"
+  },
+  {
+    "name": "PhoneField",
+    "artboard": "COC-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "PhoneField · Source library / variants & states",
+    "description": "Labelled phone number: searchable country-name and dial-code popover (+91 India default; UAE, Singapore, UK, US, Australia, Thailand, Malaysia, Nepal, Sri Lanka, Maldives) + tel input in one 38px control.",
+    "guidance": [
+      "USE · Phone or WhatsApp number of a contact, vendor or customer / AVOID · Displaying a phone number → ContactList or TextLink (tel:)"
+    ],
+    "paperApi": "label; countryCode: string (\"+91\"); onCountryCodeChange; value: string; onValueChange; countries?: {code,label}[] (PHONE_COUNTRY_CODES); countryCodeLabel?; hint?; error?; optional?; required?; disabled?; span?; searchPlaceholder? (\"Search country or code\"); emptyText?",
+    "states": [
+      "PhoneField / india",
+      "PhoneField / international",
+      "PhoneField / error",
+      "PhoneField / optional",
+      "PhoneField / disabled",
+      "PhoneField / Dark theme / india",
+      "PhoneField / State / 01 / Control states",
+      "PhoneField / State / 02 / Control states",
+      "PhoneField / Open / india / open / light",
+      "PhoneField / Open / india / empty / light"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=COC-0"
+  },
+  {
+    "name": "MoneyField",
+    "artboard": "CXH-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "MoneyField · Source library / variants & states",
+    "description": "Labelled amount in major units (number | null): currency symbol prefix from Intl (₹ for INR), right-aligned mono value, digits + one decimal point only, lakh grouping (12,34,567.5) via @paryatech/format as digits are typed, with caret-preserving editing and decimal drafts.",
+    "guidance": [
+      "USE · Prices, costs, deposits, credit limits, markups in currency / AVOID · Displaying an amount → Money or MoneyCell"
+    ],
+    "paperApi": "label; value: number | null; onValueChange: (v: number | null) => void; currency? (\"INR\"); locale? (\"en-IN\"); hint?; error?; optional?; required?; disabled?; readOnly?; span?",
+    "states": [
+      "MoneyField / inr",
+      "MoneyField / empty",
+      "MoneyField / error",
+      "MoneyField / currency",
+      "MoneyField / read-only-disabled",
+      "MoneyField / Dark theme / inr",
+      "MoneyField / State / 01 / Control states",
+      "MoneyField / State / 02 / Control states",
+      "MoneyField / State / 03 / Control states"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=CXH-0"
+  },
+  {
+    "name": "SearchField",
+    "artboard": "D1V-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "SearchField · Source library / variants & states",
+    "description": "Unlabelled search box (placeholder doubles as aria-label): 36px (md) or 44px (lg), radius md, leading icon, clear × when non-empty, default / Kbd shortcut to focus the first visible search (ignores editable targets; respects active dialogs); Escape clears first — inside a Modal/Sheet/Popover the first Escape clears, the next one closes.",
+    "guidance": [
+      "USE · List toolbars (ListToolbar search) / AVOID · Form input that needs a label → TextField"
+    ],
+    "paperApi": "value: string; onValueChange: (v: string) => void; placeholder: string (also the accessible name); shortcut?: string (\"/\" default; \"\" opts out; other values are display-only); size?: \"md\" 36|\"lg\" 44 (md); icon?: IconName (\"search\"); clearLabel?; autoFocus?; …input attributes",
+    "states": [
+      "SearchField / list-search",
+      "SearchField / shortcut",
+      "SearchField / location",
+      "SearchField / large",
+      "SearchField / disabled",
+      "SearchField / Dark theme / list-search",
+      "SearchField / State / 01 / Control states",
+      "SearchField / State / 02 / Control states"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=D1V-0"
+  },
+  {
+    "name": "ChoiceChips",
+    "artboard": "DAW-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "ChoiceChips · Source library / variants & states",
+    "description": "Soft-rect toggle chips (32px, radius sm, 12.5/600, optional icon). Pressed = pink soft bg + pink border + pink text. multiple (default) = group of aria-pressed buttons; multiple={false} = radiogroup with arrow keys.",
+    "guidance": [
+      "USE · ≤ 8 options that should all stay visible: service categories, trip type, meal plan / AVOID · More than 8 options → MultiSelect"
+    ],
+    "paperApi": "options: { value; label; icon?: IconName; disabled? }[]; value: string[]; onValueChange: (v: string[]) => void; multiple? (true); name the group with \"aria-label\": string and/or \"aria-labelledby\": string (at least one required, type-enforced; labelledby wins); disabled?",
+    "states": [
+      "ChoiceChips / multiple",
+      "ChoiceChips / single",
+      "ChoiceChips / text-only",
+      "ChoiceChips / disabled-option",
+      "ChoiceChips / disabled",
+      "ChoiceChips / Dark theme / multiple",
+      "ChoiceChips / State / 01 / Control states",
+      "ChoiceChips / State / 02 / Control states"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=DAW-0"
+  },
+  {
+    "name": "SegmentedControl",
+    "artboard": "DKE-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "SegmentedControl · Source library / variants & states",
+    "description": "2–5 mutually exclusive modes in one subtle track (radius md, 2px inset); active segment white + shadow block; optional icon and mono count. radiogroup semantics, arrow keys select.",
+    "guidance": [
+      "USE · Switching how the current content is shown: List | Grid, Day | Week | Month / AVOID · Page sections or record tabs → TabBar"
+    ],
+    "paperApi": "options: { value; label; icon?: IconName; count?: number; disabled? }[]; value: string; onValueChange: (v: string) => void; \"aria-label\": string and/or \"aria-labelledby\": string (at least one required, type-enforced); size?: \"sm\" 28|\"md\" 32|\"toolbar\" 36 (md); disabled?",
+    "states": [
+      "SegmentedControl / view",
+      "SegmentedControl / counts",
+      "SegmentedControl / small",
+      "SegmentedControl / disabled-option",
+      "SegmentedControl / disabled",
+      "SegmentedControl / Dark theme / view",
+      "SegmentedControl / State / 01 / Control states",
+      "SegmentedControl / State / 02 / Control states"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=DKE-0"
+  },
+  {
+    "name": "FormSection",
+    "artboard": "E8U-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "FormSection · Source library / variants & states",
+    "description": "One section of a sectioned form: intro column (--pt-size-form-intro) with a 34px (--pt-size-form-intro-tile) teal icon tile, Onest 15/700 title and 12.5px description, beside the fields. Hairline between sections; stacks to one column under 760px of its own width. Title is h2 on pages and h3 inside Modal/Sheet automatically.",
+    "guidance": [
+      "USE · Create pages (inside FormPageTemplate) with more than ~6 fields: Identity, Primary contact, Location, Business details / AVOID · ≤ 4 fields in a small modal → FormGrid alone in Modal size=\"sm\""
+    ],
+    "paperApi": "title: string; description?: string; icon?: IconName; headingLevel?: 2 | 3 (default: 2 on pages, 3 inside Modal/Sheet); id? (anchor for Modal nav); children (FormGrid…)",
+    "states": [
+      "FormSection / with-icon",
+      "FormSection / no-icon",
+      "FormSection / stacked",
+      "FormSection / Dark theme / with-icon"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=E8U-0"
+  },
+  {
+    "name": "FormGrid",
+    "artboard": "EI0-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "FormGrid · Source library / variants & states",
+    "description": "Responsive grid of fields: 1/2/3 columns (row gap 16, column gap 20). Fields with span=\"full\" span every column. Collapses 3→2 under 720px and to 1 under 480px of available width (container query).",
+    "guidance": [
+      "USE · Laying out fields inside a FormSection, Modal, Sheet or Popover / AVOID · Page-level layout → templates (FormPageTemplate, RecordOverviewLayout)"
+    ],
+    "paperApi": "columns?: 1|2|3 (2); children (fields; span=\"full\" to span)",
+    "states": [
+      "FormGrid / two-columns",
+      "FormGrid / three-columns",
+      "FormGrid / one-column",
+      "FormGrid / span-full",
+      "FormGrid / Dark theme / two-columns"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=EI0-0"
+  },
+  {
+    "name": "FormFooter",
+    "artboard": "EQD-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "FormFooter · Source library / variants & states",
+    "description": "Action row at the end of a form: right-aligned actions (Cancel, then primary), optional start slot. sticky (default) = 72px translucent bar with shadow sticky at the bottom of the page; sticky={false} on settings pages and inside Modal/Sheet footers. Under 560px of its own width the start slot stacks above the actions; actions keep natural width (a Cancel + primary pair splits the row).",
+    "guidance": [
+      "USE · Create/edit pages (FormPageTemplate footer) / AVOID · Page-level actions not tied to a form → PageHeader actions"
+    ],
+    "paperApi": "sticky?: boolean (true); start?: ReactNode; children (Buttons: secondary Cancel, then primary)",
+    "states": [
+      "FormFooter / sticky",
+      "FormFooter / static",
+      "FormFooter / steps",
+      "FormFooter / unsaved",
+      "FormFooter / Dark theme / sticky"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=EQD-0"
+  },
+  {
+    "name": "Form anatomy",
+    "artboard": "EYQ-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "Form anatomy · Source library / variants & states",
+    "description": "How labelled inputs look and behave across Paryatech forms.",
+    "guidance": [
+      "USE · Labels sit above inputs (Public Sans 12.5/600); inputs are 38px with radius sm everywhere (pages and modals) / AVOID · Native <select> / <input type=checkbox> / <input type=date> in product code → SelectField / Checkbox / DateField"
+    ],
+    "paperApi": "",
+    "states": [
+      "Form anatomy / add-traveller",
+      "Form anatomy / labels",
+      "Form anatomy / errors",
+      "Form anatomy / read-only-vs-disabled",
+      "Form anatomy / Dark theme / add-traveller"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=EYQ-0"
+  },
+  {
+    "name": "QuantityField",
+    "artboard": "F9V-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "QuantityField · Source library / variants & states",
+    "description": "Labelled whole-number stepper: − / mono value / + with min, max and step. The input is a spinbutton (arrows, PageUp/Down, Home/End) and accepts typed digits, clamped on blur.",
+    "guidance": [
+      "USE · Counts in a form: travellers, rooms, nights per city, vehicles, seats / AVOID · Money amounts → MoneyField"
+    ],
+    "paperApi": "label; value: number; onValueChange: (v: number) => void; min? (0); max? (99); step? (1); unit?: { one; other } (spoken value + button names); layout?: \"stacked\"|\"inline\" (stacked); hint?; error?; optional?; required?; disabled?; readOnly?; span?",
+    "states": [
+      "QuantityField / stacked",
+      "QuantityField / inline",
+      "QuantityField / optional-hint",
+      "QuantityField / step",
+      "QuantityField / error",
+      "QuantityField / read-only-disabled",
+      "QuantityField / Dark theme / stacked",
+      "QuantityField / State / 01 / Control states",
+      "QuantityField / State / 02 / Control states",
+      "QuantityField / State / 03 / Control states",
+      "QuantityField / State / 04 / Minimum / maximum"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=F9V-0"
+  },
+  {
+    "name": "PaxSelector",
+    "artboard": "FM0-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "PaxSelector · Source library / variants & states",
+    "description": "Traveller-count field: a 38px trigger summarising the party (\"2 adults · 1 child (7) · 1 room\") that opens a popover with steppers for adults (min 1), children with one age select each (2–11), infants, and optionally rooms and extra beds.",
+    "guidance": [
+      "USE · Pax on a query, booking, package or quote form / AVOID · A single count (rooms only, seats) → QuantityField"
+    ],
+    "paperApi": "label; value: PaxValue { adults; children; infants; childAges: (number|null)[]; rooms?; extraBeds? }; onValueChange; fields?: PaxField[] (children, childAges, infants; add rooms, extraBeds; flights: [\"infants\"]); maxTotal? (99); labels?: PaxLabels ({ rooms: { label: \"Cabins\", one: \"cabin\", other: \"cabins\", hint? } } — renames a row everywhere: label, stepper names, summary, description); placeholder?; hint?; error? (also flags unanswered ages); optional?; required?; disabled?; span?. Helpers: paxSummary(value, fields?, labels?), paxTotal(value), syncChildAges(ages, n), CHILD_AGE_MIN/MAX",
+    "states": [
+      "PaxSelector / trip",
+      "PaxSelector / default",
+      "PaxSelector / flight",
+      "PaxSelector / missing-ages",
+      "PaxSelector / max-total",
+      "PaxSelector / disabled",
+      "PaxSelector / renamed-rows",
+      "PaxSelector / Dark theme / trip",
+      "PaxSelector / State / 01 / Control states",
+      "PaxSelector / State / 02 / Control states",
+      "PaxSelector / Open / trip / open / light",
+      "PaxSelector / Open / missing-ages / open / light",
+      "PaxSelector / Open / flight / open / light",
+      "PaxSelector / Open / renamed-rows / open / light",
+      "PaxSelector / Open / max-total / open / light"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=FM0-0"
+  },
+  {
+    "name": "00",
+    "artboard": "I5A-0",
+    "pageId": "p-4-0",
+    "category": "Forms & validation",
+    "title": "00 · Forms directory — start here",
+    "description": "20 source entries · editable specimens · form fields, choices, layouts and traveller controls",
+    "guidance": [],
+    "paperApi": "",
+    "states": [
+      "Directory / row 1",
+      "Directory / row 2",
+      "Directory / row 3",
+      "Directory / row 4",
+      "Directory / row 5"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-4-0?node=I5A-0"
+  },
+  {
+    "name": "EntityCell",
+    "artboard": "2AM-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "EntityCell · variants, states & source",
+    "description": "Two-line primary entity cell: optional rounded media, title with inline tags, and one secondary line combining mono code and subtitle.",
+    "guidance": [
+      "Use: First column of every record list (vendor, customer, service, package, booking)",
+      "Avoid: Plain text name in the first column → EntityCell"
+    ],
+    "paperApi": "",
+    "states": [
+      "Vendor with photo and code / light",
+      "Customer initials with agency tier / light",
+      "Icon tile / light",
+      "Document type tile / light",
+      "Vendor with photo and code / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=2AM-0"
+  },
+  {
+    "name": "IconTextCell",
+    "artboard": "3D6-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "IconTextCell · variants, states & source",
+    "description": "14px icon + 13.5px text cell (location with map-pin, phone, email). tone danger for overdue/late.",
+    "guidance": [
+      "Use: Location, contact or any single-value cell that benefits from a type icon",
+      "Avoid: Service types → ServiceTypeList"
+    ],
+    "paperApi": "",
+    "states": [
+      "Location / light",
+      "Phone and email / light",
+      "Muted (missing value) / light",
+      "Danger (overdue) / light",
+      "Location / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=3D6-0"
+  },
+  {
+    "name": "PersonCell",
+    "artboard": "3F7-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "PersonCell · variants, states & source",
+    "description": "Owner / assignee / contact cell: 26px person avatar + name (13.5/600) with optional inline tags + optional 11.5px sub-line.",
+    "guidance": [
+      "Use: Owner, assignee, agent or primary contact column",
+      "Avoid: The row IS a person record (customer list) → EntityCell with media tone \"person\""
+    ],
+    "paperApi": "",
+    "states": [
+      "Owner with role / light",
+      "Primary contact tag / light",
+      "Name only / light",
+      "Owner with role / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=3F7-0"
+  },
+  {
+    "name": "StackCell",
+    "artboard": "3HE-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "StackCell · variants, states & source",
+    "description": "Two-line cell: primary 13.5px over a 12.5px muted secondary line; mono option for references.",
+    "guidance": [
+      "Use: A value plus context (\"4 travellers\" / \"2 adults, 2 children\"; trip name / dates)",
+      "Avoid: Record name + code → EntityCell"
+    ],
+    "paperApi": "",
+    "states": [
+      "Value with context / light",
+      "Mono reference / light",
+      "Trip name and route / light",
+      "Value with context / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=3HE-0"
+  },
+  {
+    "name": "MoneyCell",
+    "artboard": "3IQ-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "MoneyCell · variants, states & source",
+    "description": "Right-aligned mono amount via @paryatech/format (\"₹3,00,000\", Indian grouping, no \".00\") with an optional note line (\"₹30,000 due\").",
+    "guidance": [
+      "Use: Any money column (total value, balance, rate) — set the column align \"end\"",
+      "Avoid: Formatting money by hand or with toLocaleString → MoneyCell / Money"
+    ],
+    "paperApi": "",
+    "states": [
+      "Total with amount due / light",
+      "Overdue note / light",
+      "Success and danger tones / light",
+      "Paise and other currencies / light",
+      "Total with amount due / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=3IQ-0"
+  },
+  {
+    "name": "DateCell",
+    "artboard": "3KO-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "DateCell · variants, states & source",
+    "description": "Mono date \"12 Dec 2026\" or range \"12–16 Dec 2026\" (`to`) via @paryatech/format; civil YYYY-MM-DD dates never shift by timezone. Optional calendar icon, danger tone for overdue.",
+    "guidance": [
+      "Use: Travel dates, due dates, created/updated columns",
+      "Avoid: Formatting dates by hand → DateCell / DateText"
+    ],
+    "paperApi": "",
+    "states": [
+      "Travel date / light",
+      "With calendar icon / light",
+      "Stay or validity range / light",
+      "Overdue (danger) / light",
+      "Instant in IST / light",
+      "Travel date / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=3KO-0"
+  },
+  {
+    "name": "BulkActionBar",
+    "artboard": "3MI-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "BulkActionBar · variants, states & source",
+    "description": "Pink 56px band shown while rows are selected: \"2 vendors selected\" + bulk actions + Clear. Sticky above the TableFooter; gutter-aligned; count announced politely.",
+    "guidance": [
+      "Use: A DataTable with selection offers actions on many rows (Export, Archive, Assign)",
+      "Avoid: Primary page actions → PageHeader actions"
+    ],
+    "paperApi": "",
+    "states": [
+      "Bulk actions on selected vendors / light",
+      "One row selected / light",
+      "Custom clear label and three actions / light",
+      "Bulk actions on selected vendors / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=3MI-0"
+  },
+  {
+    "name": "TableFooter",
+    "artboard": "6E4-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "TableFooter · variants, states & source",
+    "description": "Footer under a DataTable: mono \"Showing 1–12 of 12 vendors\" (en-IN numbers, \"No vendors\" at 0) + Pagination on the right. `sticky` docks it to the bottom of its scroll parent (surface background, top rule) for record tabs.",
+    "guidance": [
+      "Use: Under every paginated DataTable on a list page (ListPageTemplate `footer` slot; contained and paginated dock it, page follows rows) or record tab",
+      "Avoid: A bare Pagination under a table → TableFooter (it adds the range text and gutter alignment)"
+    ],
+    "paperApi": "",
+    "states": [
+      "Paginated list / light",
+      "Single page / light",
+      "No rows / light",
+      "Sticky in a record tab / light",
+      "Paginated list / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=6E4-0"
+  },
+  {
+    "name": "EmptyState",
+    "artboard": "8L3-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "EmptyState · variants, states & source",
+    "description": "Centered bordered card with a 44px context-icon tile, Onest title, one-line description and actions. Variants: first-use, no-results (\"Clear filters\"), error (danger tile, \"Try again\"), permission (lock). size sm for panels.",
+    "guidance": [
+      "Use: DataTable has no rows (pass as `empty`)",
+      "Avoid: Always using the map-pin (or any one) icon → pick the context icon, or rely on the variant default"
+    ],
+    "paperApi": "",
+    "states": [
+      "First use / light",
+      "No results / light",
+      "Error / light",
+      "Permission / light",
+      "Small, inside a Panel / light",
+      "First use / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=8L3-0"
+  },
+  {
+    "name": "FilterMenu",
+    "artboard": "8XV-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "FilterMenu · variants, states & source",
+    "description": "A labelled brand trigger or accessible outline icon trigger with an active-count badge opening a filter popover: Filters + Clear all, fieldset groups, checkbox/radio options and Switch rows (selection toggle). Changes apply instantly; Escape closes and restores trigger focus.",
+    "guidance": [
+      "Use: A list needs faceted filtering (service category, supplier type, tier, outstanding balance)",
+      "Avoid: Row of labelled SelectFields as filters → ListToolbar + FilterMenu + FilterChips"
+    ],
+    "paperApi": "",
+    "states": [
+      "Compact icon trigger / light",
+      "Faceted filters with counts / light",
+      "Single choice (radio) / light",
+      "Toggle rows / light",
+      "Compact icon trigger / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=8XV-0"
+  },
+  {
+    "name": "FilterChips",
+    "artboard": "94W-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "FilterChips · variants, states & source",
+    "description": "Applied filters as removable 28px chips, one per group (\"Service: Transport, Flights +1 ×\"), plus a \"Clear all\" link. Renders nothing when no filter is active.",
+    "guidance": [
+      "Use: Always alongside FilterMenu — pass as ListToolbar chips",
+      "Avoid: Removable values inside a form → Tag with onRemove or MultiSelect"
+    ],
+    "paperApi": "",
+    "states": [
+      "Applied filters / light",
+      "One value per chip / light",
+      "Clear all resets search too / light",
+      "Applied filters / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=94W-0"
+  },
+  {
+    "name": "SortMenu",
+    "artboard": "9G2-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "SortMenu · variants, states & source",
+    "description": "36px \"Sort: Name\" trigger (arrow-up-down) opening a menu of sort fields and Ascending/Descending, both as checked radio items. Collapses to icon-only in narrow toolbars.",
+    "guidance": [
+      "Use: A list offers sorting beyond clicking column headers, or a card/mobile layout has no headers",
+      "Avoid: Sorting a visible DataTable column → sortable column + onSortChange"
+    ],
+    "paperApi": "",
+    "states": [
+      "Sort fields and direction / light",
+      "Custom direction labels / light",
+      "Sort fields and direction / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9G2-0"
+  },
+  {
+    "name": "filterRows",
+    "artboard": "9K7-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "filterRows · variants, states & source",
+    "description": "Applies a FilterValue to client-side rows: AND across groups, OR within a group. Groups without an accessor or selected values are ignored.",
+    "guidance": [
+      "Use: Client-side list pages with FilterMenu",
+      "Avoid: Hand-written filter loops in pages → filterRows"
+    ],
+    "paperApi": "",
+    "states": ["filterRows / public contract"],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9K7-0"
+  },
+  {
+    "name": "searchRows",
+    "artboard": "9L6-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "searchRows · variants, states & source",
+    "description": "Case-insensitive search over the fields returned for each row; every word of the query must appear.",
+    "guidance": [
+      "Use: ListToolbar search on client-side lists",
+      "Avoid: Hand-written includes() search in pages → searchRows"
+    ],
+    "paperApi": "",
+    "states": ["searchRows / public contract"],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9L6-0"
+  },
+  {
+    "name": "sortRows",
+    "artboard": "9OC-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "sortRows · variants, states & source",
+    "description": "Stable sorted copy: en-IN numeric-aware collation for strings, numbers numerically, Dates and ISO date strings chronologically, empty values last. Accepts a DataTable SortState or a SortMenu value.",
+    "guidance": [
+      "Use: Client-side sorting driven by DataTable onSortChange or SortMenu",
+      "Avoid: Array.sort with localeCompare in pages → sortRows"
+    ],
+    "paperApi": "",
+    "states": ["sortRows / public contract"],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9OC-0"
+  },
+  {
+    "name": "paginate",
+    "artboard": "9Q6-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "paginate · variants, states & source",
+    "description": "Rows of a 1-based page, clamped to the valid range. Pair with TableFooter (and pageCount for the page count).",
+    "guidance": [
+      "Use: Client-side pagination under a DataTable",
+      "Avoid: rows.slice(...) math in pages → paginate"
+    ],
+    "paperApi": "",
+    "states": ["paginate / public contract"],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9Q6-0"
+  },
+  {
+    "name": "PageHeader",
+    "artboard": "SV-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "PageHeader · anatomy & variants",
+    "description": "Import",
+    "guidance": [],
+    "paperApi": "",
+    "states": [],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=SV-0"
+  },
+  {
+    "name": "PageHeader",
+    "artboard": "3SX-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "PageHeader · variants, states & source",
+    "description": "Page title row (Onest 24/700, optional mono count and status, right-aligned sm actions) plus an optional ONE-line description. Two lines maximum; there is no eyebrow/kicker/overline slot. On narrow workspaces (≤ 620px) it reads title → description → actions (full-width row; 1–2 buttons share it equally, 3 keep natural widths). Experimental variant=\"greeting\" (workspace home): a centred greeting with a date caption above it — generated from `date`, so it can only be the date line, never a free-text eyebrow — and the quick actions (Buttons size md) centred under it.",
+    "guidance": [
+      "Use: Top of every list, form, settings and dashboard page (inside the template's header slot)",
+      "Avoid: Hand-built header with eyebrow + h1 + paragraph → PageHeader"
+    ],
+    "paperApi": "",
+    "states": [
+      "List page / light",
+      "Count and one-line description / light",
+      "With status / light",
+      "Title only / light",
+      "Overflow actions in a Menu / light",
+      "Greeting (experimental) / light",
+      "Greeting with a civil date and a description / light",
+      "List page / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=3SX-0"
+  },
+  {
+    "name": "IconText",
+    "artboard": "46T-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "IconText · variants, states & source",
+    "description": "Inline context icon + text (inherits size and colour) for meta rows: location with map-pin, date with calendar.",
+    "guidance": [
+      "Use: RecordHeader meta items",
+      "Avoid: Table cells → IconTextCell"
+    ],
+    "paperApi": "",
+    "states": [
+      "Location / light",
+      "Date / light",
+      "Contact meta row / light",
+      "Location / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=46T-0"
+  },
+  {
+    "name": "RecordHeader",
+    "artboard": "9QI-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "RecordHeader · variants, states & source",
+    "description": "Two-line record header: title and optional tags, then region/parent region and record metadata. Current headers omit status; deprecated status accepts frozen preview content only. Detail edit actions use tertiary Buttons. Optional moreActions renders a contextual ghost kebab beside tertiary Edit; empty/all-disabled actions omit it.",
+    "guidance": [
+      "Use: Top of a vendor, service, booking, customer or package detail page (RecordPageTemplate header)",
+      "Avoid: Record page with a list-style PageHeader → RecordHeader"
+    ],
+    "paperApi": "",
+    "states": [
+      "Vendor record / light",
+      "With a photo / light",
+      "Customer with initials and a tag / light",
+      "Icon tile, no actions / light",
+      "Narrow card / light",
+      "Legacy compatibility: title status / light",
+      "Vendor record / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=9QI-0"
+  },
+  {
+    "name": "Panel",
+    "artboard": "A46-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "Panel · variants, states & source",
+    "description": "Bordered section card (radius lg) with a raised head (Onest 15/700 title, mono meta, actions), a 16/20 body or full-width body, and an optional footer disclosure. An EmptyState placed directly in the body (or as ItemList/DataTable `empty`) renders bare — the panel is the card.",
+    "guidance": [
+      "Use: Sections of a record overview: Profile, Vendor contacts, Recent activities",
+      "Avoid: Sections of a form → FormSection"
+    ],
+    "paperApi": "",
+    "states": [
+      "Profile section / light",
+      "Padded body with a footer / light",
+      "Meta and an icon action / light",
+      "Empty body / light",
+      "Profile section / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=A46-0"
+  },
+  {
+    "name": "DescriptionList",
+    "artboard": "BO6-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "DescriptionList · variants, states & source",
+    "description": "Ruled key/value grid (dl/dt/dd): quiet sentence-case keys and strong values that can be nodes (StatusBadge, Avatar + name, mono IDs).",
+    "guidance": [
+      "Use: Record profile fields in an Overview tab",
+      "Avoid: Editable fields → FormSection + FormGrid"
+    ],
+    "paperApi": "",
+    "states": [
+      "Record profile (2 columns) / light",
+      "Three columns / light",
+      "One column for rails / light",
+      "Missing values / light",
+      "Record profile (2 columns) / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=BO6-0"
+  },
+  {
+    "name": "ContactList",
+    "artboard": "BWT-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "ContactList · variants, states & source",
+    "description": "People to reach for a record: avatar, name, role, Primary tag and Call / Email / WhatsApp pills (tel:, mailto:, wa.me), with a 'View all N contacts' disclosure.",
+    "guidance": [
+      "Use: Vendor / customer contacts in a record rail Panel",
+      "Avoid: Selecting people → Combobox/MultiSelect"
+    ],
+    "paperApi": "",
+    "states": [
+      "Permitted contact actions / light",
+      "Rail contacts, expand in place / light",
+      "View all opens another view / light",
+      "Only some channels / light",
+      "Permitted contact actions / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=BWT-0"
+  },
+  {
+    "name": "FileDropzone",
+    "artboard": "CSZ-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "FileDropzone · variants, states & source",
+    "description": "Single-file drop target: dashed card with upload icon, 'Drop file or Browse' and accepted-types hint; selected state shows name, 'Ready to import · size', Replace and remove. Rejects files outside accept.",
+    "guidance": [
+      "Use: Import flows (Steps inside an Import Popover)",
+      "Avoid: Image galleries / multiple uploads → a dedicated media uploader (not yet in the system; document the gap)"
+    ],
+    "paperApi": "",
+    "states": [
+      "Import file / light",
+      "File selected / light",
+      "Attach a document / light",
+      "Disabled / light",
+      "Import file / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=CSZ-0"
+  },
+  {
+    "name": "Steps",
+    "artboard": "D1E-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "Steps · variants, states & source",
+    "description": "Owner-selected bounded checklist rail (cards) is the default: numbered upcoming/current steps, checked completed steps, a completion count and the current upload/action area. Explicit numbered instructions, horizontal wizard and compact segmented variants remain available.",
+    "guidance": [
+      "Use: Import modal (download template → upload file → review)",
+      "Avoid: Setup progress with done state → Checklist"
+    ],
+    "paperApi": "",
+    "states": [
+      "Selected: Checklist / light",
+      "Direction 1: Instructions / light",
+      "Direction 2: Progress / light",
+      "Direction 4: Compact / light",
+      "Import steps with controls / light",
+      "Short how-to / light",
+      "Selected: Checklist / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=D1E-0"
+  },
+  {
+    "name": "Checklist",
+    "artboard": "DDN-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "Checklist · variants, states & source",
+    "description": "Setup checklist: title with a right-aligned '2 of 5 done' count, full-width progress bar under the header, check-circle / circle-dashed items and an action per open item. Framed as its own card by default (no Panel needed); inside a Panel body the frame drops.",
+    "guidance": [
+      "Use: Finish-setup guidance on draft records",
+      "Avoid: Selecting options → Checkbox / ChoiceChips"
+    ],
+    "paperApi": "",
+    "states": [
+      "Finish setup / light",
+      "Inside a Panel / light",
+      "All done / light",
+      "Unframed / light",
+      "Finish setup / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=DDN-0"
+  },
+  {
+    "name": "ItemList",
+    "artboard": "E2B-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "ItemList · variants, states & source",
+    "description": "Header-less ruled rows for rails and panels: [16px muted icon] label 13.5/500 (+ quiet meta line) · right-aligned value (mono optional, blank → '—') · one trailing action (IconButton xs ghost). 48px min rows, hairlines, 20px panel gutter; the value drops under the label below 320px. Values stay aligned when only some rows have actions. Long values (account numbers, e-mails) wrap inside a column capped at 60% of the row, so they never squeeze the label.",
+    "guidance": [
+      "Use: Important dates, bank details, travel documents summary in a record rail",
+      "Avoid: Tabular data with sortable columns → DataTable"
+    ],
+    "paperApi": "",
+    "states": [
+      "Important dates with actions / light",
+      "Bank details / light",
+      "Linked records / light",
+      "Empty / light",
+      "Important dates with actions / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=E2B-0"
+  },
+  {
+    "name": "PersonInline",
+    "artboard": "EUS-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "PersonInline · variants, states & source",
+    "description": "Avatar (xs 20 / sm 26, person-pink by default) + name 13.5/600 (+ optional micro subtitle) inline, for detail lists: Owner, Assignee, Created by. Decorative avatar; the name is the text.",
+    "guidance": [
+      "Use: Owner / assignee / relationship manager values in a DescriptionList or ItemList",
+      "Avoid: Table cells → PersonCell"
+    ],
+    "paperApi": "",
+    "states": [
+      "Owner in a detail list / light",
+      "Sizes sm and xs / light",
+      "Team or desk (tone work) / light",
+      "Owner in a detail list / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=EUS-0"
+  },
+  {
+    "name": "Money",
+    "artboard": "F0Y-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "Money · variants, states & source",
+    "description": "Money in mono tabular figures with Indian grouping via @paryatech/format (₹4,20,100); paise only when non-zero unless decimals=\"always\"; success/danger/muted tones; sizes sm (12) · md (13.5, default) · lg (15) · xl (fluid 18–22) from the type scale; compact notation (₹4.2L, exact amount in the tooltip and for screen readers); struck for a previous price (<s>, announced \"was ₹…\"). Experimental `masked`: \"••••\" announced \"Amount hidden\" for a hide-amounts eye button (privacy screen, not cost hiding).",
+    "guidance": [
+      "Use: Any amount outside a DataTable cell: KpiStrip values, DescriptionList values, totals",
+      "Avoid: Table cells → MoneyCell"
+    ],
+    "paperApi": "",
+    "states": [
+      "Indian grouping / light",
+      "Success and danger / light",
+      "Sizes / light",
+      "Muted secondary amount / light",
+      "Was / now price / light",
+      "Paise / light",
+      "Other currencies / light",
+      "Masked (experimental) / light",
+      "Indian grouping / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=F0Y-0"
+  },
+  {
+    "name": "DateText",
+    "artboard": "FE7-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "DateText · variants, states & source",
+    "description": "A civil date (YYYY-MM-DD, never timezone-shifted) or an instant (IST) in a <time> element: '12 Dec 2026', with optional time or relative ('3 months ago').",
+    "guidance": [
+      "Use: Dates in DescriptionList values, meta rows, panels",
+      "Avoid: Table cells → DateCell"
+    ],
+    "paperApi": "",
+    "states": [
+      "Civil date / light",
+      "Instant with time (IST) / light",
+      "Relative / light",
+      "Relative to a pinned now / light",
+      "Mono / light",
+      "Civil date / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=FE7-0"
+  },
+  {
+    "name": "Banner",
+    "artboard": "FMC-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "Banner · variants, states & source",
+    "description": "Deprecated compatibility for frozen historical previews. For new work use toast or accessible inline alert/status text. Flash banner with a 3px tone rule on a tinted status surface: title, optional body, one action and Dismiss. role=status (alert for danger). Below 560px of its own width (phones, 360px rails) the action moves under the text so the title keeps the full width.",
+    "guidance": [
+      "Use: Rendering an existing frozen historical preview only",
+      "Avoid: New screens or updated references → toast or accessible inline alert/status text"
+    ],
+    "paperApi": "",
+    "states": [
+      "Legacy compatibility: feedback / light",
+      "Legacy compatibility: feedback / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=FMC-0"
+  },
+  {
+    "name": "SummaryStrip",
+    "artboard": "FR6-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "SummaryStrip · variants, states & source",
+    "description": "Deprecated compatibility for frozen historical previews. For new work use KpiStrip with real scoped navigation. Ruled KPI strip: 48px pink icon tiles, overline labels (never clipped), Onest/mono values coloured by tone, hints. Columns follow the strip's own width: 4 → 2 at ≤ 900px; ≤ 620px every strip is 2 compact columns (small inline icon); 1 column only at ≤ 340px — an 8-item strip is 4 short rows on a phone. Bleeds to the page edges inside RecordOverviewLayout and DashboardPageTemplate.",
+    "guidance": [
+      "Use: Rendering an existing frozen historical preview only",
+      "Avoid: New screens or updated references → KpiStrip with real scoped navigation"
+    ],
+    "paperApi": "",
+    "states": [
+      "Legacy compatibility: summary / light",
+      "Legacy compatibility: summary / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=FR6-0"
+  },
+  {
+    "name": "06.01",
+    "artboard": "2-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "06.01 · Shell anatomy & navigation",
+    "description": "Start with AppShell. The sidebar card and workspace card form the agency work frame.",
+    "guidance": [],
+    "paperApi": "",
+    "states": ["Shell use and surface rules"],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=2-0"
+  },
+  {
+    "name": "TabBar",
+    "artboard": "8F-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "TabBar · primary counts · Light",
+    "description": "Use for page and record sections. Pink marks selection in both primary (44px) and secondary (40px). Avoid settings section forms → SettingsPageTemplate nav.",
+    "guidance": [],
+    "paperApi": "",
+    "states": ["Source specimen · primary-counts"],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=8F-0"
+  },
+  {
+    "name": "AppShell",
+    "artboard": "1QX-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "AppShell · full-shell · Light",
+    "description": "Sidebar card + workspace card. Source measured at 1376 × 800px. Navigation rows 35px; workspace topbar 57px; shell gap 10px.",
+    "guidance": [],
+    "paperApi": "",
+    "states": ["AppShell source frame"],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=1QX-0"
+  },
+  {
+    "name": "Breadcrumbs",
+    "artboard": "4QB-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "Breadcrumbs · source variants & states",
+    "description": "\"CRM › Vendors\" trail in the topbar: 13.5px, links secondary, current page 600 with aria-current=page. When the trail does not fit, crumbs collapse from the front into a \"…\" button whose menu lists (and navigates to) the hidden crumbs; the parent goes before the current page is truncated, so the current page always gets the most room.",
+    "guidance": [
+      "Use: Always through AppShell `breadcrumbs` — [Module, Page] on lists, [Module, List, Record] on records",
+      "Avoid: Rendering <Breadcrumbs> inside page content → pass breadcrumbs to AppShell"
+    ],
+    "paperApi": "",
+    "states": [
+      "list · state label",
+      "Breadcrumbs · list · source specimen",
+      "record · state label",
+      "Breadcrumbs · record · source specimen",
+      "create · state label",
+      "Breadcrumbs · create · source specimen",
+      "single · state label",
+      "Breadcrumbs · single · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=4QB-0"
+  },
+  {
+    "name": "BackButton",
+    "artboard": "4XV-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "BackButton · source variants & states",
+    "description": "36px bordered chevron-left button left of the breadcrumbs on record, detail and create pages.",
+    "guidance": [
+      "Use: Through AppShell `onBack` (+ optional backLabel \"Back to vendors\")",
+      "Avoid: A \"Back\" text button in page content → AppShell onBack"
+    ],
+    "paperApi": "",
+    "states": [
+      "labelled · state label",
+      "BackButton · labelled · source specimen",
+      "default · state label",
+      "BackButton · default · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=4XV-0"
+  },
+  {
+    "name": "NotesStrip",
+    "artboard": "50J-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "NotesStrip · source variants & states",
+    "description": "Sidebar strip (38px) that opens the module/record notes panel, with a \"+\" to write a note and an optional count.",
+    "guidance": [
+      "Use: Through AppShell `notes` — \"Module notes\" on list pages, \"Vendor notes\" etc. on records",
+      "Avoid: Anywhere else → AppShell notes + NotesPanel"
+    ],
+    "paperApi": "",
+    "states": [
+      "with-count · state label",
+      "NotesStrip · with-count · source specimen",
+      "no-notes · state label",
+      "NotesStrip · no-notes · source specimen",
+      "read-only · state label",
+      "NotesStrip · read-only · source specimen",
+      "collapsed · state label",
+      "NotesStrip · collapsed · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=50J-0"
+  },
+  {
+    "name": "CreditsMeter",
+    "artboard": "52S-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "CreditsMeter · source variants & states",
+    "description": "Sidebar credit usage as a clamped percentage and usage bar beside an accessible primary plus icon upgrade control on the same row. Collapsed rail puts usage in its tooltip.",
+    "guidance": [
+      "Use: Through AppShell `credits`",
+      "Avoid: Usage/quota bars in page content → Meter"
+    ],
+    "paperApi": "",
+    "states": [
+      "default · state label",
+      "CreditsMeter · default · source specimen",
+      "near-limit · state label",
+      "CreditsMeter · near-limit · source specimen",
+      "collapsed · state label",
+      "CreditsMeter · collapsed · source specimen",
+      "no-upgrade · state label",
+      "CreditsMeter · no-upgrade · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=52S-0"
+  },
+  {
+    "name": "TabBar",
+    "artboard": "55A-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "TabBar · source variants & states",
+    "description": "Underlined tab row with counts (\"Vendors 12 | Services 11\"). Optional showZeroCounts preserves explicit zero counts for filtered lists; otherwise zero and omitted counts are hidden. primary 44px/13.5px for page and record sections; secondary 40px/12.5px with icons for categories inside a section. Pink active tab in both. Arrow-key roving focus; scrolls horizontally with faded edges when it overflows. Keeps the selected tab clear of fades on initialization, selection and layout/font changes without scrolling the page or interrupting manual scrolling.",
+    "guidance": [
+      "Use: Categorical views of the same list with counts (Vendors / Services)",
+      "Avoid: Switching a form value or a small view mode (List | Grid) → SegmentedControl"
+    ],
+    "paperApi": "",
+    "states": [
+      "zero-counts · state label",
+      "TabBar · zero-counts · source specimen",
+      "secondary-icons · state label",
+      "TabBar · secondary-icons · source specimen",
+      "disabled-item · state label",
+      "TabBar · disabled-item · source specimen",
+      "record-sections · state label",
+      "TabBar · record-sections · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=55A-0"
+  },
+  {
+    "name": "Pagination",
+    "artboard": "5BA-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "Pagination · source variants & states",
+    "description": "30px mono pager: previous/next chevrons, pages with ellipses (1 … 4 5 6 … 20), pink current page with aria-current=page.",
+    "guidance": [
+      "Use: Paging outside a table (card grids, search results)",
+      "Avoid: Table footers → TableFooter, which wraps Pagination with \"Showing 1–12 of 12 vendors\""
+    ],
+    "paperApi": "",
+    "states": [
+      "middle-page · state label",
+      "Pagination · middle-page · source specimen",
+      "few-pages · state label",
+      "Pagination · few-pages · source specimen",
+      "last-page · state label",
+      "Pagination · last-page · source specimen",
+      "single-page · state label",
+      "Pagination · single-page · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=5BA-0"
+  },
+  {
+    "name": "Sidebar",
+    "artboard": "ZYQ-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "Sidebar Â· Light source states",
+    "description": "App sidebar with grouped navigation and collapsible child destinations: active parent is pink, selected child has a teal outline. Parent navigation and disclosure are separate. Open records start collapsed at the bottom above the footer; navigation scrolls independently. Icon rail exposes children in a navigation popover.",
+    "guidance": [
+      "Use: Only inside AppShell (it renders it for you)",
+      "Avoid: Any product screen → AppShell navGroups/activeNavId"
+    ],
+    "paperApi": "",
+    "states": [
+      "child-navigation Â· state label",
+      "Sidebar Â· child-navigation Â· source specimen",
+      "child-navigation-folded Â· state label",
+      "Sidebar Â· child-navigation-folded Â· source specimen",
+      "child-navigation-supply Â· state label",
+      "Sidebar Â· child-navigation-supply Â· source specimen",
+      "child-navigation-rail Â· state label",
+      "Sidebar Â· child-navigation-rail Â· source specimen",
+      "child-navigation-short Â· state label",
+      "Sidebar Â· child-navigation-short Â· source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=ZYQ-0"
+  },
+  {
+    "name": "Topbar",
+    "artboard": "11LA-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "Topbar · Light source states",
+    "description": "The 57px workspace topbar AppShell renders: [menu on mobile] [back] breadcrumbs … search trigger (Ctrl/⌘ K), help, notifications bell, account menu. Exported for completeness.",
+    "guidance": [
+      "Use: Only inside AppShell (it renders it for you)",
+      "Avoid: Page title and actions → PageHeader in the page"
+    ],
+    "paperApi": "",
+    "states": [
+      "record-topbar · state label",
+      "Topbar · record-topbar · source specimen",
+      "standalone · state label",
+      "Topbar · standalone · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=11LA-0"
+  },
+  {
+    "name": "AccountMenu",
+    "artboard": "11T3-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "AccountMenu · Light source states",
+    "description": "Topbar account button (avatar + chevron, pink border) and launcher menu, built on Menu: identity header (Menu `header`: avatar, name, subtitle) above rich rows with a trailing chevron; destructive \"Sign out\" always last. Optional third header line (`meta`, e.g. the email under \"Owner · Sharma Travels\") and a footer with the Theme switch (Light · Dark · System) and Shortcuts, all arrow-key reachable.",
+    "guidance": [
+      "Use: Through AppShell `account` — items like My profile, Security and sign-in, Devices and sessions, Personal preferences, Sign out (destructive)",
+      "Avoid: Row or record actions → Menu"
+    ],
+    "paperApi": "",
+    "states": [
+      "account-menu · state label",
+      "AccountMenu · account-menu · source specimen",
+      "descriptive-footer · state label",
+      "AccountMenu · descriptive-footer · source specimen",
+      "simple-rows · state label",
+      "AccountMenu · simple-rows · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=11T3-0"
+  },
+  {
+    "name": "NotificationsPanel",
+    "artboard": "120C-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "NotificationsPanel · Light source states",
+    "description": "Notification center body: Unread/All filter, Mark all as read, items (title, body, \"Mentions · 12 min ago\" meta, unread tint) and footer links. AppShell shows it in a 480px popover from the bell.",
+    "guidance": [
+      "Use: Pass as AppShell `notifications.panel` (the bell opens it)",
+      "Avoid: Transient confirmations → toast()"
+    ],
+    "paperApi": "",
+    "states": [
+      "unread · state label",
+      "NotificationsPanel · unread · source specimen",
+      "all-read · state label",
+      "NotificationsPanel · all-read · source specimen",
+      "empty · state label",
+      "NotificationsPanel · empty · source specimen",
+      "bell-popover · state label",
+      "NotificationsPanel · bell-popover · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=120C-0"
+  },
+  {
+    "name": "OpenRecordsList",
+    "artboard": "12AP-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "OpenRecordsList · Light source states",
+    "description": "The member's open records inside the sidebar card (AppShell `openRecords`): DS nav-item rows (type icon + title; × on hover; orange dot for unsaved work), a collapsible header (chevron · title · count · ⋯ Show all / Close others / Reopen / Close all), drag and Alt+↑/↓ reorder. Starts collapsed at the bottom above the sidebar footer. Navigation scrolls independently; the expanded record list is bounded and scrolls itself. In the collapsed rail it is one icon with a popover list.",
+    "guidance": [
+      "Use: Agency apps where people keep several queries, bookings or customers open while they work (records open into the list instead of replacing the page)",
+      "Avoid: Saved views or module sections → Sidebar navGroups"
+    ],
+    "paperApi": "",
+    "states": [
+      "in-sidebar · state label",
+      "OpenRecordsList · in-sidebar · source specimen",
+      "expanded · state label",
+      "OpenRecordsList · expanded · source specimen",
+      "section-collapsed · state label",
+      "OpenRecordsList · section-collapsed · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=12AP-0"
+  },
+  {
+    "name": "Modal",
+    "artboard": "11Q-0",
+    "pageId": "p-8-0",
+    "category": "Overlays & feedback",
+    "title": "Modal · edit-small · Light",
+    "description": "Medium content that fits without scrolling. Header → body → right-aligned footer. Source sm width 480px. Avoid deep previews and long forms → full page.",
+    "guidance": [],
+    "paperApi": "",
+    "states": ["Modal source specimen"],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-8-0?node=11Q-0"
+  },
+  {
+    "name": "Modal",
+    "artboard": "DIV-0",
+    "pageId": "p-8-0",
+    "category": "Overlays & feedback",
+    "title": "Modal · source variants & states",
+    "description": "Centered dialog: subtle header (Onest title, optional description, close) · optional section jump nav · scrolling body · right-aligned footer. Focus is trapped and returned; Escape and scrim click close. FormSection titles inside become h3 (the dialog title is the h2). Escape in a non-empty SearchField or an open Combobox/Select list closes that first. Overlay hierarchy (owner, 2026-10-06): small → Popover; medium, no scrolling → Modal; anything that would scroll → a full page; Drawer → the notifications panel only.",
+    "guidance": [
+      "Use: Confirm or edit ≤ 4 fields (size sm)",
+      "Avoid: Content that would scroll → a full page (FormPageTemplate / RecordPageTemplate)"
+    ],
+    "paperApi": "",
+    "states": [
+      "edit-profile · state label",
+      "Modal · edit-profile · source specimen",
+      "read-only · state label",
+      "Modal · read-only · source specimen",
+      "saving · state label",
+      "Modal · saving · source specimen",
+      "validation-errors · state label",
+      "Modal · validation-errors · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-8-0?node=DIV-0"
+  },
+  {
+    "name": "Sheet",
+    "artboard": "E4U-0",
+    "pageId": "p-8-0",
+    "category": "Overlays & feedback",
+    "title": "Sheet · source variants & states",
+    "description": "Full-height side panel from the right edge with the Modal anatomy (header · scrolling body · footer). Keeps the list visible behind a scrim. FormSection titles inside become h3 (the dialog title is the h2). Escape in a non-empty SearchField or an open Combobox/Select list closes that first. Avoid in product screens: Overlay hierarchy (owner, 2026-10-06): small → Popover; medium, no scrolling → Modal; anything that would scroll → a full page; Drawer → the notifications panel only.",
+    "guidance": [
+      "Use: Creating a record with 5–15 fields from a list page (New rate card, Add contact)",
+      "Avoid: Product screens (owner rule 2026-10-06) → Modal for medium content that fits without scrolling, a full page (FormPageTemplate) for anything that scrolls"
+    ],
+    "paperApi": "",
+    "states": [
+      "create · state label",
+      "Sheet · create · source specimen",
+      "details · state label",
+      "Sheet · details · source specimen",
+      "submitting · state label",
+      "Sheet · submitting · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-8-0?node=E4U-0"
+  },
+  {
+    "name": "Popover",
+    "artboard": "EQC-0",
+    "pageId": "p-8-0",
+    "category": "Overlays & feedback",
+    "title": "Popover · source variants & states",
+    "description": "Anchored panel for a small task beside its trigger, with optional title header (close button) and a footer band. Escape and outside click close; focus returns to the trigger by default. Optional lifecycle handlers support a compact picker beside an external search without moving that input into the panel.",
+    "guidance": [
+      "Use: Anchored mini-task like Import (Steps + FileDropzone), width=\"lg\" with title and footer",
+      "Avoid: Medium content (a short form, a list that needs the screen's attention) → Modal; anything that scrolls → a full page"
+    ],
+    "paperApi": "",
+    "states": [
+      "import · state label",
+      "Popover · import · source specimen",
+      "bare · state label",
+      "Popover · bare · source specimen",
+      "title-description-footer · state label",
+      "Popover · title-description-footer · source specimen",
+      "side-top · state label",
+      "Popover · side-top · source specimen",
+      "external-search · state label",
+      "Popover · external-search · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-8-0?node=EQC-0"
+  },
+  {
+    "name": "Menu",
+    "artboard": "F9W-0",
+    "pageId": "p-8-0",
+    "category": "Overlays & feedback",
+    "title": "Menu · source variants & states",
+    "description": "Action menu from a trigger. Items are data (MenuItem[]): icon + label, optional description (account-style rich rows), shortcut hint, trailing chevron for rows that open another page (`navigates`), labels as overline group headings, checkbox items and radio groups with a leading check column, and an optional non-interactive `header` (identity block). Destructive items are always moved to a final red group behind an automatic separator.",
+    "guidance": [
+      "Use: Row actions in a table (IconButton \"more-vertical\" → Menu); DataTable rowActions builds this for you",
+      "Avoid: Choosing a form value → SelectField"
+    ],
+    "paperApi": "",
+    "states": [
+      "row-actions · state label",
+      "Menu · row-actions · source specimen",
+      "grouped-overflow · state label",
+      "Menu · grouped-overflow · source specimen",
+      "account · state label",
+      "Menu · account · source specimen",
+      "checkbox-radio · state label",
+      "Menu · checkbox-radio · source specimen",
+      "switcher · state label",
+      "Menu · switcher · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-8-0?node=F9W-0"
+  },
+  {
+    "name": "ConfirmDialog",
+    "artboard": "FWJ-0",
+    "pageId": "p-8-0",
+    "category": "Overlays & feedback",
+    "title": "ConfirmDialog · source variants & states",
+    "description": "Small alert dialog asking the user to confirm one action: title question, consequence, Cancel + danger/primary confirm. Awaits an async onConfirm with a loading button and blocks dismissal until it settles.",
+    "guidance": [
+      "Use: Before a destructive or irreversible action (delete, archive, cancel booking)",
+      "Avoid: Collecting more than a reason field → Modal size=\"sm\""
+    ],
+    "paperApi": "",
+    "states": [
+      "from-menu · state label",
+      "ConfirmDialog · from-menu · source specimen",
+      "delete · state label",
+      "ConfirmDialog · delete · source specimen",
+      "primary · state label",
+      "ConfirmDialog · primary · source specimen",
+      "failure · state label",
+      "ConfirmDialog · failure · source specimen",
+      "with-reason · state label",
+      "ConfirmDialog · with-reason · source specimen",
+      "validation · state label",
+      "ConfirmDialog · validation · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-8-0?node=FWJ-0"
+  },
+  {
+    "name": "CommandPalette",
+    "artboard": "G5X-0",
+    "pageId": "p-8-0",
+    "category": "Overlays & feedback",
+    "title": "CommandPalette · source variants & states",
+    "description": "Universal search (Cmd/Ctrl+K): dialog near the top with a 58px search input, results grouped under overline labels (icon tile, Onest label, description, \"Open\" hint on the active row), ↑↓ Enter Esc key hints. Filters label, description and keywords case-insensitively. v2 (additive): mono codes, key hints and a verb per row, Ctrl/⌘ Enter alternative action (open in background), scope chips (Tab cycles), a controlled query for app-built results, a preview pane of the active row and a loading state.",
+    "guidance": [
+      "Use: Topbar \"Search anything\" / Ctrl K: jump to pages, records and settings",
+      "Avoid: Searching within one list → ListToolbar search (SearchField)"
+    ],
+    "paperApi": "",
+    "states": [
+      "search · state label",
+      "CommandPalette · search · source specimen",
+      "quick-actions · state label",
+      "CommandPalette · quick-actions · source specimen",
+      "v2-records · state label",
+      "CommandPalette · v2-records · source specimen",
+      "keyboard-shortcut · state label",
+      "CommandPalette · keyboard-shortcut · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-8-0?node=G5X-0"
+  },
+  {
+    "name": "Drawer",
+    "artboard": "H9Q-0",
+    "pageId": "p-8-0",
+    "category": "Overlays & feedback",
+    "title": "Drawer · source variants & states",
+    "description": "Right-edge notifications surface with no built-in header, padding or footer. Default modal: scrim, focus trap, Esc/scrim close. Opt-in nonmodal: labelled region, focus enters, Tab leaves, page stays interactive without closing it, Esc/close returns focus to the opener. Full screen at 640px and below in both modes; supply a visible close button. Reduced motion skips the slide.",
+    "guidance": [
+      "Use: The notifications panel — nothing else",
+      "Avoid: Anything other than notifications (owner rule) → Popover (small), Modal (medium, no scrolling) or a full page (scrolls)"
+    ],
+    "paperApi": "",
+    "states": [
+      "basic · state label",
+      "Drawer · basic · source specimen",
+      "nonmodal · state label",
+      "Drawer · nonmodal · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-8-0?node=H9Q-0"
+  },
+  {
+    "name": "toast",
+    "artboard": "HDQ-0",
+    "pageId": "p-8-0",
+    "category": "Overlays & feedback",
+    "title": "toast · source variants & states",
+    "description": "Imperative feedback after an action: toast({ title, description?, tone?, action? }). Renders in the Toaster (bottom-right, 360px), auto-dismisses after 5s, pauses on hover/focus, announced politely (danger assertively).",
+    "guidance": [
+      "Use: Confirming an action finished (\"Vendor saved\", tone success)",
+      "Avoid: Validation errors in an open form → field error props"
+    ],
+    "paperApi": "",
+    "states": [
+      "success · state label",
+      "toast · success · source specimen",
+      "info · state label",
+      "toast · info · source specimen",
+      "warning · state label",
+      "toast · warning · source specimen",
+      "danger-retry · state label",
+      "toast · danger-retry · source specimen",
+      "undo · state label",
+      "toast · undo · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-8-0?node=HDQ-0"
+  },
+  {
+    "name": "Toaster",
+    "artboard": "HYE-0",
+    "pageId": "p-8-0",
+    "category": "Overlays & feedback",
+    "title": "Toaster · source variants & states",
+    "description": "Mount point that renders toasts raised with toast(). Portalled bottom-right stack at --pt-z-toast.",
+    "guidance": [
+      "Use: Mount once at the app root — AppShell already mounts it; only mount it yourself outside AppShell",
+      "Avoid: Mounting it per page or inside AppShell pages → it is already there; call toast()"
+    ],
+    "paperApi": "",
+    "states": [
+      "mount-once · state label",
+      "Toaster · mount-once · source specimen",
+      "stack · state label",
+      "Toaster · stack · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-8-0?node=HYE-0"
+  },
+  {
+    "name": "KanbanSignal",
+    "artboard": "FVZ-0",
+    "pageId": "p-9-0",
+    "category": "Boards & workflow",
+    "title": "KanbanSignal · variants, states & source",
+    "description": "Named due/age/flag signal with complete accessible date/state. Default preserves StatusChip semantics and appearance; appearance=\"card\" is a24px rounded reference capsule with pale upcoming due and solid overdue. describeKanbanSignal keeps the same classification for tables and filters.",
+    "guidance": [
+      "Use: Deadlines or transient workflow flags on KanbanCard → use appearance=\"card\" for the owner reference anatomy",
+      "Avoid: Fixed domain statuses (booking, payment, vendor…) → StatusBadge"
+    ],
+    "paperApi": "",
+    "states": [
+      "Reference card deadlines / light",
+      "Due dates / light",
+      "Time in stage / light",
+      "Custom thresholds / light",
+      "Flags / light",
+      "Compact / light",
+      "Reference card deadlines / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-9-0?node=FVZ-0"
+  },
+  {
+    "name": "StageLabel",
+    "artboard": "G5P-0",
+    "pageId": "p-9-0",
+    "category": "Boards & workflow",
+    "title": "StageLabel · variants, states & source",
+    "description": "8px tone dot + label for a workspace-configurable stage (New, Quoting, Options sent, Vouchers pending). md 13.5/600 for column headers; sm 12.5/500 for table cells and previews. Takes the board column ({ label, tone }).",
+    "guidance": [
+      "Use: Stage column in a DataTable list view of a board",
+      "Avoid: Fixed domain statuses → StatusBadge; configurable stages → StageLabel"
+    ],
+    "paperApi": "",
+    "states": [
+      "Stage column in the list view / light",
+      "Column header size / light",
+      "Size sm / light",
+      "Stage next to a domain status / light",
+      "Stage column in the list view / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-9-0?node=G5P-0"
+  },
+  {
+    "name": "PriorityDot",
+    "artboard": "H15-0",
+    "pageId": "p-9-0",
+    "category": "Boards & workflow",
+    "title": "PriorityDot · variants, states & source",
+    "description": "Accessible named priority marker. Default preserves8px urgent/high/medium/low vocabulary. Card appearance uses a solid10px marker and is selected by standard KanbanCard; name and tooltip always identify the level.",
+    "guidance": [
+      "Use: Priority on a KanbanCard (KanbanCard priority prop renders it)",
+      "Avoid: Priority as a table column or filter option → EnumLabel / IconTextCell with PRIORITY_LEVELS[p].icon + label (text, not colour only)"
+    ],
+    "paperApi": "",
+    "states": [
+      "Reference card priorities / light",
+      "Before a title in a compact list / light",
+      "Every priority / light",
+      "Reference card priorities / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-9-0?node=H15-0"
+  },
+  {
+    "name": "BoardViewSwitch",
+    "artboard": "HB7-0",
+    "pageId": "p-9-0",
+    "category": "Boards & workflow",
+    "title": "BoardViewSwitch · variants, states & source",
+    "description": "Board | List SegmentedControl (36px toolbar, icons board / list, named \"View\") for the ListToolbar actions slot: the same filtered, sorted records as a KanbanBoard or a DataTable.",
+    "guidance": [
+      "Use: A list page that offers both a board and a table of the same records",
+      "Avoid: Other view modes (Week | Month, Cost | Sell) → SegmentedControl"
+    ],
+    "paperApi": "",
+    "states": [
+      "Board | List / light",
+      "In the list toolbar / light",
+      "Board | List / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-9-0?node=HB7-0"
+  },
+  {
+    "name": "KanbanCard",
+    "artboard": "WZO-0",
+    "pageId": "p-9-0",
+    "category": "Boards & workflow",
+    "title": "KanbanCard · variants, states & source",
+    "description": "Standard reference-led card with natural content height: code/priority, one resting title line that expands fully in normal flow,24px deadline and structured related-record capsule, mono short age, rounded chip24 assignees with accessible overflow. Related contextLabel is separate from label and native href. Pointer preview follows50ms entry/300ms expansion/1500ms hold/300ms collapse; focus and touch retain full text, reduced motion is immediate. Rich/compact retain their supported anatomy. Inside Board canonical source IDs, Move/Open/Pin menus, keyboard dragging, async pending and readOnly remain meaningful. Current DS Public Sans is the owner-selected font adaptation.",
+    "guidance": [
+      "Use: Rendering an item in KanbanBoard renderCard",
+      "Avoid: Generic content cards or panels → Panel"
+    ],
+    "paperApi": "",
+    "states": [
+      "Owner reference · structured related record / light",
+      "Query card / light",
+      "Density rich / light",
+      "Density compact / light",
+      "Priorities / light",
+      "Signals / light",
+      "Unassigned with assign action / light",
+      "Selected / light",
+      "Pinned today / light",
+      "Owner reference · structured related record / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-9-0?node=WZO-0"
+  },
+  {
+    "name": "EventRow",
+    "artboard": "IOC-0",
+    "pageId": "p-A-0",
+    "category": "Calendars & scheduling",
+    "title": "EventRow · variants, states & source",
+    "description": "One agenda line: time column (\"10:30–11:00\", \"Departs · 5 days\", \"Due\", or for overdue \"20 Sep · 7 days late\"), a kind icon tile tinted by EVENT_KINDS tone (danger when overdue, muted when settled, dashed when pending/on hold, struck through when cancelled), title + meta with a mono reference; narrow subtitles wrap to two lines, StatusBadge, Money, owner Avatar and trailing actions. With onOpen/href the title stretches over the whole row (one target) while actions stay clickable. Below 520px status and amount drop under the title.",
+    "guidance": [
+      "Use: Rendering a CalendarEvent outside the Agenda (Sheet lists, popovers, a booking's upcoming items)",
+      "Avoid: A whole schedule → Agenda (it renders EventRows with day headings and list semantics)"
+    ],
+    "paperApi": "",
+    "states": [
+      "A booking's upcoming items / light",
+      "Every kind / light",
+      "Overdue / light",
+      "Settled, tentative, cancelled / light",
+      "As a link / light",
+      "A booking's upcoming items / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-A-0?node=IOC-0"
+  },
+  {
+    "name": "AgendaSummary",
+    "artboard": "NZK-0",
+    "pageId": "p-A-0",
+    "category": "Calendars & scheduling",
+    "title": "AgendaSummary · variants, states & source",
+    "description": "\"Next 7 days\" at a glance: ItemList rows per event kind with the count (payments: the ₹ total due and number of payments) and the next date (\"Today\" or \"Next: Tue, 29 Sep\"). Counts stay on the title line in narrow rails; the next date sits below. Cancelled events are not counted. Put it in <Panel title=\"Next 7 days\" padding=\"none\">.",
+    "guidance": [
+      "Use: Rail summary beside an Agenda",
+      "Avoid: Page-level KPIs with icons and tones in the dashboard kpis slot → KpiStrip"
+    ],
+    "paperApi": "",
+    "states": [
+      "Next 7 days / light",
+      "Custom window and kinds / light",
+      "Nothing coming up / light",
+      "Next 7 days / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-A-0?node=NZK-0"
+  },
+  {
+    "name": "MiniCalendar",
+    "artboard": "O8N-0",
+    "pageId": "p-A-0",
+    "category": "Calendars & scheduling",
+    "title": "MiniCalendar · variants, states & source",
+    "description": "Month grid date navigator: \"Sep 2026\" title with previous/next, Su–Sa headers, event dots with counts in each day's name, neutral today underline (aria-current=\"date\"), pink selected day, an optional teal range band (the agenda window), min/max disabled days, and an optional collapse to one week. APG date-grid keyboard: arrows (day/week), Home/End (week edges), PageUp/PageDown (month; Shift = year), Enter/Space select; one tab stop. Civil dates only.",
+    "guidance": [
+      "Use: Jumping an Agenda to a day (rail Panel on the schedule page)",
+      "Avoid: Entering a date in a form → DateField / DateRangeField"
+    ],
+    "paperApi": "",
+    "states": [
+      "Variation A · month with activity / light",
+      "Variation B · agenda rail / light",
+      "Variation C · compact week / light",
+      "Variation D · quick date popover / light",
+      "Controlled month / light",
+      "Variation A · month with activity / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-A-0?node=O8N-0"
+  },
+  {
+    "name": "Agenda",
+    "artboard": "XC9-0",
+    "pageId": "p-A-0",
+    "category": "Calendars & scheduling",
+    "title": "Agenda · variants, states & source",
+    "description": "Day-grouped schedule: kind chips with icons + counts (All · Departures · Returns · Payments due · Tasks · Meetings · Follow-ups; [] = all), an \"Overdue\" group pinned on top (unsettled payments/tasks/follow-ups dated before today, with \"N days late\"), then one section per day with sticky h2 headings (\"Today · Sun, 27 Sep\", \"Tomorrow · Mon, 28 Sep\", holidays/peaks as markers) and EventRows as a list. Mixed event types from the closed EVENT_KINDS vocabulary; civil YYYY-MM-DD dates never shift time zone. Built-in loading skeleton, first-use empty, kind no-results (\"Show all types\"), empty period and an \"End of schedule\" line. Below 640px it shows its own collapsible week strip (MiniCalendar) and the chips scroll sideways. Its own card surface: place it directly in a template slot, never inside a Panel (Panel clips sticky headings).",
+    "guidance": [
+      "Use: \"What's next / what's overdue\" across departures, returns, payments due, tasks, meetings and follow-ups",
+      "Avoid: Tabular records with sorting, selection or bulk actions → DataTable (e.g. a departures register)"
+    ],
+    "paperApi": "",
+    "states": ["Frame", "Frame", "Frame", "Frame", "Frame", "Frame"],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-A-0?node=XC9-0"
+  },
+  {
+    "name": "AreaChart",
+    "artboard": "JZN-0",
+    "pageId": "p-B-0",
+    "category": "Charts & analytics",
+    "title": "AreaChart · variants, states & source",
+    "description": "Volume over time (monthly \"YYYY-MM\" or daily \"YYYY-MM-DD\" periods) on TanStack Charts, themed to Paryatech: token palette, subtle grid, compact INR axis (₹4.2L, ₹1.2Cr), en-IN period ticks (\"Oct 2025 · Nov …\"), crosshair + grouped surface-card tooltip with mono values, keyboard focus, screen-reader data table. Overlapping by default (first series filled, later series as lines); stacked for part-to-whole.",
+    "guidance": [
+      "Use: Revenue, cost, bookings or collections per month",
+      "Avoid: Rates or values that do not add up (margin %, conversion) → LineChart"
+    ],
+    "paperApi": "",
+    "states": [
+      "Revenue vs cost / light",
+      "Stacked / light",
+      "Daily periods / light",
+      "Heights / light",
+      "Loading / light",
+      "Empty / light",
+      "Drill down (experimental) / light",
+      "Hide amounts (experimental) / light",
+      "Revenue vs cost / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-B-0?node=JZN-0"
+  },
+  {
+    "name": "LineChart",
+    "artboard": "PTN-0",
+    "pageId": "p-B-0",
+    "category": "Charts & analytics",
+    "title": "LineChart · variants, states & source",
+    "description": "Trend of 1–8 series over time; same data shape, axes, tooltip, keyboard and screen-reader table as AreaChart but lines only — for values compared by position rather than area (percentages, averages, rates). null y values render as gaps.",
+    "guidance": [
+      "Use: Gross margin %, conversion rate, average booking value over time",
+      "Avoid: Money or counts that accumulate → AreaChart"
+    ],
+    "paperApi": "",
+    "states": [
+      "Margin by segment / light",
+      "Daily enquiries / light",
+      "Average booking value / light",
+      "Gaps / light",
+      "Without legend / light",
+      "Loading and empty / light",
+      "Margin by segment / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-B-0?node=PTN-0"
+  },
+  {
+    "name": "BarChart",
+    "artboard": "Q8C-0",
+    "pageId": "p-B-0",
+    "category": "Charts & analytics",
+    "title": "BarChart · variants, states & source",
+    "description": "Compare values across categories on TanStack Charts: vertical or horizontal, single, grouped or stacked, rounded value ends, 2px surface gaps, hover band + grouped tooltip, keyboard focus, screen-reader table (with Total when stacked). The category axis is HTML so categories can carry an IconName (service types, customer types); narrow bands show the icon only. colorScheme=\"ordinal\" paints ordered series (ageing buckets) as one teal ramp.",
+    "guidance": [
+      "Use: Bookings by service type (icons from SERVICE_TYPES), revenue by destination ranked, supplier spend",
+      "Avoid: Change over months → AreaChart or LineChart"
+    ],
+    "paperApi": "",
+    "states": [
+      "Grouped with service icons / light",
+      "Horizontal ranking / light",
+      "Stacked / light",
+      "Ordinal buckets / light",
+      "Single series / light",
+      "Empty / light",
+      "Drill down (experimental) / light",
+      "Hide amounts (experimental) / light",
+      "Grouped with service icons / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-B-0?node=Q8C-0"
+  },
+  {
+    "name": "BarList",
+    "artboard": "QQJ-0",
+    "pageId": "p-B-0",
+    "category": "Charts & analytics",
+    "title": "BarList · variants, states & source",
+    "description": "Ranked or ordered horizontal bar list where every row can drill: label (truncates) · 8px pill bar (share of the largest value) · mono value (money compact \"₹48L\", exact in the row's name) · optional secondary column (count or <Money notation=\"compact\"/>). Plain semantic HTML (a <ul> named by the ChartCard title), not a TanStack chart; fits a third-width ChartCard and hides the secondary column below 280px. onSelect turns rows into buttons (zero rows disabled); maskValues hides amounts for the Home privacy screen.",
+    "guidance": [
+      "Use: Pipeline by stage with trip counts and quoted value, each stage opening its filtered list",
+      "Avoid: Trends over time → AreaChart or LineChart"
+    ],
+    "paperApi": "",
+    "states": [
+      "Pipeline by stage / light",
+      "Ordinal ageing buckets / light",
+      "Hide amounts / light",
+      "Leading icons / light",
+      "Loading and empty / light",
+      "Pipeline by stage / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-B-0?node=QQJ-0"
+  },
+  {
+    "name": "DonutChart",
+    "artboard": "RDI-0",
+    "pageId": "p-B-0",
+    "category": "Charts & analytics",
+    "title": "DonutChart · variants, states & source",
+    "description": "Share of one total: donut (TanStack polar pie + radialArc) with the compact total in the centre, a list legend with exact value and share per slice (icons allowed), 2px slice gaps. More than 6 slices → the 6 largest stay (in caller order, colour follows the entity) and the rest fold into a neutral \"Other\". Hover/arrow keys move the centre readout to the focused slice (announced politely).",
+    "guidance": [
+      "Use: Revenue by destination, bookings by channel, services by type — one total, ≤ 6 meaningful parts",
+      "Avoid: Comparing parts precisely or more than 6 parts → BarChart horizontal"
+    ],
+    "paperApi": "",
+    "states": [
+      "Revenue by destination / light",
+      "Counts / light",
+      "Legend icons / light",
+      "Without legend / light",
+      "Loading / light",
+      "Empty / light",
+      "Revenue by destination / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-B-0?node=RDI-0"
+  },
+  {
+    "name": "Sparkline",
+    "artboard": "S2Q-0",
+    "pageId": "p-B-0",
+    "category": "Charts & analytics",
+    "title": "Sparkline · variants, states & source",
+    "description": "Tiny inline trend without axes or interaction (TanStack Charts line + soft area + end dot), filling its container: md 36px for standalone ChartCard trends, sm 24px for DataTable cells. Accessible name = label + spoken first → last summary (\"₹38L to ₹53L, up 39%\").",
+    "guidance": [
+      "Use: A compact trend in a standalone ChartCard or a DataTable cell; never inside KpiStrip",
+      "Avoid: Anyone needs values, axes or tooltips → LineChart in a ChartCard"
+    ],
+    "paperApi": "",
+    "states": [
+      "Standalone trends / light",
+      "In a table cell / light",
+      "Tones / light",
+      "Sizes / light",
+      "Standalone trends / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-B-0?node=S2Q-0"
+  },
+  {
+    "name": "ChartCard",
+    "artboard": "THQ-0",
+    "pageId": "p-B-0",
+    "category": "Charts & analytics",
+    "title": "ChartCard · variants, states & source",
+    "description": "Card for one chart on a dashboard or report: Onest title + one-line description, optional period SegmentedControl slot and actions, a compact mono headline value with quiet trend text (arrow icon + %, coloured by goodWhen); metric labels stay sentence case and controls wrap together on narrow cards, the chart, an optional footer. Same border/radius/surface as Panel without the raised head. The chart inside takes the card title as its accessible name and the card's loading state (skeletons).",
+    "guidance": [
+      "Use: Any chart on a page (Reports, dashboard main/rail columns)",
+      "Avoid: KPI numbers without a chart → KpiStrip"
+    ],
+    "paperApi": "",
+    "states": [
+      "Revenue card with period switch / light",
+      "Error with recovery / light",
+      "Loading / light",
+      "Trend where down is good / light",
+      "Trend going the wrong way / light",
+      "Title and chart only / light",
+      "Export action, h3 / light",
+      "Revenue card with period switch / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-B-0?node=THQ-0"
+  },
+  {
+    "name": "PriceChip",
+    "artboard": "I7G-0",
+    "pageId": "p-C-0",
+    "category": "Pricing & finance",
+    "title": "PriceChip · variants, states & source",
+    "description": "A price with its change against a previous version: mono INR amount + a toned pill \"↑ 8.6%\" / \"↓ 4.2%\" / \"–\" / \"New\". Tone follows goodDirection (default \"down\" for vendor costs: up = warning, down = success). Screen readers hear \"up 8.6% from v3 (₹7,000)\". Internal pricing only.",
+    "guidance": [
+      "Use: A cost or sell column in a DataTable that should show movement since the last rate-card version (supplements, versions, vendor comparisons)",
+      "Avoid: A plain amount → Money (text) or MoneyCell (tables)"
+    ],
+    "paperApi": "",
+    "states": [
+      "Supplements cost column / light",
+      "Up, down, unchanged, new / light",
+      "When up is good / light",
+      "Sizes / light",
+      "No comparison / light",
+      "Supplements cost column / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-C-0?node=I7G-0"
+  },
+  {
+    "name": "SeasonHeader",
+    "artboard": "P89-0",
+    "pageId": "p-C-0",
+    "category": "Pricing & finance",
+    "title": "SeasonHeader · variants, states & source",
+    "description": "Season name and dates on one horizontal line, with a tone swatch (peak/high/shoulder/low), compact mono date-range chips (\"20 Dec – 5 Jan\") and a red blackout count; full dates with years, blackout reasons and the optional season rule are in accessible text and hover details. It is RateMatrix's column-group header; use it alone where a season is labelled outside the grid (quote lines, test-rate results).",
+    "guidance": [
+      "Use: Labelling a season with its dates outside a RateMatrix (e.g. a night-by-night price breakdown)",
+      "Avoid: Inside a RateMatrix → pass the season as a group; the matrix renders SeasonHeader itself"
+    ],
+    "paperApi": "",
+    "states": [
+      "Peak with blackout / light",
+      "Tones / light",
+      "Several ranges / light",
+      "Without dates / light",
+      "Peak with blackout / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-C-0?node=P89-0"
+  },
+  {
+    "name": "SeasonLegend",
+    "artboard": "PBM-0",
+    "pageId": "p-C-0",
+    "category": "Pricing & finance",
+    "title": "SeasonLegend · variants, states & source",
+    "description": "Key for a rate card's seasons: swatch, name, every date range, duration count (nights by default, days for service coverage), the season rule (\"Overrides High\") and each blackout with its reason. A wrapping standalone list outside a RateMatrix; matrix column headers already carry season details.",
+    "guidance": [
+      "Use: A standalone season key outside a RateMatrix, where overlapping seasons, priorities and blackout dates are the content",
+      "Avoid: Blackout dates as the main content of a section → ItemList in a Panel (icon ban, reason, mono date)"
+    ],
+    "paperApi": "",
+    "states": [
+      "Standalone season key / light",
+      "Rules, nights and blackouts / light",
+      "Two seasons / light",
+      "Standalone season key / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-C-0?node=PBM-0"
+  },
+  {
+    "name": "RateVersionBar",
+    "artboard": "PIZ-0",
+    "pageId": "p-C-0",
+    "category": "Pricing & finance",
+    "title": "RateVersionBar · variants, states & source",
+    "description": "Version switcher and publish state for a versioned rate card, above its RateMatrix: \"Version v4\" menu (radio list with status, date and change note), StatusBadge domain=rateCard, a summary (\"Published 12 Aug 2026 · Peak +6%\", \"Superseded by v4\", or \"3 unsaved changes\"), error/warning counts, then Discard changes (only with changes) and optional Publish.",
+    "guidance": [
+      "Use: A rate card (or any versioned price list) whose versions can be browsed, edited as a draft and published",
+      "Avoid: The full version history with authors and counts → DataTable (Versions tab) with StatusBadge domain=\"rateCard\""
+    ],
+    "paperApi": "",
+    "states": [
+      "Published version / light",
+      "Older version / light",
+      "Draft with changes / light",
+      "Draft with errors / light",
+      "Published version / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-C-0?node=PIZ-0"
+  },
+  {
+    "name": "RateMatrix",
+    "artboard": "UN5-0",
+    "pageId": "p-C-0",
+    "category": "Pricing & finance",
+    "title": "RateMatrix · variants, states & source",
+    "description": "Spreadsheet-like price grid for a vendor rate card: rows (room types, vehicle types, activity slots; optional group headers and icons) × column groups (seasons with date ranges and blackouts) × sub-columns (meal plans CP/MAP/AP, occupancy Single/Double/Extra bed, trip types). Mono right-aligned INR, '—' for unpriced cells, sticky row column and header rows, horizontal scroll with faded edges, hairline grid. view | edit modes; cost | sell display (sell shows a margin % hint; derived from markupPercent unless a cell overrides it). Edit mode: role=grid keyboard model (arrows, Shift+arrows select, Home/End, Enter/F2/typing edit, Enter/Tab commit and move, Escape cancel, Delete clears), paste tab-separated blocks from Excel/Sheets (one value fills a selected range), Ctrl+C copies, row Menu (copy first season to all seasons, copy row, clear row). Highlights cells changed against `baseline`; flags negative amounts (error) and sell below cost (warning). INTERNAL ONLY.",
+    "guidance": [
+      "Use: Viewing or editing a rate card's prices by season × meal plan / occupancy / trip type",
+      "Avoid: A list of rate cards (name, validity, status) → DataTable with StatusBadge domain=\"rateCard\""
+    ],
+    "paperApi": "",
+    "states": [
+      "Room rates in a panel / light",
+      "Edit mode / light",
+      "Validation errors / light",
+      "Change against the previous version / light",
+      "Sell with margin hint / light",
+      "Vehicles × trip types / light",
+      "Unpriced cells / light",
+      "Room rates in a panel / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-C-0?node=UN5-0"
+  },
+  {
+    "name": "ListPageTemplate",
+    "artboard": "J9X-0",
+    "pageId": "p-D-0",
+    "category": "Templates & recipes",
+    "title": "ListPageTemplate · source list screen",
+    "description": "Use for a collection: PageHeader → TabBar → one-row ListToolbar → edge-to-edge DataTable → bulk dock and TableFooter. Header, breadcrumb and primary action name the same thing.",
+    "guidance": [],
+    "paperApi": "",
+    "states": ["ListPageTemplate · vendors-list · source specimen"],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-D-0?node=J9X-0"
+  },
+  {
+    "name": "RecordPageTemplate",
+    "artboard": "KCU-0",
+    "pageId": "p-D-0",
+    "category": "Templates & recipes",
+    "title": "RecordPageTemplate · Light source states",
+    "description": "Record detail layout: RecordHeader → 12 → (inline feedback) → TabBar → 20 → labelled tab body. Nested lists (DataTable, TableFooter) in the body bleed like a list page; nothing in the template clips overflow, so a direct-child `<TableFooter sticky />` stays pinned to the bottom of the viewport.",
+    "guidance": [
+      "Use: Any record detail page: vendor, service, booking, customer, package",
+      "Avoid: Record page with a list-style PageHeader → RecordHeader"
+    ],
+    "paperApi": "",
+    "states": [
+      "vendor-overview · state label",
+      "RecordPageTemplate · vendor-overview · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-D-0?node=KCU-0"
+  },
+  {
+    "name": "RecordOverviewLayout",
+    "artboard": "KYR-0",
+    "pageId": "p-D-0",
+    "category": "Templates & recipes",
+    "title": "RecordOverviewLayout · Light source states",
+    "description": "Overview tab body: KpiStrip (full width, rules bled to the workspace edges) → 20 → [main 2fr | rail 320–360px]; the rail stacks under 1000px workspace width.",
+    "guidance": [
+      "Use: Overview tab of a record page",
+      "Avoid: Custom wrappers with margins between regions → the template owns spacing"
+    ],
+    "paperApi": "",
+    "states": [
+      "booking-overview · state label",
+      "RecordOverviewLayout · booking-overview · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-D-0?node=KYR-0"
+  },
+  {
+    "name": "FormPageTemplate",
+    "artboard": "LKN-0",
+    "pageId": "p-D-0",
+    "category": "Templates & recipes",
+    "title": "FormPageTemplate · Light source states",
+    "description": "Create page: 64px raised header band with PageHeader, optional inline feedback (gutter strip under the band), edge-to-edge FormSections, sticky FormFooter (Cancel, primary Create). Optional onSubmit wraps sections + footer in a <form>.",
+    "guidance": [
+      "Use: Full-page creation and long or deep record editing. Source example: more than ~15 fields or several sections; field count is not a universal surface rule."
+    ],
+    "paperApi": "",
+    "states": [
+      "new-vendor · state label",
+      "FormPageTemplate · new-vendor · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-D-0?node=LKN-0"
+  },
+  {
+    "name": "SettingsPageTemplate",
+    "artboard": "M12-0",
+    "pageId": "p-D-0",
+    "category": "Templates & recipes",
+    "title": "SettingsPageTemplate · Light source states",
+    "description": "Settings layout: PageHeader → 20 → [240px section nav (icon tile + label + description, active = pink selected) | content]. Nav becomes a horizontal row under 760px.",
+    "guidance": [
+      "Use: Workspace or module settings with several sections (Organization, Team & permissions, Brand kit)",
+      "Avoid: Custom wrappers with margins between regions → the template owns spacing"
+    ],
+    "paperApi": "",
+    "states": [
+      "organisation · state label",
+      "SettingsPageTemplate · organisation · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-D-0?node=M12-0"
+  },
+  {
+    "name": "DashboardPageTemplate",
+    "artboard": "MC8-0",
+    "pageId": "p-D-0",
+    "category": "Templates & recipes",
+    "title": "DashboardPageTemplate · Light source states",
+    "description": "Dashboard layout: PageHeader → 16 → KPI KpiStrip (bled) → 20 → [main 2fr | rail 1fr], stacked under 1000px.",
+    "guidance": [
+      "Use: Home and module overview pages with KPIs and work queues",
+      "Avoid: Custom wrappers with margins between regions → the template owns spacing"
+    ],
+    "paperApi": "",
+    "states": [
+      "home · state label",
+      "DashboardPageTemplate · home · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-D-0?node=MC8-0"
+  },
+  {
+    "name": "Icon",
+    "artboard": "3-0",
+    "pageId": "p-E-0",
+    "category": "Icons",
+    "title": "Icon · exact SVG inventory / 24-grid",
+    "description": "151 exact SVG glyphs · closed IconName vocabulary · 24 × 24 viewBox",
+    "guidance": [],
+    "paperApi": "",
+    "states": [
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-E-0?node=3-0"
+  },
+  {
+    "name": "ServiceTypeLabel",
+    "artboard": "5IH-0",
+    "pageId": "p-F-0",
+    "category": "Domain vocabulary",
+    "title": "ServiceTypeLabel · source variants & states",
+    "description": "One service type rendered as its canonical icon + label from SERVICE_TYPES. The travel vocabulary: accommodation (hotel), transport (car), activity → \"Activities\" (compass), flight → \"Flights\" (plane), visa (id-card), addon → \"Add-ons\" (package-plus), insurance (shield-check), cruise (ship), rail (train), meal → \"Meals\" (utensils), guide → \"Guides\" (flag).",
+    "guidance": [
+      "Use: Showing the type of a service, rate card, booking line or package component",
+      "Avoid: Never render a service type as plain text or with an ad-hoc icon → ServiceTypeLabel"
+    ],
+    "paperApi": "",
+    "states": [
+      "services-table · state label",
+      "ServiceTypeLabel · services-table · source specimen",
+      "sizes · state label",
+      "ServiceTypeLabel · sizes · source specimen",
+      "vocabulary · state label",
+      "ServiceTypeLabel · vocabulary · source specimen",
+      "record-meta · state label",
+      "ServiceTypeLabel · record-meta · source specimen",
+      "filter-options · state label",
+      "ServiceTypeLabel · filter-options · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-F-0?node=5IH-0"
+  },
+  {
+    "name": "ServiceTypeList",
+    "artboard": "64N-0",
+    "pageId": "p-F-0",
+    "category": "Domain vocabulary",
+    "title": "ServiceTypeList · source variants & states",
+    "description": "Inline, de-duplicated list of ServiceTypeLabels on ONE line (never wraps): beyond `max` (3) the rest collapse into a muted \"+N\" pill with a tooltip (and screen-reader text) naming them. The pill never shrinks; the last visible label ellipsises first. Give the column ≥ 260px at size sm for 3 labels. Em dash when empty.",
+    "guidance": [
+      "Use: \"Services offered\" column in a vendor table (size=\"sm\")",
+      "Avoid: Never join service types into a comma string (\"Hotel, Car, Flights\") → ServiceTypeList"
+    ],
+    "paperApi": "",
+    "states": [
+      "vendor-table · state label",
+      "ServiceTypeList · vendor-table · source specimen",
+      "overflow · state label",
+      "ServiceTypeList · overflow · source specimen",
+      "fitting · state label",
+      "ServiceTypeList · fitting · source specimen",
+      "dedupe · state label",
+      "ServiceTypeList · dedupe · source specimen",
+      "empty · state label",
+      "ServiceTypeList · empty · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-F-0?node=64N-0"
+  },
+  {
+    "name": "EnumLabel",
+    "artboard": "6K8-0",
+    "pageId": "p-F-0",
+    "category": "Domain vocabulary",
+    "title": "EnumLabel · source variants & states",
+    "description": "Generic icon + label for one value of a closed vocabulary; the base of ServiceTypeLabel, VendorTypeLabel, CustomerTypeLabel and QueryTypeLabel. Icon is muted and decorative; label 13.5px/600 (md) or 12.5px/600 (sm).",
+    "guidance": [
+      "Use: A value from a domain map that has no dedicated label component, e.g. IMPORTANT_DATE_TYPES: <EnumLabel icon={IMPORTANT_DATE_TYPES.birthday.icon} label={IMPORTANT_DATE_TYPES.birthday.label} />",
+      "Avoid: Service / vendor / customer / query types → ServiceTypeLabel, VendorTypeLabel, CustomerTypeLabel, QueryTypeLabel"
+    ],
+    "paperApi": "",
+    "states": [
+      "important-dates · state label",
+      "EnumLabel · important-dates · source specimen",
+      "sizes · state label",
+      "EnumLabel · sizes · source specimen",
+      "table · state label",
+      "EnumLabel · table · source specimen",
+      "priority · state label",
+      "EnumLabel · priority · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-F-0?node=6K8-0"
+  },
+  {
+    "name": "VendorTypeLabel",
+    "artboard": "6QI-0",
+    "pageId": "p-F-0",
+    "category": "Domain vocabulary",
+    "title": "VendorTypeLabel · source variants & states",
+    "description": "A vendor type from VENDOR_TYPES as its canonical icon + label (Direct supplier, DMC, Wholesaler, Airline, Hotel chain, Transporter, Activity operator, Visa agent).",
+    "guidance": [
+      "Use: Vendor type column, vendor record meta, DescriptionList value",
+      "Avoid: Never render a vendor type as plain text or with an ad-hoc icon → VendorTypeLabel"
+    ],
+    "paperApi": "",
+    "states": [
+      "directory · state label",
+      "VendorTypeLabel · directory · source specimen",
+      "all · state label",
+      "VendorTypeLabel · all · source specimen",
+      "small · state label",
+      "VendorTypeLabel · small · source specimen",
+      "description-list · state label",
+      "VendorTypeLabel · description-list · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-F-0?node=6QI-0"
+  },
+  {
+    "name": "CustomerTypeLabel",
+    "artboard": "74X-0",
+    "pageId": "p-F-0",
+    "category": "Domain vocabulary",
+    "title": "CustomerTypeLabel · source variants & states",
+    "description": "A customer type from CUSTOMER_TYPES as icon + label: b2c \"B2C\" (user), b2b \"B2B agent\" (handshake), sub-agent \"Sub-agent\" (users), corporate \"Corporate\" (building). Also drives customer list tabs and filters (CUSTOMER_TYPE_IDS).",
+    "guidance": [
+      "Use: Customer category column, record header meta, DescriptionList value",
+      "Avoid: Never hand-write \"B2B\", \"Agent\", \"Retail\" labels → CUSTOMER_TYPES / CustomerTypeLabel"
+    ],
+    "paperApi": "",
+    "states": [
+      "customers-table · state label",
+      "CustomerTypeLabel · customers-table · source specimen",
+      "all · state label",
+      "CustomerTypeLabel · all · source specimen",
+      "small · state label",
+      "CustomerTypeLabel · small · source specimen",
+      "tabs · state label",
+      "CustomerTypeLabel · tabs · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-F-0?node=74X-0"
+  },
+  {
+    "name": "TierBadge",
+    "artboard": "7LK-0",
+    "pageId": "p-F-0",
+    "category": "Domain vocabulary",
+    "title": "TierBadge · source variants & states",
+    "description": "An agency-defined tier name with a semantic preset or validated full #RRGGBB record colour. Neutral semantic label text stays readable in both themes; custom dots are outlined.",
+    "guidance": [
+      "Use: Tier column in the customers table",
+      "Avoid: Record workflow state → use StatusBadge"
+    ],
+    "paperApi": "",
+    "states": [
+      "custom-colors · state label",
+      "TierBadge · custom-colors · source specimen",
+      "all · state label",
+      "TierBadge · all · source specimen",
+      "small · state label",
+      "TierBadge · small · source specimen",
+      "record-header · state label",
+      "TierBadge · record-header · source specimen",
+      "sorted · state label",
+      "TierBadge · sorted · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-F-0?node=7LK-0"
+  },
+  {
+    "name": "QueryTypeLabel",
+    "artboard": "7XE-0",
+    "pageId": "p-F-0",
+    "category": "Domain vocabulary",
+    "title": "QueryTypeLabel · source variants & states",
+    "description": "A sales query type from QUERY_TYPES as icon + label: trip \"Trip\" (luggage), flight, accommodation, visa, cruise, transport (same glyphs as the matching service types).",
+    "guidance": [
+      "Use: Query type column, query record meta, new-query type picker options",
+      "Avoid: Never render a query type as plain text or pick its icon → QueryTypeLabel"
+    ],
+    "paperApi": "",
+    "states": [
+      "queries-table · state label",
+      "QueryTypeLabel · queries-table · source specimen",
+      "all · state label",
+      "QueryTypeLabel · all · source specimen",
+      "small · state label",
+      "QueryTypeLabel · small · source specimen",
+      "picker · state label",
+      "QueryTypeLabel · picker · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-F-0?node=7XE-0"
+  },
+  {
+    "name": "DocumentTypeTile",
+    "artboard": "8JW-0",
+    "pageId": "p-F-0",
+    "category": "Domain vocabulary",
+    "title": "DocumentTypeTile · source variants & states",
+    "description": "32×32 (or 40×40 `size=\"lg\"`) mono code tile leading a row in document lists; accessible name is the full type label. Data: DOCUMENT_TYPES (label, icon, code) — traveller/booking: passport PASS, visa VISA, pan PAN, aadhaar AADH, photo PHOT, insurance INSU, ticket TKT, voucher VCHR, invoice INV; vendor compliance: gst-certificate GST, agreement AGMT, trade-licence TL, cancelled-cheque CHQ, msme MSME (+ insurance); other DOC.",
+    "guidance": [
+      "Use: Leading media of a document row in the document vault, traveller documents, vendor compliance documents or a booking's documents",
+      "Avoid: Never draw your own code box or file icon in a document row → DocumentTypeTile"
+    ],
+    "paperApi": "",
+    "states": [
+      "traveller-documents · state label",
+      "DocumentTypeTile · traveller-documents · source specimen",
+      "sizes · state label",
+      "DocumentTypeTile · sizes · source specimen",
+      "vocabulary · state label",
+      "DocumentTypeTile · vocabulary · source specimen",
+      "compliance · state label",
+      "DocumentTypeTile · compliance · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-F-0?node=8JW-0"
+  },
+  {
+    "name": "StatusBadge",
+    "artboard": "9QJ-0",
+    "pageId": "p-F-0",
+    "category": "Domain vocabulary",
+    "title": "StatusBadge · source variants & states",
+    "description": "A domain status as a StatusChip (pill with dot) using the canonical label and tone. Tones: success = Active/Published/Confirmed/Completed/Paid/Settled/Done/Won/Verified; warning = Draft/In progress/Pending/Upcoming/Part paid/Quoted/On hold; danger = Expired/Blocked/Overdue/Cancelled/Lost/Failed/Missing; info = Open/New/On trip/To collect/Due/Sent/Lead/Scheduled/Invited; neutral = Inactive/Archived/Refunded/Void/Deactivated. warning also covers invoice Partially paid; danger covers member Suspended. Document readiness roll-ups use domain=\"document\" (ready, action-needed, expiring-soon, expired, missing); ledger entries use domain=\"ledger\" (credit = payment received → success, debit → info, refund → warning, adjustment → neutral). Team members use domain=\"member\" (active success, invited info, deactivated neutral, suspended danger).",
+    "guidance": [
+      "Use: Status column in any DataTable",
+      "Avoid: Never pick a status colour by hand or pass a tone to StatusChip for a domain status → StatusBadge"
+    ],
+    "paperApi": "",
+    "states": [
+      "bookings-table · state label",
+      "StatusBadge · bookings-table · source specimen",
+      "every-domain · state label",
+      "StatusBadge · every-domain · source specimen",
+      "tones · state label",
+      "StatusBadge · tones · source specimen",
+      "sizes · state label",
+      "StatusBadge · sizes · source specimen",
+      "no-dot · state label",
+      "StatusBadge · no-dot · source specimen",
+      "normalised · state label",
+      "StatusBadge · normalised · source specimen",
+      "record-header · state label",
+      "StatusBadge · record-header · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-F-0?node=9QJ-0"
+  },
+  {
+    "name": "CustomerTierDialog",
+    "artboard": "I1S-0",
+    "pageId": "p-F-0",
+    "category": "Domain vocabulary",
+    "title": "CustomerTierDialog · source variants & states",
+    "description": "Add an agency-defined customer tier in a compact non-scrolling modal, with required name, native colour chooser, full hex input and readable live badge preview.",
+    "guidance": [
+      "Use: Creating a customer tier from agency settings or a tier selector",
+      "Avoid: Selecting an existing tier → use SelectField"
+    ],
+    "paperApi": "",
+    "states": [
+      "default · state label",
+      "CustomerTierDialog · default · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-F-0?node=I1S-0"
+  },
+  {
+    "name": "ActivityTable",
+    "artboard": "IO6-0",
+    "pageId": "p-G-0",
+    "category": "Patterns",
+    "title": "ActivityTable · source pattern",
+    "description": "Use for immutable, viewer-scoped activity. Heading → search and Filters → Date / Activity / By / Actions rows → history footer. Recent shows at most four matches without a footer.",
+    "guidance": [],
+    "paperApi": "",
+    "states": [
+      "ActivityTable · standard · source specimen",
+      "pagination · state label",
+      "ActivityTable · pagination · source specimen",
+      "contained · state label",
+      "ActivityTable · contained · source specimen",
+      "loading · state label",
+      "ActivityTable · loading · source specimen",
+      "empty · state label",
+      "ActivityTable · empty · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-G-0?node=IO6-0"
+  }
+]
