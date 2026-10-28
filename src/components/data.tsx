@@ -121,7 +121,12 @@ export function DataTable<T>({
     rows.length > 0 && rows.every((r) => selected.includes(getRowId(r)));
   const some = rows.some((r) => selected.includes(getRowId(r)));
   return (
-    <div className="pt-table-scroll">
+    <div
+      className="pt-table-scroll"
+      tabIndex={0}
+      role="region"
+      aria-label={caption}
+    >
       <table className="pt-table">
         <caption className="pt-sr-only">{caption}</caption>
         <thead>

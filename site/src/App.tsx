@@ -102,7 +102,7 @@ function Code({ code }: { code: string }) {
         <span>React · TypeScript</span>
         <CopyButton value={code} />
       </div>
-      <pre>
+      <pre tabIndex={0} role="region" aria-label="Code example">
         <code>{code}</code>
       </pre>
     </div>
