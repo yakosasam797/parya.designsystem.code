@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import * as Dialog from "@radix-ui/react-dialog";
 import * as UI from "../../src/index";
 import { examples, AppShellDemo } from "../../src/examples";
 import components from "./generated/components.json";
@@ -9,6 +10,7 @@ import "./site.css";
 import packageInfo from "../../package.json";
 const Foundations = React.lazy(() => import("./foundations/Foundations"));
 const BrandAssets = React.lazy(() => import("./brand/BrandAssets"));
+const Releases = React.lazy(() => import("./Releases"));
 
 const REPO = "https://github.com/yakosasam797/parya.designsystem.code";
 const STORY_REPO =
@@ -440,6 +442,70 @@ function Overview() {
     </>
   );
 }
+function PhonePreview({ name, theme }: { name: string; theme: UI.Theme }) {
+  const frame = useRef<HTMLIFrameElement>(null);
+  const [height, setHeight] = useState(name === "AppShell" ? 844 : 220);
+  useEffect(() => {
+    const resize = (event: MessageEvent) => {
+      if (
+        event.origin !== location.origin ||
+        event.source !== frame.current?.contentWindow ||
+        event.data?.type !== "parya-preview-size"
+      )
+        return;
+      if (name !== "AppShell" && Number.isFinite(event.data.height))
+        setHeight(Math.min(844, Math.max(180, event.data.height)));
+    };
+    window.addEventListener("message", resize);
+    return () => window.removeEventListener("message", resize);
+  }, [name]);
+  return (
+    <div className="ds-phone-preview">
+      <iframe
+        ref={frame}
+        title={`${name} phone preview`}
+        src={`#/preview/${encodeURIComponent(name)}?theme=${theme}`}
+        style={{ height }}
+      />
+    </div>
+  );
+}
+function StandalonePreview({ name, theme }: { name: string; theme: UI.Theme }) {
+  const root = useRef<HTMLDivElement>(null);
+  const entry = examples.find((item) => item.name === name);
+  useEffect(() => {
+    const element = root.current;
+    if (!element) return;
+    const report = () =>
+      parent.postMessage(
+        {
+          type: "parya-preview-size",
+          height: Math.ceil(element.getBoundingClientRect().height),
+        },
+        location.origin,
+      );
+    const observer = new ResizeObserver(report);
+    observer.observe(element);
+    report();
+    return () => observer.disconnect();
+  }, [name]);
+  return (
+    <UI.ThemeProvider theme={theme}>
+      <div
+        ref={root}
+        className={`ds-standalone-preview ${name === "AppShell" ? "ds-standalone-preview--shell" : ""}`}
+      >
+        {name === "AppShell" ? (
+          <AppShellDemo embedded={false} />
+        ) : entry ? (
+          <entry.Demo />
+        ) : (
+          <UI.EmptyState title="Example not found" />
+        )}
+      </div>
+    </UI.ThemeProvider>
+  );
+}
 function ComponentPage({ name }: { name: string }) {
   const doc = components.find((c) => c.name === name);
   const reference = paper.find((c) => c.name === name);
@@ -619,7 +685,7 @@ function ComponentPage({ name }: { name: string }) {
                           onChange={(e) => setWidth(e.target.value)}
                         >
                           <option value="full">Responsive</option>
-                          <option value="compact">Compact · 360px</option>
+                          <option value="compact">Phone · 390px</option>
                         </select>
                       </div>
                       <UI.SegmentedControl
@@ -641,15 +707,23 @@ function ComponentPage({ name }: { name: string }) {
                         }))}
                       />
                     </div>
-                    <UI.ThemeProvider theme={previewTheme}>
-                      <div
-                        className={`ds-preview-surface ${name === "AppShell" ? "ds-preview-surface--shell" : ""} ${width === "compact" ? "ds-preview-surface--compact" : ""}`}
-                      >
-                        <div className="ds-preview-inner">
-                          {example ? <example.Demo /> : null}
+                    {width === "compact" ? (
+                      <PhonePreview
+                        key={name}
+                        name={name}
+                        theme={previewTheme}
+                      />
+                    ) : (
+                      <UI.ThemeProvider theme={previewTheme}>
+                        <div
+                          className={`ds-preview-surface ${name === "AppShell" ? "ds-preview-surface--shell" : ""} ${width === "compact" ? "ds-preview-surface--compact" : ""}`}
+                        >
+                          <div className="ds-preview-inner">
+                            {example ? <example.Demo /> : null}
+                          </div>
                         </div>
-                      </div>
-                    </UI.ThemeProvider>
+                      </UI.ThemeProvider>
+                    )}
                     <Code code={code} />
                   </div>
                 </section>
@@ -1128,90 +1202,42 @@ function Coverage() {
     </article>
   );
 }
-function Releases() {
-  return (
-    <article className="ds-prose">
-      <div className="ds-breadcrumb">Resources</div>
-      <h1>Releases</h1>
-      <p className="ds-lede">
-        Changes to the system, with a clear adoption path.
-      </p>
-      <section className="ds-doc-section">
-        <span className="ds-status">Preview</span>
-        <h2>0.2.0 · Collection workflows and foundations</h2>
-        <p>28 October 2026</p>
-        <ul>
-          <li>
-            Practical typography and color guides, 20 shared text-style classes,
-            contrast checks, and foundation documentation for AI agents.
-          </li>
-          <li>
-            FilterMenu, FilterChips, SortMenu, ListToolbar, ListPageTemplate and
-            IconTextCell.
-          </li>
-          <li>
-            Controlled table sorting, selection across pages, and a complete
-            vendor-list example.
-          </li>
-          <li>
-            Five documented list utilities with parameter tables and return
-            types.
-          </li>
-          <li>
-            Referenced TypeScript definitions in API tables and AI
-            documentation.
-          </li>
-          <li>
-            Complete collection examples extracted from the live demos and
-            type-checked during documentation builds.
-          </li>
-        </ul>
-        <p>
-          Adoption: filterRows now ignores groups without an accessor; paginate
-          clamps pages beyond the last page. Invalid page numbers and page sizes
-          still throw. sortRows keeps empty values last in both directions and
-          sorts Date and ISO date values chronologically.
-        </p>
-      </section>
-      <section className="ds-doc-section">
-        <h2>0.1.0 · Initial implementation</h2>
-        <p>28 October 2026</p>
-        <ul>
-          <li>Paper tokens and exact SVG icon inventory.</li>
-          <li>React components with shared live examples.</li>
-          <li>
-            Source and Paper links, generated API tables, copyable code and LLM
-            references.
-          </li>
-          <li>
-            Storybook integration, theme previews, and a design coverage map.
-          </li>
-        </ul>
-        <p>
-          No npm package or hosted site has been published yet. Breaking API
-          changes are possible during the preview.
-        </p>
-      </section>
-    </article>
-  );
-}
 export default function App() {
   const route = useRoute();
+  const isPreview = route.startsWith("/preview/");
   const [theme, setTheme] = useState<UI.Theme>(() => {
     try {
+      if (location.hash.startsWith("#/preview/"))
+        return new URLSearchParams(location.hash.split("?")[1]).get("theme") ===
+          "dark"
+          ? "dark"
+          : "light";
       return localStorage.getItem("parya-theme") === "dark" ? "dark" : "light";
     } catch {
       return "light";
     }
   });
   const [search, setSearch] = useState(false);
+  const activeTheme = isPreview
+    ? new URLSearchParams(route.split("?")[1]).get("theme") === "dark"
+      ? "dark"
+      : "light"
+    : theme;
   const [menu, setMenu] = useState(false);
   useEffect(() => {
-    document.documentElement.dataset.theme = theme;
+    const desktop = matchMedia("(min-width: 761px)");
+    const close = () => {
+      if (desktop.matches) setMenu(false);
+    };
+    desktop.addEventListener("change", close);
+    return () => desktop.removeEventListener("change", close);
+  }, []);
+  useEffect(() => {
+    document.documentElement.dataset.theme = activeTheme;
     try {
-      localStorage.setItem("parya-theme", theme);
+      if (!isPreview) localStorage.setItem("parya-theme", theme);
     } catch {}
-  }, [theme]);
+  }, [theme, activeTheme, isPreview]);
   useEffect(() => {
     const fn = (e: KeyboardEvent) => {
       if (route === "/examples/app-shell" || e.defaultPrevented) return;
@@ -1227,6 +1253,13 @@ export default function App() {
     const name = route.split("/").at(-1);
     document.title = `${route === "/" ? "Parya Design System" : (route === "/brand-assets" ? "Brand Assets" : name?.replace(/^./, (x) => x.toUpperCase())) + " · Parya"}`;
   }, [route]);
+  if (isPreview)
+    return (
+      <StandalonePreview
+        name={route.slice(9).split("?")[0]}
+        theme={activeTheme}
+      />
+    );
   if (route === "/examples/app-shell")
     return (
       <UI.ThemeProvider theme={theme} setTheme={setTheme}>
@@ -1302,15 +1335,8 @@ export default function App() {
           />
         </div>
       </header>
-      <div className={`ds-layout ${menu ? "ds-layout--menu-open" : ""}`}>
+      <div className="ds-layout">
         <Sidebar route={route} onNavigate={() => setMenu(false)} />
-        {menu ? (
-          <button
-            className="ds-mobile-scrim"
-            aria-label="Close navigation"
-            onClick={() => setMenu(false)}
-          />
-        ) : null}
         <main id="main-content" className="ds-main" tabIndex={-1}>
           {route === "/" ? (
             <Overview />
@@ -1335,7 +1361,9 @@ export default function App() {
           ) : route === "/coverage" ? (
             <Coverage />
           ) : route === "/releases" ? (
-            <Releases />
+            <React.Suspense fallback={<UI.Spinner label="Loading releases" />}>
+              <Releases />
+            </React.Suspense>
           ) : route.startsWith("/components/") ? (
             <ComponentPage name={route.slice(12)} />
           ) : (
@@ -1389,6 +1417,34 @@ export default function App() {
           </aside>
         ) : null}
       </div>
+      <Dialog.Root open={menu} onOpenChange={setMenu}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="ds-mobile-scrim" data-theme={theme} />
+          <Dialog.Content
+            className="ds-mobile-navigation"
+            data-theme={theme}
+            aria-describedby={undefined}
+            onCloseAutoFocus={(event) => {
+              event.preventDefault();
+              document
+                .querySelector<HTMLButtonElement>(".ds-menu-button")
+                ?.focus();
+            }}
+          >
+            <div className="ds-mobile-navigation-head">
+              <Dialog.Title>Navigation</Dialog.Title>
+              <Dialog.Close asChild>
+                <UI.IconButton
+                  icon="x"
+                  variant="ghost"
+                  aria-label="Close navigation"
+                />
+              </Dialog.Close>
+            </div>
+            <Sidebar route={route} onNavigate={() => setMenu(false)} />
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
       <Search open={search} onOpenChange={setSearch} />
       <UI.Toaster />
     </UI.ThemeProvider>

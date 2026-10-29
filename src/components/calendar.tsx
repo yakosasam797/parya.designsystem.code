@@ -455,6 +455,7 @@ export interface AgendaProps {
   loading?: boolean;
   showOverdue?: boolean;
   showKindFilters?: boolean;
+  showWeekNavigation?: boolean;
   label?: string;
 }
 export function Agenda({
@@ -468,8 +469,13 @@ export function Agenda({
   loading,
   showOverdue = true,
   showKindFilters = true,
+  showWeekNavigation = true,
   label = "Schedule",
 }: AgendaProps) {
+  const agendaRef = useRef<HTMLElement>(null);
+  const [weekStart, setWeekStart] = useState(today);
+  const [selectedDay, setSelectedDay] = useState(today);
+  const [dayMessage, setDayMessage] = useState("");
   const [internal, setInternal] = useState<EventKind[]>([]),
     kinds = controlled ?? internal;
   const setKinds = (next: EventKind[]) => {
@@ -481,7 +487,64 @@ export function Agenda({
     { today, from, to },
   ).filter((group) => showOverdue || group.date !== "overdue");
   return (
-    <section className="pt-agenda" aria-label={label}>
+    <section className="pt-agenda" aria-label={label} ref={agendaRef}>
+      {showWeekNavigation ? (
+        <nav className="pt-agenda-week" aria-label="Schedule week">
+          <div className="pt-agenda-week-heading">
+            <IconButton
+              icon="chevron-left"
+              variant="ghost"
+              aria-label="Previous week"
+              onClick={() => setWeekStart(addCivilDays(weekStart, -7))}
+            />
+            <span>
+              {formatCivil(weekStart, { month: "short", year: "numeric" })}
+            </span>
+            <IconButton
+              icon="chevron-right"
+              variant="ghost"
+              aria-label="Next week"
+              onClick={() => setWeekStart(addCivilDays(weekStart, 7))}
+            />
+          </div>
+          <div className="pt-agenda-week-days">
+            {Array.from({ length: 7 }, (_, index) =>
+              addCivilDays(weekStart, index),
+            ).map((day) => (
+              <button
+                key={day}
+                type="button"
+                aria-label={formatCivil(day, {
+                  weekday: "long",
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+                aria-pressed={selectedDay === day}
+                aria-current={day === today ? "date" : undefined}
+                onClick={() => {
+                  setSelectedDay(day);
+                  const target = agendaRef.current?.querySelector<HTMLElement>(
+                    `[data-agenda-date="${day}"]`,
+                  );
+                  target?.scrollIntoView({ block: "nearest" });
+                  setDayMessage(
+                    target
+                      ? `Schedule for ${formatCivil(day)}`
+                      : `No events on ${formatCivil(day)}`,
+                  );
+                }}
+              >
+                <span>{formatCivil(day, { weekday: "short" })}</span>
+                <strong>{Number(day.slice(-2))}</strong>
+              </button>
+            ))}
+          </div>
+          <span className="pt-sr-only" aria-live="polite">
+            {dayMessage}
+          </span>
+        </nav>
+      ) : null}
       {showKindFilters ? (
         <div className="pt-agenda-kinds" role="group" aria-label="Event types">
           <Button
@@ -524,6 +587,7 @@ export function Agenda({
           {groups.map((group) => (
             <section
               key={group.date}
+              data-agenda-date={group.date}
               aria-label={
                 group.date === "overdue" ? "Overdue" : formatCivil(group.date)
               }

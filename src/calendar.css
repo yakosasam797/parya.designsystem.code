@@ -79,6 +79,9 @@
   background: var(--pt-color-bg-surface);
   min-width: 0;
 }
+.pt-agenda-week {
+  display: none;
+}
 .pt-agenda-kinds {
   display: flex;
   flex-wrap: wrap;
@@ -208,6 +211,45 @@
   font-size: var(--pt-type-caption-size);
 }
 @container pt-agenda (max-width:520px) {
+  .pt-agenda-week {
+    display: block;
+    padding: 8px 12px 12px;
+    border-bottom: 1px solid var(--pt-color-border-default);
+  }
+  .pt-agenda-week-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--pt-type-caption-size);
+  }
+  .pt-agenda-week-days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 2px;
+  }
+  .pt-agenda-week-days button {
+    display: grid;
+    place-items: center;
+    gap: 4px;
+    min-height: 48px;
+    border: 0;
+    border-radius: var(--pt-radius-sm);
+    background: transparent;
+    color: var(--pt-color-text-primary);
+    cursor: pointer;
+    padding: 6px 0;
+  }
+  .pt-agenda-week-days button > span {
+    font-size: 10px;
+    color: var(--pt-color-text-muted);
+  }
+  .pt-agenda-week-days button > strong {
+    font: 500 12px var(--pt-font-mono);
+  }
+  .pt-agenda-week-days button[aria-pressed="true"] {
+    background: var(--pt-color-bg-selected);
+    color: var(--pt-color-text-selected);
+  }
   .pt-event-row {
     gap: 8px;
     padding-inline: 12px;

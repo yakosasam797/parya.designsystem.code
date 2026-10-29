@@ -1,0 +1,104 @@
+{
+  "packages": [
+    {
+      "id": "design-system",
+      "name": "@parya/design-system",
+      "version": "0.2.0",
+      "description": "React components, foundations, hooks and page templates.",
+      "source": "https://github.com/yakosasam797/parya.designsystem.code",
+      "releases": [
+        {
+          "version": "Unreleased",
+          "date": null,
+          "title": "Phone layouts and release history",
+          "changes": [
+            {
+              "type": "Improved",
+              "items": [
+                "Labelled table cards preserve sorting and selection in narrow containers; scrolling tables remain available.",
+                "Phone navigation uses a focus-managed dialog. Page layouts, forms, board stage navigation and schedule week navigation adapt to smaller screens.",
+                "The playground Phone preview renders in an actual phone viewport."
+              ]
+            },
+            {
+              "type": "Added",
+              "items": [
+                "Package-specific version history, adoption notes and generated release documentation.",
+                "Matching editable 390px Paper references and a release ledger."
+              ]
+            }
+          ],
+          "adoption": "DataTable defaults to cards below 600px container width. Use mobileLayout=\"scroll\" when comparing a wide matrix. No other public API is removed."
+        },
+        {
+          "version": "0.2.0",
+          "date": "2026-10-28",
+          "title": "Collection workflows and practical foundations",
+          "changes": [
+            {
+              "type": "Added",
+              "items": [
+                "FilterMenu, FilterChips, SortMenu, ListToolbar, ListPageTemplate and IconTextCell.",
+                "Typography roles, color guidance, contrast checks and generated foundation documentation.",
+                "Controlled table sorting and selection across pages; typed utility documentation and shared examples."
+              ]
+            }
+          ],
+          "adoption": "filterRows ignores groups without an accessor. paginate clamps pages beyond the last page; invalid page numbers and sizes still throw. sortRows keeps empty values last in both directions."
+        },
+        {
+          "version": "0.1.0",
+          "date": "2026-10-28",
+          "title": "Initial experimental implementation",
+          "changes": [
+            {
+              "type": "Added",
+              "items": [
+                "Paper tokens and SVG icon inventory; React components and shared examples.",
+                "Documentation site, source/Paper links, generated API tables, Markdown and LLM references.",
+                "Four reusable hooks and a separate connected Storybook application."
+              ]
+            }
+          ],
+          "adoption": "Install from the repository or a locally packed archive. This recorded preview version was not published to npm."
+        }
+      ]
+    },
+    {
+      "id": "storybook",
+      "name": "parya-designsystem-storybook",
+      "version": "0.2.0",
+      "description": "Private Storybook application using @parya/design-system.",
+      "source": "https://github.com/yakosasam797/parya.designsystem.storybook",
+      "releases": [
+        {
+          "version": "0.2.0",
+          "date": "2026-10-28",
+          "title": "Shared component and foundation stories",
+          "changes": [
+            {
+              "type": "Added",
+              "items": [
+                "Stories for the shared v0.2 collection controls, foundation roles and typed examples.",
+                "QuantityField controls synchronized with the shared API."
+              ]
+            }
+          ],
+          "adoption": "Run sync after changing shared examples. This is a private application, not a separately published component library."
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-10-29",
+          "title": "Workspace stories",
+          "items": [
+            "Application shell and keyboard selection examples.",
+            "Shared workspace, content, notification, calendar, chart, pricing and template stories."
+          ]
+        }
+      ]
+    }
+  ],
+  "publication": "Recorded preview versions. The component library is not published to npm; Storybook is a private application.",
+  "templateNote": "Templates own page spacing. Phone layouts reuse the same template slots, semantic tokens and components; smaller screens change their arrangement."
+}

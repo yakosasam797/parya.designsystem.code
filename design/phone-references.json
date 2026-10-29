@@ -1,0 +1,135 @@
+{
+  "fileId": "01M5KKMF33S23DNN84NAWWBTJR",
+  "pageId": "p-I-0",
+  "url": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-I-0",
+  "captured": "2026-10-29",
+  "tokenHash": "d8eaa8cc",
+  "package": "@parya/design-system",
+  "version": "0.2.0",
+  "update": "Unreleased phone-layout update",
+  "referenceType": "Editable static first-viewport references; interactions and responsive reflow are implemented in code.",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "guide": {
+    "pageId": "p-I-0",
+    "artboardId": "220B-0"
+  },
+  "releases": {
+    "pageId": "p-H-0",
+    "artboardId": "230V-0"
+  },
+  "references": [
+    {
+      "id": "22VC-0",
+      "capture": "agenda-dark",
+      "name": "Agenda · Week navigation · dark · 390px"
+    },
+    {
+      "id": "22PT-0",
+      "capture": "agenda-light",
+      "name": "Agenda · Week navigation · light · 390px"
+    },
+    {
+      "id": "23A4-0",
+      "capture": "board-dark",
+      "name": "KanbanBoard · Stage navigation · dark · 390px"
+    },
+    {
+      "id": "237C-0",
+      "capture": "board-light",
+      "name": "KanbanBoard · Stage navigation · light · 390px"
+    },
+    {
+      "id": "23JY-0",
+      "capture": "dashboard-dark",
+      "name": "DashboardPageTemplate · Stacked panels · dark · 390px"
+    },
+    {
+      "id": "23HK-0",
+      "capture": "dashboard-light",
+      "name": "DashboardPageTemplate · Stacked panels · light · 390px"
+    },
+    {
+      "id": "2333-0",
+      "capture": "form-dark",
+      "name": "FormPageTemplate · Single column · dark · 390px"
+    },
+    {
+      "id": "2328-0",
+      "capture": "form-light",
+      "name": "FormPageTemplate · Single column · light · 390px"
+    },
+    {
+      "id": "24JH-0",
+      "capture": "navigation-dark",
+      "name": "AppShell · Navigation open · dark · 390px"
+    },
+    {
+      "id": "24F8-0",
+      "capture": "navigation-light",
+      "name": "AppShell · Navigation open · light · 390px"
+    },
+    {
+      "id": "247H-0",
+      "capture": "notifications-dark",
+      "name": "NotificationsDrawer · Unread · dark · 390px"
+    },
+    {
+      "id": "23ZQ-0",
+      "capture": "notifications-light",
+      "name": "NotificationsDrawer · Unread · light · 390px"
+    },
+    {
+      "id": "23F5-0",
+      "capture": "record-dark",
+      "name": "RecordOverviewLayout · Stacked details · dark · 390px"
+    },
+    {
+      "id": "23CW-0",
+      "capture": "record-light",
+      "name": "RecordOverviewLayout · Stacked details · light · 390px"
+    },
+    {
+      "id": "23T1-0",
+      "capture": "records-dark",
+      "name": "OpenRecordsSwitcher · Record list · dark · 390px"
+    },
+    {
+      "id": "23MC-0",
+      "capture": "records-light",
+      "name": "OpenRecordsSwitcher · Record list · light · 390px"
+    },
+    {
+      "id": "235N-0",
+      "capture": "settings-dark",
+      "name": "SettingsPageTemplate · Horizontal sections · dark · 390px"
+    },
+    {
+      "id": "233Y-0",
+      "capture": "settings-light",
+      "name": "SettingsPageTemplate · Horizontal sections · light · 390px"
+    },
+    {
+      "id": "22EC-0",
+      "capture": "shell-dark",
+      "name": "AppShell · Home · dark · 390px"
+    },
+    {
+      "id": "220V-0",
+      "capture": "shell-light",
+      "name": "AppShell · Home · light · 390px"
+    },
+    {
+      "id": "22MF-0",
+      "capture": "table-dark",
+      "name": "DataTable · Record cards · dark · 390px"
+    },
+    {
+      "id": "22J1-0",
+      "capture": "table-light",
+      "name": "DataTable · Record cards · light · 390px"
+    }
+  ]
+}

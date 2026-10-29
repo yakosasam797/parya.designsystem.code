@@ -2,6 +2,7 @@ import ts from "typescript";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { generateFoundations } from "./generate-foundations.mjs";
+await import("./build-releases.mjs");
 const foundationsMarkdown = await generateFoundations();
 const pkg = JSON.parse(await readFile("package.json", "utf8"));
 const paper = JSON.parse(await readFile("site/src/paper-catalog.json", "utf8"));
@@ -305,7 +306,10 @@ await writeFile(
   "site/public/api/components.json",
   JSON.stringify({ version: pkg.version, components, hooks }, null, 2),
 );
-const blocks = [foundationsMarkdown];
+const blocks = [
+  foundationsMarkdown,
+  await readFile("site/public/docs/releases.md", "utf8"),
+];
 for (const c of components) {
   const snippet = exampleEntries.find((e) => e.name === c.name).code;
   const usage = c.usage;

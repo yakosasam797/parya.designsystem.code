@@ -13,6 +13,7 @@ for (const file of [
   "charts.css",
   "workflow.css",
   "rates.css",
+  "phone.css",
 ])
   await copyFile(`src/${file}`, `dist/${file}`);
 // Ship unbundled CSS so font asset URLs resolve from the consumer's bundler.

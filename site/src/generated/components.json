@@ -2366,7 +2366,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/calendar.tsx",
-    "sourceLine": 460,
+    "sourceLine": 461,
     "props": [
       {
         "name": "events",
@@ -2415,6 +2415,11 @@
       },
       {
         "name": "showKindFilters",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "showWeekNavigation",
         "type": "boolean",
         "required": false
       },
@@ -2634,7 +2639,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/calendar.tsx",
-    "sourceLine": 571,
+    "sourceLine": 635,
     "props": [
       {
         "name": "events",
@@ -3479,7 +3484,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/workflow.tsx",
-    "sourceLine": 574,
+    "sourceLine": 592,
     "props": [
       {
         "name": "open",
@@ -3566,7 +3571,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/workflow.tsx",
-    "sourceLine": 617,
+    "sourceLine": 635,
     "props": [
       {
         "name": "title",
@@ -4799,7 +4804,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 315,
+    "sourceLine": 334,
     "props": [
       {
         "name": "rows",
@@ -4838,7 +4843,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 332,
+    "sourceLine": 351,
     "props": [
       {
         "name": "rows",
@@ -4882,7 +4887,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 366,
+    "sourceLine": 385,
     "props": [
       {
         "name": "rows",
@@ -4921,7 +4926,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 398,
+    "sourceLine": 417,
     "props": [
       {
         "name": "rows",
@@ -4955,7 +4960,7 @@
     "states": [],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 386,
+    "sourceLine": 405,
     "props": [
       {
         "name": "total",
@@ -8930,7 +8935,7 @@
     "states": [],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 128,
+    "sourceLine": 130,
     "props": [
       {
         "name": "rows",
@@ -8975,6 +8980,11 @@
       {
         "name": "onSortChange",
         "type": "(sort: SortState) => void",
+        "required": false
+      },
+      {
+        "name": "mobileLayout",
+        "type": "\"cards\" | \"scroll\"",
         "required": false
       }
     ]
@@ -9227,7 +9237,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 273,
+    "sourceLine": 292,
     "props": [
       {
         "name": "page",
@@ -9274,7 +9284,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/data.tsx",
-    "sourceLine": 295,
+    "sourceLine": 314,
     "props": [
       {
         "name": "count",

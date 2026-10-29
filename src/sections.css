@@ -473,7 +473,7 @@ a.pt-kpi-tile:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-@container pt-kpis (max-width:340px) {
+@container pt-kpis (max-width:520px) {
   .pt-kpi-grid {
     grid-template-columns: 1fr;
   }

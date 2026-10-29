@@ -188,7 +188,7 @@ export function KanbanBoard<T>({
   dropZones,
   loading,
   empty,
-  mobileLayout = "snap",
+  mobileLayout = "stage",
   currency = "INR",
   pinnedIds,
   onPinChange,
@@ -486,11 +486,16 @@ export function KanbanBoard<T>({
               aria-pressed={stage === column.id}
               onClick={() => {
                 setStage(column.id);
-                lanes.current
-                  ?.querySelector<HTMLElement>(`[data-column="${column.id}"]`)
-                  ?.scrollIntoView({
-                    block: "nearest",
-                    inline: "start",
+                const list = lanes.current;
+                const target = list?.querySelector<HTMLElement>(
+                  `[data-column="${column.id}"]`,
+                );
+                if (list && target)
+                  list.scrollTo({
+                    left:
+                      list.scrollLeft +
+                      target.getBoundingClientRect().left -
+                      list.getBoundingClientRect().left,
                     behavior: "auto",
                   });
               }}
@@ -503,6 +508,19 @@ export function KanbanBoard<T>({
       <div
         className="pt-board-lanes"
         ref={lanes}
+        onScroll={(event) => {
+          if (mobileLayout !== "stage") return;
+          const list = event.currentTarget;
+          const left = list.getBoundingClientRect().left;
+          const nearest = [
+            ...list.querySelectorAll<HTMLElement>("[data-column]"),
+          ].sort(
+            (a, b) =>
+              Math.abs(a.getBoundingClientRect().left - left) -
+              Math.abs(b.getBoundingClientRect().left - left),
+          )[0];
+          if (nearest?.dataset.column) setStage(nearest.dataset.column);
+        }}
         style={
           {
             "--pt-board-stage": columns.findIndex(

@@ -8,5 +8,6 @@ site/public/api/
 *.log
 playwright-report/
 test-results/
+artifacts/
 .env*
 !.env.example

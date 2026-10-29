@@ -10,6 +10,7 @@
 @import "./charts.css";
 @import "./workflow.css";
 @import "./rates.css";
+@import "./phone.css";
 
 /* AppShell dimensions and surfaces exported from the Paper shell reference. */
 .pt-app-shell {
@@ -423,7 +424,7 @@
     display: none;
   }
 }
-@container pt-app-shell (max-width: 760px) {
+@container pt-app-shell (max-width: 999px) {
   .pt-shell-desktop-sidebar {
     display: none;
   }

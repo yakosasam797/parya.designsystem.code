@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useId, type ReactNode } from "react";
 import { Avatar, Button, Checkbox, cx } from "./primitives";
 import { Money, DateText, EmptyState, type MoneyProps } from "./content";
 import { Pagination } from "./navigation";
@@ -124,6 +124,8 @@ export interface DataTableProps<T> {
   emptyTitle?: string;
   sort?: SortState | null;
   onSortChange?: (sort: SortState) => void;
+  /** Stack labelled record cards in narrow containers, or retain a scrolling table. */
+  mobileLayout?: "cards" | "scroll";
 }
 export function DataTable<T>({
   rows,
@@ -135,7 +137,9 @@ export function DataTable<T>({
   emptyTitle = "No records found",
   sort: controlledSort,
   onSortChange,
+  mobileLayout = "cards",
 }: DataTableProps<T>) {
+  const tableId = useId();
   const [sort, setSort] = useControllableState<SortState | null>(
     controlledSort,
     null,
@@ -157,12 +161,19 @@ export function DataTable<T>({
       role="region"
       aria-label={caption}
     >
-      <table className="pt-table">
+      <table
+        className={cx("pt-table", `pt-table--${mobileLayout}`)}
+        role="table"
+      >
         <caption className="pt-sr-only">{caption}</caption>
-        <thead>
-          <tr>
+        <thead role="rowgroup">
+          <tr role="row">
             {onSelectionChange ? (
-              <th scope="col">
+              <th
+                scope="col"
+                role="columnheader"
+                className="pt-table-selection"
+              >
                 <Checkbox
                   aria-label="Select all rows"
                   checked={all ? true : some ? "indeterminate" : false}
@@ -180,7 +191,9 @@ export function DataTable<T>({
             {columns.map((c) => (
               <th
                 key={c.id}
+                id={`${tableId}-${c.id}`}
                 scope="col"
+                role="columnheader"
                 className={cx(c.align === "right" && "pt-right")}
                 aria-sort={
                   sort?.id === c.id
@@ -220,15 +233,16 @@ export function DataTable<T>({
             ))}
           </tr>
         </thead>
-        <tbody>
+        <tbody role="rowgroup">
           {displayed.length ? (
             displayed.map((row) => (
               <tr
                 key={getRowId(row)}
+                role="row"
                 data-selected={selected.includes(getRowId(row))}
               >
                 {onSelectionChange ? (
-                  <td>
+                  <td role="cell" className="pt-table-selection">
                     <Checkbox
                       aria-label={`Select row ${getRowId(row)}`}
                       checked={selected.includes(getRowId(row))}
@@ -245,9 +259,14 @@ export function DataTable<T>({
                 {columns.map((c) => (
                   <td
                     key={c.id}
+                    role="cell"
+                    headers={`${tableId}-${c.id}`}
                     className={cx(c.align === "right" && "pt-right")}
                   >
-                    {c.render(row)}
+                    <span className="pt-mobile-cell-label" aria-hidden="true">
+                      {c.header}
+                    </span>
+                    <div className="pt-table-cell-value">{c.render(row)}</div>
                   </td>
                 ))}
               </tr>

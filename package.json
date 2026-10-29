@@ -9,6 +9,7 @@
   ],
   "files": [
     "dist",
+    "CHANGELOG.md",
     "README.md",
     "AGENTS.md"
   ],

@@ -113,6 +113,16 @@ Load `@parya/design-system/styles.css` once to use the generated typography clas
 
 Choose the HTML element by meaning, independently of the visual role. Use the real components for controls and data formatting. `design/foundation-guidance.json` combines the Paper role declarations with authored usage guidance; `scripts/generate-foundations.mjs` generates `src/typography.css`, `/docs/foundations.md`, and `/api/foundations.json`. The guide is included in LLM documentation and the packaged catalog. Contrast results evaluate one combination; they are not a WCAG conformance claim.
 
+## Phone layouts and release history
+
+The playground's **Phone · 390px** option uses a separate browser viewport. Tables default to labelled cards below a 600px container width while retaining sorting and selection; pass `mobileLayout="scroll"` for wide comparison tables. Forms, record rails and dashboard panels stack within narrow containers. Board stages and schedule weeks use compact navigation. The same components and semantic tokens serve both sizes.
+
+Open `/#/releases` for history by package and version. Edit `design/release-history.json`; `npm run build:docs` generates `CHANGELOG.md`, the Releases page data, `/docs/releases.md` and `/api/releases.json`. Unreleased work stays separate from recorded package versions. The matching Paper references are on **17 · Phone layouts**, with the release ledger on **16 · Coverage & handoff**.
+
+`node scripts/audit-phone.mjs` captures the local phone examples (optionally pass a viewport width). With the documentation server running, `node scripts/export-phone-paper.mjs` exports measured editable visual groups and screenshots to `artifacts/paper-phone/`, using `design/paper-tokens.json`. Pass component case IDs, such as `agenda`, to limit the capture. These are static design references; code remains the source for interactions.
+
+`design/phone-references.json` maps the 22 editable phone artboards, guide and release ledger to their Paper pages. The older desktop-width captures are labelled as historical references and point to page 17.
+
 ## Development
 
 The logo library is available at `/#/brand-assets`. Original downloads live in `site/public/brand/svg/` and `site/public/brand/png/`; descriptive filenames preserve the supplied file bytes. `site/src/brand/manifest.json` drives previews, colors, filenames, and file sizes. Keep it synchronized with `site/public/brand/manifest.json` and the three ZIP packs when updating assets. Header SVG copies have a tighter viewBox for legibility; their paths and colors are unchanged. Usage notes are in `site/public/brand/README.md`.
