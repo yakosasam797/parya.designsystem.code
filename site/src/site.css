@@ -198,15 +198,15 @@ button:focus-visible {
   padding: 9px 8px;
   margin: 2px 0;
 }
-.ds-nav-item[aria-current="page"],
-.ds-component-link[aria-current="page"] {
-  background: var(--pt-color-action-primary-soft);
-  color: var(--pt-color-action-primary-text);
-  font-weight: 550;
-}
 .ds-nav-item:hover,
 .ds-component-link:hover {
   background: var(--ds-wash);
+}
+.ds-nav-item[aria-current="page"],
+.ds-component-link[aria-current="page"] {
+  background: var(--pt-color-bg-selected);
+  color: var(--pt-color-text-selected);
+  font-weight: 550;
 }
 .ds-sidebar details {
   margin-bottom: 2px;
