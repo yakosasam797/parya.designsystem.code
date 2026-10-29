@@ -1,5 +1,399 @@
 [
   {
+    "name": "AppShell",
+    "kind": "component",
+    "exampleCode": "function AppShellStarter() {\n  const [page, setPage] = useState(\"bookings\");\n  const title = page === \"home\" ? \"Home\" : \"Bookings\";\n  return (\n    <AppShell\n      navGroups={[\n        {\n          id: \"travel\",\n          items: [\n            { id: \"home\", label: \"Home\", icon: \"home\" },\n            { id: \"bookings\", label: \"Bookings\", icon: \"bookings\" },\n          ],\n        },\n      ]}\n      activeNavId={page}\n      onNavigate={setPage}\n      breadcrumbs={[{ label: title }]}\n    >\n      <PageHeader title={title} description=\"Your page content goes here.\" />\n    </AppShell>\n  );\n}",
+    "usage": "import {useState} from \"react\";\nimport {PageHeader, AppShell} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nfunction AppShellStarter() {\n  const [page, setPage] = useState(\"bookings\");\n  const title = page === \"home\" ? \"Home\" : \"Bookings\";\n  return (\n    <AppShell\n      navGroups={[\n        {\n          id: \"travel\",\n          items: [\n            { id: \"home\", label: \"Home\", icon: \"home\" },\n            { id: \"bookings\", label: \"Bookings\", icon: \"bookings\" },\n          ],\n        },\n      ]}\n      activeNavId={page}\n      onNavigate={setPage}\n      breadcrumbs={[{ label: title }]}\n    >\n      <PageHeader title={title} description=\"Your page content goes here.\" />\n    </AppShell>\n  );\n}",
+    "types": [
+      {
+        "name": "AppNavGroup",
+        "definition": "export interface AppNavGroup {\n  id: string;\n  label?: string;\n  items: AppNavItem[];\n}"
+      },
+      {
+        "name": "AppNavItem",
+        "definition": "export interface AppNavItem extends AppNavChild {\n  icon: IconName;\n  children?: AppNavChild[];\n}"
+      },
+      {
+        "name": "AppNavChild",
+        "definition": "export interface AppNavChild {\n  id: string;\n  label: string;\n  href?: string;\n  disabled?: boolean;\n  badge?: number;\n}"
+      },
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      },
+      {
+        "name": "BreadcrumbsProps",
+        "definition": "export interface BreadcrumbsProps {\n  items: { label: string; href?: string }[];\n}"
+      },
+      {
+        "name": "AppShellNotifications",
+        "definition": "export interface AppShellNotifications {\n  count?: number;\n  panel: ReactNode;\n}"
+      },
+      {
+        "name": "AppShellAccount",
+        "definition": "export interface AppShellAccount {\n  name: string;\n  items: MenuItem[];\n}"
+      },
+      {
+        "name": "MenuItem",
+        "definition": "export interface MenuItem {\n  id: string;\n  label: string;\n  icon?: IconName;\n  disabled?: boolean;\n  danger?: boolean;\n  onSelect: () => void;\n}"
+      }
+    ],
+    "returnType": null,
+    "category": "Shell & navigation",
+    "description": "The application frame: a collapsible navigation card beside a workspace card, with breadcrumbs, search, notifications, and account actions. Page content goes inside the workspace.",
+    "guidance": [
+      "Use: One AppShell at the application root, inside ThemeProvider. Put the current page in children and pass activeNavId with onNavigate from your router.",
+      "Structure: The shell owns primary navigation and the workspace topbar. Put PageHeader, filters, tables, forms, and record details inside the page, not inside the sidebar.",
+      "Navigation: Parent destinations and child disclosure are separate actions. A selected child has a teal outline; its parent has a pink background. The collapsed rail opens child destinations in a popover.",
+      "Responsive behavior: At 760px of shell width or less, the sidebar becomes a navigation dialog opened from the workspace header. Escape closes it; choosing a destination closes it and returns focus.",
+      "Sizing: The shell uses the available viewport height by default. Pass height for an embedded workspace, and embedded to use a section instead of a nested main landmark.",
+      "Services: Pass search, help, notifications, account actions, and navigation handlers from your application. The shell does not authenticate users or call booking services.",
+      "Notifications: AppShell mounts Toaster by default. Do not add another Toaster inside its pages. Set withToaster={false} for embedded examples sharing a host toaster.",
+      "Scope: This implementation covers the structural frame and supplied slots. Notes panels, credits, open-record management, and drag reordering remain separate design-only work."
+    ],
+    "paperApi": "",
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=1QX-0",
+    "states": [
+      "AppShell source frame",
+      "Collapsed sidebar",
+      "Record with back navigation",
+      "Responsive mobile navigation"
+    ],
+    "status": "experimental",
+    "sourcePath": "src/components/shell.tsx",
+    "sourceLine": 391,
+    "props": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": true
+      },
+      {
+        "name": "defaultCollapsed",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "height",
+        "type": "CSSProperties[\"height\"]",
+        "required": false
+      },
+      {
+        "name": "embedded",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "contentLabel",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "withToaster",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "navGroups",
+        "type": "AppNavGroup[]",
+        "required": true
+      },
+      {
+        "name": "activeNavId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "onNavigate",
+        "type": "(id: string) => void",
+        "required": true
+      },
+      {
+        "name": "brand",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "brandMark",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "brandLabel",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "collapsed",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "onCollapsedChange",
+        "type": "(collapsed: boolean) => void",
+        "required": false
+      },
+      {
+        "name": "sidebarFooter",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "breadcrumbs",
+        "type": "BreadcrumbsProps[\"items\"]",
+        "required": false
+      },
+      {
+        "name": "onBack",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "backLabel",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "onSearch",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "searchLabel",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "onHelp",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "notifications",
+        "type": "AppShellNotifications",
+        "required": false
+      },
+      {
+        "name": "account",
+        "type": "AppShellAccount",
+        "required": false
+      },
+      {
+        "name": "topbarActions",
+        "type": "ReactNode",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Sidebar",
+    "kind": "component",
+    "exampleCode": "function SidebarDemo() {\n  const [active, setActive] = useState(\"home\");\n  const [collapsed, setCollapsed] = useState(false);\n  return (\n    <div style={{ height: 540, display: \"flex\" }}>\n      <Sidebar\n        navGroups={[\n          {\n            id: \"main\",\n            items: [\n              { id: \"home\", label: \"Home\", icon: \"home\" },\n              {\n                id: \"bookings\",\n                label: \"Bookings\",\n                icon: \"bookings\",\n                children: [{ id: \"departures\", label: \"Departures\" }],\n              },\n              { id: \"vendors\", label: \"Vendors\", icon: \"vendors\" },\n            ],\n          },\n        ]}\n        activeNavId={active}\n        onNavigate={setActive}\n        collapsed={collapsed}\n        onCollapsedChange={setCollapsed}\n      />\n    </div>\n  );\n}",
+    "usage": "import {useState} from \"react\";\nimport {Sidebar} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nfunction SidebarDemo() {\n  const [active, setActive] = useState(\"home\");\n  const [collapsed, setCollapsed] = useState(false);\n  return (\n    <div style={{ height: 540, display: \"flex\" }}>\n      <Sidebar\n        navGroups={[\n          {\n            id: \"main\",\n            items: [\n              { id: \"home\", label: \"Home\", icon: \"home\" },\n              {\n                id: \"bookings\",\n                label: \"Bookings\",\n                icon: \"bookings\",\n                children: [{ id: \"departures\", label: \"Departures\" }],\n              },\n              { id: \"vendors\", label: \"Vendors\", icon: \"vendors\" },\n            ],\n          },\n        ]}\n        activeNavId={active}\n        onNavigate={setActive}\n        collapsed={collapsed}\n        onCollapsedChange={setCollapsed}\n      />\n    </div>\n  );\n}",
+    "types": [
+      {
+        "name": "AppNavGroup",
+        "definition": "export interface AppNavGroup {\n  id: string;\n  label?: string;\n  items: AppNavItem[];\n}"
+      },
+      {
+        "name": "AppNavItem",
+        "definition": "export interface AppNavItem extends AppNavChild {\n  icon: IconName;\n  children?: AppNavChild[];\n}"
+      },
+      {
+        "name": "AppNavChild",
+        "definition": "export interface AppNavChild {\n  id: string;\n  label: string;\n  href?: string;\n  disabled?: boolean;\n  badge?: number;\n}"
+      },
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
+    "category": "Shell & navigation",
+    "description": "Grouped primary navigation with a 250px expanded card, a 66px icon rail, active states, separate child disclosure, and a footer slot. AppShell composes this component and handles its mobile navigation dialog.",
+    "guidance": [
+      "Use: Only inside AppShell (it renders it for you)",
+      "Avoid: Any product screen → AppShell navGroups/activeNavId"
+    ],
+    "paperApi": "",
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=ZYQ-0",
+    "states": [
+      "child-navigation Â· state label",
+      "Sidebar Â· child-navigation Â· source specimen",
+      "child-navigation-folded Â· state label",
+      "Sidebar Â· child-navigation-folded Â· source specimen",
+      "child-navigation-supply Â· state label",
+      "Sidebar Â· child-navigation-supply Â· source specimen",
+      "child-navigation-rail Â· state label",
+      "Sidebar Â· child-navigation-rail Â· source specimen",
+      "child-navigation-short Â· state label",
+      "Sidebar Â· child-navigation-short Â· source specimen"
+    ],
+    "status": "experimental",
+    "sourcePath": "src/components/shell.tsx",
+    "sourceLine": 180,
+    "props": [
+      {
+        "name": "navGroups",
+        "type": "AppNavGroup[]",
+        "required": true
+      },
+      {
+        "name": "activeNavId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "onNavigate",
+        "type": "(id: string) => void",
+        "required": true
+      },
+      {
+        "name": "brand",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "brandMark",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "brandLabel",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "collapsed",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "onCollapsedChange",
+        "type": "(collapsed: boolean) => void",
+        "required": false
+      },
+      {
+        "name": "sidebarFooter",
+        "type": "ReactNode",
+        "required": false
+      }
+    ]
+  },
+  {
+    "name": "Topbar",
+    "kind": "component",
+    "exampleCode": "function TopbarDemo() {\n  const [message, setMessage] = useState(\"\");\n  return (\n    <Stack>\n      <Topbar\n        breadcrumbs={[\n          { label: \"Travel\" },\n          { label: \"Bookings\" },\n          { label: \"BK-1042\" },\n        ]}\n        onBack={() => setMessage(\"Back to bookings selected\")}\n        onSearch={() => setMessage(\"Search selected\")}\n        onHelp={() => setMessage(\"Help selected\")}\n      />\n      <p role=\"status\">{message}</p>\n    </Stack>\n  );\n}",
+    "usage": "import {useState} from \"react\";\nimport {Stack, Topbar} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nfunction TopbarDemo() {\n  const [message, setMessage] = useState(\"\");\n  return (\n    <Stack>\n      <Topbar\n        breadcrumbs={[\n          { label: \"Travel\" },\n          { label: \"Bookings\" },\n          { label: \"BK-1042\" },\n        ]}\n        onBack={() => setMessage(\"Back to bookings selected\")}\n        onSearch={() => setMessage(\"Search selected\")}\n        onHelp={() => setMessage(\"Help selected\")}\n      />\n      <p role=\"status\">{message}</p>\n    </Stack>\n  );\n}",
+    "types": [
+      {
+        "name": "BreadcrumbsProps",
+        "definition": "export interface BreadcrumbsProps {\n  items: { label: string; href?: string }[];\n}"
+      },
+      {
+        "name": "AppShellNotifications",
+        "definition": "export interface AppShellNotifications {\n  count?: number;\n  panel: ReactNode;\n}"
+      },
+      {
+        "name": "AppShellAccount",
+        "definition": "export interface AppShellAccount {\n  name: string;\n  items: MenuItem[];\n}"
+      },
+      {
+        "name": "MenuItem",
+        "definition": "export interface MenuItem {\n  id: string;\n  label: string;\n  icon?: IconName;\n  disabled?: boolean;\n  danger?: boolean;\n  onSelect: () => void;\n}"
+      },
+      {
+        "name": "IconName",
+        "definition": "export type IconName = (typeof iconNames)[number];"
+      }
+    ],
+    "returnType": null,
+    "category": "Shell & navigation",
+    "description": "The 57px workspace header: back navigation, breadcrumbs, search, help, notifications, account menu, and custom actions. AppShell composes it and handles the mobile navigation toggle.",
+    "guidance": [
+      "Use: Only inside AppShell (it renders it for you)",
+      "Avoid: Page title and actions → PageHeader in the page"
+    ],
+    "paperApi": "",
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=11LA-0",
+    "states": [
+      "record-topbar · state label",
+      "Topbar · record-topbar · source specimen",
+      "standalone · state label",
+      "Topbar · standalone · source specimen"
+    ],
+    "status": "experimental",
+    "sourcePath": "src/components/shell.tsx",
+    "sourceLine": 274,
+    "props": [
+      {
+        "name": "breadcrumbs",
+        "type": "BreadcrumbsProps[\"items\"]",
+        "required": false
+      },
+      {
+        "name": "onBack",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "backLabel",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "onSearch",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "searchLabel",
+        "type": "string",
+        "required": false
+      },
+      {
+        "name": "onHelp",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "notifications",
+        "type": "AppShellNotifications",
+        "required": false
+      },
+      {
+        "name": "account",
+        "type": "AppShellAccount",
+        "required": false
+      },
+      {
+        "name": "topbarActions",
+        "type": "ReactNode",
+        "required": false
+      },
+      {
+        "name": "onMenuToggle",
+        "type": "() => void",
+        "required": false
+      },
+      {
+        "name": "mobileMenuOpen",
+        "type": "boolean",
+        "required": false
+      },
+      {
+        "name": "navigationId",
+        "type": "string",
+        "required": false
+      }
+    ]
+  },
+  {
     "name": "FilterMenu",
     "kind": "component",
     "exampleCode": "function FilterControlsDemo() {\n  const [value, setValue] = useState<FilterValue>({ service: [\"hotel\"] });\n  const groups: FilterGroup[] = [\n    {\n      id: \"service\",\n      label: \"Service\",\n      options: [\n        { value: \"hotel\", label: \"Accommodation\", count: 4 },\n        { value: \"transport\", label: \"Transport\", count: 2 },\n        { value: \"flight\", label: \"Flights\", disabled: true },\n      ],\n    },\n    {\n      id: \"status\",\n      label: \"Status\",\n      mode: \"single\",\n      options: [\n        { value: \"active\", label: \"Active\" },\n        { value: \"inactive\", label: \"Inactive\" },\n      ],\n    },\n    {\n      id: \"balance\",\n      label: \"Balance\",\n      mode: \"toggle\",\n      options: [\n        {\n          value: \"outstanding\",\n          label: \"Outstanding balance\",\n          description: \"Only vendors with an unpaid balance\",\n        },\n      ],\n    },\n  ];\n  return (\n    <Stack>\n      <FilterMenu groups={groups} value={value} onValueChange={setValue} />\n      <FilterChips groups={groups} value={value} onValueChange={setValue} />\n    </Stack>\n  );\n}",
@@ -1587,7 +1981,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 28,
+    "sourceLine": 29,
     "props": [
       {
         "name": "label",
@@ -1671,7 +2065,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 83,
+    "sourceLine": 84,
     "props": [
       {
         "name": "label",
@@ -1757,7 +2151,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 148,
+    "sourceLine": 149,
     "props": [
       {
         "name": "resize",
@@ -1834,7 +2228,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 204,
+    "sourceLine": 275,
     "props": [
       {
         "name": "options",
@@ -1945,7 +2339,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 250,
+    "sourceLine": 368,
     "props": [
       {
         "name": "searchPlaceholder",
@@ -2078,7 +2472,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 446,
+    "sourceLine": 564,
     "props": [
       {
         "name": "value",
@@ -2200,7 +2594,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 507,
+    "sourceLine": 625,
     "props": [
       {
         "name": "size",
@@ -2292,7 +2686,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 510,
+    "sourceLine": 628,
     "props": [
       {
         "name": "size",
@@ -2390,7 +2784,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 531,
+    "sourceLine": 649,
     "props": [
       {
         "name": "value",
@@ -2491,7 +2885,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 582,
+    "sourceLine": 700,
     "props": [
       {
         "name": "value",
@@ -2583,7 +2977,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 622,
+    "sourceLine": 740,
     "props": [
       {
         "name": "countryCode",
@@ -2678,7 +3072,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 664,
+    "sourceLine": 782,
     "props": [
       {
         "name": "placeholder",
@@ -2783,7 +3177,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 746,
+    "sourceLine": 864,
     "props": [
       {
         "name": "options",
@@ -2848,7 +3242,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 796,
+    "sourceLine": 914,
     "props": [
       {
         "name": "options",
@@ -2906,7 +3300,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 894,
+    "sourceLine": 1012,
     "props": [
       {
         "name": "value",
@@ -3023,7 +3417,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 1003,
+    "sourceLine": 1121,
     "props": [
       {
         "name": "value",
@@ -3099,7 +3493,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 829,
+    "sourceLine": 947,
     "props": [
       {
         "name": "title",
@@ -3156,7 +3550,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 851,
+    "sourceLine": 969,
     "props": [
       {
         "name": "columns",
@@ -3193,7 +3587,7 @@
     ],
     "status": "experimental",
     "sourcePath": "src/components/forms.tsx",
-    "sourceLine": 864,
+    "sourceLine": 982,
     "props": [
       {
         "name": "sticky",

@@ -299,6 +299,11 @@ for (const c of components) {
   const usage = c.usage;
   const md = `# ${c.name}\n\n${c.description}\n\nVersion: ${pkg.version}\nStatus: experimental. Not yet approved for production.\n\n## Installation\n\nThe package is not yet published to an npm registry. Use a locally built package or the repository checkout; see README.md.\n\n## Usage\n\nProvide application data, event handlers, and any referenced application components in the example. Render components inside ThemeProvider; mount Toaster once if using toast.\n\n\`\`\`tsx\n${usage}\n\`\`\`\n\n## API\n\n${c.props.length ? "| Prop | Type | Required |\n| --- | --- | --- |\n" + c.props.map((p) => `| ${p.name} | \`${p.type.replaceAll("|", " / ").replaceAll("\n", " ")}\` | ${p.required ? "Yes" : "No"} |`).join("\n") : "See the typed source for the full signature."}\n\nNative element attributes are supported where the public interface extends them.\n\n## Design guidance\n\n${c.guidance.join("\n\n") || "Use the Paper design reference and semantic tokens."}\n\n## Accessibility\n\nPreserve visible labels and accessible names. Test the complete workflow with keyboard navigation and assistive technology. Automated checks do not establish WCAG conformance.\n\n## References\n\n- [Source](https://github.com/yakosasam797/parya.designsystem.code/blob/main/${c.sourcePath}#L${c.sourceLine})\n- [Paper](${c.paperUrl})\n- [Storybook source](https://github.com/yakosasam797/parya.designsystem.storybook)\n\n## Agent instructions\n\nUse only APIs documented above. Do not assume parity with the historical design system or invent unsupported props from Paper labels. Use --pt-* semantic tokens; preserve keyboard and screen reader behavior.\n`;
   let reference = md;
+  if (c.name === "AppShell")
+    reference = reference.replace(
+      "mount Toaster once if using toast.",
+      "AppShell mounts Toaster by default; do not mount a second one in its pages.",
+    );
   if (c.kind === "utility")
     reference = reference
       .replace("| Prop |", "| Parameter |")

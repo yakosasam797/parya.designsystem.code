@@ -64,34 +64,18 @@ button:focus-visible {
   gap: 10px;
   flex-shrink: 0;
 }
-.ds-brand-mark {
-  height: 30px;
-  width: 30px;
-  display: grid;
-  place-items: center;
-  background: var(--pt-color-action-primary);
-  color: var(--pt-color-text-on-action);
-  border-radius: 7px;
+.ds-brand-logo {
+  display: block;
+  width: 172px;
+  height: auto;
 }
-.ds-brand-mark svg {
-  transform: rotate(-15deg);
-}
-.ds-brand strong {
-  font:
-    700 22px/1 var(--pt-font-display),
-    sans-serif;
-  letter-spacing: -0.8px;
-  white-space: nowrap;
-}
-.ds-brand strong > span {
-  font-weight: 300;
-  color: var(--pt-color-border-control);
-  margin: 0 5px;
-}
-.ds-brand small {
+.ds-brand-caption {
   font-size: 13px;
   font-weight: 450;
   letter-spacing: -0.2px;
+  border-left: 1px solid var(--ds-line);
+  padding-left: 12px;
+  white-space: nowrap;
 }
 .ds-header-links {
   display: flex;
@@ -669,10 +653,20 @@ button:focus-visible {
   font-weight: 600;
 }
 .ds-doc-section {
-  scroll-margin-top:96px;
+  scroll-margin-top: 96px;
   margin: 34px 0 42px;
 }
-.ds-on-this-page>button{display:block;margin:14px 0;padding:0;border:0;background:transparent;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.ds-on-this-page > button {
+  display: block;
+  margin: 14px 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
 .ds-doc-section > h2 {
   margin-bottom: 14px;
 }
@@ -738,6 +732,9 @@ button:focus-visible {
 }
 .ds-preview-inner {
   width: 100%;
+}
+.ds-preview-surface--shell {
+  padding: 0;
 }
 .ds-preview-surface--compact .ds-preview-inner {
   max-width: 360px;
@@ -1161,8 +1158,7 @@ button:focus-visible {
     padding-left: 14px;
     padding-right: 14px;
   }
-  .ds-brand small,
-  .ds-brand strong > span {
+  .ds-brand-caption {
     display: none;
   }
   .ds-header-links {
@@ -1196,18 +1192,8 @@ button:focus-visible {
   .ds-header-links {
     display: none;
   }
-  .ds-brand small {
-    display: inline;
-  }
-  .ds-brand strong > span {
-    display: inline;
-  }
-  .ds-brand strong {
-    font-size: 20px;
-  }
-  .ds-brand-mark {
-    width: 26px;
-    height: 26px;
+  .ds-brand-logo {
+    width: 150px;
   }
   .ds-topbar-actions {
     gap: 5px;

@@ -4,6 +4,7 @@ export * from "./components/primitives";
 export * from "./components/forms";
 export * from "./components/content";
 export * from "./components/navigation";
+export * from "./components/shell";
 export * from "./components/overlays";
 export * from "./components/data";
 export * from "./components/collections";

@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import * as Pop from "@radix-ui/react-popover";
+import * as Select from "@radix-ui/react-select";
 import { Button, IconButton, Tag, cx } from "./primitives";
 import { Icon, type IconName } from "./Icon";
 import { useControllableState } from "../hooks";
@@ -201,6 +202,76 @@ export interface SelectFieldProps extends FieldOptions {
   required?: boolean;
   name?: string;
 }
+const selectBackgroundLocks = new WeakMap<
+  HTMLElement,
+  { count: number; wasInert: boolean }
+>();
+function lockSelectBackground(content: HTMLElement) {
+  const siblings: HTMLElement[] = [];
+  let current: HTMLElement = content;
+  while (current.parentElement) {
+    for (const sibling of current.parentElement.children) {
+      if (
+        sibling === current ||
+        !(sibling instanceof HTMLElement) ||
+        sibling.matches("script, style, [aria-live]")
+      )
+        continue;
+      const lock = selectBackgroundLocks.get(sibling) ?? {
+        count: 0,
+        wasInert: sibling.inert,
+      };
+      lock.count++;
+      selectBackgroundLocks.set(sibling, lock);
+      sibling.inert = true;
+      siblings.push(sibling);
+    }
+    current = current.parentElement;
+    if (current === content.ownerDocument.body) break;
+  }
+  return () => {
+    for (const sibling of siblings) {
+      const lock = selectBackgroundLocks.get(sibling)!;
+      if (--lock.count === 0) {
+        sibling.inert = lock.wasInert;
+        selectBackgroundLocks.delete(sibling);
+      }
+    }
+  };
+}
+function SelectMenu({
+  open,
+  theme,
+  labelId,
+  children,
+}: {
+  open: boolean;
+  theme: string;
+  labelId: string;
+  children: ReactNode;
+}) {
+  const [content, setContent] = useState<HTMLDivElement | null>(null);
+  // Radix hides the background from screen readers; inert also prevents its
+  // controls from receiving focus while the modal listbox is open.
+  useEffect(
+    () => (open && content ? lockSelectBackground(content) : undefined),
+    [open, content],
+  );
+  return (
+    <Select.Content
+      ref={setContent}
+      className="pt-select-content"
+      data-theme={theme}
+      position="popper"
+      align="start"
+      sideOffset={6}
+      collisionPadding={12}
+      aria-labelledby={labelId}
+    >
+      {children}
+    </Select.Content>
+  );
+}
 export function SelectField({
   label,
   hint,
@@ -210,33 +281,80 @@ export function SelectField({
   options,
   placeholder = "Select…",
   onValueChange,
-  ...props
+  value,
+  defaultValue,
+  disabled,
+  required,
+  name,
 }: SelectFieldProps) {
   const id = useId();
+  const { theme } = useTheme();
+  const [open, setOpen] = useState(false);
   return (
-    <Field {...{ label, hint, error, optional, span }} htmlFor={id}>
-      <div className={cx("pt-input-wrap", error && "pt-invalid")}>
-        <select
-          {...props}
+    <Field
+      {...{ label, hint, error, optional, span, required }}
+      htmlFor={id}
+      labelId={`${id}-label`}
+    >
+      <Select.Root
+        open={open}
+        onOpenChange={setOpen}
+        {...{ value, defaultValue, onValueChange, disabled, required, name }}
+      >
+        <Select.Trigger
           id={id}
-          className="pt-input pt-select"
+          className={cx(
+            "pt-input-wrap",
+            "pt-select-trigger",
+            error && "pt-invalid",
+          )}
           aria-invalid={!!error || undefined}
           aria-describedby={
             error ? `${id}-error` : hint ? `${id}-hint` : undefined
           }
-          onChange={(e) => onValueChange?.(e.target.value)}
         >
-          <option value="" disabled={props.required}>
-            {placeholder}
-          </option>
-          {options.map((o) => (
-            <option value={o.value} disabled={o.disabled} key={o.value}>
-              {o.label}
-            </option>
-          ))}
-        </select>
-        <Icon name="chevron-down" size="sm" />
-      </div>
+          <span className="pt-select-value">
+            <Select.Value placeholder={placeholder} />
+          </span>
+          <Select.Icon className="pt-select-chevron">
+            <Icon name="chevron-down" size="sm" />
+          </Select.Icon>
+        </Select.Trigger>
+        <Select.Portal>
+          <SelectMenu open={open} theme={theme} labelId={`${id}-label`}>
+            <Select.ScrollUpButton className="pt-select-scroll">
+              <Icon name="chevron-up" size="sm" />
+            </Select.ScrollUpButton>
+            <Select.Viewport className="pt-select-viewport">
+              {options.map((option) => (
+                <Select.Item
+                  className="pt-select-item"
+                  value={option.value}
+                  disabled={option.disabled}
+                  textValue={option.label}
+                  key={option.value}
+                >
+                  {option.icon ? <Icon name={option.icon} size="sm" /> : null}
+                  <span className="pt-select-item-label">
+                    <Select.ItemText>{option.label}</Select.ItemText>
+                    {option.description ? (
+                      <small>{option.description}</small>
+                    ) : null}
+                  </span>
+                  <span className="pt-select-indicator">
+                    <Select.ItemIndicator>
+                      <Icon name="check" size="sm" />
+                    </Select.ItemIndicator>
+                  </span>
+                </Select.Item>
+              ))}
+            </Select.Viewport>
+            <Select.ScrollDownButton className="pt-select-scroll">
+              <Icon name="chevron-down" size="sm" />
+            </Select.ScrollDownButton>
+          </SelectMenu>
+        </Select.Portal>
+      </Select.Root>
     </Field>
   );
 }

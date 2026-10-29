@@ -9,6 +9,7 @@ import {
   QuantityField,
   DateRangeField,
   Combobox,
+  SelectField,
   MultiSelect,
   Modal,
   SearchField,
@@ -18,6 +19,54 @@ import {
   ThemeProvider,
 } from "../index";
 describe("interaction contracts", () => {
+  it("retains select field labels, disabled state, required validation and form values", () => {
+    const { container, rerender } = render(
+      <form>
+        <SelectField
+          label="Service"
+          name="service"
+          required
+          value=""
+          onValueChange={() => {}}
+          error="Choose a service."
+          options={[{ value: "hotel", label: "Hotel" }]}
+        />
+      </form>,
+    );
+    expect(
+      screen.getByRole("combobox", { name: "Service (required)" }),
+    ).toHaveAccessibleDescription("Choose a service.");
+    expect(container.querySelector("form")!.checkValidity()).toBe(false);
+    rerender(
+      <form>
+        <SelectField
+          label="Service"
+          name="service"
+          required
+          value="hotel"
+          disabled
+          options={[{ value: "hotel", label: "Hotel" }]}
+        />
+      </form>,
+    );
+    expect(
+      screen.getByRole("combobox", { name: "Service (required)" }),
+    ).toBeDisabled();
+    expect(container.querySelector("form")!.checkValidity()).toBe(true);
+    rerender(
+      <form>
+        <SelectField
+          label="Service"
+          name="service"
+          value="hotel"
+          options={[{ value: "hotel", label: "Hotel" }]}
+        />
+      </form>,
+    );
+    expect(new FormData(container.querySelector("form")!).get("service")).toBe(
+      "hotel",
+    );
+  });
   it("allows a required multi-select form to submit once a selection exists", () => {
     const { container, rerender } = render(
       <form>

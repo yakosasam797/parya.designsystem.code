@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as UI from "../../src/index";
-import { examples } from "../../src/examples";
+import { examples, AppShellDemo } from "../../src/examples";
 import components from "./generated/components.json";
 import hooks from "./generated/hooks.json";
 import paper from "./paper-catalog.json";
@@ -8,6 +8,7 @@ import "../../src/styles.css";
 import "./site.css";
 import packageInfo from "../../package.json";
 const Foundations = React.lazy(() => import("./foundations/Foundations"));
+const BrandAssets = React.lazy(() => import("./brand/BrandAssets"));
 
 const REPO = "https://github.com/yakosasam797/parya.designsystem.code";
 const STORY_REPO =
@@ -192,6 +193,7 @@ function Sidebar({
           ["/", "Overview", "home"],
           ["/installation", "Installation", "download"],
           ["/foundations", "Foundations", "sliders"],
+          ["/brand-assets", "Brand Assets", "image"],
           ["/agents", "For AI agents", "sparkles"],
         ].map(([url, label, icon]) => (
           <a
@@ -523,6 +525,16 @@ function ComponentPage({ name }: { name: string }) {
               Storybook setup <UI.Icon name="external-link" size="xs" />
             </a>
           ) : null}
+          {name === "AppShell" && doc ? (
+            <a
+              className="ds-resource"
+              href="#/examples/app-shell"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Full-page example <UI.Icon name="external-link" size="xs" />
+            </a>
+          ) : null}
           {doc ? (
             <div className="ds-ai-actions">
               <UI.Button size="sm" leadingIcon="sparkles" onClick={copyLLM}>
@@ -631,7 +643,7 @@ function ComponentPage({ name }: { name: string }) {
                     </div>
                     <UI.ThemeProvider theme={previewTheme}>
                       <div
-                        className={`ds-preview-surface ${width === "compact" ? "ds-preview-surface--compact" : ""}`}
+                        className={`ds-preview-surface ${name === "AppShell" ? "ds-preview-surface--shell" : ""} ${width === "compact" ? "ds-preview-surface--compact" : ""}`}
                       >
                         <div className="ds-preview-inner">
                           {example ? <example.Demo /> : null}
@@ -1202,6 +1214,7 @@ export default function App() {
   }, [theme]);
   useEffect(() => {
     const fn = (e: KeyboardEvent) => {
+      if (route === "/examples/app-shell" || e.defaultPrevented) return;
       if ((e.ctrlKey || e.metaKey) && e.key === "k") {
         e.preventDefault();
         setSearch((v) => !v);
@@ -1209,11 +1222,17 @@ export default function App() {
     };
     document.addEventListener("keydown", fn);
     return () => document.removeEventListener("keydown", fn);
-  }, []);
+  }, [route]);
   useEffect(() => {
     const name = route.split("/").at(-1);
-    document.title = `${route === "/" ? "Parya Design System" : name?.replace(/^./, (x) => x.toUpperCase()) + " · Parya"}`;
+    document.title = `${route === "/" ? "Parya Design System" : (route === "/brand-assets" ? "Brand Assets" : name?.replace(/^./, (x) => x.toUpperCase())) + " · Parya"}`;
   }, [route]);
+  if (route === "/examples/app-shell")
+    return (
+      <UI.ThemeProvider theme={theme} setTheme={setTheme}>
+        <AppShellDemo embedded={false} />
+      </UI.ThemeProvider>
+    );
   return (
     <UI.ThemeProvider theme={theme} setTheme={setTheme}>
       <a className="ds-skip" href="#main-content">
@@ -1221,13 +1240,16 @@ export default function App() {
       </a>
       <header className="ds-topbar">
         <a className="ds-brand" href="#/" aria-label="Parya Design System home">
-          <span className="ds-brand-mark">
-            <UI.Icon name="brand-caret" size="xl" />
-          </span>
-          <strong>
-            parya<span> / </span>
-            <small>Design system</small>
-          </strong>
+          <img
+            className="ds-brand-logo"
+            src={asset(
+              `brand/header/paryatech-logo-${theme === "dark" ? "white" : "teal"}.svg`,
+            )}
+            alt="Paryatech"
+            width="172"
+            height="37"
+          />
+          <span className="ds-brand-caption">Design system</span>
         </a>
         <div className="ds-header-links">
           <a
@@ -1237,6 +1259,12 @@ export default function App() {
             Components
           </a>
           <a href="#/foundations">Foundations</a>
+          <a
+            href="#/brand-assets"
+            aria-current={route === "/brand-assets" ? "page" : undefined}
+          >
+            Brand Assets
+          </a>
           <a href="#/agents">AI resources</a>
         </div>
         <div className="ds-topbar-actions">
@@ -1294,6 +1322,12 @@ export default function App() {
             >
               <Foundations section={route.split("/")[2]} copy={copyText} />
             </React.Suspense>
+          ) : route === "/brand-assets" ? (
+            <React.Suspense
+              fallback={<UI.Spinner label="Loading brand assets" />}
+            >
+              <BrandAssets />
+            </React.Suspense>
           ) : route === "/agents" ? (
             <Agents />
           ) : route === "/hooks" ? (
@@ -1309,6 +1343,7 @@ export default function App() {
           )}
         </main>
         {route.startsWith("/components/") &&
+        route !== "/components/AppShell" &&
         components.some((c) => route === `/components/${c.name}`) ? (
           <aside className="ds-on-this-page">
             <p>On this page</p>

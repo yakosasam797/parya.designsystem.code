@@ -1,0 +1,79 @@
+{
+  "name": "Paryatech logo library",
+  "width": 1200,
+  "height": 450,
+  "variants": [
+    {
+      "id": "teal",
+      "name": "Teal",
+      "color": "#115553",
+      "background": "light",
+      "usage": "Our teal logo for white and light backgrounds.",
+      "source": "15",
+      "files": {
+        "svg": {
+          "path": "brand/svg/paryatech-logo-teal.svg",
+          "bytes": 9314
+        },
+        "png": {
+          "path": "brand/png/paryatech-logo-teal.png",
+          "bytes": 19328
+        }
+      }
+    },
+    {
+      "id": "black",
+      "name": "Black",
+      "color": "#000000",
+      "background": "light",
+      "usage": "A single-color option for monochrome documents and printing.",
+      "source": "13",
+      "files": {
+        "svg": {
+          "path": "brand/svg/paryatech-logo-black.svg",
+          "bytes": 9280
+        },
+        "png": {
+          "path": "brand/png/paryatech-logo-black.png",
+          "bytes": 14365
+        }
+      }
+    },
+    {
+      "id": "white",
+      "name": "White",
+      "color": "#FFFFFF",
+      "background": "dark",
+      "usage": "A reversed logo for dark backgrounds and photography with a clear, dark area.",
+      "source": "14",
+      "files": {
+        "svg": {
+          "path": "brand/svg/paryatech-logo-white.svg",
+          "bytes": 9280
+        },
+        "png": {
+          "path": "brand/png/paryatech-logo-white.png",
+          "bytes": 15089
+        }
+      }
+    },
+    {
+      "id": "pink",
+      "name": "Pale pink",
+      "color": "#F8DEE8",
+      "background": "dark",
+      "usage": "An alternative color treatment for dark brand surfaces.",
+      "source": "16",
+      "files": {
+        "svg": {
+          "path": "brand/svg/paryatech-logo-pink.svg",
+          "bytes": 9314
+        },
+        "png": {
+          "path": "brand/png/paryatech-logo-pink.png",
+          "bytes": 19386
+        }
+      }
+    }
+  ]
+}

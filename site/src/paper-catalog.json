@@ -1597,10 +1597,24 @@
     "pageId": "p-7-0",
     "category": "Shell & navigation",
     "title": "AppShell · full-shell · Light",
-    "description": "Sidebar card + workspace card. Source measured at 1376 × 800px. Navigation rows 35px; workspace topbar 57px; shell gap 10px.",
-    "guidance": [],
+    "description": "The application frame: a collapsible navigation card beside a workspace card, with breadcrumbs, search, notifications, and account actions. Page content goes inside the workspace.",
+    "guidance": [
+      "Use: One AppShell at the application root, inside ThemeProvider. Put the current page in children and pass activeNavId with onNavigate from your router.",
+      "Structure: The shell owns primary navigation and the workspace topbar. Put PageHeader, filters, tables, forms, and record details inside the page, not inside the sidebar.",
+      "Navigation: Parent destinations and child disclosure are separate actions. A selected child has a teal outline; its parent has a pink background. The collapsed rail opens child destinations in a popover.",
+      "Responsive behavior: At 760px of shell width or less, the sidebar becomes a navigation dialog opened from the workspace header. Escape closes it; choosing a destination closes it and returns focus.",
+      "Sizing: The shell uses the available viewport height by default. Pass height for an embedded workspace, and embedded to use a section instead of a nested main landmark.",
+      "Services: Pass search, help, notifications, account actions, and navigation handlers from your application. The shell does not authenticate users or call booking services.",
+      "Notifications: AppShell mounts Toaster by default. Do not add another Toaster inside its pages. Set withToaster={false} for embedded examples sharing a host toaster.",
+      "Scope: This implementation covers the structural frame and supplied slots. Notes panels, credits, open-record management, and drag reordering remain separate design-only work."
+    ],
     "paperApi": "",
-    "states": ["AppShell source frame"],
+    "states": [
+      "AppShell source frame",
+      "Collapsed sidebar",
+      "Record with back navigation",
+      "Responsive mobile navigation"
+    ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=1QX-0"
   },
   {
@@ -1749,7 +1763,7 @@
     "pageId": "p-7-0",
     "category": "Shell & navigation",
     "title": "Sidebar Â· Light source states",
-    "description": "App sidebar with grouped navigation and collapsible child destinations: active parent is pink, selected child has a teal outline. Parent navigation and disclosure are separate. Open records start collapsed at the bottom above the footer; navigation scrolls independently. Icon rail exposes children in a navigation popover.",
+    "description": "Grouped primary navigation with a 250px expanded card, a 66px icon rail, active states, separate child disclosure, and a footer slot. AppShell composes this component and handles its mobile navigation dialog.",
     "guidance": [
       "Use: Only inside AppShell (it renders it for you)",
       "Avoid: Any product screen → AppShell navGroups/activeNavId"
@@ -1775,7 +1789,7 @@
     "pageId": "p-7-0",
     "category": "Shell & navigation",
     "title": "Topbar · Light source states",
-    "description": "The 57px workspace topbar AppShell renders: [menu on mobile] [back] breadcrumbs … search trigger (Ctrl/⌘ K), help, notifications bell, account menu. Exported for completeness.",
+    "description": "The 57px workspace header: back navigation, breadcrumbs, search, help, notifications, account menu, and custom actions. AppShell composes it and handles the mobile navigation toggle.",
     "guidance": [
       "Use: Only inside AppShell (it renders it for you)",
       "Avoid: Page title and actions → PageHeader in the page"

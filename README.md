@@ -2,7 +2,7 @@
 
 A fresh React 19 and TypeScript implementation of the Paryatech Paper library, with a documentation website and a separate connected Storybook repository. Created from Paper specifications, not copied from the historical Paryatech implementation.
 
-**Version 0.2.0 is experimental.** It includes 92 live code references, including five list utilities, four hooks, 518 exported Paper tokens, and 151 exact SVG icons. The complete Paper inventory is documented, including designs that have not yet been implemented. A component's presence in Paper does not imply it is available in this package or that all its designed variants are implemented.
+**Version 0.2.0 is experimental.** It includes 95 live code references, including five list utilities, four hooks, 518 exported Paper tokens, and 151 exact SVG icons. The complete Paper inventory is documented, including designs that have not yet been implemented. A component's presence in Paper does not imply it is available in this package or that all its designed variants are implemented.
 
 ## Open locally
 
@@ -32,6 +32,7 @@ Storybook consumes this library and its examples. It does not maintain a second 
 - Utility parameter tables, referenced type definitions, and complete collection snippets type-checked against the public exports.
 - Copy code, Copy for LLM, standalone Markdown views, `/llms.txt`, `/llms-full.txt`, `/agents.md`, and `/api/components.json`.
 - Foundations browser, hooks documentation, release notes, and a design-to-code coverage map.
+- Brand Assets with four Paryatech logo colors, original SVG/transparent PNG downloads, format-specific ZIP packs, and usage guidance. The header uses the supplied logo in teal for light mode and white for dark mode.
 
 The AI features provide documentation context. This version has no hosted LLM service or MCP server.
 
@@ -61,6 +62,33 @@ The package is not published to npm. Run `npm run build:lib` then `npm pack`; in
 
 React 19 is a peer dependency. Node.js 22.12+ is required for tooling. The package includes a client entry point for React frameworks. Supported browsers and Next.js integration still require acceptance testing in the real application.
 
+## Application shell
+
+Use `AppShell` as the application frame: primary navigation stays in the left card, while each page renders inside the right workspace. The shell provides collapse, child destinations, breadcrumbs, search and account action slots, a mobile navigation dialog, and independent sidebar/workspace scrolling. It uses the exact Paper sidebar width, topbar height, gap, and surface tokens. It does not supply authentication or business services.
+
+Open `/#/components/AppShell` for the live example and API, or `/#/examples/app-shell` for the full-page travel workspace. `Sidebar` and `Topbar` have their own reference pages and Storybook stories. The shell mounts `Toaster` by default; avoid mounting a second one. Use `embedded` when nesting it in an existing main landmark.
+
+```tsx
+const [activeNavId, setActiveNavId] = useState("bookings");
+
+<ThemeProvider theme="light">
+  <AppShell
+    navGroups={[
+      {
+        id: "travel",
+        items: [{ id: "bookings", label: "Bookings", icon: "bookings" }],
+      },
+    ]}
+    activeNavId={activeNavId}
+    onNavigate={setActiveNavId}
+    breadcrumbs={[{ label: "Bookings" }]}
+  >
+    <PageHeader title="Bookings" />
+    {/* Render the active page here. */}
+  </AppShell>
+</ThemeProvider>;
+```
+
 ## Foundations guidance
 
 Open `/#/foundations` for typography roles, font and weight guidance, semantic color pairings, a theme-aware contrast calculator, spacing and shape examples, and the full token explorer. Examples use the existing Paper values. The typography specimens can be edited and enlarged to 200%.
@@ -76,6 +104,8 @@ Load `@parya/design-system/styles.css` once to use the generated typography clas
 Choose the HTML element by meaning, independently of the visual role. Use the real components for controls and data formatting. `design/foundation-guidance.json` combines the Paper role declarations with authored usage guidance; `scripts/generate-foundations.mjs` generates `src/typography.css`, `/docs/foundations.md`, and `/api/foundations.json`. The guide is included in LLM documentation and the packaged catalog. Contrast results evaluate one combination; they are not a WCAG conformance claim.
 
 ## Development
+
+The logo library is available at `/#/brand-assets`. Original downloads live in `site/public/brand/svg/` and `site/public/brand/png/`; descriptive filenames preserve the supplied file bytes. `site/src/brand/manifest.json` drives previews, colors, filenames, and file sizes. Keep it synchronized with `site/public/brand/manifest.json` and the three ZIP packs when updating assets. Header SVG copies have a tighter viewBox for legibility; their paths and colors are unchanged. Usage notes are in `site/public/brand/README.md`.
 
 ```sh
 npm run typecheck

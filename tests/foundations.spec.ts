@@ -20,13 +20,15 @@ test("typography shows actual role values, editable specimens, enlargement and c
       parseFloat(getComputedStyle(element).fontSize),
     ),
   ).toBeGreaterThanOrEqual(20);
-  await page.getByLabel("Text style", { exact: true }).selectOption("body");
+  await page.getByRole("combobox", { name: "Text style", exact: true }).click();
+  await page
+    .getByRole("option", { name: /^Body \u00b7 / })
+    .click();
   await expect(specimen).toHaveCSS("font-size", "14px");
   await expect(specimen).toHaveCSS("font-weight", "400");
   await expect(specimen).toHaveCSS("line-height", "21px");
-  await page
-    .getByLabel("Text style", { exact: true })
-    .selectOption("mono-money");
+  await page.getByRole("combobox", { name: "Text style", exact: true }).click();
+  await page.getByRole("option", { name: /^Money \u00b7 / }).click();
   await expect(specimen).toHaveCSS("font-variant-numeric", "tabular-nums");
   await page.getByRole("switch", { name: "200% text" }).click();
   await expect(specimen).toHaveCSS("font-size", "27px");
@@ -82,14 +84,18 @@ test("color guidance calculates the real rendered pairs and reports failing comb
       contrastRatio(pair.foreground, pair.background),
     ).toBeGreaterThanOrEqual(4.5);
   await page
-    .getByLabel("Foreground token", { exact: true })
-    .selectOption("--pt-color-text-disabled");
+    .getByRole("combobox", { name: "Foreground token", exact: true })
+    .click();
+  await page
+    .getByRole("option", { name: "text-disabled", exact: true })
+    .click();
   await expect(page.locator(".fd-contrast-result")).toContainText(
     "Below normal-text AA contrast",
   );
   await page
-    .getByLabel("Foreground token", { exact: true })
-    .selectOption("--pt-color-text-primary");
+    .getByRole("combobox", { name: "Foreground token", exact: true })
+    .click();
+  await page.getByRole("option", { name: "text-primary", exact: true }).click();
   await page
     .getByRole("group", { name: "Example theme" })
     .getByRole("button", { name: "Dark", exact: true })
@@ -134,8 +140,9 @@ test("token explorer has human labels, theme-aware values, working copy and empt
   ).toBeVisible();
   await page.getByRole("searchbox").fill("");
   await page
-    .getByLabel("Token category", { exact: true })
-    .selectOption("fontWeight");
+    .getByRole("combobox", { name: "Token category", exact: true })
+    .click();
+  await page.getByRole("option", { name: "Font weights", exact: true }).click();
   await expect(page.locator(".fd-token").first()).toBeVisible();
   await page.getByRole("button", { name: "Copy for LLM", exact: true }).click();
   await expect

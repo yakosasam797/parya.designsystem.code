@@ -1,0 +1,34 @@
+{
+  "fileId": "01M5KKMF33S23DNN84NAWWBTJR",
+  "tokenHash": "d8eaa8cc",
+  "source": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=1QX-0",
+  "exportedWith": [
+    "get_jsx",
+    "get_computed_styles"
+  ],
+  "sourceDimensions": {
+    "width": 1376,
+    "height": 800
+  },
+  "shell": {
+    "backgroundColor": "var(--pt-color-bg-page)",
+    "gap": "var(--pt-size-shell-gap)",
+    "padding": 10
+  },
+  "sidebar": {
+    "width": "var(--pt-size-sidebar)",
+    "collapsedWidth": "var(--pt-size-sidebar-collapsed)",
+    "backgroundColor": "var(--pt-color-bg-raised)",
+    "borderRadius": "var(--pt-radius-xl)",
+    "borderColor": "var(--pt-color-border-default)",
+    "brandHeaderHeight": 58,
+    "navigationRowHeight": "var(--pt-size-nav-item)"
+  },
+  "workspace": {
+    "backgroundColor": "var(--pt-color-bg-surface)",
+    "borderRadius": "var(--pt-radius-xl)",
+    "borderColor": "var(--pt-color-border-default)",
+    "topbarHeight": "var(--pt-size-topbar)"
+  },
+  "implementationNotes": "Source geometry is translated to flexible layout. Mobile behavior and embedded sizing use the same tokens; source absolute positions are not used as runtime layout."
+}

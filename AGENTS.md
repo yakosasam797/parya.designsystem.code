@@ -5,7 +5,8 @@ This is a new React 19 / TypeScript implementation of the Paryatech Paper librar
 ## Consumer instructions
 
 - Import components from `@parya/design-system` and load `@parya/design-system/styles.css` once.
-- Wrap the application in `ThemeProvider` and mount `Toaster` once if using notifications.
+- Wrap the application in `ThemeProvider`. AppShell mounts `Toaster` by default; mount it yourself only outside AppShell, or disable the shell toaster with `withToaster={false}` when sharing one host toaster.
+- Use AppShell for the primary sidebar, workspace topbar, and page content. Pass router state through `activeNavId` and `onNavigate`; render PageHeader and business content in children. Use `embedded` and an explicit `height` for nested previews. Sidebar and Topbar are exported building blocks; AppShell composes their responsive behavior.
 - Use the generated `catalog.json`, `/api/components.json`, `/llms.txt`, and `/docs/<Component>.md` to discover supported components and exact props.
 - Read `/docs/foundations.md` or `/api/foundations.json` for typography roles, semantic color pairings and usage guidance. Typography classes are visual only: choose semantic HTML independently and use real components for controls.
 - Paper contains more designs than this release implements. A design-only entry is not an importable React component.
