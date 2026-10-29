@@ -1,0 +1,3 @@
+# Preserve original asset bytes and download-pack metadata across checkouts.
+site/public/brand/** -text
+site/src/brand/manifest.json -text

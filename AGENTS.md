@@ -1,6 +1,6 @@
 # Building with Parya
 
-This is a new React 19 / TypeScript implementation of the Paryatech Paper library. All components are experimental at version 0.2.0. Do not claim production readiness, WCAG conformance, or parity with historical Paryatech code.
+This is a new React 19 / TypeScript implementation of the Paryatech Paper library. All components are experimental at version 0.3.0. Do not claim production readiness, WCAG conformance, or parity with historical Paryatech code.
 
 ## Consumer instructions
 

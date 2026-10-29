@@ -783,6 +783,9 @@ export default function Foundations({
         <a href={guide.paperTypography} target="_blank" rel="noreferrer">
           Paper foundations <UI.Icon name="external-link" size="xs" />
         </a>
+        <a href="#/brand-assets">
+          Brand assets <UI.Icon name="arrow-right" size="xs" />
+        </a>
       </div>
       <UI.TabBar
         aria-label="Foundation guides"

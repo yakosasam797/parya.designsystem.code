@@ -1,0 +1,150 @@
+{
+  "date": "2026-10-29",
+  "incomingFiles": 14,
+  "exactDuplicates": 0,
+  "addedFiles": 14,
+  "addedVariants": 10,
+  "files": [
+    {
+      "archive": "A",
+      "name": "19.png",
+      "sha256": "6a7a2fbd7c646036260776f167845396a695aeb75305c6b40a9eb9e44c363ec4",
+      "bytes": 19545,
+      "existing": null,
+      "width": 840,
+      "height": 840,
+      "mode": "RGBA",
+      "bounds": [90, 138, 749, 702]
+    },
+    {
+      "archive": "A",
+      "name": "18.png",
+      "sha256": "1ac9174e32a4aff405f713a2e893e8b6aa6df9cae4bdba42fab9517e6ad70289",
+      "bytes": 15665,
+      "existing": null,
+      "width": 840,
+      "height": 840,
+      "mode": "RGBA",
+      "bounds": [90, 138, 749, 702]
+    },
+    {
+      "archive": "A",
+      "name": "17.png",
+      "sha256": "8a2ffaa6d336f24e112216510dff03d564efdc0508b889ad2444a08dddeaf735",
+      "bytes": 14544,
+      "existing": null,
+      "width": 840,
+      "height": 840,
+      "mode": "RGBA",
+      "bounds": [90, 138, 749, 702]
+    },
+    {
+      "archive": "A",
+      "name": "20.png",
+      "sha256": "e32dbfb1af5b7c4487cf757e7aa1f2258628887a4e67b2fcb2deeb0102192eef",
+      "bytes": 19761,
+      "existing": null,
+      "width": 840,
+      "height": 840,
+      "mode": "RGBA",
+      "bounds": [90, 138, 749, 702]
+    },
+    {
+      "archive": "A",
+      "name": "Frame 2147224932.svg",
+      "sha256": "c7ff4f6176c2572536c681dfa9d2e3788ab85a6446f7159ac2a9f8ca41c1950d",
+      "bytes": 1871,
+      "existing": null
+    },
+    {
+      "archive": "A",
+      "name": "Frame 2147224948.svg",
+      "sha256": "0470bf92cb19d67711ee7cb589e6c67c78e4839530fe08a6b137d25121049711",
+      "bytes": 1867,
+      "existing": null
+    },
+    {
+      "archive": "B",
+      "name": "23.png",
+      "sha256": "d55a3fa8967579ef584c122f892b58e3768db226567ba23c7c6fdc46eeea1486",
+      "bytes": 24464,
+      "existing": null,
+      "width": 1200,
+      "height": 700,
+      "mode": "RGBA",
+      "bounds": [142, 94, 1058, 603]
+    },
+    {
+      "archive": "B",
+      "name": "24.png",
+      "sha256": "a69f8af3ad81e4182cee9b921d12098f9ba2226aa70aa8e2e28c7b710ab594e4",
+      "bytes": 23815,
+      "existing": null,
+      "width": 1200,
+      "height": 700,
+      "mode": "RGBA",
+      "bounds": [142, 94, 1058, 603]
+    },
+    {
+      "archive": "B",
+      "name": "22.png",
+      "sha256": "6033f0402a9e5f07fc951b9747f0275e20f95c5012edc8a99155bcdad7c9800a",
+      "bytes": 18853,
+      "existing": null,
+      "width": 1200,
+      "height": 700,
+      "mode": "RGBA",
+      "bounds": [142, 94, 1058, 603]
+    },
+    {
+      "archive": "B",
+      "name": "21.png",
+      "sha256": "b1beb3172691f1e3f01c6d221647ded2d649862baa10776f35f2db6324a8fb2d",
+      "bytes": 17786,
+      "existing": null,
+      "width": 1200,
+      "height": 700,
+      "mode": "RGBA",
+      "bounds": [142, 94, 1058, 603]
+    },
+    {
+      "archive": "C",
+      "name": "23.svg",
+      "sha256": "f7ce99318de5303989b6b31dff781846809db51dc7e5ea52b6c102bd07b9a199",
+      "bytes": 10292,
+      "existing": null
+    },
+    {
+      "archive": "C",
+      "name": "24.svg",
+      "sha256": "4f1a31b34e8e55e6a43f60ba2875546fd4fa64a30b1b9c87c50a78f4b8229321",
+      "bytes": 10297,
+      "existing": null
+    },
+    {
+      "archive": "C",
+      "name": "21.svg",
+      "sha256": "7b6d45c932ddae8573f8ba6e6b9041e3ee5a60f7b9ca7c874d14c6d51a31c9c6",
+      "bytes": 10261,
+      "existing": null
+    },
+    {
+      "archive": "C",
+      "name": "22.svg",
+      "sha256": "8db6b9c4ae8f0a2613f4e2bf9a0c78b79cf351a002898487285a030fbdf59a8f",
+      "bytes": 10261,
+      "existing": null
+    }
+  ],
+  "paper": {
+    "fileId": "01M5KKMF33S23DNN84NAWWBTJR",
+    "pageId": "p-2-0",
+    "artboardId": "255C-0",
+    "url": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-2-0"
+  },
+  "archives": {
+    "A": "drive-download-20261029T055709Z-1-001.zip",
+    "B": "drive-download-20261029T055635Z-1-001.zip",
+    "C": "drive-download-20261029T060120Z-1-001.zip"
+  }
+}

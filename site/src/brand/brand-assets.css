@@ -104,8 +104,29 @@
 }
 .ba-logo-preview img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  max-height: 180px;
+  object-fit: contain;
   display: block;
+}
+.ba-logo-group {
+  margin-top: 28px;
+}
+.ba-group-heading {
+  margin-bottom: 16px;
+}
+.ba-group-heading p {
+  margin: 4px 0 0;
+  font-size: 13px;
+}
+.ba-logo-heading h4 {
+  font: 600 16px/1.4 var(--pt-font-display), sans-serif;
+  margin: 0;
+}
+.ba-file-meta {
+  color: var(--pt-color-text-muted);
+  font-size: 12px;
+  margin-bottom: 12px;
 }
 .ba-logo-preview > span {
   position: absolute;

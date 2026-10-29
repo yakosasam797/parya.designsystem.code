@@ -6,7 +6,7 @@ const manifest = JSON.parse(
 ) as {
   variants: {
     name: string;
-    files: Record<"svg" | "png", { path: string }>;
+    files: Partial<Record<"svg" | "png", { path: string }>>;
   }[];
 };
 
@@ -22,13 +22,14 @@ test("brand library previews original logos and serves every download", async ({
     page.getByRole("heading", { name: "Brand Assets", exact: true }),
   ).toBeVisible();
   await expect(page).toHaveTitle("Brand Assets · Parya");
-  await expect(page.locator(".ba-logo-card")).toHaveCount(4);
-  await expect(page.locator(".ba-file-links a")).toHaveCount(8);
+  await expect(page.locator(".ba-logo-card")).toHaveCount(14);
+  await expect(page.locator(".ba-file-links a")).toHaveCount(22);
   for (const logo of manifest.variants) {
     const preview = page.getByRole("img", {
       name: `Paryatech ${logo.name.toLowerCase()} logo`,
       exact: true,
     });
+    await preview.scrollIntoViewIfNeeded();
     await expect(preview).toBeVisible();
     expect(
       await preview.evaluate(
@@ -37,6 +38,7 @@ test("brand library previews original logos and serves every download", async ({
     ).toBe(true);
     for (const format of ["svg", "png"] as const) {
       const file = logo.files[format];
+      if (!file) continue;
       const [download] = await Promise.all([
         page.waitForEvent("download"),
         page
@@ -73,23 +75,46 @@ test("brand library previews original logos and serves every download", async ({
     path: "test-results/brand-assets-desktop.png",
     fullPage: true,
   });
+  for (const group of ["horizontal", "stacked", "symbol", "tile"]) {
+    await page
+      .locator(`.ba-logo-group:has(#ba-group-${group})`)
+      .screenshot({ path: `test-results/brand-assets-${group}.png` });
+  }
 });
 
 test("format choices, usage guidance, header themes and mobile navigation work", async ({
   page,
 }) => {
-  await page.goto("/#/brand-assets");
+  await page.goto("/#/foundations");
+  await page
+    .locator("main")
+    .getByRole("link", { name: "Brand assets", exact: true })
+    .click();
+  await expect(page).toHaveURL(/#\/brand-assets$/);
   const formats = page.getByRole("group", {
     name: "Download format",
     exact: true,
   });
   await formats.getByRole("button", { name: "SVG", exact: true }).click();
-  await expect(page.locator(".ba-file-links a")).toHaveCount(4);
+  await expect(page.locator(".ba-file-links a")).toHaveCount(10);
+  await expect(
+    page.getByRole("heading", { name: "Standalone symbol", exact: true }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByRole("heading", { name: "App tiles", exact: true }),
+  ).toBeVisible();
   await expect(page.locator(".ba-file-links a").first()).toHaveAttribute(
     "href",
     /\.svg$/,
   );
   await formats.getByRole("button", { name: "PNG", exact: true }).click();
+  await expect(page.locator(".ba-file-links a")).toHaveCount(12);
+  await expect(
+    page.getByRole("heading", { name: "App tiles", exact: true }),
+  ).toHaveCount(0);
+  await expect(
+    page.getByRole("heading", { name: "Standalone symbol", exact: true }),
+  ).toBeVisible();
   await expect(page.locator(".ba-file-links a").first()).toHaveAttribute(
     "href",
     /\.png$/,

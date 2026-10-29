@@ -79,19 +79,6 @@ export default function Releases() {
           </p>
         </section>
       ))}
-      {("updates" in current ? current.updates : [])?.map((update) => (
-        <section key={update.date} className="ds-doc-section ds-release-entry">
-          <h2>{update.title}</h2>
-          <p className="ds-caption">
-            {update.date} · Source update, package version unchanged
-          </p>
-          <ul>
-            {update.items.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </section>
-      ))}
       <details className="ds-release-template-note">
         <summary>How templates adapt to phones</summary>
         <p>{history.templateNote}</p>

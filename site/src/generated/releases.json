@@ -3,14 +3,14 @@
     {
       "id": "design-system",
       "name": "@parya/design-system",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "description": "React components, foundations, hooks and page templates.",
       "source": "https://github.com/yakosasam797/parya.designsystem.code",
       "releases": [
         {
-          "version": "Unreleased",
-          "date": null,
-          "title": "Phone layouts and release history",
+          "version": "0.3.0",
+          "date": "2026-10-29",
+          "title": "Phone layouts and brand assets",
           "changes": [
             {
               "type": "Improved",
@@ -24,11 +24,12 @@
               "type": "Added",
               "items": [
                 "Package-specific version history, adoption notes and generated release documentation.",
-                "Matching editable 390px Paper references and a release ledger."
+                "Matching editable 390px Paper references and a release ledger.",
+                "Ten supplied stacked-logo, standalone-symbol and app-tile variants: 14 additional original files, grouped previews, exact colors and refreshed download packs."
               ]
             }
           ],
-          "adoption": "DataTable defaults to cards below 600px container width. Use mobileLayout=\"scroll\" when comparing a wide matrix. No other public API is removed."
+          "adoption": "DataTable defaults to cards below 600px container width; use mobileLayout=\"scroll\" for wide comparisons. KanbanBoard defaults to phone stage navigation; use mobileLayout=\"snap\" for swipe-only navigation. No public API is removed."
         },
         {
           "version": "0.2.0",
@@ -67,10 +68,26 @@
     {
       "id": "storybook",
       "name": "parya-designsystem-storybook",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "description": "Private Storybook application using @parya/design-system.",
       "source": "https://github.com/yakosasam797/parya.designsystem.storybook",
       "releases": [
+        {
+          "version": "0.3.0",
+          "date": "2026-10-29",
+          "title": "Phone APIs and workspace stories",
+          "changes": [
+            {
+              "type": "Added",
+              "items": [
+                "Application shell and keyboard selection examples.",
+                "Shared workspace, content, notification, calendar, chart, pricing and template stories.",
+                "API documentation synchronized with the library phone layouts and schedule week navigation."
+              ]
+            }
+          ],
+          "adoption": "Uses @parya/design-system 0.3.0 through the shared repository dependency. Run sync after updating the library. This remains a private application."
+        },
         {
           "version": "0.2.0",
           "date": "2026-10-28",
@@ -85,16 +102,6 @@
             }
           ],
           "adoption": "Run sync after changing shared examples. This is a private application, not a separately published component library."
-        }
-      ],
-      "updates": [
-        {
-          "date": "2026-10-29",
-          "title": "Workspace stories",
-          "items": [
-            "Application shell and keyboard selection examples.",
-            "Shared workspace, content, notification, calendar, chart, pricing and template stories."
-          ]
         }
       ]
     }

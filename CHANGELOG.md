@@ -10,7 +10,7 @@ React components, foundations, hooks and page templates.
 
 Source: https://github.com/yakosasam797/parya.designsystem.code
 
-### Unreleased — Phone layouts and release history
+### 0.3.0 · 2026-10-29 — Phone layouts and brand assets
 
 #### Improved
 
@@ -22,8 +22,9 @@ Source: https://github.com/yakosasam797/parya.designsystem.code
 
 - Package-specific version history, adoption notes and generated release documentation.
 - Matching editable 390px Paper references and a release ledger.
+- Ten supplied stacked-logo, standalone-symbol and app-tile variants: 14 additional original files, grouped previews, exact colors and refreshed download packs.
 
-**Adoption:** DataTable defaults to cards below 600px container width. Use mobileLayout="scroll" when comparing a wide matrix. No other public API is removed.
+**Adoption:** DataTable defaults to cards below 600px container width; use mobileLayout="scroll" for wide comparisons. KanbanBoard defaults to phone stage navigation; use mobileLayout="snap" for swipe-only navigation. No public API is removed.
 
 ### 0.2.0 · 2026-10-28 — Collection workflows and practical foundations
 
@@ -51,6 +52,16 @@ Private Storybook application using @parya/design-system.
 
 Source: https://github.com/yakosasam797/parya.designsystem.storybook
 
+### 0.3.0 · 2026-10-29 — Phone APIs and workspace stories
+
+#### Added
+
+- Application shell and keyboard selection examples.
+- Shared workspace, content, notification, calendar, chart, pricing and template stories.
+- API documentation synchronized with the library phone layouts and schedule week navigation.
+
+**Adoption:** Uses @parya/design-system 0.3.0 through the shared repository dependency. Run sync after updating the library. This remains a private application.
+
 ### 0.2.0 · 2026-10-28 — Shared component and foundation stories
 
 #### Added
@@ -59,10 +70,3 @@ Source: https://github.com/yakosasam797/parya.designsystem.storybook
 - QuantityField controls synchronized with the shared API.
 
 **Adoption:** Run sync after changing shared examples. This is a private application, not a separately published component library.
-
-### Source update · 2026-10-29 — Workspace stories
-
-Package version unchanged.
-
-- Application shell and keyboard selection examples.
-- Shared workspace, content, notification, calendar, chart, pricing and template stories.

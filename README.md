@@ -2,7 +2,7 @@
 
 A fresh React 19 and TypeScript implementation of the Paryatech Paper library, with a documentation website and a separate connected Storybook repository. Created from Paper specifications, not copied from the historical Paryatech implementation.
 
-**Version 0.2.0 is experimental.** It includes 151 live code references, including collection and domain utilities, four hooks, 518 exported Paper tokens, and 151 exact SVG icons. The live inventory of 219 Paper artboards is documented, including designs that have not yet been implemented. A component's presence in Paper does not imply it is available in this package or that all its designed variants are implemented.
+**Version 0.3.0 is experimental.** It includes 151 live code references, including collection and domain utilities, four hooks, 518 exported Paper tokens, and 151 exact SVG icons. The original 219-artboard Paper inventory is documented, with later phone and brand references recorded separately. It includes designs that have not yet been implemented. A component's presence in Paper does not imply it is available in this package or that all its designed variants are implemented.
 
 ## Open locally
 
@@ -32,7 +32,7 @@ Storybook consumes this library and its examples. It does not maintain a second 
 - Utility parameter tables, referenced type definitions, and complete collection snippets type-checked against the public exports.
 - Copy code, Copy for LLM, standalone Markdown views, `/llms.txt`, `/llms-full.txt`, `/agents.md`, and `/api/components.json`.
 - Foundations browser, hooks documentation, release notes, and a design-to-code coverage map.
-- Brand Assets with four Paryatech logo colors, original SVG/transparent PNG downloads, format-specific ZIP packs, and usage guidance. The header uses the supplied logo in teal for light mode and white for dark mode.
+- Brand Assets with 14 Paryatech logo variants across horizontal, stacked, symbol and app-tile forms, 22 original files, format-specific ZIP packs, and usage guidance. The header uses the supplied horizontal logo in teal for light mode and white for dark mode.
 
 The AI features provide documentation context. This version has no hosted LLM service or MCP server.
 
@@ -117,7 +117,7 @@ Choose the HTML element by meaning, independently of the visual role. Use the re
 
 The playground's **Phone · 390px** option uses a separate browser viewport. Tables default to labelled cards below a 600px container width while retaining sorting and selection; pass `mobileLayout="scroll"` for wide comparison tables. Forms, record rails and dashboard panels stack within narrow containers. Board stages and schedule weeks use compact navigation. The same components and semantic tokens serve both sizes.
 
-Open `/#/releases` for history by package and version. Edit `design/release-history.json`; `npm run build:docs` generates `CHANGELOG.md`, the Releases page data, `/docs/releases.md` and `/api/releases.json`. Unreleased work stays separate from recorded package versions. The matching Paper references are on **17 · Phone layouts**, with the release ledger on **16 · Coverage & handoff**.
+Open `/#/releases` for history by package and version. Edit `design/release-history.json`; `npm run build:docs` generates `CHANGELOG.md`, the Releases page data, `/docs/releases.md` and `/api/releases.json`. Completed updates are recorded with a version and date. The matching Paper references are on **17 · Phone layouts**, with the release ledger on **16 · Coverage & handoff**.
 
 `node scripts/audit-phone.mjs` captures the local phone examples (optionally pass a viewport width). With the documentation server running, `node scripts/export-phone-paper.mjs` exports measured editable visual groups and screenshots to `artifacts/paper-phone/`, using `design/paper-tokens.json`. Pass component case IDs, such as `agenda`, to limit the capture. These are static design references; code remains the source for interactions.
 
@@ -125,7 +125,7 @@ Open `/#/releases` for history by package and version. Edit `design/release-hist
 
 ## Development
 
-The logo library is available at `/#/brand-assets`. Original downloads live in `site/public/brand/svg/` and `site/public/brand/png/`; descriptive filenames preserve the supplied file bytes. `site/src/brand/manifest.json` drives previews, colors, filenames, and file sizes. Keep it synchronized with `site/public/brand/manifest.json` and the three ZIP packs when updating assets. Header SVG copies have a tighter viewBox for legibility; their paths and colors are unchanged. Usage notes are in `site/public/brand/README.md`.
+The logo library is available at `/#/brand-assets`. Original downloads live in `site/public/brand/svg/` and `site/public/brand/png/`; descriptive filenames preserve the supplied file bytes. `site/src/brand/manifest.json` drives previews, colors, filenames, and file sizes. Run `python scripts/build-brand-assets.py` after updates to verify original hashes, dimensions and duplicates, synchronize `site/public/brand/manifest.json`, and rebuild the three ZIP packs. The matching Paper brand sheet is on 01 · Foundations & tokens. Header SVG copies have a tighter viewBox for legibility; their paths and colors are unchanged. Usage notes are in `site/public/brand/README.md`.
 
 ```sh
 npm run typecheck

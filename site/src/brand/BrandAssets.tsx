@@ -7,6 +7,24 @@ import "./brand-assets.css";
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 type Format = "all" | "svg" | "png";
+type Extension = Exclude<Format, "all">;
+type Logo = {
+  id: string;
+  name: string;
+  color: string;
+  background: string;
+  usage: string;
+  group: string;
+  width: number;
+  height: number;
+  transparent: boolean;
+  files: Partial<Record<Extension, { path: string; bytes: number }>>;
+};
+const logos: Logo[] = manifest.variants;
+const fileCount = logos.reduce(
+  (count, logo) => count + Object.keys(logo.files).length,
+  0,
+);
 const formatNames = { all: "All formats", svg: "SVG", png: "PNG" };
 
 function Download({
@@ -33,6 +51,66 @@ function Download({
   );
 }
 
+function LogoCard({
+  logo,
+  formats,
+}: {
+  logo: Logo;
+  formats: readonly Extension[];
+}) {
+  const preview = logo.files.svg ?? logo.files.png!;
+  return (
+    <article className="ba-logo-card" aria-labelledby={`ba-${logo.id}`}>
+      <div className={`ba-logo-preview ba-logo-preview--${logo.background}`}>
+        <img
+          src={asset(preview.path)}
+          alt={`Paryatech ${logo.name.toLowerCase()} logo`}
+          width={logo.width}
+          height={logo.height}
+          loading="lazy"
+        />
+        <span>
+          {logo.transparent
+            ? logo.background === "dark"
+              ? "Dark background"
+              : "Light background"
+            : "Supplied background"}
+        </span>
+      </div>
+      <div className="ba-logo-details">
+        <div className="ba-logo-heading">
+          <h4 id={`ba-${logo.id}`}>{logo.name}</h4>
+          <span className="ba-color">
+            <span style={{ backgroundColor: logo.color }} />
+            {logo.color}
+          </span>
+        </div>
+        <p>{logo.usage}</p>
+        <div className="ba-file-meta">
+          {logo.width} × {logo.height}
+          {logo.files.png ? " px PNG" : " SVG artboard"} ·{" "}
+          {logo.transparent ? "Transparent" : "Background included"}
+        </div>
+        <div className="ba-file-links">
+          {formats.map((extension) => {
+            const file = logo.files[extension];
+            return file ? (
+              <Download
+                key={extension}
+                path={file.path}
+                label={`Download ${logo.name} logo as ${extension.toUpperCase()}`}
+              >
+                {extension.toUpperCase()}{" "}
+                <span>{(file.bytes / 1024).toFixed(1)} KB</span>
+              </Download>
+            ) : null;
+          })}
+        </div>
+      </div>
+    </article>
+  );
+}
+
 function LogoLibrary() {
   const [format, setFormat] = useState<Format>("all");
   const formats = format === "all" ? (["svg", "png"] as const) : [format];
@@ -42,7 +120,8 @@ function LogoLibrary() {
         <div>
           <h2>Logo variations</h2>
           <p>
-            One logo, four colors. Choose the version that fits your background.
+            Horizontal, stacked, symbol and app-tile versions. Choose the form
+            that fits your space.
           </p>
         </div>
         <SegmentedControl
@@ -59,64 +138,38 @@ function LogoLibrary() {
         {format === "svg"
           ? "SVG files stay sharp at any size. Best for websites, design tools, and print."
           : format === "png"
-            ? "Transparent PNG files at 1200 × 450 px. Ready for presentations and documents."
-            : "Every variation includes an original SVG and a transparent PNG at 1200 × 450 px."}
+            ? "Transparent PNG files in their original sizes, listed on each card."
+            : "Original supplied files. Each card shows its available formats and dimensions."}
       </p>
-      <div className="ba-logo-grid">
-        {manifest.variants.map((logo) => (
-          <article
-            className="ba-logo-card"
-            key={logo.id}
-            aria-labelledby={`ba-${logo.id}`}
+      {manifest.groups.map((group) => {
+        const entries = logos.filter(
+          (logo) =>
+            logo.group === group.id &&
+            formats.some((extension) => logo.files[extension]),
+        );
+        return entries.length ? (
+          <section
+            className="ba-logo-group"
+            key={group.id}
+            aria-labelledby={`ba-group-${group.id}`}
           >
-            <div
-              className={`ba-logo-preview ba-logo-preview--${logo.background}`}
-            >
-              <img
-                src={asset(logo.files.svg.path)}
-                alt={`Paryatech ${logo.name.toLowerCase()} logo`}
-                width={manifest.width}
-                height={manifest.height}
-              />
-              <span>
-                {logo.background === "dark"
-                  ? "Dark background"
-                  : "Light background"}
-              </span>
+            <div className="ba-group-heading">
+              <h3 id={`ba-group-${group.id}`}>{group.name}</h3>
+              <p>{group.description}</p>
             </div>
-            <div className="ba-logo-details">
-              <div className="ba-logo-heading">
-                <h3 id={`ba-${logo.id}`}>{logo.name}</h3>
-                <span className="ba-color">
-                  <span style={{ backgroundColor: logo.color }} />
-                  {logo.color}
-                </span>
-              </div>
-              <p>{logo.usage}</p>
-              <div className="ba-file-links">
-                {formats.map((extension) => {
-                  const file = logo.files[extension];
-                  return (
-                    <Download
-                      key={extension}
-                      path={file.path}
-                      label={`Download ${logo.name} logo as ${extension.toUpperCase()}`}
-                    >
-                      {extension.toUpperCase()}{" "}
-                      <span>{(file.bytes / 1024).toFixed(1)} KB</span>
-                    </Download>
-                  );
-                })}
-              </div>
+            <div className="ba-logo-grid">
+              {entries.map((logo) => (
+                <LogoCard logo={logo} formats={formats} key={logo.id} />
+              ))}
             </div>
-          </article>
-        ))}
-      </div>
+          </section>
+        ) : null;
+      })}
       <section className="ba-packs" aria-labelledby="ba-packs-title">
         <div>
           <h2 id="ba-packs-title">Take the whole set</h2>
           <p>
-            All four color variations, grouped by file type. Usage notes are
+            Every supplied logo form, grouped by file type. Usage notes are
             included.
           </p>
         </div>
@@ -146,8 +199,9 @@ function UsageGuidance() {
             <h3>PNG</h3>
             <p>
               Use for slides, documents, email, and tools that need an image.
-              Each file is 1200 × 450 px with a transparent background. Avoid
-              enlarging it beyond that size.
+              Horizontal logos are 1200 × 450 px, stacked logos are 1200 × 700
+              px, and symbols are 840 × 840 px. These PNGs have transparent
+              backgrounds. Use them at their native size or smaller.
             </p>
           </div>
         </div>
@@ -160,11 +214,13 @@ function UsageGuidance() {
           </li>
           <li>
             Use the supplied colors. Choose teal or black for light backgrounds;
-            white or pale pink for dark backgrounds.
+            white or pale pink for dark backgrounds. The stacked deep-teal
+            export uses #154442; the horizontal logo and symbol use #115553.
           </li>
           <li>
-            Keep the symbol and wordmark together, with enough surrounding space
-            to stay clear of nearby text and controls.
+            Keep horizontal and stacked logo lockups intact. Use the supplied
+            standalone symbol or app tile where a compact mark is needed, with
+            enough surrounding space to remain clear.
           </li>
           <li>
             Keep the artwork upright and free of shadows, outlines, or other
@@ -175,6 +231,14 @@ function UsageGuidance() {
             over a calm area with enough contrast.
           </li>
         </ul>
+      </section>
+      <section>
+        <h2>Use the supplied formats</h2>
+        <p>
+          The standalone symbols were supplied as PNG only. App tiles were
+          supplied as SVG only, with their own pink or teal background. Download
+          links show only the formats provided.
+        </p>
       </section>
       <aside className="ba-guidance-note">
         <Icon name="info" size="sm" />
@@ -199,8 +263,8 @@ export default function BrandAssets() {
         <div>
           <h1 className="ds-page-title">Brand Assets</h1>
           <p className="ds-lede">
-            The Paryatech logo, ready for your next project. Find the right
-            color and download the original files.
+            The Paryatech logo, ready for your next project. Find the right form
+            and color, then download the original files.
           </p>
         </div>
         <Download path="brand/paryatech-logos-all.zip" primary>
@@ -221,7 +285,8 @@ export default function BrandAssets() {
         ]}
       />
       <footer className="ba-footer">
-        4 color variations · 8 original files · Transparent backgrounds
+        {manifest.groups.length} logo forms · {logos.length} variants ·{" "}
+        {fileCount} original files
       </footer>
     </article>
   );

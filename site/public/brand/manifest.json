@@ -1,7 +1,5 @@
 {
   "name": "Paryatech logo library",
-  "width": 1200,
-  "height": 450,
   "variants": [
     {
       "id": "teal",
@@ -13,13 +11,19 @@
       "files": {
         "svg": {
           "path": "brand/svg/paryatech-logo-teal.svg",
-          "bytes": 9314
+          "bytes": 9314,
+          "sha256": "9002ad7c6610604ba37da2b51c8fc9b824fdd099c63cc7bbf6d487d035346367"
         },
         "png": {
           "path": "brand/png/paryatech-logo-teal.png",
-          "bytes": 19328
+          "bytes": 19328,
+          "sha256": "c75b42c4beeb74936b484581a3260b288da1559d72da057603c09bef9b4f8af5"
         }
-      }
+      },
+      "group": "horizontal",
+      "width": 1200,
+      "height": 450,
+      "transparent": true
     },
     {
       "id": "black",
@@ -31,13 +35,19 @@
       "files": {
         "svg": {
           "path": "brand/svg/paryatech-logo-black.svg",
-          "bytes": 9280
+          "bytes": 9280,
+          "sha256": "8935f31cfbaeaaddcac24a9c04ef289b3d375a0d412ac19acfc5cab9055f5876"
         },
         "png": {
           "path": "brand/png/paryatech-logo-black.png",
-          "bytes": 14365
+          "bytes": 14365,
+          "sha256": "b5504017221e7e8bb84a7dddd7b354db9819c7e5f96b9c0f4545ef3347fc5306"
         }
-      }
+      },
+      "group": "horizontal",
+      "width": 1200,
+      "height": 450,
+      "transparent": true
     },
     {
       "id": "white",
@@ -49,13 +59,19 @@
       "files": {
         "svg": {
           "path": "brand/svg/paryatech-logo-white.svg",
-          "bytes": 9280
+          "bytes": 9280,
+          "sha256": "512730d08dfbcfea825d7ed33ab7866c2b30d995c273789552324331d52b0ec5"
         },
         "png": {
           "path": "brand/png/paryatech-logo-white.png",
-          "bytes": 15089
+          "bytes": 15089,
+          "sha256": "407c0230a2fdfd6b297504158f7628dded9cbff1183de6117951fc96e8a9462f"
         }
-      }
+      },
+      "group": "horizontal",
+      "width": 1200,
+      "height": 450,
+      "transparent": true
     },
     {
       "id": "pink",
@@ -67,13 +83,257 @@
       "files": {
         "svg": {
           "path": "brand/svg/paryatech-logo-pink.svg",
-          "bytes": 9314
+          "bytes": 9314,
+          "sha256": "11782bb08590c46695aa01ceadacadaa82d9eb8f421ed58a3794d7ee88afa1da"
         },
         "png": {
           "path": "brand/png/paryatech-logo-pink.png",
-          "bytes": 19386
+          "bytes": 19386,
+          "sha256": "b3eb3aa7ea8f9b8396cb2ccae8ddac27172a36721cf89e583637f779aeca115a"
+        }
+      },
+      "group": "horizontal",
+      "width": 1200,
+      "height": 450,
+      "transparent": true
+    },
+    {
+      "id": "paryatech-logo-stacked-black",
+      "name": "Stacked \u00b7 Black",
+      "color": "#000000",
+      "background": "light",
+      "usage": "For centered layouts and taller spaces. Keep the symbol and wordmark together.",
+      "group": "stacked",
+      "width": 1200,
+      "height": 700,
+      "transparent": true,
+      "source": "C/21.svg, B/21.png",
+      "files": {
+        "svg": {
+          "path": "brand/svg/paryatech-logo-stacked-black.svg",
+          "bytes": 10261,
+          "sha256": "7b6d45c932ddae8573f8ba6e6b9041e3ee5a60f7b9ca7c874d14c6d51a31c9c6"
+        },
+        "png": {
+          "path": "brand/png/paryatech-logo-stacked-black.png",
+          "bytes": 17786,
+          "sha256": "b1beb3172691f1e3f01c6d221647ded2d649862baa10776f35f2db6324a8fb2d"
+        }
+      }
+    },
+    {
+      "id": "paryatech-logo-stacked-white",
+      "name": "Stacked \u00b7 White",
+      "color": "#FFFFFF",
+      "background": "dark",
+      "usage": "For centered layouts and taller spaces. Keep the symbol and wordmark together.",
+      "group": "stacked",
+      "width": 1200,
+      "height": 700,
+      "transparent": true,
+      "source": "C/22.svg, B/22.png",
+      "files": {
+        "svg": {
+          "path": "brand/svg/paryatech-logo-stacked-white.svg",
+          "bytes": 10261,
+          "sha256": "8db6b9c4ae8f0a2613f4e2bf9a0c78b79cf351a002898487285a030fbdf59a8f"
+        },
+        "png": {
+          "path": "brand/png/paryatech-logo-stacked-white.png",
+          "bytes": 18853,
+          "sha256": "6033f0402a9e5f07fc951b9747f0275e20f95c5012edc8a99155bcdad7c9800a"
+        }
+      }
+    },
+    {
+      "id": "paryatech-logo-stacked-deep-teal",
+      "name": "Stacked \u00b7 Deep teal",
+      "color": "#154442",
+      "background": "light",
+      "usage": "For centered layouts and taller spaces. The supplied stacked teal uses #154442.",
+      "group": "stacked",
+      "width": 1200,
+      "height": 700,
+      "transparent": true,
+      "source": "C/23.svg, B/23.png",
+      "files": {
+        "svg": {
+          "path": "brand/svg/paryatech-logo-stacked-deep-teal.svg",
+          "bytes": 10292,
+          "sha256": "f7ce99318de5303989b6b31dff781846809db51dc7e5ea52b6c102bd07b9a199"
+        },
+        "png": {
+          "path": "brand/png/paryatech-logo-stacked-deep-teal.png",
+          "bytes": 24464,
+          "sha256": "d55a3fa8967579ef584c122f892b58e3768db226567ba23c7c6fdc46eeea1486"
+        }
+      }
+    },
+    {
+      "id": "paryatech-logo-stacked-pink",
+      "name": "Stacked \u00b7 Pale pink",
+      "color": "#F8DEE8",
+      "background": "dark",
+      "usage": "For centered layouts and taller spaces. Keep the symbol and wordmark together.",
+      "group": "stacked",
+      "width": 1200,
+      "height": 700,
+      "transparent": true,
+      "source": "C/24.svg, B/24.png",
+      "files": {
+        "svg": {
+          "path": "brand/svg/paryatech-logo-stacked-pink.svg",
+          "bytes": 10297,
+          "sha256": "4f1a31b34e8e55e6a43f60ba2875546fd4fa64a30b1b9c87c50a78f4b8229321"
+        },
+        "png": {
+          "path": "brand/png/paryatech-logo-stacked-pink.png",
+          "bytes": 23815,
+          "sha256": "a69f8af3ad81e4182cee9b921d12098f9ba2226aa70aa8e2e28c7b710ab594e4"
+        }
+      }
+    },
+    {
+      "id": "paryatech-symbol-black",
+      "name": "Symbol \u00b7 Black",
+      "color": "#000000",
+      "background": "light",
+      "usage": "Use the supplied symbol where the Paryatech brand is already clear. Original transparent PNG; SVG was not supplied.",
+      "group": "symbol",
+      "width": 840,
+      "height": 840,
+      "transparent": true,
+      "source": "A/17.png",
+      "files": {
+        "png": {
+          "path": "brand/png/paryatech-symbol-black.png",
+          "bytes": 14544,
+          "sha256": "8a2ffaa6d336f24e112216510dff03d564efdc0508b889ad2444a08dddeaf735"
+        }
+      }
+    },
+    {
+      "id": "paryatech-symbol-white",
+      "name": "Symbol \u00b7 White",
+      "color": "#FFFFFF",
+      "background": "dark",
+      "usage": "Use the supplied symbol where the Paryatech brand is already clear. Original transparent PNG; SVG was not supplied.",
+      "group": "symbol",
+      "width": 840,
+      "height": 840,
+      "transparent": true,
+      "source": "A/18.png",
+      "files": {
+        "png": {
+          "path": "brand/png/paryatech-symbol-white.png",
+          "bytes": 15665,
+          "sha256": "1ac9174e32a4aff405f713a2e893e8b6aa6df9cae4bdba42fab9517e6ad70289"
+        }
+      }
+    },
+    {
+      "id": "paryatech-symbol-teal",
+      "name": "Symbol \u00b7 Teal",
+      "color": "#115553",
+      "background": "light",
+      "usage": "Use the supplied symbol where the Paryatech brand is already clear. Original transparent PNG; SVG was not supplied.",
+      "group": "symbol",
+      "width": 840,
+      "height": 840,
+      "transparent": true,
+      "source": "A/19.png",
+      "files": {
+        "png": {
+          "path": "brand/png/paryatech-symbol-teal.png",
+          "bytes": 19545,
+          "sha256": "6a7a2fbd7c646036260776f167845396a695aeb75305c6b40a9eb9e44c363ec4"
+        }
+      }
+    },
+    {
+      "id": "paryatech-symbol-pink",
+      "name": "Symbol \u00b7 Pale pink",
+      "color": "#F8DEE8",
+      "background": "dark",
+      "usage": "Use the supplied symbol where the Paryatech brand is already clear. Original transparent PNG; SVG was not supplied.",
+      "group": "symbol",
+      "width": 840,
+      "height": 840,
+      "transparent": true,
+      "source": "A/20.png",
+      "files": {
+        "png": {
+          "path": "brand/png/paryatech-symbol-pink.png",
+          "bytes": 19761,
+          "sha256": "e32dbfb1af5b7c4487cf757e7aa1f2258628887a4e67b2fcb2deeb0102192eef"
+        }
+      }
+    },
+    {
+      "id": "paryatech-app-tile-teal-on-pink",
+      "name": "App tile \u00b7 Teal on pink",
+      "color": "#115553",
+      "background": "light",
+      "usage": "Teal symbol on the supplied pale-pink background. Preserve the square artwork.",
+      "group": "tile",
+      "width": 387,
+      "height": 387,
+      "transparent": false,
+      "source": "A/Frame 2147224932.svg",
+      "files": {
+        "svg": {
+          "path": "brand/svg/paryatech-app-tile-teal-on-pink.svg",
+          "bytes": 1871,
+          "sha256": "c7ff4f6176c2572536c681dfa9d2e3788ab85a6446f7159ac2a9f8ca41c1950d"
+        }
+      }
+    },
+    {
+      "id": "paryatech-app-tile-white-on-teal",
+      "name": "App tile \u00b7 White on teal",
+      "color": "#FFFFFF",
+      "background": "light",
+      "usage": "White symbol on the supplied teal background. Preserve the square artwork.",
+      "group": "tile",
+      "width": 387,
+      "height": 387,
+      "transparent": false,
+      "source": "A/Frame 2147224948.svg",
+      "files": {
+        "svg": {
+          "path": "brand/svg/paryatech-app-tile-white-on-teal.svg",
+          "bytes": 1867,
+          "sha256": "0470bf92cb19d67711ee7cb589e6c67c78e4839530fe08a6b137d25121049711"
         }
       }
     }
-  ]
+  ],
+  "groups": [
+    {
+      "id": "horizontal",
+      "name": "Horizontal logo",
+      "description": "The familiar symbol and wordmark for wide spaces."
+    },
+    {
+      "id": "stacked",
+      "name": "Stacked logo",
+      "description": "The symbol above the wordmark for centered layouts and taller spaces."
+    },
+    {
+      "id": "symbol",
+      "name": "Standalone symbol",
+      "description": "The supplied symbol-only exports, in transparent PNG."
+    },
+    {
+      "id": "tile",
+      "name": "App tiles",
+      "description": "Square artwork with its supplied background, in SVG."
+    }
+  ],
+  "paper": {
+    "fileId": "01M5KKMF33S23DNN84NAWWBTJR",
+    "pageId": "p-2-0",
+    "artboardId": "255C-0",
+    "url": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-2-0"
+  }
 }

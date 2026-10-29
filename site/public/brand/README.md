@@ -1,16 +1,33 @@
 # Paryatech brand assets
 
-Four supplied color variations of the Paryatech logo, in SVG and transparent PNG.
+Four supplied logo forms, 14 variants and 22 original files.
 
-- Teal: #115553. Use on white and light backgrounds.
-- Black: #000000. Use for monochrome documents and printing on light backgrounds.
-- White: #FFFFFF. Use on dark backgrounds.
-- Pale pink: #F8DEE8. An alternative for dark brand surfaces.
+| Form | Variants | Supplied formats | Original dimensions |
+| --- | --- | --- | --- |
+| Horizontal logo | Teal, black, white, pale pink | SVG and transparent PNG | 1200 × 450 |
+| Stacked logo | Deep teal, black, white, pale pink | SVG and transparent PNG | 1200 × 700 |
+| Standalone symbol | Teal, black, white, pale pink | Transparent PNG | 840 × 840 |
+| App tile | Teal on pale pink; white on teal | SVG with background | 387 × 387 |
 
-SVG scales without losing sharpness and is recommended for websites, design tools, and print. PNG is a transparent image at 1200 x 450 pixels, suitable for slides, documents, and tools that do not accept SVG. Avoid enlarging PNG beyond its native dimensions.
+Choose horizontal logos for wide spaces and stacked logos for centered layouts. Use the supplied standalone symbol where the Paryatech brand is already clear. App tiles retain their square background artwork.
 
-Keep the logo proportions and its supplied colors. Do not stretch, rotate, add effects, separate the symbol from the wordmark, or crop the downloadable artwork. Keep surrounding content clear and check legibility at the final size. This library does not establish an approved minimum size or clear-space rule.
+SVG stays sharp when resized. PNG is useful for slides, documents and tools that do not accept SVG; use it at its native size or smaller. Download links include only the formats supplied. The standalone symbol has no supplied SVG, and the app tiles have no supplied PNG.
 
-The supplied files are preserved byte-for-byte, with descriptive filenames. Original export numbers: teal 15; black 13; white 14; pale pink 16. The website header uses separate SVG copies with a tighter viewBox; no logo paths or colors are changed.
+## Colors
 
-The usage notes are practical guidance for these supplied files, not a complete brand standards manual.
+- Horizontal and standalone-symbol teal: #115553.
+- Stacked deep teal: #154442, exactly as supplied in the stacked export.
+- Black: #000000. White: #FFFFFF. Pale pink: #F8DEE8.
+- App tiles pair teal #115553 with pale pink #F8DEE8, or white with teal #115553.
+
+Use teal or black on light surfaces and white or pale pink on dark surfaces. Preserve the app tiles' supplied backgrounds. These are file-specific color values; the files have not been recolored to make the two teal exports identical.
+
+Keep original proportions and colors. Keep horizontal and stacked lockups intact. Avoid stretching, rotation, added effects and cropping the downloadable artwork. Leave surrounding space and check legibility at the final size. An approved minimum size and clear-space specification have not been provided.
+
+## File provenance
+
+Files are preserved byte-for-byte with descriptive filenames. Original export numbers: horizontal 13–16; standalone symbol 17–20; stacked 21–24. The app tiles were supplied as Frame 2147224932.svg and Frame 2147224948.svg. The website header continues to use its existing separate SVG copies with a tighter viewBox.
+
+manifest.json records each original file's dimensions, available format, byte size and SHA-256 hash. All three download packs include this manifest and these usage notes. The intake comparison is recorded in design/brand-asset-intake-2026-10-29.json in the source repository.
+
+For maintainers: after updating the source manifest or files, run `python scripts/build-brand-assets.py` from the repository. It verifies original hashes, dimensions and duplicates, synchronizes the public manifest, and rebuilds all three packs. It uses Python's standard library only.

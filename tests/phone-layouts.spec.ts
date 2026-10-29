@@ -72,8 +72,12 @@ test("package histories show their own versions and generated source", async ({
 }) => {
   await page.goto("/#/releases");
   await expect(
-    page.getByRole("heading", { name: "Unreleased", exact: true }),
+    page.getByRole("heading", { name: "0.3.0", exact: true }),
   ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Unreleased", exact: true }),
+  ).toHaveCount(0);
+  await expect(page.locator('time[datetime="2026-10-29"]')).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "0.1.0", exact: true }),
   ).toBeVisible();
@@ -85,16 +89,24 @@ test("package histories show their own versions and generated source", async ({
     }),
   ).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "Workspace stories", exact: true }),
+    page.getByRole("heading", {
+      name: "Phone APIs and workspace stories",
+      exact: true,
+    }),
   ).toBeVisible();
   await expect(
     page.getByRole("heading", { name: "0.1.0", exact: true }),
   ).toHaveCount(0);
-  expect(
-    (await (await page.request.get("/api/releases.json")).json()).packages,
-  ).toHaveLength(2);
+  const packages = (await (await page.request.get("/api/releases.json")).json())
+    .packages;
+  expect(packages).toHaveLength(2);
+  for (const pkg of packages) {
+    expect(pkg.version).toBe("0.3.0");
+    expect(pkg.releases[0].version).toBe("0.3.0");
+    expect(pkg.releases[0].date).toBe("2026-10-29");
+  }
   expect(await (await page.request.get("/docs/releases.md")).text()).toContain(
-    "Package version unchanged",
+    "0.3.0 · 2026-10-29",
   );
   const results = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
