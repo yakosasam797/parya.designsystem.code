@@ -3,6 +3,18 @@ await mkdir("dist", { recursive: true });
 await copyFile("src/tokens.css", "dist/tokens.css");
 await copyFile("src/fonts.css", "dist/fonts.css");
 await copyFile("src/typography.css", "dist/typography.css");
+for (const file of [
+  "sections.css",
+  "advanced-overlays.css",
+  "shell-sections.css",
+  "domain.css",
+  "templates.css",
+  "calendar.css",
+  "charts.css",
+  "workflow.css",
+  "rates.css",
+])
+  await copyFile(`src/${file}`, `dist/${file}`);
 // Ship unbundled CSS so font asset URLs resolve from the consumer's bundler.
 await copyFile("src/styles.css", "dist/styles.css");
 const schema = JSON.parse(

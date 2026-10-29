@@ -1188,7 +1188,9 @@
       "Avoid: Hand-written filter loops in pages → filterRows"
     ],
     "paperApi": "",
-    "states": ["filterRows / public contract"],
+    "states": [
+      "filterRows / public contract"
+    ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9K7-0"
   },
   {
@@ -1203,7 +1205,9 @@
       "Avoid: Hand-written includes() search in pages → searchRows"
     ],
     "paperApi": "",
-    "states": ["searchRows / public contract"],
+    "states": [
+      "searchRows / public contract"
+    ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9L6-0"
   },
   {
@@ -1218,7 +1222,9 @@
       "Avoid: Array.sort with localeCompare in pages → sortRows"
     ],
     "paperApi": "",
-    "states": ["sortRows / public contract"],
+    "states": [
+      "sortRows / public contract"
+    ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9OC-0"
   },
   {
@@ -1233,7 +1239,9 @@
       "Avoid: rows.slice(...) math in pages → paginate"
     ],
     "paperApi": "",
-    "states": ["paginate / public contract"],
+    "states": [
+      "paginate / public contract"
+    ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=9Q6-0"
   },
   {
@@ -1576,7 +1584,9 @@
     "description": "Start with AppShell. The sidebar card and workspace card form the agency work frame.",
     "guidance": [],
     "paperApi": "",
-    "states": ["Shell use and surface rules"],
+    "states": [
+      "Shell use and surface rules"
+    ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=2-0"
   },
   {
@@ -1588,7 +1598,9 @@
     "description": "Use for page and record sections. Pink marks selection in both primary (44px) and secondary (40px). Avoid settings section forms → SettingsPageTemplate nav.",
     "guidance": [],
     "paperApi": "",
-    "states": ["Source specimen · primary-counts"],
+    "states": [
+      "Source specimen · primary-counts"
+    ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=8F-0"
   },
   {
@@ -1762,7 +1774,7 @@
     "artboard": "ZYQ-0",
     "pageId": "p-7-0",
     "category": "Shell & navigation",
-    "title": "Sidebar Â· Light source states",
+    "title": "Sidebar · Light source states",
     "description": "Grouped primary navigation with a 250px expanded card, a 66px icon rail, active states, separate child disclosure, and a footer slot. AppShell composes this component and handles its mobile navigation dialog.",
     "guidance": [
       "Use: Only inside AppShell (it renders it for you)",
@@ -1770,16 +1782,16 @@
     ],
     "paperApi": "",
     "states": [
-      "child-navigation Â· state label",
-      "Sidebar Â· child-navigation Â· source specimen",
-      "child-navigation-folded Â· state label",
-      "Sidebar Â· child-navigation-folded Â· source specimen",
-      "child-navigation-supply Â· state label",
-      "Sidebar Â· child-navigation-supply Â· source specimen",
-      "child-navigation-rail Â· state label",
-      "Sidebar Â· child-navigation-rail Â· source specimen",
-      "child-navigation-short Â· state label",
-      "Sidebar Â· child-navigation-short Â· source specimen"
+      "child-navigation · state label",
+      "Sidebar · child-navigation · source specimen",
+      "child-navigation-folded · state label",
+      "Sidebar · child-navigation-folded · source specimen",
+      "child-navigation-supply · state label",
+      "Sidebar · child-navigation-supply · source specimen",
+      "child-navigation-rail · state label",
+      "Sidebar · child-navigation-rail · source specimen",
+      "child-navigation-short · state label",
+      "Sidebar · child-navigation-short · source specimen"
     ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=ZYQ-0"
   },
@@ -1880,7 +1892,9 @@
     "description": "Medium content that fits without scrolling. Header → body → right-aligned footer. Source sm width 480px. Avoid deep previews and long forms → full page.",
     "guidance": [],
     "paperApi": "",
-    "states": ["Modal source specimen"],
+    "states": [
+      "Modal source specimen"
+    ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-8-0?node=11Q-0"
   },
   {
@@ -2284,7 +2298,14 @@
       "Avoid: Tabular records with sorting, selection or bulk actions → DataTable (e.g. a departures register)"
     ],
     "paperApi": "",
-    "states": ["Frame", "Frame", "Frame", "Frame", "Frame", "Frame"],
+    "states": [
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame",
+      "Frame"
+    ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-A-0?node=XC9-0"
   },
   {
@@ -2567,7 +2588,9 @@
     "description": "Use for a collection: PageHeader → TabBar → one-row ListToolbar → edge-to-edge DataTable → bulk dock and TableFooter. Header, breadcrumb and primary action name the same thing.",
     "guidance": [],
     "paperApi": "",
-    "states": ["ListPageTemplate · vendors-list · source specimen"],
+    "states": [
+      "ListPageTemplate · vendors-list · source specimen"
+    ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-D-0?node=J9X-0"
   },
   {
@@ -2959,5 +2982,505 @@
       "ActivityTable · empty · source specimen"
     ],
     "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-G-0?node=IO6-0"
+  },
+  {
+    "name": "ListToolbar",
+    "artboard": "1481-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "ListToolbar · variants, states & source",
+    "description": "Search (1fr) + ONE scope field (312px) + Filters + Sort + list actions above a DataTable, all 36px, with FilterChips as a second row when filters are active. Wraps below 760px (search on its own row) and goes icon-only below 480px.",
+    "guidance": [],
+    "paperApi": "",
+    "states": [],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=1481-0"
+  },
+  {
+    "name": "DataTable",
+    "artboard": "14S0-0",
+    "pageId": "p-5-0",
+    "category": "Tables & collections",
+    "title": "DataTable · variants, states & source",
+    "description": "Record list grid: sticky 40px header, 60px rows (compact 44px), sortable headers, row selection, whole-row activation, trailing actions kebab, 8-row loading skeleton (paginated mode fits the measured capacity; same columns as the loaded table, including the se",
+    "guidance": [],
+    "paperApi": "",
+    "states": [],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-5-0?node=14S0-0"
+  },
+  {
+    "name": "EmailCommunication",
+    "artboard": "19D9-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "EmailCommunication · variants, states & source",
+    "description": "Full record Communication tab with counted mailbox folders, message threads and controlled composer. Provider-neutral async send or explicitly saved drafts; read-only browsing, captured unknown directions/dates and caller-owned message actions. Named uploads, templates and discard confirmation. Inline mobile navigation; never a scrolling modal or drawer.",
+    "guidance": [
+      "Use: Email communication for a customer, vendor, query or booking record",
+      "Avoid: Contact email links only → ContactList"
+    ],
+    "paperApi": "",
+    "states": [
+      "Saved drafts / light",
+      "Read-only captured mail / light",
+      "Compose email / light",
+      "Mailbox and thread / light",
+      "Empty mailbox / light",
+      "Pending send / light",
+      "Send failure / light",
+      "Loading / light",
+      "Load error and retry / light",
+      "No access / light",
+      "Saved drafts / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=19D9-0"
+  },
+  {
+    "name": "KpiStrip",
+    "artboard": "1B4W-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "KpiStrip · variants, states & source",
+    "description": "Canonical KPI and record summary: exactly two visible text lines (label and full value), monochrome icons, optional hint in a focus/hover tooltip and accessible description; whole tiles navigate to their related pages. No charts or sparklines. Optional heading/actions and responsive columns.",
+    "guidance": [
+      "Use: KPI counts and money figures that open their filtered lists",
+      "Avoid: Profile fields → use DescriptionList"
+    ],
+    "paperApi": "",
+    "states": [
+      "Owner Home numbers / light",
+      "Three tiles, Now badge and hint / light",
+      "Amounts hidden / light",
+      "Narrow container / light",
+      "Loading / light",
+      "Finance summary with action / light",
+      "Plain counts / light",
+      "Three columns, no title / light",
+      "Eight items / light",
+      "Info and neutral tones / light",
+      "Owner Home numbers / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=1B4W-0"
+  },
+  {
+    "name": "ActivityTimeline",
+    "artboard": "1BXG-0",
+    "pageId": "p-6-0",
+    "category": "Content & records",
+    "title": "ActivityTimeline · variants, states & source",
+    "description": "Chronological activity stream with solid teal/explicit-success dots and full wrapping text: mono date + time (IST), marker + connecting line, title + icon context line, actor avatar + name + role. Day grouping defaults true; grouped dates appear in ruled headings, rows show time; table uses real Date/Activity/By/Actions columns, with icon rail inside Activity and matching vertical cell separators; stacks in narrow containers.",
+    "guidance": [
+      "Use: Recent activities on a record overview",
+      "Avoid: Notes or comments → NotesPanel"
+    ],
+    "paperApi": "",
+    "states": [
+      "Loading activity / light",
+      "Accessible activity table presentation / light",
+      "Owner reference · milestones / light",
+      "Ungrouped date and time / light",
+      "Recent activities in a Panel / light",
+      "Grouped by day / light",
+      "No activity / light",
+      "Narrow container / light",
+      "Loading activity / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-6-0?node=1BXG-0"
+  },
+  {
+    "name": "NotesPanel",
+    "artboard": "18WS-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "NotesPanel · Light source states",
+    "description": "Workspace notes preserve the AppShell navigation and page context. Four review directions: top composer, thread with linked-record rail, grouped days, and dense rows. Final direction is not frozen.",
+    "guidance": [
+      "Use: Opened from AppShell `notes.onOpen` / `notes.onAdd` (pass autoCompose for the \"+\")",
+      "Avoid: A chronological history of changes → ActivityTimeline"
+    ],
+    "paperApi": "",
+    "states": [
+      "review-list state label",
+      "NotesPanel · review-list · source specimen",
+      "review-cards state label",
+      "NotesPanel · review-cards · source specimen",
+      "review-timeline state label",
+      "NotesPanel · review-timeline · source specimen",
+      "review-compact state label",
+      "NotesPanel · review-compact · source specimen",
+      "vendor-notes state label",
+      "NotesPanel · vendor-notes · source specimen",
+      "compose state label",
+      "NotesPanel · compose · source specimen",
+      "empty state label",
+      "NotesPanel · empty · source specimen",
+      "button-trigger state label",
+      "NotesPanel · button-trigger · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=18WS-0"
+  },
+  {
+    "name": "OpenRecordsSwitcher",
+    "artboard": "1A36-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "OpenRecordsSwitcher · Light source states",
+    "description": "Small screens (&lt; 1000px): a topbar button with the open-record count that opens a Modal of open records (56px rows, the module page first, Find and open a record, Close all). Hidden at desktop widths.",
+    "guidance": [
+      "Use: Alongside OpenRecordsList, in AppShell `topbarActions`",
+      "Avoid: Desktop list → OpenRecordsList (sidebar)"
+    ],
+    "paperApi": "",
+    "states": [
+      "mobile state label",
+      "OpenRecordsSwitcher · mobile · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=1A36-0"
+  },
+  {
+    "name": "NotificationRow",
+    "artboard": "1ACF-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "NotificationRow · Light source states",
+    "description": "One compact notification row: unread dot, actor avatar or toned tile, sentence and time on one headline, one context line, record title/reason and stable footer actions. Clipped copy is available in a tooltip and the full spoken name includes context. Hover/focus reveals actions; touch keeps them visible (background open, read/unread, copy link, mute). Optional manage actions expose only Delete and Read/Unread toggle on hover/focus (touch visible), with one relevant assigned/mentioned capsule. Compact timestamps show elapsed m/h/d; manage replaces the age inline with exact IST arrival on hover/focus, always exact on touch, without a full-row Tooltip or decorative focus stroke. Exact arrival remains in accessible text; triage keeps its row Tooltip. Absolute timestamps show exact arrival visibly. Defaults retain triage actions and relative time.",
+    "guidance": [
+      "Use: Inside NotificationsDrawer (it renders rows itself); standalone only for a notifications list on a full page",
+      "Avoid: Activity history on a record → ActivityTimeline"
+    ],
+    "paperApi": "",
+    "states": [
+      "manage state label",
+      "NotificationRow · manage · source specimen",
+      "rows state label",
+      "NotificationRow · rows · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=1ACF-0"
+  },
+  {
+    "name": "NotificationsDrawer",
+    "artboard": "1ARX-0",
+    "pageId": "p-7-0",
+    "category": "Shell & navigation",
+    "title": "NotificationsDrawer · Light source states",
+    "description": "The agency notifications inbox in a viewport-capped Drawer (scrim, focus trapped, Esc/scrim close): title/count, optional permitted-module TabBar, then legacy All/Unread or optional All/Mine, scoped Mark all as read and icon Filters (+ chips). Fixed controls and contained scrolling; compact sentence/time, one context line, record/reason and stable row actions. Full text remains accessible and in a tooltip. Mine filters current-recipient assignee notifications in the app; read status stays per row. The app renders a bounded window and supplies an all-matching bulk scope callback. Same-record updates fold; Mute offers Undo. Keys J/K, Enter, Ctrl/⌘ Enter, E, M. Designed loading, error and empty states. Optional manage actions show only Delete and Read/Unread toggle, revealed on hover/focus and visible on touch; the app supplies confirmation and recipient-scoped deletion. Optional compact timestamps show real elapsed complete minutes/hours/days; manage rows replace the age inline with exact arrival date/time IST on hover/focus and always show exact arrival on touch, without a full-row Tooltip or decorative focus stroke. Exact arrival remains in accessible text; triage keeps its row Tooltip. Relevant assigned/mentioned capsules use work/person tones. Applied filters keep draft changes until Apply, validate custom dateFrom/dateTo ranges and cancel on close; instant filters remain the default. Optional absolute timestamps show visible arrival date/time in IST; triage actions and relative time remain defaults.",
+    "guidance": [
+      "Use: The bell in an agency app (AppShell notifications.onOpen opens it)",
+      "Avoid: A small product with a handful of notifications → NotificationsPanel in the bell popover"
+    ],
+    "paperApi": "",
+    "states": [
+      "manage state label",
+      "NotificationsDrawer · manage · source specimen",
+      "assigned-collection state label",
+      "NotificationsDrawer · assigned-collection · source specimen",
+      "inbox state label",
+      "NotificationsDrawer · inbox · source specimen",
+      "all state label",
+      "NotificationsDrawer · all · source specimen",
+      "loading state label",
+      "NotificationsDrawer · loading · source specimen",
+      "error state label",
+      "NotificationsDrawer · error · source specimen",
+      "caught-up state label",
+      "NotificationsDrawer · caught-up · source specimen",
+      "manage--opened state label",
+      "NotificationsDrawer · manage--opened · source specimen",
+      "assigned-collection--opened state label",
+      "NotificationsDrawer · assigned-collection--opened · source specimen",
+      "inbox--opened state label",
+      "NotificationsDrawer · inbox--opened · source specimen",
+      "all--opened state label",
+      "NotificationsDrawer · all--opened · source specimen",
+      "loading--opened state label",
+      "NotificationsDrawer · loading--opened · source specimen",
+      "error--opened state label",
+      "NotificationsDrawer · error--opened · source specimen",
+      "caught-up--opened state label",
+      "NotificationsDrawer · caught-up--opened · source specimen"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-7-0?node=1ARX-0"
+  },
+  {
+    "name": "OverlayChoice",
+    "artboard": "1FXB-0",
+    "pageId": "p-8-0",
+    "category": "Overlays & feedback",
+    "title": "OverlayChoice · Contract guide / documented source demos",
+    "description": "Pick the right overlay: the task size and context decide, not taste.",
+    "guidance": [],
+    "paperApi": "",
+    "states": [],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-8-0?node=1FXB-0"
+  },
+  {
+    "name": "describeKanbanSignal",
+    "artboard": "138X-0",
+    "pageId": "p-9-0",
+    "category": "Boards & workflow",
+    "title": "describeKanbanSignal · source contract and examples",
+    "description": "Pure helper behind KanbanSignal: &#123; tone, text, full &#125; for a due / age / flag signal, so tables, filters and previews classify follow-ups exactly like the board (e.g. overdue = tone \"danger\").",
+    "guidance": [
+      "Use: Filtering or sorting by overdue follow-ups",
+      "Avoid: Rendering the chip → KanbanSignal"
+    ],
+    "paperApi": "",
+    "states": [
+      "Frame",
+      "Frame",
+      "results · documented source behavior",
+      "overdue-filter · documented source behavior"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-9-0?node=138X-0"
+  },
+  {
+    "name": "PRIORITY_LEVELS",
+    "artboard": "13PZ-0",
+    "pageId": "p-9-0",
+    "category": "Boards & workflow",
+    "title": "PRIORITY_LEVELS · source contract and examples",
+    "description": "Priority vocabulary: urgent \"Urgent\" (alert-circle), high \"High\" (arrow-up), medium \"Medium\" (minus), low \"Low\" (arrow-down), with a sort rank (0 = most urgent). PRIORITY_LEVEL_IDS lists them in order.",
+    "guidance": [
+      "Use: Priority FilterMenu options, SortMenu accessors, table cells and pickers",
+      "Avoid: Hand-written priority labels or colours → PRIORITY_LEVELS + PriorityDot"
+    ],
+    "paperApi": "",
+    "states": [
+      "Frame",
+      "Frame",
+      "values · documented source behavior",
+      "filter-sort · documented source behavior"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-9-0?node=13PZ-0"
+  },
+  {
+    "name": "Board page",
+    "artboard": "13Q3-0",
+    "pageId": "p-9-0",
+    "category": "Boards & workflow",
+    "title": "Board page · source contract and examples",
+    "description": "Anatomy of a board page (golden page /queries, recipe board-page): AppShell breadcrumbs [Sales, Queries] › ListPageTemplate(header = PageHeader(title + count, actions Import (brand) + New query (primary)), tabs = TabBar of record types with counts (each type h",
+    "guidance": [],
+    "paperApi": "",
+    "states": [],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-9-0?node=13Q3-0"
+  },
+  {
+    "name": "KanbanBoard",
+    "artboard": "1DTR-0",
+    "pageId": "p-9-0",
+    "category": "Boards & workflow",
+    "title": "KanbanBoard · variants, states & source",
+    "description": "Reference-led workflow board: fixed260px lanes,48px uppercase headers with complete plain mono counts,16px lane gap and independent vertical lists. Ordinary lane bodies stay transparent; optional controlled Pinned is a pink saved projection of existing filtered records and preserves original workflow stages, counts and totals. Pointer/touch/keyboard/menu moves, canonical source IDs, async pending lock/refusal rollback, readOnly, money/forecast/WIP, quick add, collapsed empty stages, loading/empty and narrow snap/stage layouts remain supported. Host height controls the viewport; no fixed468px universal body. Current DS Public Sans is the owner-authorized font adaptation; dark is a semantic adaptation to the light reference.",
+    "guidance": [
+      "Use: Records move through a workflow of stages and people act by moving them: sales queries/pipeline, tasks, booking operations",
+      "Avoid: Status-only lists without a workflow (nobody moves records between stages) → DataTable with StatusBadge"
+    ],
+    "paperApi": "",
+    "states": [
+      "Owner reference · Figma and recording / light",
+      "Saved-view move · pending and refusal / light",
+      "Reference · read-only / light",
+      "Sales pipeline / light",
+      "Forecast header, collapsed empty stages / light",
+      "Count only / light",
+      "Loading / light",
+      "Empty / light",
+      "Narrow screens / light",
+      "Read-only / light",
+      "Owner reference · Figma and recording / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-9-0?node=1DTR-0"
+  },
+  {
+    "name": "RecordPreviewPanel",
+    "artboard": "1QDC-0",
+    "pageId": "p-9-0",
+    "category": "Boards & workflow",
+    "title": "RecordPreviewPanel · variants, states & source",
+    "description": "Supported compatibility record-preview drawer for existing consumers. New product record navigation uses a full-page RecordPageTemplate; the binding product surface rule reserves drawers for notifications. Preview a record from a collection without leaving it: a right-edge drawer (Sheet md 640px, scrim, focus trap, Escape/close; focus returns to the card or row that opened it) with the record title (h2), an identity row (IdChip reference, status/StageLabel, meta, \"Open full record\" link), RecordPreviewSection blocks (summary facts, customer, travellers, activity) and quick actions in the footer. Full width below 640px.",
+    "guidance": [
+      "Use: Maintaining an existing compatibility preview; new record navigation → use RecordPageTemplate",
+      "Avoid: Creating or editing a record → Sheet with a form (create-sheet recipe) or Modal (edit-modal)"
+    ],
+    "paperApi": "",
+    "states": [
+      "Query preview / light",
+      "Triage from a list / light",
+      "Size sm / light",
+      "Query preview / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-9-0?node=1QDC-0"
+  },
+  {
+    "name": "RecordPreviewSection",
+    "artboard": "1RLE-0",
+    "pageId": "p-9-0",
+    "category": "Boards & workflow",
+    "title": "RecordPreviewSection · variants, states & source",
+    "description": "Titled block (h3) inside RecordPreviewPanel with an optional trailing action; sections are separated by hairlines; flush lets ItemList / ActivityTimeline rows run edge to edge.",
+    "guidance": [
+      "Use: Grouping facts, people and activity inside a RecordPreviewPanel",
+      "Avoid: Sections on a record page → Panel"
+    ],
+    "paperApi": "",
+    "states": [
+      "Flush facts / light",
+      "With an action / light",
+      "Activity / light",
+      "Flush facts / dark"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-9-0?node=1RLE-0"
+  },
+  {
+    "name": "EVENT_KINDS",
+    "artboard": "13Q4-0",
+    "pageId": "p-A-0",
+    "category": "Calendars & scheduling",
+    "title": "EVENT_KINDS · source contract and examples",
+    "description": "Closed calendar event vocabulary: departure (plane-takeoff, work/teal, \"Departs\"), return (plane, work, \"Returns\"), payment (hand-coins, warm, \"Due\"), task (check-circle, neutral, \"Any time\"), meeting (users, channel/blue), follow-up (phone, person/pink). Payments, tasks and follow-ups are actionable: dated before today and not settled → overdue (danger). Status keys settle (done, paid, completed, cancelled…) or mark tentative (pending, on-hold…). Helpers: EVENT_KIND_IDS, eventState(event, today), isOverdue, groupAgenda(events, &#123; today, from, to &#125;), summarizeEvents, resolveRange, todayCivil(timeZone = Asia/Kolkata).",
+    "guidance": [
+      "Use: Choosing an event's kind, icon or label anywhere a schedule item is shown",
+      "Avoid: Picking icons or colours for schedule items by hand → kind + EVENT_KINDS"
+    ],
+    "paperApi": "",
+    "states": [
+      "Frame",
+      "Frame",
+      "values · documented source behavior",
+      "event-state · documented source behavior",
+      "summarize · documented source behavior"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-A-0?node=13Q4-0"
+  },
+  {
+    "name": "Charts",
+    "artboard": "13Q5-0",
+    "pageId": "p-B-0",
+    "category": "Charts & analytics",
+    "title": "Charts · source contract and examples",
+    "description": "How to show data: pick the form first (time → AreaChart/LineChart, categories → BarChart, a ranked list whose rows drill → BarList, share of one total → DonutChart, inline trend → Sparkline, ≤ 3 numbers → KpiStrip, exact values → DataTable); one chart per Char",
+    "guidance": [],
+    "paperApi": "",
+    "states": [],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-B-0?node=13Q5-0"
+  },
+  {
+    "name": "validateRateMatrix",
+    "artboard": "13Q6-0",
+    "pageId": "p-C-0",
+    "category": "Pricing & finance",
+    "title": "validateRateMatrix · source contract and examples",
+    "description": "Pure rate-card validation helpers return cell-level errors for negative amounts and warnings for sell below cost in sell display. Use these results for accessible inline feedback and to block invalid saves. Historical source demos call this Publish gating; current Vendor v17-B uses Save/current version. Shared numeric helpers also handle keys, markup, margin, changes, known-price counts, pasted values and inclusive civil ranges.",
+    "guidance": [
+      "Use: Disabling Publish while a draft has errors, and summarising issues in an accessible inline alert",
+      "Avoid: Formatting money for display → Money / MoneyCell / @paryatech/format (these helpers return numbers)"
+    ],
+    "paperApi": "",
+    "states": [
+      "Frame",
+      "Frame",
+      "publish-gate · documented source behavior",
+      "issues · documented source behavior",
+      "helpers · documented source behavior"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-C-0?node=13Q6-0"
+  },
+  {
+    "name": "Rate card page",
+    "artboard": "13Q7-0",
+    "pageId": "p-C-0",
+    "category": "Pricing & finance",
+    "title": "Rate card page · source contract and examples",
+    "description": "Anatomy of a rate card record (golden page /vendors/:vendorId/rate-cards/:rateCardId): AppShell breadcrumbs [CRM, Vendors, <vendor>, <rate card>] + back to the vendor's Rate cards tab › RecordPageTemplate(RecordHeader(title, meta [property, validity, IdChip co",
+    "guidance": [],
+    "paperApi": "",
+    "states": [],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-C-0?node=13Q7-0"
+  },
+  {
+    "name": "Page anatomy",
+    "artboard": "1FYT-0",
+    "pageId": "p-D-0",
+    "category": "Templates & recipes",
+    "title": "Page anatomy · Contract guide / documented source demos",
+    "description": "Every page is AppShell + one template. Templates own vertical rhythm and bleed; pages never add margins, wrappers or local CSS between regions. Regions carry data-region attributes (header, banner, tabs, toolbar, table, bulk-bar, footer, content, summary, main",
+    "guidance": [],
+    "paperApi": "",
+    "states": [],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-D-0?node=1FYT-0"
+  },
+  {
+    "name": "VENDOR_TYPES",
+    "artboard": "1FVI-0",
+    "pageId": "p-F-0",
+    "category": "Domain vocabulary",
+    "title": "VENDOR_TYPES · Contract guide / documented source demos",
+    "description": "VENDOR_TYPES / Canonical supplier relationships",
+    "guidance": [],
+    "paperApi": "",
+    "states": [
+      "VENDOR_TYPES / guide introduction",
+      "values / table header",
+      "values / direct",
+      "values / dmc",
+      "values / wholesaler",
+      "values / airline",
+      "values / hotel-chain",
+      "values / transporter",
+      "values / activity-operator",
+      "values / visa-agent",
+      "select-options / documented example",
+      "filter / documented example",
+      "VENDOR_TYPES / handoff and source"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-F-0?node=1FVI-0"
+  },
+  {
+    "name": "statusMeta",
+    "artboard": "1FVV-0",
+    "pageId": "p-F-0",
+    "category": "Domain vocabulary",
+    "title": "statusMeta · Contract guide / documented source demos",
+    "description": "statusMeta / One status label and tone contract",
+    "guidance": [],
+    "paperApi": "",
+    "states": [
+      "statusMeta / guide introduction",
+      "results / normalization contract",
+      "results / booking / confirmed",
+      "results / booking / On trip",
+      "results / booking / on_trip",
+      "results / invoice / PARTIALLY_PAID",
+      "results / payment / overdue",
+      "results / vendor / awaiting_kyc",
+      "results / booking / ",
+      "filter-options / documented example",
+      "tones / documented example",
+      "statusMeta / handoff and source"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-F-0?node=1FVV-0"
+  },
+  {
+    "name": "paryatechNav",
+    "artboard": "1FVW-0",
+    "pageId": "p-F-0",
+    "category": "Domain vocabulary",
+    "title": "paryatechNav · Contract guide / documented source demos",
+    "description": "paryatechNav / Canonical navigation and controlled children",
+    "guidance": [],
+    "paperApi": "",
+    "states": [
+      "paryatechNav / guide introduction",
+      "items / Workspace",
+      "items / Sales",
+      "items / CRM",
+      "items / Operations",
+      "app-shell / documented example",
+      "children / documented example",
+      "hide / documented example",
+      "hide-shell / documented example",
+      "paryatechNav / handoff and source"
+    ],
+    "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-F-0?node=1FVW-0"
   }
 ]

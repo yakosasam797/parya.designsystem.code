@@ -146,179 +146,188 @@
         "name": "Button · Text actions / all variants & states",
         "childCount": 16,
         "width": 1440,
-        "height": null,
+        "height": 2626,
         "worldX": 0,
-        "worldY": 0
+        "worldY": 800
       },
       {
         "id": "RX-0",
         "name": "Checkbox · Selection / states",
         "childCount": 10,
         "width": 1440,
-        "height": null,
+        "height": 1528.671875,
         "worldX": 1520,
-        "worldY": 0
+        "worldY": 800
       },
       {
         "id": "25D-0",
         "name": "IconButton · Source library / variants & states",
         "childCount": 12,
         "width": 1440,
-        "height": null,
+        "height": 1810,
         "worldX": 3040,
-        "worldY": 0
+        "worldY": 800
       },
       {
         "id": "4KU-0",
         "name": "RadioGroup · Source library / variants & states",
         "childCount": 7,
         "width": 1440,
-        "height": null,
+        "height": 1332.703125,
         "worldX": 4560,
-        "worldY": 0
+        "worldY": 800
       },
       {
         "id": "4NX-0",
         "name": "Switch · Source library / variants & states",
         "childCount": 8,
         "width": 1440,
-        "height": null,
-        "worldX": 6080,
-        "worldY": 0
+        "height": 1298.6875,
+        "worldX": 0,
+        "worldY": 3586
       },
       {
         "id": "57I-0",
         "name": "Avatar · Source library / variants & states",
         "childCount": 9,
         "width": 1440,
-        "height": null,
-        "worldX": 7600,
-        "worldY": 0
+        "height": 1340,
+        "worldX": 1520,
+        "worldY": 3586
       },
       {
         "id": "5FZ-0",
         "name": "StatusChip · Source library / variants & states",
         "childCount": 6,
         "width": 1440,
-        "height": null,
-        "worldX": 9120,
-        "worldY": 0
+        "height": 894,
+        "worldX": 3040,
+        "worldY": 3586
       },
       {
         "id": "5IO-0",
         "name": "Tag · Source library / variants & states",
         "childCount": 7,
         "width": 1440,
-        "height": null,
-        "worldX": 10640,
-        "worldY": 0
+        "height": 1022,
+        "worldX": 4560,
+        "worldY": 3586
       },
       {
         "id": "5QD-0",
         "name": "CountBadge · Source library / variants & states",
         "childCount": 7,
         "width": 1440,
-        "height": null,
-        "worldX": 12160,
-        "worldY": 0
+        "height": 986,
+        "worldX": 0,
+        "worldY": 5086
       },
       {
         "id": "5UA-0",
         "name": "IdChip · Source library / variants & states",
         "childCount": 6,
         "width": 1440,
-        "height": null,
-        "worldX": 13680,
-        "worldY": 0
+        "height": 900,
+        "worldX": 1520,
+        "worldY": 5086
       },
       {
         "id": "5Y5-0",
         "name": "Tooltip · Source library / variants & states",
         "childCount": 10,
         "width": 1440,
-        "height": null,
-        "worldX": 15200,
-        "worldY": 0
+        "height": 2221,
+        "worldX": 3040,
+        "worldY": 5086
       },
       {
         "id": "7TX-0",
         "name": "Kbd · Source library / variants & states",
         "childCount": 4,
         "width": 1440,
-        "height": null,
-        "worldX": 16720,
-        "worldY": 0
+        "height": 627,
+        "worldX": 4560,
+        "worldY": 5086
       },
       {
         "id": "7WZ-0",
         "name": "Spinner · Source library / variants & states",
         "childCount": 6,
         "width": 1440,
-        "height": null,
-        "worldX": 18240,
-        "worldY": 0
+        "height": 935,
+        "worldX": 0,
+        "worldY": 7467
       },
       {
         "id": "82G-0",
         "name": "Skeleton · Source library / variants & states",
         "childCount": 5,
         "width": 1440,
-        "height": null,
-        "worldX": 19760,
-        "worldY": 0
+        "height": 1078,
+        "worldX": 1520,
+        "worldY": 7467
       },
       {
         "id": "8BM-0",
         "name": "Meter · Source library / variants & states",
         "childCount": 8,
         "width": 1440,
-        "height": null,
-        "worldX": 21280,
-        "worldY": 0
+        "height": 1130,
+        "worldX": 3040,
+        "worldY": 7467
       },
       {
         "id": "8GD-0",
         "name": "TextLink · Source library / variants & states",
         "childCount": 6,
         "width": 1440,
-        "height": null,
-        "worldX": 22800,
-        "worldY": 0
+        "height": 885,
+        "worldX": 4560,
+        "worldY": 7467
       },
       {
         "id": "8JA-0",
         "name": "Divider · Source library / variants & states",
         "childCount": 4,
         "width": 1440,
-        "height": null,
-        "worldX": 24320,
-        "worldY": 0
+        "height": 862,
+        "worldX": 0,
+        "worldY": 8757
       },
       {
         "id": "8LL-0",
         "name": "Stack · Source library / variants & states",
         "childCount": 5,
         "width": 1440,
-        "height": null,
-        "worldX": 25840,
-        "worldY": 0
+        "height": 946.5,
+        "worldX": 1520,
+        "worldY": 8757
       },
       {
         "id": "8VQ-0",
         "name": "HeadingLevelProvider · Source library / variants & states",
         "childCount": 4,
         "width": 1440,
-        "height": null,
-        "worldX": 27360,
-        "worldY": 0
+        "height": 1236.921875,
+        "worldX": 3040,
+        "worldY": 8757
       },
       {
         "id": "91M-0",
         "name": "VisuallyHidden · Source library / variants & states",
         "childCount": 3,
         "width": 1440,
-        "height": null,
-        "worldX": 28880,
+        "height": 552,
+        "worldX": 4560,
+        "worldY": 8757
+      },
+      {
+        "id": "12MD-0",
+        "name": "00 · Primitives directory — start here",
+        "childCount": 7,
+        "width": 1440,
+        "height": 578,
+        "worldX": 0,
         "worldY": 0
       }
     ]
@@ -332,187 +341,187 @@
         "name": "TextField · Input anatomy / variants & states",
         "childCount": 13,
         "width": 1440,
-        "height": 2350.96875,
+        "height": null,
         "worldX": 1520,
-        "worldY": 900
+        "worldY": 800
       },
       {
         "id": "AYT-0",
         "name": "Field · Source library / variants & states",
         "childCount": 6,
         "width": 1440,
-        "height": 1094.4375,
+        "height": null,
         "worldX": 0,
-        "worldY": 900
+        "worldY": 800
       },
       {
         "id": "B4A-0",
         "name": "TextArea · Source library / variants & states",
         "childCount": 10,
         "width": 1440,
-        "height": 2298.03125,
+        "height": null,
         "worldX": 3040,
-        "worldY": 900
+        "worldY": 800
       },
       {
         "id": "B6T-0",
         "name": "SelectField · Source library / variants & states",
         "childCount": 12,
         "width": 1440,
-        "height": 2539.640625,
+        "height": null,
         "worldX": 4560,
-        "worldY": 900
+        "worldY": 800
       },
       {
         "id": "BAK-0",
         "name": "Combobox · Source library / variants & states",
         "childCount": 16,
         "width": 1440,
-        "height": 3696.71875,
+        "height": null,
         "worldX": 0,
-        "worldY": 5100
+        "worldY": 3500
       },
       {
         "id": "BEK-0",
         "name": "MultiSelect · Source library / variants & states",
         "childCount": 13,
         "width": 1440,
-        "height": 2939.875,
+        "height": null,
         "worldX": 1520,
-        "worldY": 5100
+        "worldY": 3500
       },
       {
         "id": "BJR-0",
         "name": "DateField · Source library / variants & states",
         "childCount": 11,
         "width": 1440,
-        "height": 2236.875,
+        "height": null,
         "worldX": 3040,
-        "worldY": 5100
+        "worldY": 3500
       },
       {
         "id": "C0X-0",
         "name": "TimeField · Source library / variants & states",
         "childCount": 11,
         "width": 1440,
-        "height": 2945.21875,
+        "height": null,
         "worldX": 4560,
-        "worldY": 5100
+        "worldY": 3500
       },
       {
         "id": "CA7-0",
         "name": "DateRangeField · Source library / variants & states",
         "childCount": 17,
         "width": 1440,
-        "height": 4842.71875,
+        "height": null,
         "worldX": 0,
-        "worldY": 9300
+        "worldY": 7358
       },
       {
         "id": "COC-0",
         "name": "PhoneField · Source library / variants & states",
         "childCount": 11,
         "width": 1440,
-        "height": 2378.625,
+        "height": null,
         "worldX": 1520,
-        "worldY": 9300
+        "worldY": 7358
       },
       {
         "id": "CXH-0",
         "name": "MoneyField · Source library / variants & states",
         "childCount": 10,
         "width": 1440,
-        "height": 1905.8125,
+        "height": null,
         "worldX": 3040,
-        "worldY": 9300
+        "worldY": 7358
       },
       {
         "id": "D1V-0",
         "name": "SearchField · Source library / variants & states",
         "childCount": 9,
         "width": 1440,
-        "height": 1432,
+        "height": null,
         "worldX": 4560,
-        "worldY": 9300
+        "worldY": 7358
       },
       {
         "id": "DAW-0",
         "name": "ChoiceChips · Source library / variants & states",
         "childCount": 9,
         "width": 1440,
-        "height": 1370,
+        "height": null,
         "worldX": 0,
-        "worldY": 13500
+        "worldY": 12359
       },
       {
         "id": "DKE-0",
         "name": "SegmentedControl · Source library / variants & states",
         "childCount": 9,
         "width": 1440,
-        "height": 1374,
+        "height": null,
         "worldX": 1520,
-        "worldY": 13500
+        "worldY": 12359
       },
       {
         "id": "E8U-0",
         "name": "FormSection · Source library / variants & states",
         "childCount": 5,
         "width": 1440,
-        "height": 1385,
+        "height": null,
         "worldX": 3040,
-        "worldY": 13500
+        "worldY": 12359
       },
       {
         "id": "EI0-0",
         "name": "FormGrid · Source library / variants & states",
         "childCount": 6,
         "width": 1440,
-        "height": 1486.25,
+        "height": null,
         "worldX": 4560,
-        "worldY": 13500
+        "worldY": 12359
       },
       {
         "id": "EQD-0",
         "name": "FormFooter · Source library / variants & states",
         "childCount": 6,
         "width": 1440,
-        "height": 1024,
+        "height": null,
         "worldX": 0,
-        "worldY": 17700
+        "worldY": 14005
       },
       {
         "id": "EYQ-0",
         "name": "Form anatomy · Source library / variants & states",
         "childCount": 6,
         "width": 1440,
-        "height": 1819.71875,
+        "height": null,
         "worldX": 1520,
-        "worldY": 17700
+        "worldY": 14005
       },
       {
         "id": "F9V-0",
         "name": "QuantityField · Source library / variants & states",
         "childCount": 12,
         "width": 1440,
-        "height": 2192.3125,
+        "height": null,
         "worldX": 3040,
-        "worldY": 17700
+        "worldY": 14005
       },
       {
         "id": "FM0-0",
         "name": "PaxSelector · Source library / variants & states",
         "childCount": 16,
         "width": 1440,
-        "height": 4901.5,
+        "height": null,
         "worldX": 4560,
-        "worldY": 17700
+        "worldY": 14005
       },
       {
         "id": "I5A-0",
         "name": "00 · Forms directory — start here",
         "childCount": 7,
         "width": 1440,
-        "height": 575,
+        "height": null,
         "worldX": 0,
         "worldY": 0
       }
@@ -606,7 +615,7 @@
       {
         "id": "8XV-0",
         "name": "FilterMenu · variants, states & source",
-        "childCount": 6,
+        "childCount": 8,
         "width": 1440,
         "height": null,
         "worldX": 13680,
@@ -624,7 +633,7 @@
       {
         "id": "9G2-0",
         "name": "SortMenu · variants, states & source",
-        "childCount": 4,
+        "childCount": 6,
         "width": 1440,
         "height": null,
         "worldX": 16720,
@@ -633,7 +642,7 @@
       {
         "id": "9K7-0",
         "name": "filterRows · variants, states & source",
-        "childCount": 2,
+        "childCount": 3,
         "width": 1440,
         "height": null,
         "worldX": 18240,
@@ -642,7 +651,7 @@
       {
         "id": "9L6-0",
         "name": "searchRows · variants, states & source",
-        "childCount": 2,
+        "childCount": 3,
         "width": 1440,
         "height": null,
         "worldX": 19760,
@@ -651,7 +660,7 @@
       {
         "id": "9OC-0",
         "name": "sortRows · variants, states & source",
-        "childCount": 2,
+        "childCount": 4,
         "width": 1440,
         "height": null,
         "worldX": 21280,
@@ -660,10 +669,28 @@
       {
         "id": "9Q6-0",
         "name": "paginate · variants, states & source",
-        "childCount": 2,
+        "childCount": 3,
         "width": 1440,
         "height": null,
         "worldX": 22800,
+        "worldY": 0
+      },
+      {
+        "id": "1481-0",
+        "name": "ListToolbar · variants, states & source",
+        "childCount": 6,
+        "width": 1440,
+        "height": null,
+        "worldX": 24320,
+        "worldY": 0
+      },
+      {
+        "id": "14S0-0",
+        "name": "DataTable · variants, states & source",
+        "childCount": 15,
+        "width": 1440,
+        "height": null,
+        "worldX": 25840,
         "worldY": 0
       }
     ]
@@ -815,6 +842,33 @@
         "height": null,
         "worldX": 22800,
         "worldY": 0
+      },
+      {
+        "id": "19D9-0",
+        "name": "EmailCommunication · variants, states & source",
+        "childCount": 12,
+        "width": 1440,
+        "height": null,
+        "worldX": 24320,
+        "worldY": 0
+      },
+      {
+        "id": "1B4W-0",
+        "name": "KpiStrip · variants, states & source",
+        "childCount": 12,
+        "width": 1440,
+        "height": null,
+        "worldX": 25840,
+        "worldY": 0
+      },
+      {
+        "id": "1BXG-0",
+        "name": "ActivityTimeline · variants, states & source",
+        "childCount": 10,
+        "width": 1440,
+        "height": null,
+        "worldX": 27360,
+        "worldY": 0
       }
     ]
   },
@@ -843,11 +897,11 @@
       {
         "id": "1QX-0",
         "name": "AppShell · full-shell · Light",
-        "childCount": 2,
+        "childCount": 6,
         "width": 1440,
-        "height": 1000,
-        "worldX": 3040,
-        "worldY": 0
+        "height": null,
+        "worldX": 0,
+        "worldY": 1060
       },
       {
         "id": "4QB-0",
@@ -855,8 +909,8 @@
         "childCount": 10,
         "width": 1440,
         "height": null,
-        "worldX": 4560,
-        "worldY": 0
+        "worldX": 0,
+        "worldY": 6329
       },
       {
         "id": "4XV-0",
@@ -864,8 +918,8 @@
         "childCount": 6,
         "width": 1440,
         "height": null,
-        "worldX": 6080,
-        "worldY": 0
+        "worldX": 0,
+        "worldY": 7242
       },
       {
         "id": "50J-0",
@@ -873,8 +927,8 @@
         "childCount": 10,
         "width": 1440,
         "height": null,
-        "worldX": 7600,
-        "worldY": 0
+        "worldX": 0,
+        "worldY": 7903
       },
       {
         "id": "52S-0",
@@ -882,8 +936,8 @@
         "childCount": 10,
         "width": 1440,
         "height": null,
-        "worldX": 9120,
-        "worldY": 0
+        "worldX": 3040,
+        "worldY": 8900
       },
       {
         "id": "55A-0",
@@ -891,8 +945,8 @@
         "childCount": 10,
         "width": 1440,
         "height": null,
-        "worldX": 10640,
-        "worldY": 0
+        "worldX": 3040,
+        "worldY": 11997
       },
       {
         "id": "5BA-0",
@@ -900,17 +954,17 @@
         "childCount": 10,
         "width": 1440,
         "height": null,
-        "worldX": 12160,
-        "worldY": 0
+        "worldX": 3040,
+        "worldY": 13006
       },
       {
         "id": "ZYQ-0",
         "name": "Sidebar Â· Light source states",
-        "childCount": 11,
+        "childCount": 19,
         "width": 1440,
         "height": null,
-        "worldX": 13680,
-        "worldY": 0
+        "worldX": 3040,
+        "worldY": 1060
       },
       {
         "id": "11LA-0",
@@ -918,8 +972,8 @@
         "childCount": 6,
         "width": 1440,
         "height": null,
-        "worldX": 15200,
-        "worldY": 0
+        "worldX": 0,
+        "worldY": 3961
       },
       {
         "id": "11T3-0",
@@ -927,8 +981,8 @@
         "childCount": 8,
         "width": 1440,
         "height": null,
-        "worldX": 16720,
-        "worldY": 0
+        "worldX": 0,
+        "worldY": 4666
       },
       {
         "id": "120C-0",
@@ -936,17 +990,197 @@
         "childCount": 10,
         "width": 1440,
         "height": null,
-        "worldX": 18240,
-        "worldY": 0
+        "worldX": 3040,
+        "worldY": 9815
       },
       {
         "id": "12AP-0",
         "name": "OpenRecordsList · Light source states",
-        "childCount": 8,
+        "childCount": 12,
         "width": 1440,
         "height": null,
-        "worldX": 19760,
-        "worldY": 0
+        "worldX": 3040,
+        "worldY": 13921
+      },
+      {
+        "id": "18WS-0",
+        "name": "NotesPanel Â· Light source states",
+        "childCount": 17,
+        "width": 1440,
+        "height": null,
+        "worldX": 0,
+        "worldY": 8850
+      },
+      {
+        "id": "1A36-0",
+        "name": "OpenRecordsSwitcher Â· Light source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 3040,
+        "worldY": 15188
+      },
+      {
+        "id": "1ACF-0",
+        "name": "NotificationRow Â· Light source states",
+        "childCount": 5,
+        "width": 1440,
+        "height": null,
+        "worldX": 3040,
+        "worldY": 16421
+      },
+      {
+        "id": "1ARX-0",
+        "name": "NotificationsDrawer Â· Light source states",
+        "childCount": 29,
+        "width": 1440,
+        "height": null,
+        "worldX": 0,
+        "worldY": 15771
+      },
+      {
+        "id": "1P6I-0",
+        "name": "AccountMenu · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 4666
+      },
+      {
+        "id": "1SI9-0",
+        "name": "AppShell · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 1060
+      },
+      {
+        "id": "1T4X-0",
+        "name": "Sidebar · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 1060
+      },
+      {
+        "id": "1TAG-0",
+        "name": "Topbar · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 3961
+      },
+      {
+        "id": "1TC7-0",
+        "name": "Breadcrumbs · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 6329
+      },
+      {
+        "id": "1TCW-0",
+        "name": "BackButton · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 7242
+      },
+      {
+        "id": "1TDE-0",
+        "name": "NotesStrip · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 7903
+      },
+      {
+        "id": "1TE6-0",
+        "name": "NotesPanel · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 8850
+      },
+      {
+        "id": "1TFY-0",
+        "name": "CreditsMeter · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 8900
+      },
+      {
+        "id": "1TGT-0",
+        "name": "NotificationsPanel · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 9815
+      },
+      {
+        "id": "1TIR-0",
+        "name": "TabBar · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 11997
+      },
+      {
+        "id": "1TJM-0",
+        "name": "Pagination · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 13006
+      },
+      {
+        "id": "1TKU-0",
+        "name": "OpenRecordsList · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 13921
+      },
+      {
+        "id": "1TLO-0",
+        "name": "OpenRecordsSwitcher · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 15188
+      },
+      {
+        "id": "1TSE-0",
+        "name": "NotificationsDrawer · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 15771
+      },
+      {
+        "id": "1TSZ-0",
+        "name": "NotificationRow · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 16421
       }
     ]
   },
@@ -960,7 +1194,7 @@
         "childCount": 2,
         "width": 1440,
         "height": 900,
-        "worldX": 0,
+        "worldX": 1520,
         "worldY": 0
       },
       {
@@ -969,8 +1203,8 @@
         "childCount": 10,
         "width": 1440,
         "height": null,
-        "worldX": 1520,
-        "worldY": 0
+        "worldX": 0,
+        "worldY": 1104
       },
       {
         "id": "E4U-0",
@@ -979,7 +1213,7 @@
         "width": 1440,
         "height": null,
         "worldX": 3040,
-        "worldY": 0
+        "worldY": 1104
       },
       {
         "id": "EQC-0",
@@ -987,8 +1221,8 @@
         "childCount": 12,
         "width": 1440,
         "height": null,
-        "worldX": 4560,
-        "worldY": 0
+        "worldX": 0,
+        "worldY": 3737
       },
       {
         "id": "F9W-0",
@@ -996,8 +1230,8 @@
         "childCount": 12,
         "width": 1440,
         "height": null,
-        "worldX": 6080,
-        "worldY": 0
+        "worldX": 3040,
+        "worldY": 4249
       },
       {
         "id": "FWJ-0",
@@ -1005,8 +1239,8 @@
         "childCount": 14,
         "width": 1440,
         "height": null,
-        "worldX": 7600,
-        "worldY": 0
+        "worldX": 0,
+        "worldY": 5754
       },
       {
         "id": "G5X-0",
@@ -1014,8 +1248,8 @@
         "childCount": 10,
         "width": 1440,
         "height": null,
-        "worldX": 9120,
-        "worldY": 0
+        "worldX": 3040,
+        "worldY": 6406
       },
       {
         "id": "H9Q-0",
@@ -1023,8 +1257,8 @@
         "childCount": 6,
         "width": 1440,
         "height": null,
-        "worldX": 10640,
-        "worldY": 0
+        "worldX": 0,
+        "worldY": 7988
       },
       {
         "id": "HDQ-0",
@@ -1032,8 +1266,8 @@
         "childCount": 12,
         "width": 1440,
         "height": null,
-        "worldX": 12160,
-        "worldY": 0
+        "worldX": 3040,
+        "worldY": 9458
       },
       {
         "id": "HYE-0",
@@ -1041,8 +1275,98 @@
         "childCount": 6,
         "width": 1440,
         "height": null,
-        "worldX": 13680,
+        "worldX": 0,
+        "worldY": 9649
+      },
+      {
+        "id": "1FXB-0",
+        "name": "OverlayChoice · Contract guide / documented source demos",
+        "childCount": 8,
+        "width": 1440,
+        "height": null,
+        "worldX": 0,
         "worldY": 0
+      },
+      {
+        "id": "1PAV-0",
+        "name": "Modal · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 1104
+      },
+      {
+        "id": "1RZK-0",
+        "name": "Sheet · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 1104
+      },
+      {
+        "id": "1S27-0",
+        "name": "Popover · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 3737
+      },
+      {
+        "id": "1S3Y-0",
+        "name": "Menu · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 4249
+      },
+      {
+        "id": "1S5F-0",
+        "name": "ConfirmDialog · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 5754
+      },
+      {
+        "id": "1S5Y-0",
+        "name": "toast · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 9458
+      },
+      {
+        "id": "1S6P-0",
+        "name": "Toaster · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 9649
+      },
+      {
+        "id": "1S7G-0",
+        "name": "CommandPalette · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 6406
+      },
+      {
+        "id": "1SCH-0",
+        "name": "Drawer · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 7988
       }
     ]
   },
@@ -1094,6 +1418,60 @@
         "height": null,
         "worldX": 6080,
         "worldY": 0
+      },
+      {
+        "id": "138X-0",
+        "name": "describeKanbanSignal · source contract and examples",
+        "childCount": 4,
+        "width": 1440,
+        "height": null,
+        "worldX": 7600,
+        "worldY": 0
+      },
+      {
+        "id": "13PZ-0",
+        "name": "PRIORITY_LEVELS · source contract and examples",
+        "childCount": 4,
+        "width": 1440,
+        "height": null,
+        "worldX": 9120,
+        "worldY": 0
+      },
+      {
+        "id": "13Q3-0",
+        "name": "Board page · source contract and examples",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 10640,
+        "worldY": 0
+      },
+      {
+        "id": "1DTR-0",
+        "name": "KanbanBoard · variants, states & source",
+        "childCount": 12,
+        "width": 1440,
+        "height": null,
+        "worldX": 12160,
+        "worldY": 0
+      },
+      {
+        "id": "1QDC-0",
+        "name": "RecordPreviewPanel · variants, states & source",
+        "childCount": 5,
+        "width": 1440,
+        "height": null,
+        "worldX": 13680,
+        "worldY": 0
+      },
+      {
+        "id": "1RLE-0",
+        "name": "RecordPreviewSection · variants, states & source",
+        "childCount": 5,
+        "width": 1440,
+        "height": null,
+        "worldX": 15200,
+        "worldY": 0
       }
     ]
   },
@@ -1131,10 +1509,19 @@
       {
         "id": "XC9-0",
         "name": "Agenda · variants, states & source",
-        "childCount": 7,
+        "childCount": 10,
         "width": 1440,
-        "height": 900,
+        "height": null,
         "worldX": 4560,
+        "worldY": 0
+      },
+      {
+        "id": "13Q4-0",
+        "name": "EVENT_KINDS · source contract and examples",
+        "childCount": 5,
+        "width": 1440,
+        "height": null,
+        "worldX": 6080,
         "worldY": 0
       }
     ]
@@ -1173,7 +1560,7 @@
       {
         "id": "QQJ-0",
         "name": "BarList · variants, states & source",
-        "childCount": 7,
+        "childCount": 8,
         "width": 1440,
         "height": null,
         "worldX": 4560,
@@ -1204,6 +1591,15 @@
         "width": 1440,
         "height": null,
         "worldX": 9120,
+        "worldY": 0
+      },
+      {
+        "id": "13Q5-0",
+        "name": "Charts · source contract and examples",
+        "childCount": 4,
+        "width": 1440,
+        "height": null,
+        "worldX": 10640,
         "worldY": 0
       }
     ]
@@ -1256,6 +1652,24 @@
         "height": null,
         "worldX": 6080,
         "worldY": 0
+      },
+      {
+        "id": "13Q6-0",
+        "name": "validateRateMatrix · source contract and examples",
+        "childCount": 5,
+        "width": 1440,
+        "height": null,
+        "worldX": 7600,
+        "worldY": 0
+      },
+      {
+        "id": "13Q7-0",
+        "name": "Rate card page · source contract and examples",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 9120,
+        "worldY": 0
       }
     ]
   },
@@ -1266,56 +1680,119 @@
       {
         "id": "J9X-0",
         "name": "ListPageTemplate · source list screen",
-        "childCount": 2,
+        "childCount": 14,
+        "width": 1440,
+        "height": null,
+        "worldX": 0,
+        "worldY": 1242
+      },
+      {
+        "id": "KCU-0",
+        "name": "RecordPageTemplate · Light source states",
+        "childCount": 12,
+        "width": 1440,
+        "height": null,
+        "worldX": 3040,
+        "worldY": 1242
+      },
+      {
+        "id": "KYR-0",
+        "name": "RecordOverviewLayout · Light source states",
+        "childCount": 6,
+        "width": 1440,
+        "height": null,
+        "worldX": 3040,
+        "worldY": 6132
+      },
+      {
+        "id": "LKN-0",
+        "name": "FormPageTemplate · Light source states",
+        "childCount": 6,
+        "width": 1440,
+        "height": null,
+        "worldX": 0,
+        "worldY": 7732
+      },
+      {
+        "id": "M12-0",
+        "name": "SettingsPageTemplate · Light source states",
+        "childCount": 10,
+        "width": 1440,
+        "height": null,
+        "worldX": 3040,
+        "worldY": 8322
+      },
+      {
+        "id": "MC8-0",
+        "name": "DashboardPageTemplate · Light source states",
+        "childCount": 8,
+        "width": 1440,
+        "height": null,
+        "worldX": 0,
+        "worldY": 9942
+      },
+      {
+        "id": "1FYT-0",
+        "name": "Page anatomy · Contract guide / documented source demos",
+        "childCount": 8,
         "width": 1440,
         "height": null,
         "worldX": 0,
         "worldY": 0
       },
       {
-        "id": "KCU-0",
-        "name": "RecordPageTemplate · Light source states",
-        "childCount": 4,
+        "id": "1TYO-0",
+        "name": "ListPageTemplate · Dark source states",
+        "childCount": 3,
         "width": 1440,
         "height": null,
         "worldX": 1520,
-        "worldY": 0
+        "worldY": 1242
       },
       {
-        "id": "KYR-0",
-        "name": "RecordOverviewLayout · Light source states",
-        "childCount": 4,
-        "width": 1440,
-        "height": null,
-        "worldX": 3040,
-        "worldY": 0
-      },
-      {
-        "id": "LKN-0",
-        "name": "FormPageTemplate · Light source states",
-        "childCount": 4,
+        "id": "1U3Q-0",
+        "name": "RecordOverviewLayout · Dark source states",
+        "childCount": 3,
         "width": 1440,
         "height": null,
         "worldX": 4560,
-        "worldY": 0
+        "worldY": 6132
       },
       {
-        "id": "M12-0",
-        "name": "SettingsPageTemplate · Light source states",
-        "childCount": 4,
+        "id": "1UEA-0",
+        "name": "RecordPageTemplate · Dark source states",
+        "childCount": 3,
         "width": 1440,
         "height": null,
-        "worldX": 6080,
-        "worldY": 0
+        "worldX": 4560,
+        "worldY": 1242
       },
       {
-        "id": "MC8-0",
-        "name": "DashboardPageTemplate · Light source states",
-        "childCount": 4,
+        "id": "1VD6-0",
+        "name": "FormPageTemplate · Dark source states",
+        "childCount": 3,
         "width": 1440,
         "height": null,
-        "worldX": 7600,
-        "worldY": 0
+        "worldX": 1520,
+        "worldY": 7732
+      },
+      {
+        "id": "1W19-0",
+        "name": "SettingsPageTemplate · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 8322
+      },
+      {
+        "id": "1XJD-0",
+        "name": "DashboardPageTemplate · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 9942
       }
     ]
   },
@@ -1331,6 +1808,15 @@
         "height": null,
         "worldX": 0,
         "worldY": 0
+      },
+      {
+        "id": "16W5-0",
+        "name": "Icon · sizes, semantics and source usage",
+        "childCount": 6,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 0
       }
     ]
   },
@@ -1345,7 +1831,7 @@
         "width": 1440,
         "height": null,
         "worldX": 0,
-        "worldY": 0
+        "worldY": 1164
       },
       {
         "id": "64N-0",
@@ -1353,8 +1839,8 @@
         "childCount": 12,
         "width": 1440,
         "height": null,
-        "worldX": 1520,
-        "worldY": 0
+        "worldX": 3040,
+        "worldY": 1164
       },
       {
         "id": "6K8-0",
@@ -1363,7 +1849,7 @@
         "width": 1440,
         "height": null,
         "worldX": 3040,
-        "worldY": 0
+        "worldY": 2709
       },
       {
         "id": "6QI-0",
@@ -1371,8 +1857,8 @@
         "childCount": 10,
         "width": 1440,
         "height": null,
-        "worldX": 4560,
-        "worldY": 0
+        "worldX": 0,
+        "worldY": 3269
       },
       {
         "id": "74X-0",
@@ -1380,8 +1866,8 @@
         "childCount": 10,
         "width": 1440,
         "height": null,
-        "worldX": 6080,
-        "worldY": 0
+        "worldX": 3040,
+        "worldY": 3814
       },
       {
         "id": "7LK-0",
@@ -1389,8 +1875,8 @@
         "childCount": 12,
         "width": 1440,
         "height": null,
-        "worldX": 7600,
-        "worldY": 0
+        "worldX": 0,
+        "worldY": 4680
       },
       {
         "id": "7XE-0",
@@ -1398,8 +1884,8 @@
         "childCount": 10,
         "width": 1440,
         "height": null,
-        "worldX": 9120,
-        "worldY": 0
+        "worldX": 3040,
+        "worldY": 5325
       },
       {
         "id": "8JW-0",
@@ -1407,8 +1893,8 @@
         "childCount": 10,
         "width": 1440,
         "height": null,
-        "worldX": 10640,
-        "worldY": 0
+        "worldX": 0,
+        "worldY": 6035
       },
       {
         "id": "9QJ-0",
@@ -1416,8 +1902,8 @@
         "childCount": 16,
         "width": 1440,
         "height": null,
-        "worldX": 12160,
-        "worldY": 0
+        "worldX": 3040,
+        "worldY": 6549
       },
       {
         "id": "I1S-0",
@@ -1425,8 +1911,125 @@
         "childCount": 4,
         "width": 1440,
         "height": null,
-        "worldX": 13680,
+        "worldX": 0,
+        "worldY": 8634
+      },
+      {
+        "id": "1FVI-0",
+        "name": "VENDOR_TYPES · Contract guide / documented source demos",
+        "childCount": 13,
+        "width": 1440,
+        "height": null,
+        "worldX": 0,
         "worldY": 0
+      },
+      {
+        "id": "1FVV-0",
+        "name": "statusMeta · Contract guide / documented source demos",
+        "childCount": 12,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 0
+      },
+      {
+        "id": "1FVW-0",
+        "name": "paryatechNav · Contract guide / documented source demos",
+        "childCount": 10,
+        "width": 1440,
+        "height": null,
+        "worldX": 3040,
+        "worldY": 0
+      },
+      {
+        "id": "1QNO-0",
+        "name": "ServiceTypeLabel · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 1164
+      },
+      {
+        "id": "1QSK-0",
+        "name": "ServiceTypeList · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 1164
+      },
+      {
+        "id": "1QYX-0",
+        "name": "EnumLabel · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 2709
+      },
+      {
+        "id": "1R06-0",
+        "name": "VendorTypeLabel · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 3269
+      },
+      {
+        "id": "1R7C-0",
+        "name": "CustomerTypeLabel · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 3814
+      },
+      {
+        "id": "1RDB-0",
+        "name": "TierBadge · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 4680
+      },
+      {
+        "id": "1RE7-0",
+        "name": "QueryTypeLabel · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 5325
+      },
+      {
+        "id": "1RKA-0",
+        "name": "DocumentTypeTile · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 6035
+      },
+      {
+        "id": "1RQB-0",
+        "name": "StatusBadge · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 4560,
+        "worldY": 6549
+      },
+      {
+        "id": "1RWR-0",
+        "name": "CustomerTierDialog · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
+        "worldY": 8634
       }
     ]
   },
@@ -1441,6 +2044,15 @@
         "width": 1440,
         "height": null,
         "worldX": 0,
+        "worldY": 0
+      },
+      {
+        "id": "1SDO-0",
+        "name": "ActivityTable · Dark source states",
+        "childCount": 3,
+        "width": 1440,
+        "height": null,
+        "worldX": 1520,
         "worldY": 0
       }
     ]
@@ -1461,4 +2073,3 @@
     ]
   }
 ]
-

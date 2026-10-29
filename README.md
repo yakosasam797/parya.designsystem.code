@@ -2,7 +2,7 @@
 
 A fresh React 19 and TypeScript implementation of the Paryatech Paper library, with a documentation website and a separate connected Storybook repository. Created from Paper specifications, not copied from the historical Paryatech implementation.
 
-**Version 0.2.0 is experimental.** It includes 95 live code references, including five list utilities, four hooks, 518 exported Paper tokens, and 151 exact SVG icons. The complete Paper inventory is documented, including designs that have not yet been implemented. A component's presence in Paper does not imply it is available in this package or that all its designed variants are implemented.
+**Version 0.2.0 is experimental.** It includes 151 live code references, including collection and domain utilities, four hooks, 518 exported Paper tokens, and 151 exact SVG icons. The live inventory of 219 Paper artboards is documented, including designs that have not yet been implemented. A component's presence in Paper does not imply it is available in this package or that all its designed variants are implemented.
 
 ## Open locally
 
@@ -88,6 +88,16 @@ const [activeNavId, setActiveNavId] = useState("bookings");
   </AppShell>
 </ThemeProvider>;
 ```
+
+## Shared workspace sections
+
+Use `NotesPanel` for internal notes scoped to a module or record, `EmailCommunication` for mailbox threads and an inline composer, and `ActivityTimeline` / `ActivityTable` for recent updates and searchable history. Each has a live documentation page and a shared Storybook example. The full-page AppShell example connects notes, communication, activity, credits, open records, account controls, and notifications.
+
+Applications supply records, draft state, permissions, and async save/send callbacks. Examples keep data in memory; they do not deliver email, upload attachments, or persist changes. Keep internal notes out of customer-facing views. Paper currently offers four NotesPanel review directions; the final direction remains unfrozen.
+
+The Studio inventory audit covers all 150 non-guideline names. This package now has 149 matching names plus `Heading` and `pageCount`. `MinorRateMatrix` is the only Studio entry absent from live Paper and is intentionally awaiting its design. `RateMatrix` uses major-unit amounts; it must not be substituted for a minor-unit matrix. Same-name coverage does not establish API, behavior, or visual parity with Studio. See `design/studio-inventory-audit.json` for the full reconciliation.
+
+Open `design/studio-inventory-audit.html` for the searchable matrix. After building the library and synchronizing Storybook, run `node scripts/reconcile-studio-inventory.mjs` to refresh it from the captured Studio names, current Paper catalog, runtime exports, and generated stories. The original Studio inventory is a reference for names and guidance, not component implementation.
 
 ## Foundations guidance
 

@@ -1,6 +1,15 @@
 @import "./fonts.css";
 @import "./tokens.css";
 @import "./typography.css";
+@import "./sections.css";
+@import "./advanced-overlays.css";
+@import "./shell-sections.css";
+@import "./domain.css";
+@import "./templates.css";
+@import "./calendar.css";
+@import "./charts.css";
+@import "./workflow.css";
+@import "./rates.css";
 
 /* AppShell dimensions and surfaces exported from the Paper shell reference. */
 .pt-app-shell {

@@ -15,6 +15,15 @@ import { useControllableState } from "../hooks";
 import { useTheme } from "../theme";
 import logoTeal from "../assets/paryatech-logo-teal.svg";
 import logoWhite from "../assets/paryatech-logo-white.svg";
+import {
+  AccountMenu,
+  NotesStrip,
+  CreditsMeter,
+  ShellSidebarContext,
+  type AccountMenuProps,
+  type NotesStripProps,
+  type CreditsMeterProps,
+} from "./shell-sections";
 
 export interface AppNavChild {
   id: string;
@@ -42,6 +51,10 @@ export interface SidebarProps {
   collapsed?: boolean;
   onCollapsedChange?: (collapsed: boolean) => void;
   sidebarFooter?: ReactNode;
+  notes?: Omit<NotesStripProps, "collapsed">;
+  credits?: Omit<CreditsMeterProps, "collapsed">;
+  openRecords?: ReactNode;
+  workspaceMenu?: MenuItem[];
 }
 function Destination({
   item,
@@ -187,6 +200,10 @@ export function Sidebar({
   collapsed = false,
   onCollapsedChange,
   sidebarFooter,
+  notes,
+  credits,
+  openRecords,
+  workspaceMenu,
 }: SidebarProps) {
   const { theme } = useTheme();
   const logo = (
@@ -207,7 +224,28 @@ export function Sidebar({
         {collapsed
           ? (brandMark ?? <span className="pt-shell-brand-mark">{logo}</span>)
           : (brand ?? logo)}
+        {workspaceMenu?.length && !collapsed ? (
+          <span className="pt-shell-workspace-switch">
+            <Menu
+              label="Workspaces"
+              items={workspaceMenu}
+              trigger={
+                <IconButton
+                  icon="chevron-down"
+                  size="xs"
+                  variant="ghost"
+                  aria-label="Switch workspace"
+                />
+              }
+            />
+          </span>
+        ) : null}
       </div>
+      {notes ? (
+        <div className="pt-shell-notes">
+          <NotesStrip {...notes} collapsed={collapsed} />
+        </div>
+      ) : null}
       <nav className="pt-shell-nav" aria-label="Primary navigation">
         {navGroups.map((group) => (
           <div className="pt-shell-nav-group" key={group.id}>
@@ -226,6 +264,18 @@ export function Sidebar({
           </div>
         ))}
       </nav>
+      {openRecords ? (
+        <div className="pt-shell-records">
+          <ShellSidebarContext.Provider value={collapsed}>
+            {openRecords}
+          </ShellSidebarContext.Provider>
+        </div>
+      ) : null}
+      {credits ? (
+        <div className="pt-shell-credits">
+          <CreditsMeter {...credits} collapsed={collapsed} />
+        </div>
+      ) : null}
       <footer className="pt-shell-sidebar-footer">
         {!collapsed && sidebarFooter ? (
           <div className="pt-shell-sidebar-extra">{sidebarFooter}</div>
@@ -249,13 +299,11 @@ export function Sidebar({
     </aside>
   );
 }
-export interface AppShellAccount {
-  name: string;
-  items: MenuItem[];
-}
+export interface AppShellAccount extends AccountMenuProps {}
 export interface AppShellNotifications {
   count?: number;
-  panel: ReactNode;
+  panel?: ReactNode;
+  onOpen?: () => void;
 }
 export interface TopbarProps {
   breadcrumbs?: BreadcrumbsProps["items"];
@@ -332,46 +380,47 @@ export function Topbar({
           />
         ) : null}
         {notifications ? (
-          <Popover
-            label="Application notifications"
-            align="end"
-            trigger={
-              <button
-                className="pt-shell-notifications"
-                type="button"
-                aria-label={`Notifications${notifications.count ? `, ${notifications.count} unread` : ""}`}
-              >
-                <Icon name="bell" />
-                {notifications.count ? (
-                  <span>
-                    {notifications.count > 99 ? "99+" : notifications.count}
-                  </span>
-                ) : null}
-              </button>
-            }
-          >
-            <div className="pt-shell-notification-panel">
-              {notifications.panel}
-            </div>
-          </Popover>
+          notifications.onOpen ? (
+            <button
+              className="pt-shell-notifications"
+              type="button"
+              aria-label={`Notifications${notifications.count ? `, ${notifications.count} unread` : ""}`}
+              onClick={notifications.onOpen}
+            >
+              <Icon name="bell" />
+              {notifications.count ? (
+                <span>
+                  {notifications.count > 99 ? "99+" : notifications.count}
+                </span>
+              ) : null}
+            </button>
+          ) : (
+            <Popover
+              label="Application notifications"
+              align="end"
+              trigger={
+                <button
+                  className="pt-shell-notifications"
+                  type="button"
+                  aria-label={`Notifications${notifications.count ? `, ${notifications.count} unread` : ""}`}
+                >
+                  <Icon name="bell" />
+                  {notifications.count ? (
+                    <span>
+                      {notifications.count > 99 ? "99+" : notifications.count}
+                    </span>
+                  ) : null}
+                </button>
+              }
+            >
+              <div className="pt-shell-notification-panel">
+                {notifications.panel}
+              </div>
+            </Popover>
+          )
         ) : null}
         {topbarActions}
-        {account ? (
-          <Menu
-            label="Account menu"
-            items={account.items}
-            trigger={
-              <button
-                className="pt-shell-account"
-                type="button"
-                aria-label={`Open account menu for ${account.name}`}
-              >
-                <Avatar name={account.name} size="sm" />
-                <Icon name="chevron-down" size="xs" />
-              </button>
-            }
-          />
-        ) : null}
+        {account ? <AccountMenu {...account} /> : null}
       </div>
     </header>
   );
@@ -400,6 +449,10 @@ export function AppShell({
   defaultCollapsed = false,
   onCollapsedChange,
   sidebarFooter,
+  notes,
+  credits,
+  openRecords,
+  workspaceMenu,
   height = "100dvh",
   embedded = false,
   contentLabel = "Workspace",
@@ -440,6 +493,10 @@ export function AppShell({
     brandMark,
     brandLabel,
     sidebarFooter,
+    notes,
+    credits,
+    openRecords,
+    workspaceMenu,
   };
   const Workspace = embedded ? "section" : "main";
   return (
@@ -499,7 +556,10 @@ export function AppShell({
       </div>
       <Dialog.Root open={mobileOpen} onOpenChange={setMobileOpen}>
         <Dialog.Portal>
-          <Dialog.Overlay className="pt-shell-mobile-scrim" data-theme={theme} />
+          <Dialog.Overlay
+            className="pt-shell-mobile-scrim"
+            data-theme={theme}
+          />
           <Dialog.Content
             className="pt-shell-mobile-panel"
             data-theme={theme}

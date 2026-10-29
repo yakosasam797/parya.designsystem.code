@@ -14,6 +14,13 @@ const exampleFile = ts.createSourceFile(
   ts.ScriptKind.TSX,
 );
 const exampleEntries = [];
+const migrationFile = ts.createSourceFile(
+  "migration-examples.tsx",
+  await readFile("src/migration-examples.tsx", "utf8"),
+  ts.ScriptTarget.Latest,
+  true,
+  ts.ScriptKind.TSX,
+);
 function collectExamples(node) {
   if (
     ts.isVariableDeclaration(node) &&
@@ -32,13 +39,16 @@ function collectExamples(node) {
           entry[prop.name.getText(exampleFile)] = prop.initializer.text;
       }
       if (entry.source) {
-        const demo = exampleFile.statements.find(
+        const demo = [
+          ...exampleFile.statements,
+          ...migrationFile.statements,
+        ].find(
           (statement) =>
             ts.isFunctionDeclaration(statement) &&
             statement.name?.text === entry.source,
         );
         if (!demo) throw new Error(`Missing example source: ${entry.source}`);
-        entry.code = demo.getText(exampleFile).replace(/\bUI\./g, "");
+        entry.code = demo.getText().replace(/\bUI\./g, "");
       }
       if (entry.name && entry.code) exampleEntries.push(entry);
     }
@@ -125,7 +135,7 @@ const components = names.map((name) => {
     : null;
   const props =
     kind === "utility"
-      ? signature.parameters.map((parameter) => {
+      ? (signature?.parameters ?? []).map((parameter) => {
           const declaration = parameter.declarations[0];
           return {
             name: parameter.name,
@@ -174,7 +184,9 @@ const components = names.map((name) => {
     types: referencedTypes(props.map((prop) => prop.type)),
     returnType:
       kind === "utility"
-        ? checker.typeToString(checker.getReturnTypeOfSignature(signature))
+        ? signature
+          ? checker.typeToString(checker.getReturnTypeOfSignature(signature))
+          : checker.typeToString(type)
         : null,
     category:
       design?.category ?? fallbackCategory[name] ?? "Overlays & feedback",

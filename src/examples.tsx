@@ -1,3 +1,21 @@
+import {
+  ActivityHistoryExample,
+  ActivitySectionExample,
+  CalendarSectionsExample,
+  ChartSectionsExample,
+  CommunicationSectionExample,
+  DashboardTemplateExample,
+  DomainSectionExample,
+  KpiSectionExample,
+  NotesSectionExample,
+  NotificationsSectionExample,
+  OverlaySectionsExample,
+  RateSectionsExample,
+  RecordTemplateExample,
+  ShellSectionsExample,
+  TemplateSectionsExample,
+  WorkflowSectionsExample,
+} from "./migration-examples";
 import { useState, type ComponentType } from "react";
 import * as UI from "./index";
 export interface Example {
@@ -75,54 +93,75 @@ export function AppShellDemo({
       status: "Confirmed",
     },
   ]);
-  const navGroups: UI.AppNavGroup[] = [
-    {
-      id: "daily",
-      items: [
-        { id: "home", label: "Home", icon: "home" },
-        { id: "inbox", label: "Inbox", icon: "inbox", badge: 12 },
-        { id: "tasks", label: "Tasks", icon: "tasks", badge: 4 },
+  const navGroups = UI.paryatechNav({
+    counts: { inbox: 12, tasks: 4 },
+    children: {
+      bookings: [
+        { id: "all-bookings", label: "All bookings" },
+        { id: "departures", label: "Departures" },
+      ],
+      vendors: [
+        { id: "hotels", label: "Accommodation" },
+        { id: "transport", label: "Transport" },
       ],
     },
+  });
+  const [notesOpen, setNotesOpen] = useState(false);
+  const [autoCompose, setAutoCompose] = useState(false);
+  const [notesByScope, setNotesByScope] = useState<
+    Record<string, UI.NoteRecord[]>
+  >({});
+  const [openRecords, setOpenRecords] = useState<string[]>([
+    "BK-1042",
+    "BK-1043",
+  ]);
+  const [notificationOpen, setNotificationOpen] = useState(false);
+  const [notificationTab, setNotificationTab] = useState<"all" | "unread">(
+    "unread",
+  );
+  const [notificationRows, setNotificationRows] = useState<
+    UI.NotificationRowData[]
+  >([
     {
-      id: "travel",
-      label: "Travel",
-      items: [
-        { id: "queries", label: "Queries", icon: "queries" },
-        { id: "packages", label: "Packages", icon: "packages" },
-        {
-          id: "bookings",
-          label: "Bookings",
-          icon: "bookings",
-          children: [
-            { id: "all-bookings", label: "All bookings" },
-            { id: "departures", label: "Departures" },
-          ],
-        },
-      ],
+      id: "payment",
+      title: "Payment received",
+      context: "Mehta family · Deposit collected",
+      recordTitle: "BK-1042 · Bali",
+      at: "2026-10-28T10:30:00+05:30",
+      unread: true,
+      icon: "hand-coins",
     },
     {
-      id: "partners",
-      items: [
-        { id: "customers", label: "Customers", icon: "customers" },
-        {
-          id: "vendors",
-          label: "Vendors",
-          icon: "vendors",
-          children: [
-            { id: "hotels", label: "Accommodation" },
-            { id: "transport", label: "Transport" },
-          ],
-        },
-      ],
+      id: "documents",
+      title: "Documents ready",
+      context: "Meera Krishnan · Kochi",
+      recordTitle: "BK-1045 · Kochi",
+      at: "2026-10-28T09:10:00+05:30",
+      unread: true,
+      icon: "passport",
+    },
+  ]);
+  const [recordTab, setRecordTab] = useState("overview");
+  const [drafts, setDrafts] = useState<Record<string, UI.EmailDraft>>({});
+  const [emails, setEmails] = useState<Record<string, UI.EmailMessage[]>>({});
+  const noteScope = record ?? active;
+  const scopeNotes = notesByScope[noteScope] ?? [];
+  const activityItems: UI.ActivityItem[] = [
+    {
+      id: "activity-payment",
+      at: "2026-10-28T10:30:00+05:30",
+      title: "Payment received",
+      description: "Mehta family · Deposit collected",
+      icon: "hand-coins",
+      actor: { name: "Kumar Iyer", subtitle: "Finance" },
     },
     {
-      id: "agency",
-      items: [
-        { id: "finance", label: "Finance", icon: "finance" },
-        { id: "team", label: "Team", icon: "team" },
-        { id: "settings", label: "Settings", icon: "settings" },
-      ],
+      id: "activity-docs",
+      at: "2026-10-28T09:10:00+05:30",
+      title: "Travel documents ready",
+      description: "Meera Krishnan · Kochi",
+      icon: "passport",
+      actor: { name: "Priya Nair", subtitle: "Operations" },
     },
   ];
   const pages = navGroups.flatMap((group) =>
@@ -141,11 +180,17 @@ export function AppShellDemo({
   ].includes(active);
   const PageTitle = embedded ? "h2" : "h1";
   function navigate(id: string) {
+    setNotesOpen(false);
     setActive(id);
     setRecord(null);
     setDialog(null);
   }
   function openBooking(id: string) {
+    setNotesOpen(false);
+    setRecordTab("overview");
+    setOpenRecords((previous) =>
+      previous.includes(id) ? previous : [...previous, id],
+    );
     setActive("bookings");
     setRecord(id);
     setDialog(null);
@@ -160,6 +205,76 @@ export function AppShellDemo({
         navGroups={navGroups}
         activeNavId={active}
         onNavigate={navigate}
+        notes={{
+          label: currentRecord ? "Booking notes" : "Module notes",
+          count: scopeNotes.length,
+          onOpen: () => {
+            setAutoCompose(false);
+            setNotesOpen(true);
+          },
+          onAdd: () => {
+            setAutoCompose(true);
+            setNotesOpen(true);
+          },
+        }}
+        credits={{
+          used: 720,
+          total: 1000,
+          onUpgrade: () => UI.toast("Credit upgrade selected"),
+        }}
+        workspaceMenu={[
+          {
+            id: "agency",
+            label: "Parya Travel",
+            onSelect: () => UI.toast("Parya Travel is selected"),
+          },
+          {
+            id: "switch",
+            label: "Switch workspace",
+            onSelect: () => UI.toast("Connect your workspace picker here"),
+          },
+        ]}
+        openRecords={
+          <UI.OpenRecordsList
+            records={openRecords.flatMap((id) => {
+              const booking = bookings.find((row) => row.id === id);
+              return booking
+                ? [
+                    {
+                      id,
+                      code: id,
+                      title: booking.name,
+                      icon: "bookings" as const,
+                    },
+                  ]
+                : [];
+            })}
+            activeId={record}
+            onSelect={openBooking}
+            onClose={(id) => {
+              setOpenRecords(openRecords.filter((value) => value !== id));
+              if (record === id) navigate("bookings");
+            }}
+            onReorder={setOpenRecords}
+            onCloseAll={() => {
+              setOpenRecords([]);
+              navigate("bookings");
+            }}
+          />
+        }
+        topbarActions={
+          <UI.OpenRecordsSwitcher
+            records={openRecords.flatMap((id) => {
+              const booking = bookings.find((row) => row.id === id);
+              return booking ? [{ id, title: booking.name, code: id }] : [];
+            })}
+            activeId={record}
+            onSelect={(id) => (id ? openBooking(id) : navigate("bookings"))}
+            onClose={(id) =>
+              setOpenRecords(openRecords.filter((value) => value !== id))
+            }
+          />
+        }
         breadcrumbs={
           currentRecord
             ? [{ label: "Bookings" }, { label: currentRecord.id }]
@@ -191,26 +306,8 @@ export function AppShellDemo({
           ],
         }}
         notifications={{
-          count: 3,
-          panel: (
-            <UI.Stack>
-              <strong>Notifications</strong>
-              <p className="pt-caption">3 unread updates</p>
-              <UI.Divider />
-              <div>
-                <strong>Payment received</strong>
-                <p className="pt-caption">Mehta family · Deposit collected</p>
-              </div>
-              <div>
-                <strong>Departure approaching</strong>
-                <p className="pt-caption">Aarav Singh · Munnar</p>
-              </div>
-              <div>
-                <strong>Documents ready</strong>
-                <p className="pt-caption">Meera Krishnan · Kochi</p>
-              </div>
-            </UI.Stack>
-          ),
+          count: notificationRows.filter((row) => row.unread).length,
+          onOpen: () => setNotificationOpen(true),
         }}
         sidebarFooter={
           <div className="pt-shell-demo-footer">
@@ -222,150 +319,272 @@ export function AppShellDemo({
           </div>
         }
       >
-        <UI.Stack gap="6">
-          <header className="pt-page-header">
-            <div>
-              <PageTitle>
-                {currentRecord ? currentRecord.name : currentPage}
-              </PageTitle>
-              <p>
-                {currentRecord
-                  ? `${currentRecord.id} · ${currentRecord.destination}`
-                  : "Plan journeys, manage bookings, and keep the team moving."}
-              </p>
-            </div>
-            {!currentRecord && showBookings ? (
-              <UI.Button
-                variant="primary"
-                leadingIcon="plus"
-                onClick={() => {
-                  setTripName("");
-                  setDestination("");
-                  setDialog("create");
-                }}
-              >
-                New booking
-              </UI.Button>
-            ) : null}
-          </header>
-          {currentRecord ? (
-            <UI.Panel title="Booking overview">
-              <UI.Stack>
-                <UI.StatusChip
-                  tone={
-                    currentRecord.status === "Confirmed" ? "success" : "warning"
-                  }
-                >
-                  {currentRecord.status}
-                </UI.StatusChip>
-                <UI.DescriptionList
-                  items={[
-                    { label: "Destination", value: currentRecord.destination },
-                  ]}
-                />
-                <UI.DescriptionList
-                  items={[
-                    { label: "Departure", value: currentRecord.departure },
-                  ]}
-                />
-                <UI.Banner tone="info" title="Ready for the next step">
-                  Keep traveler details, documents, and payments together on
-                  this booking.
-                </UI.Banner>
-              </UI.Stack>
-            </UI.Panel>
-          ) : showBookings ? (
-            <>
-              <UI.SummaryStrip
-                items={[
-                  { label: "Open queries", value: "22" },
-                  { label: "Upcoming trips", value: String(bookings.length) },
+        {notesOpen ? (
+          <UI.NotesPanel
+            key={noteScope}
+            open
+            onOpenChange={setNotesOpen}
+            title={currentRecord ? "Booking notes" : "Module notes"}
+            notes={scopeNotes}
+            autoCompose={autoCompose}
+            onAdd={(body) =>
+              setNotesByScope((previous) => ({
+                ...previous,
+                [noteScope]: [
+                  ...(previous[noteScope] ?? []),
                   {
-                    label: "Collections due",
-                    value: <UI.Money value={530000} />,
+                    id: `note-${Date.now()}`,
+                    body,
+                    author: { name: "Vijay Jain" },
+                    at: new Date().toISOString(),
                   },
-                ]}
-              />
-              <UI.Panel
-                title={
-                  active === "home" ? "Upcoming departures" : "Booking list"
+                ],
+              }))
+            }
+          />
+        ) : (
+          <UI.Stack gap="6">
+            <header className="pt-page-header">
+              <div>
+                <PageTitle>
+                  {currentRecord ? currentRecord.name : currentPage}
+                </PageTitle>
+                <p>
+                  {currentRecord
+                    ? `${currentRecord.id} · ${currentRecord.destination}`
+                    : "Plan journeys, manage bookings, and keep the team moving."}
+                </p>
+              </div>
+              {!currentRecord && showBookings ? (
+                <UI.Button
+                  variant="primary"
+                  leadingIcon="plus"
+                  onClick={() => {
+                    setTripName("");
+                    setDestination("");
+                    setDialog("create");
+                  }}
+                >
+                  New booking
+                </UI.Button>
+              ) : null}
+            </header>
+            {currentRecord ? (
+              <UI.RecordPageTemplate
+                header={null}
+                tabs={
+                  <UI.TabBar
+                    aria-label="Booking sections"
+                    value={recordTab}
+                    onValueChange={setRecordTab}
+                    items={[
+                      { value: "overview", label: "Overview" },
+                      { value: "communication", label: "Communication" },
+                      { value: "activity", label: "Recent activity" },
+                    ]}
+                  />
                 }
-                description="November 2026"
               >
-                <UI.DataTable
-                  rows={bookings}
-                  getRowId={(row) => row.id}
-                  caption="Upcoming bookings"
-                  columns={[
+                {recordTab === "communication" ? (
+                  <UI.EmailCommunication
+                    contact={{ name: currentRecord.name }}
+                    messages={emails[currentRecord.id] ?? []}
+                    draft={
+                      drafts[currentRecord.id] ?? {
+                        to: "",
+                        subject: "",
+                        body: "",
+                      }
+                    }
+                    onDraftChange={(draft) =>
+                      setDrafts((previous) => ({
+                        ...previous,
+                        [currentRecord.id]: draft,
+                      }))
+                    }
+                    onSend={async (draft) => {
+                      await Promise.resolve();
+                      setEmails((previous) => ({
+                        ...previous,
+                        [currentRecord.id]: [
+                          ...(previous[currentRecord.id] ?? []),
+                          {
+                            id: `email-${Date.now()}`,
+                            folder: "sent",
+                            subject: draft.subject,
+                            body: draft.body,
+                            to: draft.to,
+                            at: new Date().toISOString(),
+                            attachments: draft.attachments,
+                          },
+                        ],
+                      }));
+                    }}
+                    context="Sample record workspace · no email is delivered from this example."
+                  />
+                ) : recordTab === "activity" ? (
+                  <UI.ActivityTimeline items={activityItems} />
+                ) : (
+                  <UI.Panel title="Booking overview">
+                    <UI.Stack>
+                      <UI.StatusChip
+                        tone={
+                          currentRecord.status === "Confirmed"
+                            ? "success"
+                            : "warning"
+                        }
+                      >
+                        {currentRecord.status}
+                      </UI.StatusChip>
+                      <UI.DescriptionList
+                        items={[
+                          {
+                            label: "Destination",
+                            value: currentRecord.destination,
+                          },
+                        ]}
+                      />
+                      <UI.DescriptionList
+                        items={[
+                          {
+                            label: "Departure",
+                            value: currentRecord.departure,
+                          },
+                        ]}
+                      />
+                      <UI.Banner tone="info" title="Ready for the next step">
+                        Keep traveler details, documents, and payments together
+                        on this booking.
+                      </UI.Banner>
+                    </UI.Stack>
+                  </UI.Panel>
+                )}
+              </UI.RecordPageTemplate>
+            ) : showBookings ? (
+              <>
+                <UI.KpiStrip
+                  columns={3}
+                  items={[
                     {
-                      id: "customer",
-                      header: "Customer",
-                      render: (row) => (
-                        <UI.EntityCell
-                          name={row.name}
-                          description={row.destination}
-                        />
-                      ),
+                      label: "Open queries",
+                      value: "22",
+                      icon: "queries",
+                      onSelect: () => navigate("queries"),
                     },
                     {
-                      id: "booking",
-                      header: "Booking",
-                      render: (row) => (
-                        <button
-                          type="button"
-                          className="pt-shell-demo-booking-link"
-                          onClick={() => openBooking(row.id)}
-                        >
-                          {row.id}
-                        </button>
-                      ),
+                      label: "Upcoming trips",
+                      value: String(bookings.length),
+                      icon: "bookings",
+                      onSelect: () => navigate("bookings"),
                     },
                     {
-                      id: "departure",
-                      header: "Departure",
-                      render: (row) => row.departure,
-                    },
-                    {
-                      id: "status",
-                      header: "Status",
-                      render: (row) => (
-                        <UI.StatusChip
-                          tone={
-                            row.status === "Confirmed" ? "success" : "warning"
-                          }
-                        >
-                          {row.status}
-                        </UI.StatusChip>
-                      ),
+                      label: "Collections due",
+                      value: <UI.Money value={530000} />,
+                      icon: "hand-coins",
+                      onSelect: () => navigate("finance"),
                     },
                   ]}
                 />
-              </UI.Panel>
-              <UI.Panel title="Recent activity">
-                <UI.Stack>
-                  <UI.IconText icon="check-circle">
-                    Payment received for Mehta family
-                  </UI.IconText>
-                  <UI.Divider />
-                  <UI.IconText icon="passport">
-                    Travel documents ready for Meera Krishnan
-                  </UI.IconText>
-                </UI.Stack>
-              </UI.Panel>
-            </>
-          ) : (
-            <UI.EmptyState
-              icon={
-                navGroups
-                  .flatMap((group) => group.items)
-                  .find((item) => item.id === active)?.icon ?? "packages"
-              }
-              title={`Your ${currentPage.toLowerCase()} appear here`}
-              description="Choose Home or Bookings to explore the sample travel workspace."
-            />
-          )}
-        </UI.Stack>
+                <UI.Panel
+                  title={
+                    active === "home" ? "Upcoming departures" : "Booking list"
+                  }
+                  description="November 2026"
+                >
+                  <UI.DataTable
+                    rows={bookings}
+                    getRowId={(row) => row.id}
+                    caption="Upcoming bookings"
+                    columns={[
+                      {
+                        id: "customer",
+                        header: "Customer",
+                        render: (row) => (
+                          <UI.EntityCell
+                            name={row.name}
+                            description={row.destination}
+                          />
+                        ),
+                      },
+                      {
+                        id: "booking",
+                        header: "Booking",
+                        render: (row) => (
+                          <button
+                            type="button"
+                            className="pt-shell-demo-booking-link"
+                            onClick={() => openBooking(row.id)}
+                          >
+                            {row.id}
+                          </button>
+                        ),
+                      },
+                      {
+                        id: "departure",
+                        header: "Departure",
+                        render: (row) => row.departure,
+                      },
+                      {
+                        id: "status",
+                        header: "Status",
+                        render: (row) => (
+                          <UI.StatusChip
+                            tone={
+                              row.status === "Confirmed" ? "success" : "warning"
+                            }
+                          >
+                            {row.status}
+                          </UI.StatusChip>
+                        ),
+                      },
+                    ]}
+                  />
+                </UI.Panel>
+                <UI.Panel title="Recent activity">
+                  <UI.ActivityTimeline items={activityItems} />
+                </UI.Panel>
+              </>
+            ) : (
+              <UI.EmptyState
+                icon={
+                  navGroups
+                    .flatMap((group) => group.items)
+                    .find((item) => item.id === active)?.icon ?? "packages"
+                }
+                title={`Your ${currentPage.toLowerCase()} appear here`}
+                description="Choose Home or Bookings to explore the sample travel workspace."
+              />
+            )}
+          </UI.Stack>
+        )}
       </UI.AppShell>
+      <UI.NotificationsDrawer
+        open={notificationOpen}
+        onOpenChange={setNotificationOpen}
+        groups={[
+          { id: "recent", label: "Recent updates", rows: notificationRows },
+        ]}
+        unreadCount={notificationRows.filter((row) => row.unread).length}
+        tab={notificationTab}
+        onTabChange={setNotificationTab}
+        onOpen={(row) => {
+          setNotificationOpen(false);
+          UI.toast(row.recordTitle ?? row.title);
+        }}
+        onSetRead={(ids, read) =>
+          setNotificationRows((previous) =>
+            previous.map((row) =>
+              ids.includes(row.id) ? { ...row, unread: !read } : row,
+            ),
+          )
+        }
+        onMarkAllRead={() =>
+          setNotificationRows((previous) =>
+            previous.map((row) => ({ ...row, unread: false })),
+          )
+        }
+      />
+
       <UI.Modal
         open={dialog !== null}
         onOpenChange={(open) => {
@@ -1400,6 +1619,349 @@ function TagDemo() {
   );
 }
 export const examples: Example[] = [
+  {
+    name: "NotesPanel",
+    code: "",
+    source: "NotesSectionExample",
+    Demo: NotesSectionExample,
+  },
+  {
+    name: "NotesStrip",
+    code: "",
+    source: "NotesSectionExample",
+    Demo: NotesSectionExample,
+  },
+  {
+    name: "EmailCommunication",
+    code: "",
+    source: "CommunicationSectionExample",
+    Demo: CommunicationSectionExample,
+  },
+  {
+    name: "ActivityTimeline",
+    code: "",
+    source: "ActivitySectionExample",
+    Demo: ActivitySectionExample,
+  },
+  {
+    name: "ActivityTable",
+    code: "",
+    source: "ActivityHistoryExample",
+    Demo: ActivityHistoryExample,
+  },
+  {
+    name: "KpiStrip",
+    code: "",
+    source: "KpiSectionExample",
+    Demo: KpiSectionExample,
+  },
+  {
+    name: "CreditsMeter",
+    code: "",
+    source: "ShellSectionsExample",
+    Demo: ShellSectionsExample,
+  },
+  {
+    name: "AccountMenu",
+    code: "",
+    source: "ShellSectionsExample",
+    Demo: ShellSectionsExample,
+  },
+  {
+    name: "OpenRecordsList",
+    code: "",
+    source: "ShellSectionsExample",
+    Demo: ShellSectionsExample,
+  },
+  {
+    name: "OpenRecordsSwitcher",
+    code: "",
+    source: "ShellSectionsExample",
+    Demo: ShellSectionsExample,
+  },
+  {
+    name: "NotificationsPanel",
+    code: "",
+    source: "NotificationsSectionExample",
+    Demo: NotificationsSectionExample,
+  },
+  {
+    name: "NotificationRow",
+    code: "",
+    source: "NotificationsSectionExample",
+    Demo: NotificationsSectionExample,
+  },
+  {
+    name: "NotificationsDrawer",
+    code: "",
+    source: "NotificationsSectionExample",
+    Demo: NotificationsSectionExample,
+  },
+  {
+    name: "Sheet",
+    code: "",
+    source: "OverlaySectionsExample",
+    Demo: OverlaySectionsExample,
+  },
+  {
+    name: "Drawer",
+    code: "",
+    source: "OverlaySectionsExample",
+    Demo: OverlaySectionsExample,
+  },
+  {
+    name: "CommandPalette",
+    code: "",
+    source: "OverlaySectionsExample",
+    Demo: OverlaySectionsExample,
+  },
+  {
+    name: "ServiceTypeLabel",
+    code: "",
+    source: "DomainSectionExample",
+    Demo: DomainSectionExample,
+  },
+  {
+    name: "ServiceTypeList",
+    code: "",
+    source: "DomainSectionExample",
+    Demo: DomainSectionExample,
+  },
+  {
+    name: "EnumLabel",
+    code: "",
+    source: "DomainSectionExample",
+    Demo: DomainSectionExample,
+  },
+  {
+    name: "VENDOR_TYPES",
+    code: "",
+    source: "DomainSectionExample",
+    Demo: DomainSectionExample,
+    kind: "utility",
+  },
+  {
+    name: "VendorTypeLabel",
+    code: "",
+    source: "DomainSectionExample",
+    Demo: DomainSectionExample,
+  },
+  {
+    name: "CustomerTypeLabel",
+    code: "",
+    source: "DomainSectionExample",
+    Demo: DomainSectionExample,
+  },
+  {
+    name: "TierBadge",
+    code: "",
+    source: "DomainSectionExample",
+    Demo: DomainSectionExample,
+  },
+  {
+    name: "QueryTypeLabel",
+    code: "",
+    source: "DomainSectionExample",
+    Demo: DomainSectionExample,
+  },
+  {
+    name: "DocumentTypeTile",
+    code: "",
+    source: "DomainSectionExample",
+    Demo: DomainSectionExample,
+  },
+  {
+    name: "statusMeta",
+    code: "",
+    source: "DomainSectionExample",
+    Demo: DomainSectionExample,
+    kind: "utility",
+  },
+  {
+    name: "StatusBadge",
+    code: "",
+    source: "DomainSectionExample",
+    Demo: DomainSectionExample,
+  },
+  {
+    name: "paryatechNav",
+    code: "",
+    source: "DomainSectionExample",
+    Demo: DomainSectionExample,
+    kind: "utility",
+  },
+  {
+    name: "CustomerTierDialog",
+    code: "",
+    source: "DomainSectionExample",
+    Demo: DomainSectionExample,
+  },
+  {
+    name: "RecordPageTemplate",
+    code: "",
+    source: "RecordTemplateExample",
+    Demo: RecordTemplateExample,
+  },
+  {
+    name: "RecordOverviewLayout",
+    code: "",
+    source: "RecordTemplateExample",
+    Demo: RecordTemplateExample,
+  },
+  {
+    name: "FormPageTemplate",
+    code: "",
+    source: "TemplateSectionsExample",
+    Demo: TemplateSectionsExample,
+  },
+  {
+    name: "SettingsPageTemplate",
+    code: "",
+    source: "TemplateSectionsExample",
+    Demo: TemplateSectionsExample,
+  },
+  {
+    name: "DashboardPageTemplate",
+    code: "",
+    source: "DashboardTemplateExample",
+    Demo: DashboardTemplateExample,
+  },
+  {
+    name: "Agenda",
+    code: "",
+    source: "CalendarSectionsExample",
+    Demo: CalendarSectionsExample,
+  },
+  {
+    name: "MiniCalendar",
+    code: "",
+    source: "CalendarSectionsExample",
+    Demo: CalendarSectionsExample,
+  },
+  {
+    name: "EventRow",
+    code: "",
+    source: "CalendarSectionsExample",
+    Demo: CalendarSectionsExample,
+  },
+  {
+    name: "AgendaSummary",
+    code: "",
+    source: "CalendarSectionsExample",
+    Demo: CalendarSectionsExample,
+  },
+  {
+    name: "EVENT_KINDS",
+    code: "",
+    source: "CalendarSectionsExample",
+    Demo: CalendarSectionsExample,
+    kind: "utility",
+  },
+  {
+    name: "ChartCard",
+    code: "",
+    source: "ChartSectionsExample",
+    Demo: ChartSectionsExample,
+  },
+  {
+    name: "AreaChart",
+    code: "",
+    source: "ChartSectionsExample",
+    Demo: ChartSectionsExample,
+  },
+  {
+    name: "LineChart",
+    code: "",
+    source: "ChartSectionsExample",
+    Demo: ChartSectionsExample,
+  },
+  {
+    name: "BarChart",
+    code: "",
+    source: "ChartSectionsExample",
+    Demo: ChartSectionsExample,
+  },
+  {
+    name: "BarList",
+    code: "",
+    source: "ChartSectionsExample",
+    Demo: ChartSectionsExample,
+  },
+  {
+    name: "DonutChart",
+    code: "",
+    source: "ChartSectionsExample",
+    Demo: ChartSectionsExample,
+  },
+  {
+    name: "Sparkline",
+    code: "",
+    source: "ChartSectionsExample",
+    Demo: ChartSectionsExample,
+  },
+  {
+    name: "KanbanBoard",
+    code: "",
+    source: "WorkflowSectionsExample",
+    Demo: WorkflowSectionsExample,
+  },
+  {
+    name: "BoardViewSwitch",
+    code: "",
+    source: "WorkflowSectionsExample",
+    Demo: WorkflowSectionsExample,
+  },
+  {
+    name: "RecordPreviewPanel",
+    code: "",
+    source: "WorkflowSectionsExample",
+    Demo: WorkflowSectionsExample,
+  },
+  {
+    name: "RecordPreviewSection",
+    code: "",
+    source: "WorkflowSectionsExample",
+    Demo: WorkflowSectionsExample,
+  },
+  {
+    name: "describeKanbanSignal",
+    code: "",
+    source: "WorkflowSectionsExample",
+    Demo: WorkflowSectionsExample,
+    kind: "utility",
+  },
+  {
+    name: "PRIORITY_LEVELS",
+    code: "",
+    source: "WorkflowSectionsExample",
+    Demo: WorkflowSectionsExample,
+    kind: "utility",
+  },
+  {
+    name: "RateMatrix",
+    code: "",
+    source: "RateSectionsExample",
+    Demo: RateSectionsExample,
+  },
+  {
+    name: "SeasonLegend",
+    code: "",
+    source: "RateSectionsExample",
+    Demo: RateSectionsExample,
+  },
+  {
+    name: "RateVersionBar",
+    code: "",
+    source: "RateSectionsExample",
+    Demo: RateSectionsExample,
+  },
+  {
+    name: "validateRateMatrix",
+    code: "",
+    source: "RateSectionsExample",
+    Demo: RateSectionsExample,
+    kind: "utility",
+  },
   { name: "AppShell", code: "", source: "AppShellStarter", Demo: AppShellDemo },
   { name: "Sidebar", code: "", source: "SidebarDemo", Demo: SidebarDemo },
   { name: "Topbar", code: "", source: "TopbarDemo", Demo: TopbarDemo },
