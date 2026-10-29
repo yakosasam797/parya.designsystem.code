@@ -4,7 +4,7 @@ Four supplied logo forms, 14 variants and 22 original files.
 
 | Form | Variants | Supplied formats | Original dimensions |
 | --- | --- | --- | --- |
-| Horizontal logo | Teal, black, white, pale pink | SVG and transparent PNG | 1200 × 450 |
+| Horizontal logo | Teal, black, white, pale pink | SVG and transparent PNG | SVG 1193 × 259; PNG 2385 × 517 |
 | Stacked logo | Deep teal, black, white, pale pink | SVG and transparent PNG | 1200 × 700 |
 | Standalone symbol | Teal, black, white, pale pink | Transparent PNG | 840 × 840 |
 | App tile | Teal on pale pink; white on teal | SVG with background | 387 × 387 |
@@ -26,8 +26,8 @@ Keep original proportions and colors. Keep horizontal and stacked lockups intact
 
 ## File provenance
 
-Files are preserved byte-for-byte with descriptive filenames. Original export numbers: horizontal 13–16; standalone symbol 17–20; stacked 21–24. The app tiles were supplied as Frame 2147224932.svg and Frame 2147224948.svg. The website header continues to use its existing separate SVG copies with a tighter viewBox.
+Files are preserved byte-for-byte with descriptive filenames. Current horizontal logos: Group 39 (white), Group 40 (black), Group 41 (pale pink), Group 42 (teal), from paryatech logog.zip. These full wordmarks include P. Earlier horizontal exports 13–16 have been replaced. Standalone symbol exports remain 17–20; stacked exports remain 21–24. The app tiles were supplied as Frame 2147224932.svg and Frame 2147224948.svg. The documentation and AppShell headers use exact copies of the current teal and white horizontal SVG files.
 
-manifest.json records each original file's dimensions, available format, byte size and SHA-256 hash. All three download packs include this manifest and these usage notes. The intake comparison is recorded in design/brand-asset-intake-2026-10-29.json in the source repository.
+manifest.json records each original file's dimensions (per format when PNG and SVG sizes differ), available format, byte size and SHA-256 hash. All three download packs include this manifest and these usage notes. The intake comparison is recorded in design/brand-asset-intake-2026-10-29.json in the source repository.
 
 For maintainers: after updating the source manifest or files, run `python scripts/build-brand-assets.py` from the repository. It verifies original hashes, dimensions and duplicates, synchronizes the public manifest, and rebuilds all three packs. It uses Python's standard library only.

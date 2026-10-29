@@ -18,7 +18,12 @@ type Logo = {
   width: number;
   height: number;
   transparent: boolean;
-  files: Partial<Record<Extension, { path: string; bytes: number }>>;
+  files: Partial<
+    Record<
+      Extension,
+      { path: string; bytes: number; width?: number; height?: number }
+    >
+  >;
 };
 const logos: Logo[] = manifest.variants;
 const fileCount = logos.reduce(
@@ -87,7 +92,8 @@ function LogoCard({
         </div>
         <p>{logo.usage}</p>
         <div className="ba-file-meta">
-          {logo.width} × {logo.height}
+          {logo.files.png?.width ?? logo.width} ×{" "}
+          {logo.files.png?.height ?? logo.height}
           {logo.files.png ? " px PNG" : " SVG artboard"} ·{" "}
           {logo.transparent ? "Transparent" : "Background included"}
         </div>
@@ -199,7 +205,7 @@ function UsageGuidance() {
             <h3>PNG</h3>
             <p>
               Use for slides, documents, email, and tools that need an image.
-              Horizontal logos are 1200 × 450 px, stacked logos are 1200 × 700
+              Horizontal logos are 2385 × 517 px, stacked logos are 1200 × 700
               px, and symbols are 840 × 840 px. These PNGs have transparent
               backgrounds. Use them at their native size or smaller.
             </p>

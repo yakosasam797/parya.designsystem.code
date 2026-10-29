@@ -7,22 +7,26 @@
       "color": "#115553",
       "background": "light",
       "usage": "Our teal logo for white and light backgrounds.",
-      "source": "15",
+      "source": "paryatech logog.zip / Group 42",
       "files": {
         "svg": {
           "path": "brand/svg/paryatech-logo-teal.svg",
-          "bytes": 9314,
-          "sha256": "9002ad7c6610604ba37da2b51c8fc9b824fdd099c63cc7bbf6d487d035346367"
+          "bytes": 10164,
+          "sha256": "e8fa08894040db53d5aa4b6f797664bc1aa26ad72d9cf1d55371d6902e08f888",
+          "width": 1193,
+          "height": 259
         },
         "png": {
           "path": "brand/png/paryatech-logo-teal.png",
-          "bytes": 19328,
-          "sha256": "c75b42c4beeb74936b484581a3260b288da1559d72da057603c09bef9b4f8af5"
+          "bytes": 42913,
+          "sha256": "470c669fe4189be4457dcfcac0066102bdc2997b3e49ffd6ca69339c1b2db074",
+          "width": 2385,
+          "height": 517
         }
       },
       "group": "horizontal",
-      "width": 1200,
-      "height": 450,
+      "width": 1193,
+      "height": 259,
       "transparent": true
     },
     {
@@ -31,22 +35,26 @@
       "color": "#000000",
       "background": "light",
       "usage": "A single-color option for monochrome documents and printing.",
-      "source": "13",
+      "source": "paryatech logog.zip / Group 40",
       "files": {
         "svg": {
           "path": "brand/svg/paryatech-logo-black.svg",
-          "bytes": 9280,
-          "sha256": "8935f31cfbaeaaddcac24a9c04ef289b3d375a0d412ac19acfc5cab9055f5876"
+          "bytes": 10128,
+          "sha256": "e5078ca2f420074cdddc6d3b8101ac5ca200ff856bc40212ffe756ce77cd6bff",
+          "width": 1193,
+          "height": 259
         },
         "png": {
           "path": "brand/png/paryatech-logo-black.png",
-          "bytes": 14365,
-          "sha256": "b5504017221e7e8bb84a7dddd7b354db9819c7e5f96b9c0f4545ef3347fc5306"
+          "bytes": 33447,
+          "sha256": "009b1f37d86d4446b151650497ad1e85e4290190a7a5c2f6fbd7d78ee3c763ee",
+          "width": 2385,
+          "height": 517
         }
       },
       "group": "horizontal",
-      "width": 1200,
-      "height": 450,
+      "width": 1193,
+      "height": 259,
       "transparent": true
     },
     {
@@ -55,22 +63,26 @@
       "color": "#FFFFFF",
       "background": "dark",
       "usage": "A reversed logo for dark backgrounds and photography with a clear, dark area.",
-      "source": "14",
+      "source": "paryatech logog.zip / Group 39",
       "files": {
         "svg": {
           "path": "brand/svg/paryatech-logo-white.svg",
-          "bytes": 9280,
-          "sha256": "512730d08dfbcfea825d7ed33ab7866c2b30d995c273789552324331d52b0ec5"
+          "bytes": 10114,
+          "sha256": "5070f8b7ecff888619a7f650b59e76b653ee639c5fecbb2bb5597c07cb0aa099",
+          "width": 1193,
+          "height": 259
         },
         "png": {
           "path": "brand/png/paryatech-logo-white.png",
-          "bytes": 15089,
-          "sha256": "407c0230a2fdfd6b297504158f7628dded9cbff1183de6117951fc96e8a9462f"
+          "bytes": 34463,
+          "sha256": "648949b8866d901332ffffbaf03c221a2a6aafda76eabe682ae272122af0bf30",
+          "width": 2385,
+          "height": 517
         }
       },
       "group": "horizontal",
-      "width": 1200,
-      "height": 450,
+      "width": 1193,
+      "height": 259,
       "transparent": true
     },
     {
@@ -79,22 +91,26 @@
       "color": "#F8DEE8",
       "background": "dark",
       "usage": "An alternative color treatment for dark brand surfaces.",
-      "source": "16",
+      "source": "paryatech logog.zip / Group 41",
       "files": {
         "svg": {
           "path": "brand/svg/paryatech-logo-pink.svg",
-          "bytes": 9314,
-          "sha256": "11782bb08590c46695aa01ceadacadaa82d9eb8f421ed58a3794d7ee88afa1da"
+          "bytes": 10153,
+          "sha256": "0734e0b10767a24f7ad2722957f11baa316abbb5657707506cc0ff23101f1069",
+          "width": 1193,
+          "height": 259
         },
         "png": {
           "path": "brand/png/paryatech-logo-pink.png",
-          "bytes": 19386,
-          "sha256": "b3eb3aa7ea8f9b8396cb2ccae8ddac27172a36721cf89e583637f779aeca115a"
+          "bytes": 44157,
+          "sha256": "001c0ab8e8f029c0d73d04a782ffd63c81b6022a1c8db62b0aa3b0058d67ab8d",
+          "width": 2385,
+          "height": 517
         }
       },
       "group": "horizontal",
-      "width": 1200,
-      "height": 450,
+      "width": 1193,
+      "height": 259,
       "transparent": true
     },
     {

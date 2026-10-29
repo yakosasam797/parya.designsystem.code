@@ -29,7 +29,7 @@ for variant in manifest["variants"]:
         else:
             svg = ET.fromstring(data)
             dimensions = (int(svg.get("width")), int(svg.get("height")))
-        assert dimensions == (variant["width"], variant["height"]), path
+        assert dimensions == (entry.get("width", variant["width"]), entry.get("height", variant["height"])), path
         files.append((extension, entry["path"].removeprefix("brand/"), data))
 
 (public / "brand/manifest.json").write_bytes(source.read_bytes())

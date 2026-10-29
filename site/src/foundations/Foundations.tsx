@@ -760,7 +760,7 @@ export default function Foundations({
       <p className="ds-lede">{guide.description}</p>
       <div className="fd-resource-row">
         <UI.Button
-          variant="secondary"
+          variant="primary"
           size="sm"
           leadingIcon="copy"
           onClick={async () => {

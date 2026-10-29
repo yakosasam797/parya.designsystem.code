@@ -15,13 +15,17 @@ test("brand library previews original logos and serves every download", async ({
 }) => {
   await page.goto("/");
   await page
-    .locator(".ds-header-links")
+    .locator(".ds-sidebar")
     .getByRole("link", { name: "Brand Assets", exact: true })
     .click();
   await expect(
     page.getByRole("heading", { name: "Brand Assets", exact: true }),
   ).toBeVisible();
   await expect(page).toHaveTitle("Brand Assets · Parya");
+  const logoSource = await page.locator(".ds-brand-logo").getAttribute("src");
+  expect(await (await page.request.get(logoSource!)).body()).toEqual(
+    readFileSync("site/public/brand/svg/paryatech-logo-teal.svg"),
+  );
   await expect(page.locator(".ba-logo-card")).toHaveCount(14);
   await expect(page.locator(".ba-file-links a")).toHaveCount(22);
   for (const logo of manifest.variants) {
@@ -128,12 +132,12 @@ test("format choices, usage guidance, header themes and mobile navigation work",
   ).toHaveAttribute("download", "");
   await expect(page.locator(".ds-brand-logo")).toHaveAttribute(
     "src",
-    /teal\.svg$/,
+    /paryatech-logo-teal(?:-[\w-]+)?\.svg(?:\?.*)?$/,
   );
   await page.getByRole("button", { name: "Switch to dark theme" }).click();
   await expect(page.locator(".ds-brand-logo")).toHaveAttribute(
     "src",
-    /white\.svg$/,
+    /paryatech-logo-white(?:-[\w-]+)?\.svg(?:\?.*)?$/,
   );
   await page.getByRole("tab", { name: "Logo library", exact: true }).click();
   await page.screenshot({

@@ -8,9 +8,12 @@ import paper from "./paper-catalog.json";
 import "../../src/styles.css";
 import "./site.css";
 import packageInfo from "../../package.json";
+import logoTeal from "../../src/assets/paryatech-logo-teal.svg";
+import logoWhite from "../../src/assets/paryatech-logo-white.svg";
 const Foundations = React.lazy(() => import("./foundations/Foundations"));
 const BrandAssets = React.lazy(() => import("./brand/BrandAssets"));
 const Releases = React.lazy(() => import("./Releases"));
+const IconLibrary = React.lazy(() => import("./IconLibrary"));
 
 const REPO = "https://github.com/yakosasam797/parya.designsystem.code";
 const STORY_REPO =
@@ -178,13 +181,6 @@ function Sidebar({
 }) {
   return (
     <aside className="ds-sidebar" aria-label="Documentation navigation">
-      <div className="ds-sidebar-intro">
-        <span className="ds-version">
-          <span />
-          {packageInfo.version} · Preview
-        </span>
-        <span className="ds-caption">React + TypeScript</span>
-      </div>
       <nav
         onClick={(e) => {
           if ((e.target as HTMLElement).closest("a")) onNavigate();
@@ -195,6 +191,7 @@ function Sidebar({
           ["/", "Overview", "home"],
           ["/installation", "Installation", "download"],
           ["/foundations", "Foundations", "sliders"],
+          ["/icons", "Icons", "layout-grid"],
           ["/brand-assets", "Brand Assets", "image"],
           ["/agents", "For AI agents", "sparkles"],
         ].map(([url, label, icon]) => (
@@ -564,6 +561,14 @@ function ComponentPage({ name }: { name: string }) {
           </span>
         </div>
         <p className="ds-description">{data.description}</p>
+        {name === "Icon" ? (
+          <p className="ds-icon-catalog-link">
+            <a href="#/icons">
+              Browse all {UI.iconNames.length} icons{" "}
+              <UI.Icon name="arrow-right" size="sm" />
+            </a>
+          </p>
+        ) : null}
         <div className="ds-resource-row">
           {doc ? (
             <External
@@ -603,7 +608,12 @@ function ComponentPage({ name }: { name: string }) {
           ) : null}
           {doc ? (
             <div className="ds-ai-actions">
-              <UI.Button size="sm" leadingIcon="sparkles" onClick={copyLLM}>
+              <UI.Button
+                size="sm"
+                variant="primary"
+                leadingIcon="sparkles"
+                onClick={copyLLM}
+              >
                 Copy for LLM
               </UI.Button>
               <a
@@ -1275,41 +1285,22 @@ export default function App() {
         <a className="ds-brand" href="#/" aria-label="Parya Design System home">
           <img
             className="ds-brand-logo"
-            src={asset(
-              `brand/header/paryatech-logo-${theme === "dark" ? "white" : "teal"}.svg`,
-            )}
+            src={theme === "dark" ? logoWhite : logoTeal}
             alt="Paryatech"
             width="172"
             height="37"
           />
-          <span className="ds-brand-caption">Design system</span>
         </a>
-        <div className="ds-header-links">
-          <a
-            href="#/components/Button"
-            aria-current={route.startsWith("/components") ? "page" : undefined}
-          >
-            Components
-          </a>
-          <a href="#/foundations">Foundations</a>
-          <a
-            href="#/brand-assets"
-            aria-current={route === "/brand-assets" ? "page" : undefined}
-          >
-            Brand Assets
-          </a>
-          <a href="#/agents">AI resources</a>
-        </div>
+        <button
+          className="ds-search-trigger"
+          aria-label="Search documentation"
+          onClick={() => setSearch(true)}
+        >
+          <UI.Icon name="search" />
+          <span>Search documentation</span>
+          <UI.Kbd>⌘ K</UI.Kbd>
+        </button>
         <div className="ds-topbar-actions">
-          <button
-            className="ds-search-trigger"
-            aria-label="Search documentation"
-            onClick={() => setSearch(true)}
-          >
-            <UI.Icon name="search" />
-            <span>Search documentation</span>
-            <UI.Kbd>⌘ K</UI.Kbd>
-          </button>
           <a
             href={REPO}
             target="_blank"
@@ -1347,6 +1338,10 @@ export default function App() {
               fallback={<UI.Spinner label="Loading foundations" />}
             >
               <Foundations section={route.split("/")[2]} copy={copyText} />
+            </React.Suspense>
+          ) : route === "/icons" ? (
+            <React.Suspense fallback={<UI.Spinner label="Loading icons" />}>
+              <IconLibrary copy={copyText} />
             </React.Suspense>
           ) : route === "/brand-assets" ? (
             <React.Suspense

@@ -9,6 +9,25 @@ test("homepage, navigation, mobile layout and theme", async ({ page }) => {
   await expect(
     page.getByRole("heading", { name: "One system. Every journey." }),
   ).toBeVisible();
+  const header = page.locator(".ds-topbar");
+  for (const name of [
+    "Components",
+    "Foundations",
+    "Brand Assets",
+    "AI resources",
+  ])
+    await expect(header.getByRole("link", { name, exact: true })).toHaveCount(
+      0,
+    );
+  await expect(header.getByText("Design system", { exact: true })).toHaveCount(
+    0,
+  );
+  await expect(page.locator(".ds-sidebar-intro,.ds-version")).toHaveCount(0);
+  await expect(
+    page
+      .locator(".ds-sidebar")
+      .getByText("React + TypeScript", { exact: true }),
+  ).toHaveCount(0);
   await page.screenshot({
     path: "test-results/home-desktop.png",
     fullPage: true,
@@ -46,7 +65,9 @@ test("component API, clipboard, Markdown and Storybook link", async ({
     page.getByRole("heading", { name: "Button", exact: true }),
   ).toBeVisible();
   await page.getByRole("button", { name: "Copy for LLM", exact: true }).click();
-  await expect.poll(() => page.evaluate(() => navigator.clipboard.readText())).toContain("# Button");
+  await expect
+    .poll(() => page.evaluate(() => navigator.clipboard.readText()))
+    .toContain("# Button");
   await page.getByRole("tab", { name: "API reference" }).click();
   await expect(page.locator(".ds-api-table")).toContainText("leadingIcon");
   const markdown = await page.request.get("/docs/Button.md");

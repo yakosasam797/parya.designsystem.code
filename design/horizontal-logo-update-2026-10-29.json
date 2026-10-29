@@ -1,0 +1,93 @@
+{
+  "date": "2026-10-29",
+  "archive": "paryatech logog.zip",
+  "description": "Replaces all four horizontal logo variants with the supplied full wordmark including P. Other logo forms are unchanged.",
+  "files": [
+    {
+      "variant": "teal",
+      "source": "Group 42.svg",
+      "path": "brand/svg/paryatech-logo-teal.svg",
+      "previousSha256": "9002ad7c6610604ba37da2b51c8fc9b824fdd099c63cc7bbf6d487d035346367",
+      "sha256": "e8fa08894040db53d5aa4b6f797664bc1aa26ad72d9cf1d55371d6902e08f888",
+      "bytes": 10164,
+      "width": 1193,
+      "height": 259
+    },
+    {
+      "variant": "teal",
+      "source": "Group 42.png",
+      "path": "brand/png/paryatech-logo-teal.png",
+      "previousSha256": "c75b42c4beeb74936b484581a3260b288da1559d72da057603c09bef9b4f8af5",
+      "sha256": "470c669fe4189be4457dcfcac0066102bdc2997b3e49ffd6ca69339c1b2db074",
+      "bytes": 42913,
+      "width": 2385,
+      "height": 517
+    },
+    {
+      "variant": "black",
+      "source": "Group 40.svg",
+      "path": "brand/svg/paryatech-logo-black.svg",
+      "previousSha256": "8935f31cfbaeaaddcac24a9c04ef289b3d375a0d412ac19acfc5cab9055f5876",
+      "sha256": "e5078ca2f420074cdddc6d3b8101ac5ca200ff856bc40212ffe756ce77cd6bff",
+      "bytes": 10128,
+      "width": 1193,
+      "height": 259
+    },
+    {
+      "variant": "black",
+      "source": "Group 40.png",
+      "path": "brand/png/paryatech-logo-black.png",
+      "previousSha256": "b5504017221e7e8bb84a7dddd7b354db9819c7e5f96b9c0f4545ef3347fc5306",
+      "sha256": "009b1f37d86d4446b151650497ad1e85e4290190a7a5c2f6fbd7d78ee3c763ee",
+      "bytes": 33447,
+      "width": 2385,
+      "height": 517
+    },
+    {
+      "variant": "white",
+      "source": "Group 39.svg",
+      "path": "brand/svg/paryatech-logo-white.svg",
+      "previousSha256": "512730d08dfbcfea825d7ed33ab7866c2b30d995c273789552324331d52b0ec5",
+      "sha256": "5070f8b7ecff888619a7f650b59e76b653ee639c5fecbb2bb5597c07cb0aa099",
+      "bytes": 10114,
+      "width": 1193,
+      "height": 259
+    },
+    {
+      "variant": "white",
+      "source": "Group 39.png",
+      "path": "brand/png/paryatech-logo-white.png",
+      "previousSha256": "407c0230a2fdfd6b297504158f7628dded9cbff1183de6117951fc96e8a9462f",
+      "sha256": "648949b8866d901332ffffbaf03c221a2a6aafda76eabe682ae272122af0bf30",
+      "bytes": 34463,
+      "width": 2385,
+      "height": 517
+    },
+    {
+      "variant": "pink",
+      "source": "Group 41.svg",
+      "path": "brand/svg/paryatech-logo-pink.svg",
+      "previousSha256": "11782bb08590c46695aa01ceadacadaa82d9eb8f421ed58a3794d7ee88afa1da",
+      "sha256": "0734e0b10767a24f7ad2722957f11baa316abbb5657707506cc0ff23101f1069",
+      "bytes": 10153,
+      "width": 1193,
+      "height": 259
+    },
+    {
+      "variant": "pink",
+      "source": "Group 41.png",
+      "path": "brand/png/paryatech-logo-pink.png",
+      "previousSha256": "b3eb3aa7ea8f9b8396cb2ccae8ddac27172a36721cf89e583637f779aeca115a",
+      "sha256": "001c0ab8e8f029c0d73d04a782ffd63c81b6022a1c8db62b0aa3b0058d67ab8d",
+      "bytes": 44157,
+      "width": 2385,
+      "height": 517
+    }
+  ],
+  "paper": {
+    "fileId": "01M5KKMF33S23DNN84NAWWBTJR",
+    "pageId": "p-2-0",
+    "artboardId": "255C-0",
+    "url": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-2-0"
+  }
+}

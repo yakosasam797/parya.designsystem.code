@@ -69,29 +69,6 @@ button:focus-visible {
   width: 172px;
   height: auto;
 }
-.ds-brand-caption {
-  font-size: 13px;
-  font-weight: 450;
-  letter-spacing: -0.2px;
-  border-left: 1px solid var(--ds-line);
-  padding-left: 12px;
-  white-space: nowrap;
-}
-.ds-header-links {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  margin-left: 24px;
-}
-.ds-header-links a {
-  font-size: 13px;
-  color: var(--pt-color-text-secondary);
-  text-decoration: none;
-  white-space: nowrap;
-}
-.ds-header-links a[aria-current] {
-  color: var(--pt-color-text-link);
-}
 .ds-topbar-actions {
   display: flex;
   align-items: center;
@@ -101,6 +78,11 @@ button:focus-visible {
 .ds-search-trigger {
   display: flex;
   align-items: center;
+  flex: 1;
+  width: 480px;
+  max-width: 480px;
+  min-width: 0;
+  min-height: 38px;
   gap: 9px;
   font:
     400 12px var(--pt-font-sans),
@@ -113,7 +95,7 @@ button:focus-visible {
   cursor: pointer;
 }
 .ds-search-trigger kbd {
-  margin-left: 18px;
+  margin-left: auto;
 }
 .ds-header-icon {
   display: grid;
@@ -141,29 +123,6 @@ button:focus-visible {
   padding: 28px 18px 20px 24px;
   scrollbar-width: thin;
   scrollbar-color: var(--pt-color-border-strong) transparent;
-}
-.ds-sidebar-intro {
-  display: grid;
-  gap: 9px;
-  padding: 0 8px 25px;
-}
-.ds-version {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  width: max-content;
-  border: 1px solid var(--ds-line);
-  border-radius: 5px;
-  padding: 4px 8px;
-  font:
-    500 11px var(--pt-font-mono),
-    monospace;
-}
-.ds-version > span {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--pt-color-action-primary);
 }
 .ds-caption {
   font-size: 12px;
@@ -597,21 +556,41 @@ button:focus-visible {
 .ds-resource-row {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
   margin-top: 25px;
   flex-wrap: wrap;
+}
+.ds-icon-catalog-link {
+  margin-top: 18px;
+  font-size: 13px;
+}
+.ds-icon-catalog-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--pt-color-text-link);
+  font-weight: 550;
+  text-underline-offset: 3px;
 }
 .ds-resource {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   text-decoration: none;
-  color: var(--pt-color-text-muted);
-  font-size: 11px;
+  color: var(--pt-color-action-primary-text);
+  background: var(--pt-color-action-primary-soft);
+  border: 1px solid var(--pt-color-border-work);
+  border-radius: 6px;
+  min-height: 36px;
+  padding: 6px 9px;
+  font-size: 12px;
+  font-weight: 550;
   white-space: nowrap;
 }
 .ds-resource:hover {
-  color: var(--pt-color-text-link);
+  color: var(--pt-color-action-primary-text);
+  border-color: var(--pt-color-action-primary);
+  background: var(--pt-color-action-primary-soft-hover);
 }
 .ds-resource > svg:last-child {
   opacity: 0.7;
@@ -619,17 +598,17 @@ button:focus-visible {
 .ds-ai-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   flex-wrap: wrap;
   margin-left: auto;
 }
 .ds-ai-actions > .pt-button {
-  font-size: 11px;
-  min-height: 30px;
-  padding: 0 9px;
+  font-size: 12px;
+  min-height: 36px;
+  padding: 0 12px;
 }
 .ds-ai-actions .ds-resource {
-  font-size: 10px;
+  font-size: 12px;
 }
 .ds-doc-tabs {
   display: flex;
@@ -728,7 +707,6 @@ button:focus-visible {
   justify-content: center;
   background: var(--pt-color-bg-surface);
   color: var(--pt-color-text-primary);
-  transition: background 0.15s;
 }
 .ds-preview-inner {
   width: 100%;
@@ -1264,21 +1242,8 @@ button:focus-visible {
   .ds-main {
     padding: 40px 44px 60px;
   }
-  .ds-header-links {
-    gap: 18px;
-    margin-left: 0;
-  }
-  .ds-header-links a {
-    font-size: 12px;
-  }
   .ds-topbar {
     gap: 20px;
-  }
-  .ds-search-trigger > span {
-    display: none;
-  }
-  .ds-search-trigger kbd {
-    margin-left: 5px;
   }
   .ds-booking-demo {
     padding: 28px;
@@ -1295,12 +1260,6 @@ button:focus-visible {
   .ds-sidebar {
     padding-left: 14px;
     padding-right: 14px;
-  }
-  .ds-brand-caption {
-    display: none;
-  }
-  .ds-header-links {
-    margin-left: 15px;
   }
   .ds-main {
     padding: 32px;
@@ -1327,9 +1286,6 @@ button:focus-visible {
     padding: 0 18px;
     gap: 12px;
   }
-  .ds-header-links {
-    display: none;
-  }
   .ds-brand-logo {
     width: 150px;
   }
@@ -1340,11 +1296,17 @@ button:focus-visible {
     display: none;
   }
   .ds-search-trigger {
+    flex: 0 0 32px;
+    width: 32px;
+    min-height: 32px;
     border: 0;
     background: none;
     padding: 6px;
   }
   .ds-search-trigger kbd {
+    display: none;
+  }
+  .ds-search-trigger > span {
     display: none;
   }
   .ds-menu-button {
@@ -1470,7 +1432,12 @@ button:focus-visible {
     font-size: 13px;
   }
   .ds-resource-row {
-    gap: 15px;
+    gap: 8px;
+  }
+  .ds-resource-row > .ds-resource {
+    gap: 4px;
+    padding-inline: 4px;
+    font-size: 11.5px;
   }
   .ds-ai-actions {
     width: 100%;

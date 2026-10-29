@@ -10,6 +10,26 @@ React components, foundations, hooks and page templates.
 
 Source: https://github.com/yakosasam797/parya.designsystem.code
 
+### 0.3.1 · 2026-10-29 — Horizontal logo and documentation polish
+
+#### Fixed
+
+- Replaced the four horizontal logo colors with the supplied full Paryatech wordmark including P.
+- Updated the documentation header and shared AppShell logo to the supplied artwork.
+- Refreshed original downloads, per-format dimensions, SHA-256 hashes and ZIP packs.
+
+#### Improved
+
+- Simplified the documentation top bar to the logo, wider search and utility controls; navigation stays in the sidebar.
+- Removed the preview version and React/TypeScript labels from the sidebar.
+- Emphasized documentation resources with teal actions and a primary Copy for LLM button.
+
+#### Added
+
+- A searchable gallery for all 151 Paper icons, available from the sidebar and the Icon component page; select an icon to copy its React usage.
+
+**Adoption:** The asset filenames and component APIs are unchanged. PNG downloads are 2385 × 517 pixels; SVG artboards are 1193 × 259.
+
 ### 0.3.0 · 2026-10-29 — Phone layouts and brand assets
 
 #### Improved
@@ -51,6 +71,14 @@ Source: https://github.com/yakosasam797/parya.designsystem.code
 Private Storybook application using @parya/design-system.
 
 Source: https://github.com/yakosasam797/parya.designsystem.storybook
+
+### 0.3.1 · 2026-10-29 — Corrected horizontal logo
+
+#### Fixed
+
+- Uses the corrected horizontal wordmark through @parya/design-system 0.3.1.
+
+**Adoption:** Uses the shared library 0.3.1 through the existing repository dependency.
 
 ### 0.3.0 · 2026-10-29 — Phone APIs and workspace stories
 

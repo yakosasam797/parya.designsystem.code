@@ -2,7 +2,7 @@
 
 A fresh React 19 and TypeScript implementation of the Paryatech Paper library, with a documentation website and a separate connected Storybook repository. Created from Paper specifications, not copied from the historical Paryatech implementation.
 
-**Version 0.3.0 is experimental.** It includes 151 live code references, including collection and domain utilities, four hooks, 518 exported Paper tokens, and 151 exact SVG icons. The original 219-artboard Paper inventory is documented, with later phone and brand references recorded separately. It includes designs that have not yet been implemented. A component's presence in Paper does not imply it is available in this package or that all its designed variants are implemented.
+**Version 0.3.1 is experimental.** It includes 151 live code references, including collection and domain utilities, four hooks, 518 exported Paper tokens, and 151 exact SVG icons. The original 219-artboard Paper inventory is documented, with later phone and brand references recorded separately. It includes designs that have not yet been implemented. A component's presence in Paper does not imply it is available in this package or that all its designed variants are implemented.
 
 ## Open locally
 
@@ -113,6 +113,10 @@ Load `@parya/design-system/styles.css` once to use the generated typography clas
 
 Choose the HTML element by meaning, independently of the visual role. Use the real components for controls and data formatting. `design/foundation-guidance.json` combines the Paper role declarations with authored usage guidance; `scripts/generate-foundations.mjs` generates `src/typography.css`, `/docs/foundations.md`, and `/api/foundations.json`. The guide is included in LLM documentation and the packaged catalog. Contrast results evaluate one combination; they are not a WCAG conformance claim.
 
+## Icon library
+
+Open `/#/icons` or select Icons in the sidebar to browse all 151 icons imported from Paper. Search by name and select an icon to copy its React usage. The Icon component preview shows a small sample and links to the complete gallery.
+
 ## Phone layouts and release history
 
 The playground's **Phone · 390px** option uses a separate browser viewport. Tables default to labelled cards below a 600px container width while retaining sorting and selection; pass `mobileLayout="scroll"` for wide comparison tables. Forms, record rails and dashboard panels stack within narrow containers. Board stages and schedule weeks use compact navigation. The same components and semantic tokens serve both sizes.
@@ -125,7 +129,7 @@ Open `/#/releases` for history by package and version. Edit `design/release-hist
 
 ## Development
 
-The logo library is available at `/#/brand-assets`. Original downloads live in `site/public/brand/svg/` and `site/public/brand/png/`; descriptive filenames preserve the supplied file bytes. `site/src/brand/manifest.json` drives previews, colors, filenames, and file sizes. Run `python scripts/build-brand-assets.py` after updates to verify original hashes, dimensions and duplicates, synchronize `site/public/brand/manifest.json`, and rebuild the three ZIP packs. The matching Paper brand sheet is on 01 · Foundations & tokens. Header SVG copies have a tighter viewBox for legibility; their paths and colors are unchanged. Usage notes are in `site/public/brand/README.md`.
+The logo library is available at `/#/brand-assets`. Original downloads live in `site/public/brand/svg/` and `site/public/brand/png/`; descriptive filenames preserve the supplied file bytes. `site/src/brand/manifest.json` drives previews, colors, filenames, and file sizes. Run `python scripts/build-brand-assets.py` after updates to verify original hashes, dimensions and duplicates, synchronize `site/public/brand/manifest.json`, and rebuild the three ZIP packs. The matching Paper brand sheet is on 01 · Foundations & tokens. The headers use exact copies of the current teal and white horizontal SVG downloads. Usage notes are in `site/public/brand/README.md`.
 
 ```sh
 npm run typecheck

@@ -5,8 +5,8 @@
   "captured": "2026-10-29",
   "tokenHash": "d8eaa8cc",
   "package": "@parya/design-system",
-  "version": "0.3.0",
-  "update": "Phone layouts release · 2026-10-29",
+  "version": "0.3.1",
+  "update": "Horizontal logo correction · 2026-10-29",
   "referenceType": "Editable static first-viewport references; interactions and responsive reflow are implemented in code.",
   "viewport": {
     "width": 390,
