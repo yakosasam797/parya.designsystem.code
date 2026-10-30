@@ -1,0 +1,16 @@
+{
+  "name": "parya-designsystem-docs",
+  "private": true,
+  "version": "0.3.1",
+  "type": "module",
+  "scripts": {
+    "build": "npm --prefix ../.. run build:docs",
+    "dev": "npm --prefix ../.. run dev:docs"
+  },
+  "dependencies": {
+    "@parya/design-system": "0.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@radix-ui/react-dialog": "^1.1.0"
+  }
+}

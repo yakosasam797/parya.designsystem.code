@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { readFileSync } from "node:fs";
 const manifest = JSON.parse(
-  readFileSync("site/src/brand/manifest.json", "utf8"),
+  readFileSync("apps/docs/src/brand/manifest.json", "utf8"),
 ) as {
   variants: {
     name: string;
@@ -24,7 +24,7 @@ test("brand library previews original logos and serves every download", async ({
   await expect(page).toHaveTitle("Brand Assets · Parya");
   const logoSource = await page.locator(".ds-brand-logo").getAttribute("src");
   expect(await (await page.request.get(logoSource!)).body()).toEqual(
-    readFileSync("site/public/brand/svg/paryatech-logo-teal.svg"),
+    readFileSync("apps/docs/public/brand/svg/paryatech-logo-teal.svg"),
   );
   await expect(page.locator(".ba-logo-card")).toHaveCount(14);
   await expect(page.locator(".ba-file-links a")).toHaveCount(22);
@@ -56,7 +56,7 @@ test("brand library previews original logos and serves every download", async ({
       const path = await download.path();
       expect(path).toBeTruthy();
       expect(readFileSync(path!)).toEqual(
-        readFileSync(`site/public/${file.path}`),
+        readFileSync(`apps/docs/public/${file.path}`),
       );
     }
   }
@@ -71,7 +71,7 @@ test("brand library previews original logos and serves every download", async ({
     ]);
     expect(download.suggestedFilename()).toBe(`paryatech-logos-${pack}.zip`);
     expect(readFileSync((await download.path())!)).toEqual(
-      readFileSync(`site/public/brand/paryatech-logos-${pack}.zip`),
+      readFileSync(`apps/docs/public/brand/paryatech-logos-${pack}.zip`),
     );
   }
   await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));

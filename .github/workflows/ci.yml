@@ -15,16 +15,22 @@ jobs:
       - run: npm run check
       - run: npm audit --audit-level=high
       - run: npx playwright install --with-deps chromium
+      - run: npm run test:package
       - run: npm run test:e2e
-      - run: npm pack
+      - run: npm run test:storybook
       - uses: actions/upload-artifact@v4
         with:
           name: design-system-review-build
           path: |
-            site/dist
+            apps/docs/dist
+            apps/storybook/storybook-static
             *.tgz
+            artifacts/package-consumer/result.json
+            artifacts/package-consumer/run-*/*.tgz
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: browser-results
-          path: test-results
+          path: |
+            test-results
+            apps/storybook/test-results

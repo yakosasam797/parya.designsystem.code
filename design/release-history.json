@@ -35,7 +35,7 @@
               ]
             }
           ],
-          "adoption": "The asset filenames and component APIs are unchanged. PNG downloads are 2385 \u00d7 517 pixels; SVG artboards are 1193 \u00d7 259."
+          "adoption": "The asset filenames and component APIs are unchanged. PNG downloads are 2385 × 517 pixels; SVG artboards are 1193 × 259."
         },
         {
           "version": "0.3.0",
@@ -100,7 +100,7 @@
       "name": "parya-designsystem-storybook",
       "version": "0.3.1",
       "description": "Private Storybook application using @parya/design-system.",
-      "source": "https://github.com/yakosasam797/parya.designsystem.storybook",
+      "source": "https://github.com/yakosasam797/parya.designsystem.code/tree/main/apps/storybook",
       "releases": [
         {
           "version": "0.3.1",

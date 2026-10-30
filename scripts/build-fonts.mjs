@@ -15,4 +15,4 @@ for (const [slug, family] of families) {
     .replaceAll(`${family} Variable`, family)
     .replaceAll("url(./files/", `url(@fontsource-variable/${slug}/files/`);
 }
-await writeFile("src/fonts.css", output);
+await writeFile("packages/web/src/fonts.css", output);

@@ -1,9 +1,11 @@
 node_modules/
+.vercel/
 dist/
-site/dist/
-site/public/docs/
-site/public/llms*.txt
-site/public/api/
+apps/docs/dist/
+apps/docs/public/docs/
+apps/docs/public/llms*.txt
+apps/docs/public/api/
+storybook-static/
 *.tgz
 *.log
 playwright-report/

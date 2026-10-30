@@ -7,7 +7,7 @@ export async function generateFoundations() {
   const snapshot = JSON.parse(
     await readFile("design/paper-tokens.json", "utf8"),
   );
-  const styles = await readFile("src/styles.css", "utf8");
+  const styles = await readFile("packages/web/src/styles.css", "utf8");
   const values = new Map(
     snapshot.tokens.map((token) => [token.name, String(token.value)]),
   );
@@ -54,13 +54,13 @@ export async function generateFoundations() {
       "\n\n",
     )}\n\n## Semantic color pairings\n\nTeal identifies work and actions; pink identifies selection and person-related emphasis. Status meanings are independent. Always include readable words or another cue. Use semantic variables; ThemeProvider maps light and dark values.\n\n| Role | Foreground | Background | Use |\n| --- | --- | --- | --- |\n${guide.colorPairs.map((pair) => `| ${pair.label} | \`${pair.foreground}\` | \`${pair.background}\` | ${pair.use} |`).join("\n")}\n\n## Contrast and readability\n\nNormal text needs at least 4.5:1 contrast. Large text (at least 24 CSS px regular or approximately 18.67 CSS px bold) needs 3:1. Essential control boundaries and graphics need 3:1 against adjacent colors; decorative separators are a different case. Do not round a failing ratio into a pass. Inactive controls have exceptions. A named token or passing contrast calculation is not a WCAG conformance claim.\n\nThe website calculator uses sRGB relative luminance. Alpha colors are composited over the selected theme's bg-surface. Images, gradients, overlays and extra opacity require checking the real rendered background.\n\n## Spacing and shape\n\nUse --pt-space-1 (4px) for a closely attached hint; --pt-space-2 (8px) for an icon and label; --pt-space-4 (16px) for related fields; --pt-space-6 (24px) for content groups; --pt-space-8 (32px) for stronger section separation. Prefer each component's existing spacing and radius.\n\n## Sources\n\n- [Paper typography](${guide.paperTypography})\n${guide.sources.map((source) => `- [${source.label}](${source.url})`).join("\n")}\n\nValues come from the Parya Paper library. Usage guidance applies those values to travel software; components and combinations remain experimental.\n`;
   await Promise.all([
-    mkdir("site/public/docs", { recursive: true }),
-    mkdir("site/public/api", { recursive: true }),
+    mkdir("apps/docs/public/docs", { recursive: true }),
+    mkdir("apps/docs/public/api", { recursive: true }),
   ]);
-  await writeFile("src/typography.css", css);
-  await writeFile("site/public/docs/foundations.md", md);
+  await writeFile("packages/web/src/typography.css", css);
+  await writeFile("apps/docs/public/docs/foundations.md", md);
   await writeFile(
-    "site/public/api/foundations.json",
+    "apps/docs/public/api/foundations.json",
     JSON.stringify(
       {
         ...guide,

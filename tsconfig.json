@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "jsx": "react-jsx",
@@ -11,13 +15,26 @@
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true,
     "noEmit": true,
-    "types": ["vite/client", "vitest/globals"]
+    "types": [
+      "vite/client",
+      "vitest/globals"
+    ],
+    "paths": {
+      "@parya/design-system": [
+        "./packages/web/src/index.ts"
+      ],
+      "@parya/design-system/examples": [
+        "./packages/web/src/examples.tsx"
+      ]
+    },
+    "allowJs": true
   },
   "include": [
-    "src",
-    "site/src",
-    "site/vite.config.ts",
-    "vite.config.ts",
-    "vitest.config.ts"
+    "packages/web/src",
+    "apps/docs/src",
+    "apps/docs/vite.config.ts",
+    "packages/web/vite.config.ts",
+    "vitest.config.ts",
+    "shared"
   ]
 }

@@ -1,0 +1,13 @@
+import type {Meta,StoryObj} from '@storybook/react-vite';
+import type {ComponentType} from 'react';
+import {useArgs} from 'storybook/preview-api';
+import * as UI from '@parya/design-system';
+import {examples} from '@parya/design-system/examples';
+
+const example=examples.find(e=>e.name==="sortRows")!;
+
+const meta={title:"Tables & collections/sortRows",tags:['autodocs'],argTypes:{"rows":{"description":"T[]","table":{"type":{"summary":"T[]"}},"control":false},"accessor":{"description":"(row: T) => SortValue","table":{"type":{"summary":"(row: T) => SortValue"}},"control":false},"direction":{"description":"\"asc\" | \"desc\"","table":{"type":{"summary":"\"asc\" | \"desc\""}},"control":false}},parameters:{controls:{disable:true},docs:{source:{code:"import {useState} from \"react\";\nimport {Stack, Money, sortRows, type SortState, SortMenu} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nexport function SortControlsDemo() {\n  const [value, setValue] = useState<SortState>({\n    id: \"name\",\n    direction: \"asc\",\n  });\n  const rows = [\n    { name: \"Vendor 12\", balance: 8500 },\n    { name: \"Vendor 2\", balance: 12000 },\n    { name: \"Vendor 1\", balance: 3000 },\n  ];\n  const sorted = sortRows(\n    rows,\n    (row) => (value.id === \"balance\" ? row.balance : row.name),\n    value.direction,\n  );\n  return (\n    <Stack>\n      <SortMenu\n        fields={[\n          { id: \"name\", label: \"Name\" },\n          { id: \"balance\", label: \"Balance\" },\n        ]}\n        value={value}\n        onValueChange={setValue}\n      />\n      <ul>\n        {sorted.map((row) => (\n          <li key={row.name}>\n            {row.name}: <Money value={row.balance} />\n          </li>\n        ))}\n      </ul>\n    </Stack>\n  );\n}",language:'tsx'},description:{component:"Stable sorted copy: en-IN numeric-aware collation for strings, numbers numerically, Dates and ISO date strings chronologically, empty values last. Accepts a DataTable SortState or a SortMenu value.\n\nPackage: @parya/design-system@0.3.1. Components share this library release.\n\nConnected foundations\nsortRows belongs to the shared package and is used by components and application code. It has no independent visual style.\n\nAccessibility\nsortRows is a utility. It does not render interface semantics; present its result using labeled components and announce relevant loading or error feedback in the application.\n\nExperimental. Utility function; the story demonstrates its output. See the documentation website for the full API and Paper guidance."}}}} satisfies Meta;
+export default meta;
+type Story=StoryObj<typeof meta>;
+
+export const Default:Story={render:()=> <example.Demo/>};

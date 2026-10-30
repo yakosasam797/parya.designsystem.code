@@ -6,7 +6,7 @@ This is a working first release of the platform, not full parity with the Paper 
 
 The website's Design coverage page is the current map. In this release, the complete Paper navigation is visible; 151 code references have live examples, while other entries are explicitly design-only. Existing implementations also need state-by-state comparison with Paper. Examples include:
 
-- SelectField uses a native select; rich media and option descriptions are not rendered.
+- SelectField uses a styled Radix listbox, including descriptions, icons, optional media, native form values, keyboard selection, and focus return. Confirm the supported option content and application validation rules with consumers.
 - DateRangeField implements native date inputs and ordering validation; Paper's compact, inline, presets, and endpoints layouts are not implemented.
 - PaxSelector implements adults, children, infants, and child ages. Configurable rooms, extra beds, renamed labels, and all design variants remain to be implemented.
 - PhoneField has a short default country list. Applications can provide their supported country list.

@@ -1,0 +1,45 @@
+{
+  "Button": {
+    "defaults": "Button defaults to the secondary variant and sm size. Set variant=\"primary\" explicitly for the main action. Its default HTML type is button; use type=\"submit\" to submit a form.",
+    "guidance": [
+      "Choose a short label that names the result, such as Save booking or Add traveler. Use Button for an action and TextLink for navigation.",
+      "Use primary for the main action, brand for an outlined work action, and secondary for a supporting action. Use danger for destructive actions and ConfirmDialog when confirmation is needed.",
+      "Use the existing xs, sm and md sizes. The size sets label typography, spacing and control height together. fullWidth fills the available container; it does not change the label style."
+    ],
+    "typography": {
+      "description": "Button uses the Action label role. The font family and weight stay consistent; the selected size sets the text size. Keep these shared styles when building product screens.",
+      "familyToken": "--pt-type-button-family",
+      "weightToken": "--pt-type-button-weight",
+      "sizes": [
+        { "size": "xs", "token": "--pt-type-button-xs-size" },
+        { "size": "sm", "token": "--pt-type-button-sm-size" },
+        { "size": "md", "token": "--pt-type-button-size" }
+      ]
+    },
+    "icons": [
+      "Use leadingIcon before the label to reinforce an action, such as plus with Add traveler. Use trailingIcon after the label to indicate a direction or next step.",
+      "Choose either icon slot, both, or neither in the controls. Icons inherit the button color and are decorative when the visible label already explains the action.",
+      "Use IconButton for an icon-only action and provide an aria-label that describes its purpose. Browse the Icons page for the complete icon set."
+    ],
+    "accessibility": [
+      "Keep a visible, meaningful label. Save booking describes the action; Click here does not. The visible text supplies the button's accessible name.",
+      "Use Tab to focus an enabled button, then Enter or Space to activate it. Keep the visible focus indicator so keyboard users can find the current control.",
+      "For an icon-only action, use IconButton with aria-label, for example Close booking details. A decorative icon beside a visible label does not need a second accessible name.",
+      "Set loading while the application is processing an action. Button exposes aria-busy and prevents repeated activation; the application must manage the request and success or error feedback.",
+      "Disabled buttons cannot be activated and are skipped by normal Tab navigation. Explain an unavailable action beside the control instead of relying on a tooltip on the disabled button.",
+      "Button defaults to type=\"button\". Set type=\"submit\" explicitly for a form's submit action, and retain type=\"button\" for actions such as Cancel."
+    ],
+    "accessibleExample": "import {Button, IconButton} from \"@parya/design-system\";\nimport \"@parya/design-system/styles.css\";\n\nexport function BookingActions() {\n  return (\n    <>\n      <Button type=\"submit\" variant=\"primary\">Save booking</Button>\n      <IconButton icon=\"x\" aria-label=\"Close booking details\" />\n    </>\n  );\n}",
+    "related": [
+      {
+        "name": "IconButton",
+        "reason": "An icon-only action with an accessible name."
+      },
+      { "name": "TextLink", "reason": "Navigate to another page or resource." },
+      {
+        "name": "ConfirmDialog",
+        "reason": "Confirm a destructive action before applying it."
+      }
+    ]
+  }
+}
