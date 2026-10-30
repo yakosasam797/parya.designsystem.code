@@ -371,6 +371,9 @@ describe("rate editing and chart evidence", () => {
     );
     await userEvent.keyboard("{Escape}");
     expect(change).not.toHaveBeenCalled();
+    await waitFor(() =>
+      expect(screen.getByRole("gridcell", { name: /4,500/ })).toHaveFocus(),
+    );
     await userEvent.keyboard("{Enter}");
     await userEvent.clear(
       screen.getByRole("textbox", { name: "Room, Season, CP" }),
