@@ -1,0 +1,22 @@
+[
+  {
+    "name": "useDisclosure",
+    "description": "Control open, closed, and toggle behavior for an overlay.",
+    "code": "export function DisclosureExample() {\n  const {open, toggle} = useDisclosure();\n  return <><button onClick={toggle} aria-expanded={open}>Travel details</button><p hidden={!open}>Bali · 10–15 November</p></>;\n}"
+  },
+  {
+    "name": "useControllableState",
+    "description": "Support a controlled value and an uncontrolled default with one state interface.",
+    "code": "export function ControllableExample() {\n  const [value, setValue] = useControllableState<string>(undefined, \"Aarav Sharma\");\n  return <label>Traveler name<input value={value} onChange={event => setValue(event.target.value)} /></label>;\n}"
+  },
+  {
+    "name": "useMediaQuery",
+    "description": "Subscribe to a media query. Returns false on the server and updates after mounting.",
+    "code": "export function MediaQueryExample() {\n  const compact = useMediaQuery(\"(max-width: 620px)\");\n  return <p>{compact ? \"Phone layout\" : \"Wide layout\"}</p>;\n}"
+  },
+  {
+    "name": "useTheme",
+    "description": "Read the nearest Parya ThemeProvider and its optional theme setter.",
+    "code": "export function ThemeExample() {\n  const {theme, setTheme} = useTheme();\n  return <button disabled={!setTheme} onClick={() => setTheme?.(theme === \"light\" ? \"dark\" : \"light\")}>Current theme: {theme}</button>;\n}"
+  }
+]

@@ -7,8 +7,8 @@ import struct
 import xml.etree.ElementTree as ET
 
 root = Path(__file__).resolve().parents[1]
-public = root / "site/public"
-source = root / "site/src/brand/manifest.json"
+public = root / "apps/docs/public"
+source = root / "apps/docs/src/brand/manifest.json"
 manifest = json.loads(source.read_text(encoding="utf8"))
 groups = {group["id"] for group in manifest["groups"]}
 hashes = set()

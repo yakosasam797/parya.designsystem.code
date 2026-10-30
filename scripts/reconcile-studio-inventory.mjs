@@ -1,14 +1,14 @@
 import { readFile, writeFile, access } from "node:fs/promises";
-import * as runtime from "../dist/index.js";
+import * as runtime from "../packages/web/dist/index.js";
 
 // Studio contributes inventory names and design guidance only, never implementation.
 const source = JSON.parse(
   await readFile("design/studio-inventory-source.json", "utf8"),
 );
 const catalog = JSON.parse(
-  await readFile("site/src/generated/components.json", "utf8"),
+  await readFile("apps/docs/src/generated/components.json", "utf8"),
 );
-const paper = JSON.parse(await readFile("site/src/paper-catalog.json", "utf8"));
+const paper = JSON.parse(await readFile("apps/docs/src/paper-catalog.json", "utf8"));
 const codeByName = new Map(catalog.map((entry) => [entry.name, entry]));
 const paperByName = new Map(paper.map((entry) => [entry.name, entry]));
 const hasFile = async (path) =>
@@ -39,7 +39,7 @@ const items = await Promise.all(
         ? `http://127.0.0.1:5190/#/components/${entry.name}`
         : null,
       storyFilePresent: await hasFile(
-        `../parya.designsystem.storybook/stories/${entry.name}.stories.tsx`,
+        `apps/storybook/stories/${entry.name}.stories.tsx`,
       ),
     };
   }),

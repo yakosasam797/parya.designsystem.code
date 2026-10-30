@@ -2,7 +2,7 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 const history = JSON.parse(
   await readFile("design/release-history.json", "utf8"),
 );
-const pkg = JSON.parse(await readFile("package.json", "utf8"));
+const pkg = JSON.parse(await readFile("packages/web/package.json", "utf8"));
 if (
   history.packages[0].name !== pkg.name ||
   history.packages[0].version !== pkg.version
@@ -55,16 +55,16 @@ for (const item of history.packages) {
     );
 }
 const content = markdown.join("\n") + "\n";
-await mkdir("site/src/generated", { recursive: true });
-await mkdir("site/public/api", { recursive: true });
-await mkdir("site/public/docs", { recursive: true });
+await mkdir("apps/docs/src/generated", { recursive: true });
+await mkdir("apps/docs/public/api", { recursive: true });
+await mkdir("apps/docs/public/docs", { recursive: true });
 await writeFile(
-  "site/src/generated/releases.json",
+  "apps/docs/src/generated/releases.json",
   JSON.stringify(history, null, 2) + "\n",
 );
 await writeFile(
-  "site/public/api/releases.json",
+  "apps/docs/public/api/releases.json",
   JSON.stringify(history, null, 2) + "\n",
 );
-await writeFile("site/public/docs/releases.md", content);
+await writeFile("apps/docs/public/docs/releases.md", content);
 await writeFile("CHANGELOG.md", content);

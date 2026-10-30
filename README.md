@@ -1,6 +1,6 @@
 # Parya Design System
 
-A fresh React 19 and TypeScript implementation of the Paryatech Paper library, with a documentation website and a separate connected Storybook repository. Created from Paper specifications, not copied from the historical Paryatech implementation.
+A fresh React 19 and TypeScript implementation of the Paryatech Paper library, with a documentation website and Storybook in one npm workspace repository. Created from Paper specifications, not copied from the historical Paryatech implementation.
 
 **Version 0.3.1 is experimental.** It includes 151 live code references, including collection and domain utilities, four hooks, 518 exported Paper tokens, and 151 exact SVG icons. The original 219-artboard Paper inventory is documented, with later phone and brand references recorded separately. It includes designs that have not yet been implemented. A component's presence in Paper does not imply it is available in this package or that all its designed variants are implemented.
 
@@ -11,17 +11,27 @@ npm ci
 npm run dev
 ```
 
-Documentation: http://127.0.0.1:5190/ · Storybook: http://127.0.0.1:6008/ after starting its repository.
+Documentation: http://127.0.0.1:5190/ ? Storybook: http://127.0.0.1:6008/.
 
-## Repository responsibilities
+One `npm ci` installs all workspaces. `npm run dev` starts both applications; Ctrl+C stops them. Use `npm run dev:docs` or `npm run dev:storybook` for a single application.
 
-| Location                                                                             | Responsibility                                                                                                |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| [Paper library](https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR)            | Visual design specifications, tokens, anatomy, and state specimens                                            |
-| This repository                                                                      | Component implementation, typed API, shared live examples, documentation website, machine-readable references |
-| [Storybook repository](https://github.com/yakosasam797/parya.designsystem.storybook) | Storybook configuration, controls, accessibility panel, story tests, and its static build                     |
+## Repository structure
 
-Storybook consumes this library and its examples. It does not maintain a second component implementation.
+```text
+parya.designsystem.code/
+??? packages/web/       @parya/design-system: components, tokens, fonts, icons, examples
+??? apps/docs/          Documentation website
+??? apps/storybook/     Storybook configuration, generated stories and browser tests
+??? design/             Paper references and shared editorial/control configuration
+??? shared/             Source aliases and copyable playground code
+??? scripts/            Shared generation, build and package checks
+??? tests/              Documentation and cross-workspace browser tests
+??? package-lock.json   One reproducible install for the whole repository
+```
+
+Both applications use `@parya/design-system`; development and application builds resolve it to the same `packages/web/src` source. Storybook and documentation share component examples, API metadata, foundation references, accessibility guidance and the control defaults in `design/playground-controls.json`. Do not maintain a second component implementation in either app.
+
+`npm run check` type-checks both applications and the library, runs unit tests, and builds all three workspaces. `npm run test:e2e` checks documentation, `npm run test:storybook` checks the built Storybook, and `npm run test:package` installs and builds the actual library archive in an isolated consumer. Use `npm run pack:lib` to pack the library, rather than packing the private workspace root.
 
 ## Website features
 
@@ -58,7 +68,7 @@ export function App() {
 }
 ```
 
-The package is not published to npm. Run `npm run build:lib` then `npm pack`; install the resulting `.tgz` in a consumer application. Package registry ownership and publishing credentials remain to be chosen.
+The package is not published to npm. Run `npm run build:lib` then `npm run pack:lib`; install the resulting `.tgz` in a consumer application. Package registry ownership and publishing credentials remain to be chosen.
 
 React 19 is a peer dependency. Node.js 22.12+ is required for tooling. The package includes a client entry point for React frameworks. Supported browsers and Next.js integration still require acceptance testing in the real application.
 
@@ -111,7 +121,7 @@ Load `@parya/design-system/styles.css` once to use the generated typography clas
 <p className="pt-type-body">Confirm the passport name before issuing the ticket.</p>
 ```
 
-Choose the HTML element by meaning, independently of the visual role. Use the real components for controls and data formatting. `design/foundation-guidance.json` combines the Paper role declarations with authored usage guidance; `scripts/generate-foundations.mjs` generates `src/typography.css`, `/docs/foundations.md`, and `/api/foundations.json`. The guide is included in LLM documentation and the packaged catalog. Contrast results evaluate one combination; they are not a WCAG conformance claim.
+Choose the HTML element by meaning, independently of the visual role. Use the real components for controls and data formatting. `design/foundation-guidance.json` combines the Paper role declarations with authored usage guidance; `scripts/generate-foundations.mjs` generates `packages/web/src/typography.css`, `/docs/foundations.md`, and `/api/foundations.json`. The guide is included in LLM documentation and the packaged catalog. Contrast results evaluate one combination; they are not a WCAG conformance claim.
 
 ## Icon library
 
@@ -129,27 +139,25 @@ Open `/#/releases` for history by package and version. Edit `design/release-hist
 
 ## Development
 
-The logo library is available at `/#/brand-assets`. Original downloads live in `site/public/brand/svg/` and `site/public/brand/png/`; descriptive filenames preserve the supplied file bytes. `site/src/brand/manifest.json` drives previews, colors, filenames, and file sizes. Run `python scripts/build-brand-assets.py` after updates to verify original hashes, dimensions and duplicates, synchronize `site/public/brand/manifest.json`, and rebuild the three ZIP packs. The matching Paper brand sheet is on 01 · Foundations & tokens. The headers use exact copies of the current teal and white horizontal SVG downloads. Usage notes are in `site/public/brand/README.md`.
+The logo library is available at `/#/brand-assets`. Original downloads live in `apps/docs/public/brand/svg/` and `apps/docs/public/brand/png/`; descriptive filenames preserve the supplied file bytes. `apps/docs/src/brand/manifest.json` drives previews, colors, filenames, and file sizes. Run `python scripts/build-brand-assets.py` after updates to verify original hashes, dimensions and duplicates, synchronize `apps/docs/public/brand/manifest.json`, and rebuild the three ZIP packs. The matching Paper brand sheet is on 01 · Foundations & tokens. The headers use exact copies of the current teal and white horizontal SVG downloads. Usage notes are in `apps/docs/public/brand/README.md`.
 
 ```sh
 npm run typecheck
 npm test
 npm run build
 npm run test:e2e
+npm run test:package
 ```
 
-`npm run check` runs types, unit/interaction tests, library build, and documentation build. Playwright verifies navigation, all component previews, clipboard content, Markdown, mobile overflow, and accessibility on selected pages. Install its browser with `npx playwright install chromium` when needed.
+`npm run check` runs types, unit/interaction tests, library build, and documentation build. All 151 copied examples and four hook examples are type-checked during generation. Playwright verifies navigation, component previews in both themes, clipboard recovery, real menu downloads, Markdown, phone reflow, and automated accessibility. Install its browser with `npx playwright install chromium` when needed. `npm run test:package` installs the actual archive in a fresh consumer, checks every copied example with NodeNext and Bundler resolution, verifies runtime exports, and builds an application with the shipped styles and fonts.
 
-Source is in `src/components/`. Shared examples are in `src/examples.tsx`. `scripts/generate-docs.mjs` reads TypeScript to generate API references and Markdown. `design/` contains the exact Paper token snapshot, page inventory, and representative JSX reference exports. Paper family names are preserved through font aliases generated by `scripts/build-fonts.mjs`.
+Source is in `packages/web/src/components/`. Shared examples are in `packages/web/src/examples.tsx`. `scripts/generate-docs.mjs` reads TypeScript to generate API references and Markdown. `design/` contains the exact Paper token snapshot, page inventory, and representative JSX reference exports. Paper family names are preserved through font aliases generated by `scripts/build-fonts.mjs`.
 
-## Hosting later
+## Hosting
 
-`npm run build:docs` produces `site/dist/`, which can be deployed to a static host. Build-time settings:
+Connect this GitHub repository to two Vercel projects, using `apps/docs` and `apps/storybook` as their root directories. Each app has its own `vercel.json`. See [DEPLOYMENT.md](DEPLOYMENT.md) for the exact settings and how to connect the two website URLs.
 
-- `VITE_STORYBOOK_URL`: the final Storybook origin, including any base path.
-- `DOCS_BASE`: `/` by default; set a project subpath when necessary.
-
-The development website links to local Storybook. A public build without `VITE_STORYBOOK_URL` shows setup guidance instead of linking visitors to localhost. GitHub Actions validate changes and upload reviewable build artifacts; no deployment or npm publication is enabled.
+`npm run build:docs` generates `apps/docs/dist/`; `npm run build:storybook` generates `apps/storybook/storybook-static/`. These are build output, not source folders. Set `VITE_STORYBOOK_URL` to the published Storybook origin for public documentation. `DOCS_BASE` is `/` by default. CI validates both applications from one checkout; deployment and npm publication remain separate actions.
 
 ## Production adoption
 

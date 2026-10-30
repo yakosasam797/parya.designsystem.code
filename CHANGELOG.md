@@ -28,7 +28,7 @@ Source: https://github.com/yakosasam797/parya.designsystem.code
 
 - A searchable gallery for all 151 Paper icons, available from the sidebar and the Icon component page; select an icon to copy its React usage.
 
-**Adoption:** The asset filenames and component APIs are unchanged. PNG downloads are 2385 × 517 pixels; SVG artboards are 1193 × 259.
+**Adoption:** The asset filenames and component APIs are unchanged. PNG downloads are 2385 � 517 pixels; SVG artboards are 1193 � 259.
 
 ### 0.3.0 · 2026-10-29 — Phone layouts and brand assets
 
@@ -70,7 +70,7 @@ Source: https://github.com/yakosasam797/parya.designsystem.code
 
 Private Storybook application using @parya/design-system.
 
-Source: https://github.com/yakosasam797/parya.designsystem.storybook
+Source: https://github.com/yakosasam797/parya.designsystem.code/tree/main/apps/storybook
 
 ### 0.3.1 · 2026-10-29 — Corrected horizontal logo
 

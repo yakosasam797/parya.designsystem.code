@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { readFileSync } from "node:fs";
 const components: { name: string }[] = JSON.parse(
-  readFileSync("site/src/generated/components.json", "utf8"),
+  readFileSync("apps/docs/src/generated/components.json", "utf8"),
 );
 test("homepage, navigation, mobile layout and theme", async ({ page }) => {
   await page.goto("/");

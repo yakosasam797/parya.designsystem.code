@@ -23,6 +23,8 @@ This is a new React 19 / TypeScript implementation of the Paryatech Paper librar
 
 The user requested this implementation from scratch using Paper. Do not copy implementation from other local Paryatech repositories.
 
-Visual design references are in `design/paper-inventory.json`, `design/paper-tokens.json`, and the linked Paper file. Export exact values with Paper tools; screenshots are for review only. Source code lives in `src/components/`; shared live examples live in `src/examples.tsx`. Documentation APIs are generated from TypeScript, not manually duplicated.
+Visual design references are in `design/paper-inventory.json`, `design/paper-tokens.json`, and the linked Paper file. Export exact values with Paper tools; screenshots are for review only. Source code lives in `packages/web/src/components/`; shared live examples live in `packages/web/src/examples.tsx`. Documentation APIs are generated from TypeScript, not manually duplicated.
 
 Run `npm run check` before submitting changes. Run `npm run test:e2e` for interaction or accessibility changes. Update Storybook stories after adding shared examples. All tests must pass; do not weaken tests to hide failures. Keep generated Markdown and component schema synchronized via `npm run build:docs`.
+
+This is an npm workspace monorepo. Run maintainer commands from the repository root. Documentation lives in apps/docs, Storybook in apps/storybook. Keep the root lockfile; do not add sibling-checkout dependencies or nested lockfiles. Component foundation connections are generated from source and CSS; shared playground defaults live in design/playground-controls.json.

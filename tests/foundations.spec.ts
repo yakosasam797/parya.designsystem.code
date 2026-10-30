@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-import { contrastRatio } from "../site/src/foundations/tokens";
+import { contrastRatio } from "../apps/docs/src/foundations/tokens";
 
 test("typography shows actual role values, editable specimens, enlargement and copyable code", async ({
   page,

@@ -8,7 +8,7 @@ export default defineConfig({
     viewport: { width: 1440, height: 1000 },
   },
   webServer: {
-    command: "npm run dev",
+    command: "npm run dev:docs",
     url: "http://127.0.0.1:5190",
     reuseExistingServer: true,
   },

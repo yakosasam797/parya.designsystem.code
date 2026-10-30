@@ -1,0 +1,450 @@
+{
+  "FilterMenu": {
+    "groups": [
+      {
+        "id": "service",
+        "label": "Service",
+        "options": [
+          {
+            "value": "hotel",
+            "label": "Accommodation",
+            "count": 3
+          },
+          {
+            "value": "transport",
+            "label": "Transport",
+            "count": 2
+          }
+        ]
+      }
+    ],
+    "value": {
+      "service": [
+        "hotel"
+      ]
+    },
+    "compact": false,
+    "disabled": false
+  },
+  "FilterChips": {
+    "groups": [
+      {
+        "id": "service",
+        "label": "Service",
+        "options": [
+          {
+            "value": "hotel",
+            "label": "Accommodation"
+          },
+          {
+            "value": "transport",
+            "label": "Transport"
+          }
+        ]
+      }
+    ],
+    "value": {
+      "service": [
+        "hotel",
+        "transport"
+      ]
+    },
+    "maxVisible": 2
+  },
+  "SortMenu": {
+    "fields": [
+      {
+        "id": "name",
+        "label": "Name"
+      },
+      {
+        "id": "balance",
+        "label": "Balance"
+      }
+    ],
+    "value": {
+      "id": "name",
+      "direction": "asc"
+    },
+    "compact": false,
+    "disabled": false,
+    "ascendingLabel": "Ascending",
+    "descendingLabel": "Descending"
+  },
+  "IconTextCell": {
+    "icon": "map-pin",
+    "children": "Kochi, India",
+    "tone": "default"
+  },
+  "Button": {
+    "children": "Create booking",
+    "variant": "primary",
+    "size": "sm",
+    "leadingIcon": "plus",
+    "fullWidth": false,
+    "loading": false,
+    "disabled": false
+  },
+  "IconButton": {
+    "icon": "pencil",
+    "aria-label": "Edit booking",
+    "variant": "secondary",
+    "size": "sm",
+    "disabled": false
+  },
+  "Icon": {
+    "name": "plane",
+    "size": "xl",
+    "label": "Flight"
+  },
+  "Checkbox": {
+    "checked": false,
+    "label": "Select travelers",
+    "description": "Includes every traveler in this booking.",
+    "disabled": false
+  },
+  "Switch": {
+    "checked": true,
+    "label": "Booking notifications",
+    "description": "Apply changes immediately.",
+    "disabled": false
+  },
+  "RadioGroup": {
+    "value": "hotel",
+    "options": [
+      {
+        "value": "hotel",
+        "label": "Hotel"
+      },
+      {
+        "value": "transport",
+        "label": "Transport"
+      },
+      {
+        "value": "activity",
+        "label": "Activity"
+      }
+    ],
+    "aria-label": "Service type",
+    "orientation": "vertical",
+    "disabled": false
+  },
+  "Avatar": {
+    "name": "Aarav Sharma",
+    "size": "md",
+    "tone": "person"
+  },
+  "StatusChip": {
+    "children": "Confirmed",
+    "tone": "success",
+    "dot": true,
+    "size": "md"
+  },
+  "Tag": {
+    "children": "Honeymoon",
+    "tone": "work",
+    "size": "md"
+  },
+  "CountBadge": {
+    "children": "24"
+  },
+  "IdChip": {
+    "children": "BK-1042"
+  },
+  "Kbd": {
+    "children": "Ctrl K"
+  },
+  "Spinner": {
+    "label": "Loading bookings"
+  },
+  "Skeleton": {
+    "lines": 3
+  },
+  "Meter": {
+    "value": 640,
+    "max": 1000,
+    "label": "Monthly credits",
+    "tone": "accent",
+    "size": "sm"
+  },
+  "TextField": {
+    "label": "Traveler name",
+    "value": "Aarav Sharma",
+    "hint": "Match the name on their passport.",
+    "disabled": false,
+    "readOnly": false,
+    "leadingIcon": "user"
+  },
+  "TextArea": {
+    "label": "Special requests",
+    "value": "",
+    "placeholder": "Dietary needs or room preferences",
+    "optional": true,
+    "rows": 3,
+    "resize": "vertical"
+  },
+  "SelectField": {
+    "label": "Service type",
+    "value": "hotel",
+    "options": [
+      {
+        "value": "hotel",
+        "label": "Hotel"
+      },
+      {
+        "value": "transport",
+        "label": "Transport"
+      },
+      {
+        "value": "activity",
+        "label": "Activity"
+      }
+    ],
+    "disabled": false
+  },
+  "Combobox": {
+    "label": "Service type",
+    "value": "hotel",
+    "options": [
+      {
+        "value": "hotel",
+        "label": "Hotel"
+      },
+      {
+        "value": "transport",
+        "label": "Transport"
+      },
+      {
+        "value": "activity",
+        "label": "Activity"
+      }
+    ],
+    "disabled": false
+  },
+  "MultiSelect": {
+    "label": "Services offered",
+    "value": [
+      "hotel"
+    ],
+    "options": [
+      {
+        "value": "hotel",
+        "label": "Hotel"
+      },
+      {
+        "value": "transport",
+        "label": "Transport"
+      },
+      {
+        "value": "activity",
+        "label": "Activity"
+      }
+    ],
+    "disabled": false,
+    "max": 3
+  },
+  "DateField": {
+    "label": "Departure date",
+    "value": "2026-11-10",
+    "disabled": false
+  },
+  "TimeField": {
+    "label": "Pickup time",
+    "value": "09:30",
+    "disabled": false
+  },
+  "DateRangeField": {
+    "label": "Travel dates",
+    "value": {
+      "from": "2026-11-10",
+      "to": "2026-11-15"
+    },
+    "disabled": false
+  },
+  "MoneyField": {
+    "label": "Deposit amount",
+    "value": 12500,
+    "currency": "INR",
+    "locale": "en-IN",
+    "disabled": false
+  },
+  "PhoneField": {
+    "label": "Phone number",
+    "value": "9876543210",
+    "countryCode": "+91",
+    "disabled": false
+  },
+  "SearchField": {
+    "placeholder": "Search bookings",
+    "value": "",
+    "shortcut": "/"
+  },
+  "ChoiceChips": {
+    "options": [
+      {
+        "value": "hotel",
+        "label": "Hotel"
+      },
+      {
+        "value": "transport",
+        "label": "Transport"
+      },
+      {
+        "value": "activity",
+        "label": "Activity"
+      }
+    ],
+    "value": [
+      "hotel"
+    ],
+    "aria-label": "Services",
+    "multiple": true,
+    "disabled": false
+  },
+  "SegmentedControl": {
+    "options": [
+      {
+        "value": "list",
+        "label": "List",
+        "icon": "list"
+      },
+      {
+        "value": "board",
+        "label": "Board",
+        "icon": "board"
+      }
+    ],
+    "value": "list",
+    "aria-label": "View",
+    "disabled": false
+  },
+  "QuantityField": {
+    "label": "Rooms",
+    "value": 2,
+    "min": 1,
+    "max": 8,
+    "step": 1,
+    "disabled": false
+  },
+  "PaxSelector": {
+    "label": "Travelers",
+    "value": {
+      "adults": 2,
+      "children": 1,
+      "infants": 0,
+      "childAges": [
+        8
+      ]
+    },
+    "maxTotal": 9,
+    "disabled": false
+  },
+  "PageHeader": {
+    "title": "Bookings",
+    "description": "Manage every journey in one place.",
+    "count": 24
+  },
+  "RecordHeader": {
+    "title": "Mehta family · Bali",
+    "code": "BK-1042",
+    "description": "10–15 November 2026"
+  },
+  "IconText": {
+    "icon": "map-pin",
+    "children": "Bali, Indonesia"
+  },
+  "PersonInline": {
+    "name": "Aarav Sharma"
+  },
+  "Money": {
+    "value": 248000,
+    "currency": "INR",
+    "locale": "en-IN",
+    "decimals": 0,
+    "tone": "default"
+  },
+  "DateText": {
+    "value": "2026-11-10",
+    "format": "long",
+    "locale": "en-IN"
+  },
+  "DescriptionList": {
+    "items": [
+      {
+        "label": "Destination",
+        "value": "Bali, Indonesia"
+      },
+      {
+        "label": "Travelers",
+        "value": "2 adults"
+      }
+    ],
+    "columns": 2
+  },
+  "Banner": {
+    "title": "Payment due soon",
+    "children": "Collect the balance before 5 November.",
+    "tone": "warning"
+  },
+  "EmptyState": {
+    "title": "No bookings yet",
+    "description": "Create a booking to plan your first journey.",
+    "icon": "bookings"
+  },
+  "Pagination": {
+    "page": 1,
+    "pageCount": 5,
+    "disabled": false
+  },
+  "TableFooter": {
+    "page": 1,
+    "pageSize": 10,
+    "total": 42
+  },
+  "EntityCell": {
+    "name": "Mehta family · Bali",
+    "description": "BK-1042"
+  },
+  "PersonCell": {
+    "name": "Aarav Sharma",
+    "description": "Booking owner"
+  },
+  "StackCell": {
+    "primary": "Bali, Indonesia",
+    "secondary": "5 nights · 2 adults"
+  },
+  "MoneyCell": {
+    "value": 248000,
+    "due": 186000
+  },
+  "DateCell": {
+    "value": "2026-11-10",
+    "note": "Departure"
+  },
+  "StageLabel": {
+    "children": "Awaiting confirmation",
+    "tone": "warning"
+  },
+  "PriorityDot": {
+    "priority": "high"
+  },
+  "KanbanSignal": {
+    "icon": "users",
+    "children": "2 adults"
+  },
+  "KanbanCard": {
+    "title": "Mehta family · Bali",
+    "code": "Q-1042",
+    "priority": "high",
+    "description": "5 nights · 2 adults"
+  },
+  "PriceChip": {
+    "value": 12500,
+    "currency": "INR"
+  },
+  "SeasonHeader": {
+    "name": "Winter season",
+    "from": "2026-11-01",
+    "to": "2027-02-28"
+  }
+}
