@@ -1699,7 +1699,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=M-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L37",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L38",
       "documentationUrl": "http://127.0.0.1:5190/#/components/Button",
       "storyFilePresent": true
     },
@@ -1714,7 +1714,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=25D-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L87",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L88",
       "documentationUrl": "http://127.0.0.1:5190/#/components/IconButton",
       "storyFilePresent": true
     },
@@ -1729,7 +1729,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=RX-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L120",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L121",
       "documentationUrl": "http://127.0.0.1:5190/#/components/Checkbox",
       "storyFilePresent": true
     },
@@ -1744,7 +1744,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=4KU-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L224",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L225",
       "documentationUrl": "http://127.0.0.1:5190/#/components/RadioGroup",
       "storyFilePresent": true
     },
@@ -1759,7 +1759,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=4NX-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L174",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L175",
       "documentationUrl": "http://127.0.0.1:5190/#/components/Switch",
       "storyFilePresent": true
     },
@@ -1774,7 +1774,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=57I-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L267",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L307",
       "documentationUrl": "http://127.0.0.1:5190/#/components/Avatar",
       "storyFilePresent": true
     },
@@ -1789,7 +1789,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=5FZ-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L303",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L343",
       "documentationUrl": "http://127.0.0.1:5190/#/components/StatusChip",
       "storyFilePresent": true
     },
@@ -1804,7 +1804,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=5IO-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L330",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L370",
       "documentationUrl": "http://127.0.0.1:5190/#/components/Tag",
       "storyFilePresent": true
     },
@@ -1819,7 +1819,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=5QD-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L362",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L402",
       "documentationUrl": "http://127.0.0.1:5190/#/components/CountBadge",
       "storyFilePresent": true
     },
@@ -1834,7 +1834,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=5UA-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L365",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L405",
       "documentationUrl": "http://127.0.0.1:5190/#/components/IdChip",
       "storyFilePresent": true
     },
@@ -1849,7 +1849,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=5Y5-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L371",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L411",
       "documentationUrl": "http://127.0.0.1:5190/#/components/Tooltip",
       "storyFilePresent": true
     },
@@ -1864,7 +1864,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=7TX-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L368",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L408",
       "documentationUrl": "http://127.0.0.1:5190/#/components/Kbd",
       "storyFilePresent": true
     },
@@ -1879,7 +1879,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=7WZ-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L103",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L104",
       "documentationUrl": "http://127.0.0.1:5190/#/components/Spinner",
       "storyFilePresent": true
     },
@@ -1894,7 +1894,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=82G-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L393",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L433",
       "documentationUrl": "http://127.0.0.1:5190/#/components/Skeleton",
       "storyFilePresent": true
     },
@@ -1909,7 +1909,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=8BM-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L410",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L450",
       "documentationUrl": "http://127.0.0.1:5190/#/components/Meter",
       "storyFilePresent": true
     },
@@ -1924,7 +1924,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=8GD-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L443",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L483",
       "documentationUrl": "http://127.0.0.1:5190/#/components/TextLink",
       "storyFilePresent": true
     },
@@ -1939,7 +1939,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=8JA-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L449",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L489",
       "documentationUrl": "http://127.0.0.1:5190/#/components/Divider",
       "storyFilePresent": true
     },
@@ -1954,7 +1954,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=8VQ-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L484",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L524",
       "documentationUrl": "http://127.0.0.1:5190/#/components/HeadingLevelProvider",
       "storyFilePresent": true
     },
@@ -1969,7 +1969,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=8LL-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L458",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L498",
       "documentationUrl": "http://127.0.0.1:5190/#/components/Stack",
       "storyFilePresent": true
     },
@@ -1984,7 +1984,7 @@
       "status": "experimental",
       "paperUrl": "https://app.paper.design/file/01M5KKMF33S23DNN84NAWWBTJR/p-3-0?node=91M-0",
       "sourcePath": "packages/web/src/components/primitives.tsx",
-      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L480",
+      "sourceUrl": "https://github.com/yakosasam797/parya.designsystem.code/blob/main/packages/web/src/components/primitives.tsx#L520",
       "documentationUrl": "http://127.0.0.1:5190/#/components/VisuallyHidden",
       "storyFilePresent": true
     },

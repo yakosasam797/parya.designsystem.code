@@ -67,7 +67,8 @@ test("filter radios work with arrow keys and overlays remain accessible in both 
       .click();
     const dialog = page.getByRole("dialog", { name: "Filters" });
     await dialog.getByRole("radio", { name: "Active", exact: true }).click();
-    await page.keyboard.press("ArrowDown", { delay: 20 });
+    await page.keyboard.press("ArrowDown");
+    await expect(dialog.getByRole("radio", { name: "Inactive" })).toBeFocused();
     await expect(dialog.getByRole("radio", { name: "Inactive" })).toBeChecked();
     const scan = await new AxeBuilder({ page })
       .include('[role="dialog"]')

@@ -3,6 +3,7 @@ import {
   useContext,
   useEffect,
   useId,
+  useRef,
   useState,
   forwardRef,
   type ButtonHTMLAttributes,
@@ -227,10 +228,29 @@ export function RadioGroup({
   ...props
 }: RadioGroupProps) {
   const id = useId();
+  const arrowNavigation = useRef(false);
+  const pendingArrowSelection = useRef<HTMLButtonElement | null>(null);
   return (
     <Radio.Root
       {...props}
       orientation={orientation}
+      onValueChange={(value) => {
+        pendingArrowSelection.current = null;
+        props.onValueChange(value);
+      }}
+      onKeyDownCapture={(event) => {
+        arrowNavigation.current =
+          orientation === "vertical"
+            ? ["ArrowUp", "ArrowDown"].includes(event.key)
+            : ["ArrowLeft", "ArrowRight"].includes(event.key);
+      }}
+      onPointerDownCapture={() => {
+        arrowNavigation.current = false;
+      }}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget))
+          arrowNavigation.current = false;
+      }}
       className={cx(
         "pt-radio-group",
         orientation === "horizontal" && "pt-inline",
@@ -243,6 +263,26 @@ export function RadioGroup({
             disabled={o.disabled}
             id={`${id}-${o.value}`}
             className="pt-radio"
+            onFocus={(event) => {
+              if (!arrowNavigation.current) return;
+              arrowNavigation.current = false;
+              const radio = event.currentTarget;
+              pendingArrowSelection.current = radio;
+              // Radix defers arrow-key focus. A quick keyup can precede it,
+              // leaving the newly focused radio unchecked. Allow its normal
+              // selection to commit before completing that missed selection.
+              setTimeout(() => {
+                if (
+                  pendingArrowSelection.current === radio &&
+                  radio.ownerDocument.activeElement === radio &&
+                  radio.getAttribute("aria-checked") === "false" &&
+                  !radio.disabled
+                ) {
+                  pendingArrowSelection.current = null;
+                  radio.click();
+                }
+              });
+            }}
           >
             <Radio.Indicator className="pt-radio-dot" />
           </Radio.Item>
